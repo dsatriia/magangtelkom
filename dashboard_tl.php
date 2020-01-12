@@ -1,12 +1,12 @@
 <?php include("header.php");
-require("koneksi.php"); ?>
-<body>
-<?php
-session_start();
-if($_SESSION['status']!="kasir")
- header("Location: index.php");
-include("sidebar/sidebar_dashboard_kasir.php");
+require("koneksi.php");
+include("guard/guard_6.php");
 ?>
+<body>
+
+  <?php
+  include("sidebar/sidebar_dashboard_tl.php");
+  ?>
 
     <div class="main-panel">
 	<nav class="navbar navbar-default">
@@ -29,14 +29,11 @@ include("sidebar/sidebar_dashboard_kasir.php");
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h2 class="title"><center><b>Selamat Datang di PHP E-MARKET</b></center></h2>
-				<br>
-                                <p class="category" style="font-size:15pt">PHP E-MARKET merupakan web aplikasi e-mart yang memberi PHP (pemberian harapan pasti).
-				Maaf jika website kami belum sempurna karena masih dalam tahap pengembangan.</p>
+                                <h2 class="title"><center><b>Selamat Datang di Telkom Witel Sidoarjo</b></center></h2>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
-                   
+
                     <div class="col-md-12">
                         <div class="card card-plain">
                             <div class="header">

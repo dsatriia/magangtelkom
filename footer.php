@@ -3,7 +3,7 @@
                 <nav class="pull-left">
                     <ul>
 
-                        
+
                     </ul>
                 </nav>
             </div>
@@ -44,7 +44,7 @@
 
             $.notify({
                 icon: 'ti-gift',
-                message: "Welcome to <b>Data pelanggan Telkom Witel Sidoarjo</b>."
+                message: "Welcome to <b>Telkom Witel Sidoarjo</b>."
 
             },{
                 type: 'success',

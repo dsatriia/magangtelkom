@@ -1,23 +1,23 @@
-<?php	
+<?php
 require("koneksi.php");
 ?>
 <div class="wrapper">
     <div class="sidebar" data-background-color="black" data-active-color="info">
 
-        <div class="sidebar-wrapper" style="background-color:#D51200">
-            <div class="logo" style="color:#fff">
-                <h2><center> Telkom Witel Sidoarjo </center></h2>
+        <div class="sidebar-wrapper" style="background-color:red">
+            <div class="logo">
+                <h2 style="color:white"><center> Telkom Witel Sidoarjo </center></h2>
             </div>
 
             <ul class="nav">
-                <li >
-                    <a href="dashboard_gudang.php">
+                <li>
+                    <a href="dashboard_sf.php">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="barang_tampil.php">
+                    <a href="sf_tampil.php">
                         <i class="ti-view-list-alt"></i>
                         <p>Data Pelanggan</p>
                     </a>

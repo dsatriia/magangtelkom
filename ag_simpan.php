@@ -10,7 +10,7 @@ $second_cp = $_POST['second_cp'];
 $paket = $_POST['paket'];
 $tagging_rill = $_POST['tagging_rill'];
 $odp = $_POST['odp'];
-$odp_ke_pelanggan = $_POST['jarak_odp_ke_pelanggan'];
+$odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
 
 $agency = $_POST['agency'];
 $id_partner = $_POST['id_partner'];
@@ -29,7 +29,7 @@ $select = mysqli_query($con, $query);
 //  echo '<script language="JavaScript">
 //  alert("Penyimpanan gagal:\nData sudah ada");
 //    </script>';
-//  include("plg_input.php");
+//  include("ag_input.php");
 // }
 // else{
 
@@ -43,26 +43,26 @@ $select = mysqli_query($con, $query);
   $runCekKTP = mysqli_query($con, $cekKTP);
   $jumlahCekKTP = mysqli_num_rows($runCekKTP);
 
-  
+
   if(($jumlahCekKTP && $jumlahCekTrack) > 0){
     echo '<script language="JavaScript">
    alert("KTP dan Track pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "barang_tampil.php";
+   window.location = "ag_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekTrack > 0){
     echo '<script language="JavaScript">
    alert("Track ID pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "barang_tampil.php";
+   window.location = "ag_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekKTP > 0){
     echo '<script language="JavaScript">
    alert("KTP pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "barang_tampil.php";
+   window.location = "ag_tampil.php";
    </script>';
    die;
-  } 
+  }
 
  $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, ktp, alamat, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, agency, id_partner, no_sc, spv, status_validasi,
    kategori_progress_psb, keterangan_progress_psb)
@@ -74,11 +74,11 @@ $select = mysqli_query($con, $query);
  if ($hasilQuery) {
  echo '<script language="JavaScript">
    alert("Penyimpanan berhasil");
-   window.location = "barang_tampil.php";
+   window.location = "ag_tampil.php";
    </script>';
 
  }
- 
+
 // }
 $con->close();
 }
@@ -87,6 +87,6 @@ else{ ?>
 alert("Isilah form terlebih dahulu");
 </script>
 <?php
-include("plg_input.php");
+include("ag_input.php");
 }
 ?>

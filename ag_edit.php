@@ -1,9 +1,9 @@
-<?php include("header.php"); 
+<?php include("header.php");
 require("koneksi.php"); ?>
 <body>
 
-<?php 
-include("sidebar/sidebar_barang.php"); 
+<?php
+include("sidebar/sidebar_dataplg_ag.php");
 if(isset($_GET['id'])){
 ?>
     <div class="main-panel">
@@ -31,7 +31,7 @@ if(isset($_GET['id'])){
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
-                   
+
                     <div class="col-md-12">
                         <div class="card card-plain">
                             <div class="header">
@@ -41,11 +41,11 @@ if(isset($_GET['id'])){
                                 <table class="table table-hover">
                                     <tbody>
 
-<?php 
-require("koneksi.php"); 
-$id = $_GET['id']; 
-$query = "SELECT * FROM data_pelanggan WHERE id = '$id'"; 
-$hasil = mysqli_query($con,$query); 
+<?php
+require("koneksi.php");
+$id = $_GET['id'];
+$query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
+$hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
 $track_id = $data['track_id'];
 $nama_pelanggan = $data['nama_pelanggan'];
@@ -61,9 +61,6 @@ $agency = $data['agency'];
 $id_partner = $data['id_partner'];
 $spv = $data['spv'];
 
-// $jenis = $data['jenis_barang'];
-// $harga = $data['harga'];
-// $stock = $data['persediaan'];
 ?>
 		<form method='post' action='barang_update.php'>
                            <div class='col-md-4'>
@@ -79,7 +76,7 @@ $spv = $data['spv'];
                                 <label>No KTP</label>
                                 <input type='text' class='form-control border-input' name='ktp' value='<?php echo $ktp ?>'  autocomplete="off" required>
                             </div>
-                            
+
                             <div class='form-group'>
                                 <label>Alamat</label>
                                 <input type='text' class='form-control border-input' name='alamat' value='<?php echo $alamat ?>'  autocomplete="off" required>
@@ -125,7 +122,7 @@ $spv = $data['spv'];
 				<br>
                             <button type='submit' onClick='confirm("Apakah data sudah benar?");' name='btn-update'>Simpan</button>
                                     </div>
-                                </form> 
+                                </form>
 
                                     </tbody>
                                 </table>
@@ -138,14 +135,14 @@ $spv = $data['spv'];
             </div>
         </div>
 
-<?php 
+<?php
 include("footer.php");
-} 
+}
 else{ ?>
  <script language="JavaScript">
  alert("Pilih item terlebih dahulu");
  </script>
-<?php 
+<?php
 include("barang_tampil.php");
 }
 ?>

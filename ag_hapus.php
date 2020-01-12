@@ -2,8 +2,8 @@
 if(isset($_GET['id_barang'])){
 require("koneksi.php");
  $id_barang = $_GET['id_barang'];
- $query = "DELETE FROM data_barang WHERE id_barang = '$id_barang'";  
- $hasilQuery = mysqli_query($con, $query); 
+ $query = "DELETE FROM data_barang WHERE id_barang = '$id_barang'";
+ $hasilQuery = mysqli_query($con, $query);
  if ($hasilQuery){
   echo '<script language="JavaScript">
   alert("Data telah berhasil dihapus");
@@ -24,6 +24,6 @@ else{ ?>
  <script language="JavaScript">
  alert("Pilih item terlebih dahulu");
  </script>
-<?php 
+<?php
 include("barang_tampil.php");
 }

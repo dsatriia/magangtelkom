@@ -23,7 +23,7 @@
                             <div class="header">
                                 <h2 class="title" style="text-align:center"><b>LOGIN</b></h2>
                                 <p class="category" style="font-size:18pt">Silahkan login menggunakan username
-                                    dan password anda.</p>
+                                    dan password Anda.</p>
                             </div>
                        	<div class="content table-responsive table-full-width">
                             <main>

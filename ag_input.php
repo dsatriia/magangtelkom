@@ -3,7 +3,7 @@
 <?php
 include("guard/guard_1.php");
 ?>
-<?php include("sidebar/sidebar_barang.php"); ?>
+<?php include("sidebar/sidebar_dataplg_ag.php"); ?>
     <div class="main-panel">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -39,7 +39,7 @@ include("guard/guard_1.php");
 	<div class="container">
 		<div>
 
-            <form method="post" action="plg_simpan.php">
+            <form method="post" action="ag_simpan.php">
                 <div class="col-md-4">
                         <div class="form-group">
                             <label>Track ID</label>
@@ -79,8 +79,8 @@ include("guard/guard_1.php");
                         </div>
                         <div class="form-group">
                             <label>Jarak ODP ke Pelanggan</label>
-                            <input type="text" class="form-control border-input" name="jarak_odp_ke_pelanggan" autocomplete="off" required>
-                        </div>                    
+                            <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
+                        </div>
                         <div class="form-group">
                             <label>Agency</label>
                             <input type="text" class="form-control border-input" name="agency" autocomplete="off" required>
