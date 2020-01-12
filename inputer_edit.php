@@ -51,7 +51,7 @@ $no_sc = $data['no_sc'];
 $status_validasi = $data['status_validasi'];
 
 ?>
-		<form method='post' action='barang_update.php'>
+		<form method='post' action='inputer_update.php'>
                            <div class='col-md-4'>
                             <div class='form-group'>
                                 <label>No SC</label>

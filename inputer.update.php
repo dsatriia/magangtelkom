@@ -34,12 +34,14 @@ $track_id = $_POST['track_id'];
 		</script>';
 
 
-	 } else if ($jumlahCekKtp > 0) {
+	 }
+   else if ($jumlahCekKtp > 0) {
 		echo '<script language="JavaScript">
 		alert("Update data gagal:\nData sudah ada");
 		window.location = "ag_tampil.php";
 			</script>';
-	 } else {
+	 }
+   else {
 		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', agency='$agency',
             id_partner='$id_partner', spv='$spv'
 		WHERE track_id = '$track_id'";

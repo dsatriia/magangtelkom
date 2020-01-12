@@ -1,5 +1,8 @@
 <?php include("header.php");
-require("koneksi.php"); ?>
+require("koneksi.php");
+
+include("guard/guard_1.php")
+?>
 <body>
 
 <?php
