@@ -18,6 +18,9 @@
             <th>Status Validasi</th>
             <th>Ketegori Progress PSB</th>
             <th>Keterangan Progress PSB</th>
+            <th>Alamat Rill Pelanggan</th>
+            <th>CP Rill Pelanggan</th>
+            <th>Nama Teknisi</th>
             <th colspan="2">Action</th>
     </thead>
 <tbody>
@@ -29,8 +32,8 @@ include("koneksi.php");
     echo "<tr>"; ?>
             <td><?php echo $data['track_id'] ?></td>
             <td><?php echo $data['nama_pelanggan'] ?></td>
-            <td><?php echo $data['ktp'] ?></td>
             <td><?php echo $data['alamat'] ?></td>
+            <td><?php echo $data['ktp'] ?></td>
             <td><?php echo $data['sto'] ?></td>
             <td><?php echo $data['second_cp'] ?></td>
             <td><?php echo $data['paket'] ?></td>
@@ -45,7 +48,10 @@ include("koneksi.php");
             <td><?php echo $data['status_validasi'] ?></td>
             <td><?php echo $data['kategori_progress_psb'] ?></td>
             <td><?php echo $data['keterangan_progress_psb'] ?></td>
-            <td><a href="ag_edit.php?track_id=<?php echo $data['track_id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>
+            <td><?php echo $data['alamat_rill_pelanggan'] ?></td>
+            <td><?php echo $data['cp_rill_pelanggan'] ?></td>
+            <td><?php echo $data['nama_teknisi'] ?></td>
+            <td><a href="inputer_edit.php?track_id=<?php echo $data['track_id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>
            <?php /* <td><a href="ag_hapus.php?id_ag=<?php echo $data['id_ag'] ?>" name="btn-hapus" onClick='return confirm("Yakin ingin menghapus data?");'>Hapus</a></td> */ ?>
 <?php echo "</tr>";
        }

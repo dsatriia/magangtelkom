@@ -49,7 +49,8 @@ $track_id = $_POST['track_id'];
 
 
 	if ($track_id == $data['track_id']){
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', agency='$agency', id_partner='$id_partner', spv='$spv'
+		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', agency='$agency',
+            id_partner='$id_partner', spv='$spv'
 		WHERE track_id = '$track_id'";
 
 
@@ -67,7 +68,8 @@ $track_id = $_POST['track_id'];
 		window.location = "ag_tampil.php";
 			</script>';
 	 } else {
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', agency='$agency', id_partner='$id_partner', spv='$spv'
+		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', agency='$agency',
+            id_partner='$id_partner', spv='$spv'
 		WHERE track_id = '$track_id'";
 
 		$hasilQuery = mysqli_query($con, $query);

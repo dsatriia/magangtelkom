@@ -90,24 +90,8 @@ include("guard/guard_1.php");
                             <input type="text" class="form-control border-input" name="id_partner" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>No SC</label>
-                            <input type="number" class="form-control border-input" name="no_sc" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
                             <label>SPV</label>
                             <input type="text" class="form-control border-input" name="spv" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Status Validasi</label>
-                            <input type="text" class="form-control border-input" name="status_validasi" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Kategori Progress PSB</label>
-                            <input type="text" class="form-control border-input" name="kategori_progress_psb" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Keterangan Progress PSB</label>
-                            <input type="text" class="form-control border-input" name="keterangan_progress_psb" autocomplete="off" required>
                         </div>
                 <div>
                 <button type="submit" name='btn-save'>Simpan</button>
