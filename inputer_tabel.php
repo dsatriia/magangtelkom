@@ -1,27 +1,27 @@
 <table class="table table-hover table-bordered text-center">
-    <thead>
-      <th class="text-center">Track ID</th>
-      <th class="text-center">Nama Pelanggan</th>
-      <th class="text-center">Alamat</th>
-      <th class="text-center">No KTP</th>
-      <th class="text-center">STO</th>
-      <th class="text-center">Second CP</th>
-      <th class="text-center">Paket</th>
-      <th class="text-center">Tagging Rill</th>
-      <th class="text-center">ODP</th>
-      <th class="text-center">Jarak ODP ke Pelanggan</th>
-      <th class="text-center">Tanggal Input Data</th>
-      <th class="text-center">Agency</th>
-      <th class="text-center">ID Partner</th>
-      <th class="text-center">No SC</th>
-      <th class="text-center">SPV</th>
-      <th class="text-center">Status Validasi</th>
-      <th class="text-center">Ketegori Progress PSB</th>
-      <th class="text-center">Keterangan Progress PSB</th>
-      <th class="text-center">Nama Rill Pelanggan</th>
-      <th class="text-center">CP Rill Pelanggan</th>
-      <th class="text-center">Nama Teknisi</th>
-      <th colspan="2">Action</th>
+    <thead style="background-color:lightgrey">
+      <th class="text-center"><b>Track ID</b></th>
+      <th class="text-center"><b>Nama Pelanggan</b></th>
+      <th class="text-center"><b>Alamat</b></th>
+      <th class="text-center"><b>No KTP</b></th>
+      <th class="text-center"><b>STO</b></th>
+      <th class="text-center"><b>Second CP</b></th>
+      <th class="text-center"><b>Paket</b></th>
+      <th class="text-center"><b>Tagging Rill</b></th>
+      <th class="text-center"><b>ODP</b></th>
+      <th class="text-center"><b>Tanggal Input Data</b></th>
+      <th class="text-center"><b>Jarak ODP ke Pelanggan</b></th>
+      <th class="text-center"><b>Agency</b></th>
+      <th class="text-center"><b>ID Partner</b></th>
+      <th class="text-center"><b>No SC</b></th>
+      <th class="text-center"><b>SPV</b></th>
+      <th class="text-center"><b>Status Validasi</b></th>
+      <th class="text-center"><b>Ketegori Progress PSB</b></th>
+      <th class="text-center"><b>Keterangan Progress PSB</b></th>
+      <th class="text-center"><b>Alamat Rill Pelanggan</b></th>
+      <th class="text-center"><b>CP Rill Pelanggan</b></th>
+      <th class="text-center"><b>Nama Teknisi</b></th>
+      <th colspan="2"><b>Action</b></th>
     </thead>
 <tbody>
 <?php
@@ -48,7 +48,7 @@ include("koneksi.php");
             <td><?php echo $data['status_validasi'] ?></td>
             <td><?php echo $data['kategori_progress_psb'] ?></td>
             <td><?php echo $data['keterangan_progress_psb'] ?></td>
-            <td><?php echo $data['nama_rill_pelanggan'] ?></td>
+            <td><?php echo $data['alamat_rill_pelanggan'] ?></td>
             <td><?php echo $data['cp_rill_pelanggan'] ?></td>
             <td><?php echo $data['nama_teknisi'] ?></td>
             <td><a href="inputer_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>

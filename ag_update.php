@@ -22,21 +22,6 @@ $track_id = $_POST['track_id'];
  $id_partner = $_POST['id_partner'];
  $spv = $_POST['spv'];
 
- // $jenis_barang = $_POST['jenis_barang'];
- // $harga = $_POST['harga'];
- // $persediaan = $_POST['persediaan'];
-
-//  $compare = mysqli_query($con, "SELECT * FROM data_barang WHERE nama_barang='$nama_barang' AND jenis_barang='$jenis_barang'");
-//  $data = mysqli_fetch_array($compare);
-//  if($nama_barang==$data['nama_barang'] && $jenis_barang==$data['jenis_barang'] && $nama_barang!=$array['nama_barang'] && $jenis_barang!=$array['jenis_barang']){
-// 	echo '<script language="JavaScript">
-// 	alert("Update data gagal:\nData sudah ada");
-// 		</script>';
-// 	include("barang_tampil.php");
-//  }
-
-// $compare = mysqli_query($con, "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'");
-//  $data = mysqli_fetch_array($compare);
 
  $cekKTP = "SELECT * FROM data_pelanggan WHERE ktp='$ktp'";
  $runCekKtp = mysqli_query($con, $cekKTP);
@@ -50,7 +35,8 @@ $track_id = $_POST['track_id'];
 
 	if ($track_id == $data['track_id']){
 		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', agency='$agency',
-            id_partner='$id_partner', spv='$spv' WHERE track_id = '$track_id'";
+            id_partner='$id_partner', spv='$spv'
+    WHERE track_id = '$track_id'";
 
 
 		$hasilQuery = mysqli_query($con, $query);

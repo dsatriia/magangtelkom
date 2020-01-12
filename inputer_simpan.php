@@ -4,17 +4,20 @@ require("koneksi.php");
 $no_sc = $_POST['no_sc'];
 $status_validasi = $_POST['status_validasi'];
 
-$query = "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'";
+// $query = "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'";
+// $select = mysqli_query($con, $query);
+
+$query = "SELECT * FROM data_pelanggan WHERE no_sc='$no_sc' AND status_validasi='$status_validasi'";
 $select = mysqli_query($con, $query);
 
-$cekTrack = "SELECT `track_id` FROM data_pelanggan WHERE `track_id`='$track_id'";
-echo $cekTrack;
-$runCekTrack = mysqli_query($con, $cekTrack);
-$jumlahCekTrack = mysqli_num_rows($runCekTrack);
-
-$cekKTP = "SELECT `ktp` FROM data_pelanggan WHERE `ktp`=$ktp";
-$runCekKTP = mysqli_query($con, $cekKTP);
-$jumlahCekKTP = mysqli_num_rows($runCekKTP);
+// $cekTrack = "SELECT `track_id` FROM data_pelanggan WHERE `track_id`='$track_id'";
+// echo $cekTrack;
+// $runCekTrack = mysqli_query($con, $cekTrack);
+// $jumlahCekTrack = mysqli_num_rows($runCekTrack);
+//
+// $cekKTP = "SELECT `ktp` FROM data_pelanggan WHERE `ktp`=$ktp";
+// $runCekKTP = mysqli_query($con, $cekKTP);
+// $jumlahCekKTP = mysqli_num_rows($runCekKTP);
 
 
   // if(($jumlahCekKTP && $jumlahCekTrack) > 0){
