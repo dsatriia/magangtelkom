@@ -142,6 +142,6 @@ else{ ?>
  alert("Pilih item terlebih dahulu");
  </script>
 <?php
-include("barang_tampil.php");
+include("ag_tampil.php");
 }
 ?>
