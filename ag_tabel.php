@@ -45,7 +45,7 @@ include("koneksi.php");
             <td><?php echo $data['status_validasi'] ?></td>
             <td><?php echo $data['kategori_progress_psb'] ?></td>
             <td><?php echo $data['keterangan_progress_psb'] ?></td>
-            <td><a href="ag_edit.php?track_id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>
+            <td><a href="ag_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>
            <?php /* <td><a href="ag_hapus.php?id_ag=<?php echo $data['id_ag'] ?>" name="btn-hapus" onClick='return confirm("Yakin ingin menghapus data?");'>Hapus</a></td> */ ?>
 <?php echo "</tr>";
        }

@@ -6,10 +6,6 @@ include("guard/guard_1.php")
 <body>
 
 <?php
-session_start();
-if($_SESSION['status']!=1)
- header("Location: index.php");
-
 include("sidebar/sidebar_dataplg_ag.php"); ?>
     <div class="main-panel">
         <nav class="navbar navbar-default">

@@ -1,5 +1,8 @@
 <?php include("header.php");
-require("koneksi.php"); ?>
+require("koneksi.php");
+
+include("guard/guard_4.php")
+?>
 <body>
 
 <?php
@@ -40,7 +43,7 @@ include("sidebar/sidebar_dataplg_inputer.php"); ?>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <?php include("inputer_tabel.php"); ?>
-                            
+
 				<br>
                             </div>
                         </div>
