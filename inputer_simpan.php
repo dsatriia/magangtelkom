@@ -58,6 +58,6 @@ else{ ?>
 alert("Isilah form terlebih dahulu");
 </script>
 <?php
-include("inputer_input.php");
+include("inputer_edit.php");
 }
 ?>

@@ -40,8 +40,7 @@ include("sidebar/sidebar_dataplg_inputer.php"); ?>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <?php include("inputer_tabel.php"); ?>
-                            <a href="inputer_input.php" style="font-size:15pt">Input Data Baru</a><br>
-				<br>
+                            
 				<br>
                             </div>
                         </div>

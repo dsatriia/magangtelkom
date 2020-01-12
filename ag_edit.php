@@ -62,7 +62,7 @@ $id_partner = $data['id_partner'];
 $spv = $data['spv'];
 
 ?>
-		<form method='post' action='barang_update.php'>
+		<form method='post' action='ag_update.php'>
                            <div class='col-md-4'>
                             <div class='form-group'>
                                 <label>Track Id</label>
