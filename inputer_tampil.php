@@ -6,10 +6,6 @@ include("guard/guard_4.php")
 <body>
 
 <?php
-session_start();
-if($_SESSION['status']!=4)
- header("Location: index.php");
-
 include("sidebar/sidebar_dataplg_inputer.php"); ?>
     <div class="main-panel">
         <nav class="navbar navbar-default">
@@ -43,7 +39,8 @@ include("sidebar/sidebar_dataplg_inputer.php"); ?>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <?php include("inputer_tabel.php"); ?>
-
+                            <a href="inputer_edit.php" style="font-size:15pt">Input Data Baru</a><br>
+				<br>
 				<br>
                             </div>
                         </div>

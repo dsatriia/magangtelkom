@@ -8,8 +8,8 @@ $track_id = $_POST['track_id'];
 
  $array = mysqli_fetch_array($select);
 
- $no_sc = $_POST['no_sc'];
- $status_validasi = $_POST['status_validasi'];
+ $no_sc = $POST['no_sc'];
+ $status_validasi = $POST['status_validasi'];
 
  // $cekKTP = "SELECT * FROM data_pelanggan WHERE ktp='$ktp'";
  // $runCekKtp = mysqli_query($con, $cekKTP);
@@ -22,8 +22,8 @@ $track_id = $_POST['track_id'];
 
 
 	if ($track_id == $data['track_id']){
-		$query = "UPDATE data pelanggan SET track_id = '$track_id', no_sc = '$no_sc', status_validasi = '$status_validasi'
-		WHERE track_id = '$track_id'";
+		$query = "UPDATE data_pelanggan SET track_id = '$track_id', no_sc = '$no_sc', status_validasi = '$status_validasi'
+    WHERE track_id = '$track_id'";
 
 
 		$hasilQuery = mysqli_query($con, $query);
@@ -38,19 +38,20 @@ $track_id = $_POST['track_id'];
    // else if ($jumlahCekKtp > 0) {
 		// echo '<script language="JavaScript">
 		// alert("Update data gagal:\nData sudah ada");
-		// window.location = "inputer_tampil.php";
+		// window.location = "ag_tampil.php";
 		// 	</script>';
 	 // }
-   else {
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', no_sc = '$no_sc', status_validasi = '$status_validasi'
-		WHERE track_id = '$track_id'";
-
-		$hasilQuery = mysqli_query($con, $query);
-		if ($hasilQuery) echo '<script language="JavaScript">
-		alert("Update data berhasil");
-		window.location = "inputer_tampil.php";
-		</script>';
-	 }
+   // else {
+		// $query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', agency='$agency',
+   //          id_partner='$id_partner', spv='$spv'
+		// WHERE track_id = '$track_id'";
+   //
+		// $hasilQuery = mysqli_query($con, $query);
+		// if ($hasilQuery) echo '<script language="JavaScript">
+		// alert("Update data berhasil");
+		// window.location = "ag_tampil.php";
+		// </script>';
+	 // }
 
 
 

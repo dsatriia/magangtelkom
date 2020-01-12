@@ -1,5 +1,5 @@
 <?php
 session_start();
-if($_SESSION['status']!=4)
+if($_SESSION['status']!=5)
  header("Location: ./index.php");
  ?>
