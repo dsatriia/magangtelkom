@@ -50,12 +50,12 @@ include("guard/guard_1.php");
                             <input type="text" class="form-control border-input" name="nama_pelanggan" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>No KTP</label>
-                            <input type="number" class="form-control border-input" name="ktp" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
                             <label>Alamat</label>
                             <input type="text" class="form-control border-input" name="alamat" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>No KTP</label>
+                            <input type="number" class="form-control border-input" name="ktp" autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <label>STO</label>

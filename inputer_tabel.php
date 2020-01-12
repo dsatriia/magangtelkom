@@ -29,8 +29,8 @@ include("koneksi.php");
     echo "<tr>"; ?>
             <td><?php echo $data['track_id'] ?></td>
             <td><?php echo $data['nama_pelanggan'] ?></td>
+            <td><?php echo $data['ktp'] ?></td>
             <td><?php echo $data['alamat'] ?></td>
-            <td><?php echo $data['ktp'] ?></td>          
             <td><?php echo $data['sto'] ?></td>
             <td><?php echo $data['second_cp'] ?></td>
             <td><?php echo $data['paket'] ?></td>

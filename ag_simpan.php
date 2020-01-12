@@ -3,8 +3,8 @@ if(isset($_POST['btn-save'])){
 require("koneksi.php");
 $track_id = $_POST['track_id'];
 $nama_pelanggan = $_POST['nama_pelanggan'];
-$ktp = $_POST['ktp'];
 $alamat = $_POST['alamat'];
+$ktp = $_POST['ktp'];
 $sto = $_POST['sto'];
 $second_cp = $_POST['second_cp'];
 $paket = $_POST['paket'];
@@ -64,9 +64,9 @@ $select = mysqli_query($con, $query);
    die;
   }
 
- $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, ktp, alamat, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, agency, id_partner, no_sc, spv, status_validasi,
+ $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, agency, id_partner, no_sc, spv, status_validasi,
    kategori_progress_psb, keterangan_progress_psb)
- VALUES ('$track_id', '$nama_pelanggan', '$ktp', '$alamat', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$agency', '$id_partner', '$no_sc', '$spv', '$status_validasi',
+ VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$agency', '$id_partner', '$no_sc', '$spv', '$status_validasi',
         '$kategori_progress_psb', '$keterangan_progress_psb')";
  $hasilQuery = mysqli_query($con, $query);
 

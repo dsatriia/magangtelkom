@@ -49,8 +49,8 @@ $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
 $track_id = $data['track_id'];
 $nama_pelanggan = $data['nama_pelanggan'];
-$ktp = $data['ktp'];
 $alamat = $data['alamat'];
+$ktp = $data['ktp'];
 $sto = $data['sto'];
 $second_cp = $data['second_cp'];
 $paket = $data['paket'];
@@ -68,18 +68,17 @@ $spv = $data['spv'];
                                 <label>Track Id</label>
                                 <input type='number' class='form-control border-input' name='track_id' value='<?php echo $track_id ?>'  readonly>
                             </div>
-		              	    <div class='form-group'>
+		              	        <div class='form-group'>
                                 <label>Nama Pelanggan</label>
                                 <input type='text' class='form-control border-input' name='nama_pelanggan' value='<?php echo $nama_pelanggan ?>'  autocomplete="off" required>
                             </div>
                             <div class='form-group'>
-                                <label>No KTP</label>
-                                <input type='text' class='form-control border-input' name='ktp' value='<?php echo $ktp ?>'  autocomplete="off" required>
-                            </div>
-
-                            <div class='form-group'>
                                 <label>Alamat</label>
                                 <input type='text' class='form-control border-input' name='alamat' value='<?php echo $alamat ?>'  autocomplete="off" required>
+                            </div>
+                            <div class='form-group'>
+                                <label>No KTP</label>
+                                <input type='text' class='form-control border-input' name='ktp' value='<?php echo $ktp ?>'  autocomplete="off" required>
                             </div>
                             <div class='form-group'>
                                 <label>STO</label>
