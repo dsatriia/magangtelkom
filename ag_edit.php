@@ -63,7 +63,7 @@ $id_partner = $data['id_partner'];
 $spv = $data['spv'];
 
 ?>
-		<form method='post' action='ag_update.php'>
+		<form method='post' action='ag_update.php' onsubmit='return confirm("Apakah data sudah benar?");'>
                            <div class='col-md-4'>
                             <div class='form-group'>
                                 <label>Track Id</label>
@@ -120,7 +120,7 @@ $spv = $data['spv'];
                             </div>
 
 				<br>
-                            <button type='submit' onClick='confirm("Apakah data sudah benar?");' name='btn-update'>Simpan</button>
+                            <button type="submit" class="btn btn-success" name='btn-update'>Simpan</button>
                                     </div>
                                 </form>
 
