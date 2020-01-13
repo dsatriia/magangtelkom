@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2020 at 08:43 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Waktu pembuatan: 13 Jan 2020 pada 12.48
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agency`
+-- Struktur dari tabel `agency`
 --
 
 CREATE TABLE `agency` (
@@ -37,17 +37,18 @@ CREATE TABLE `agency` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `agency`
+-- Dumping data untuk tabel `agency`
 --
 
 INSERT INTO `agency` (`id_agency`, `nama`, `username`, `password`, `akses`) VALUES
 (0, 'BELUM ADA AGENCY', 'BELUM ADA AGENCY', 'BELUM ADA AGENCY', 0),
-(3, 'Admin Agency 01', 'adminagency01', 'adminagency01', 1);
+(3, 'Admin Agency 01', 'adminagency01', 'adminagency01', 1),
+(4, 'adminagency02', 'adminagency02', 'adminagency02', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pelanggan`
+-- Struktur dari tabel `data_pelanggan`
 --
 
 CREATE TABLE `data_pelanggan` (
@@ -76,19 +77,20 @@ CREATE TABLE `data_pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `data_pelanggan`
+-- Dumping data untuk tabel `data_pelanggan`
 --
 
 INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp`, `sto`, `second_cp`, `paket`, `tagging_rill`, `odp`, `odp_ke_pelanggan`, `tgl_input`, `no_sc`, `status_validasi`, `kategori_progress_psb`, `keterangan_progress_psb`, `alamat_rill_pelanggan`, `cp_rill_pelanggan`, `nama_teknisi`, `id_partner`, `id_spv`, `id_agency`) VALUES
-(27, '1', 'Bayu', '1', '1', 1, '1', '1', '11', '1', '1', '2020-01-13 07:36:24', '9', '99', '', '', '', '', '', 0, 0, 0),
-(28, '2', '2', '2', '2', 2, '2', '2', '2', '2', '2', '2020-01-13 05:53:18', '', '', '', '', '', '', '', 3, 3, 3),
-(29, '3', 'Rista', '3', '3', 3, '3', '3', '3', '3', '3', '2020-01-13 06:45:43', '', '', '', '', '', '', '', 3, 6, 3),
-(30, '9', 'Alam', '9', '9', 9, '9', '9', '99', '9', '9', '2020-01-13 06:13:24', '', '', '', '', '', '', '', 3, 6, 3);
+(27, '1', 'Bayu', '1', '1', 1, '1', '1', '11', '1', '1', '2020-01-13 10:33:26', '9', '99', 'baik', 'oke', 'Gresik', '02193812', 'Alam', 0, 0, 0),
+(28, '2', '2', '2', '2', 2, '2', '2', '5', '2', '2', '2020-01-13 10:41:40', '10', 'Not OK', '5', '5', '5', '5', '5', 3, 3, 3),
+(29, '3', 'Rista', '3', '3', 3, '3', '3', '7', '3', '3', '2020-01-13 10:52:43', '', '', '7', '7', '7', '7', '7', 3, 6, 3),
+(30, '9', 'Alam', '9', '9', 9, '9', '9', '99', '9', '9', '2020-01-13 06:13:24', '', '', '', '', '', '', '', 3, 6, 3),
+(31, '9213', 'Dimas', 'Sidoarjo', '23', 0, 'lk', 'lk', 'lk', 'lk', '9', '2020-01-13 09:55:34', '', '', '', '', '', '', '', 3, 3, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inputer`
+-- Struktur dari tabel `inputer`
 --
 
 CREATE TABLE `inputer` (
@@ -100,7 +102,7 @@ CREATE TABLE `inputer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `inputer`
+-- Dumping data untuk tabel `inputer`
 --
 
 INSERT INTO `inputer` (`id_inputer`, `nama`, `username`, `password`, `akses`) VALUES
@@ -109,7 +111,7 @@ INSERT INTO `inputer` (`id_inputer`, `nama`, `username`, `password`, `akses`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `salesforce`
+-- Struktur dari tabel `salesforce`
 --
 
 CREATE TABLE `salesforce` (
@@ -122,7 +124,7 @@ CREATE TABLE `salesforce` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `salesforce`
+-- Dumping data untuk tabel `salesforce`
 --
 
 INSERT INTO `salesforce` (`id_salesforce`, `nama`, `username`, `password`, `akses`, `id_supervisor`) VALUES
@@ -134,7 +136,7 @@ INSERT INTO `salesforce` (`id_salesforce`, `nama`, `username`, `password`, `akse
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sto`
+-- Struktur dari tabel `sto`
 --
 
 CREATE TABLE `sto` (
@@ -145,7 +147,7 @@ CREATE TABLE `sto` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supervisor`
+-- Struktur dari tabel `supervisor`
 --
 
 CREATE TABLE `supervisor` (
@@ -158,7 +160,7 @@ CREATE TABLE `supervisor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `supervisor`
+-- Dumping data untuk tabel `supervisor`
 --
 
 INSERT INTO `supervisor` (`id_supervisor`, `nama`, `username`, `password`, `akses`, `id_agency`) VALUES
@@ -169,7 +171,7 @@ INSERT INTO `supervisor` (`id_supervisor`, `nama`, `username`, `password`, `akse
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -181,7 +183,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `akses`, `nama`) VALUES
@@ -196,19 +198,40 @@ INSERT INTO `user` (`id`, `username`, `password`, `akses`, `nama`) VALUES
 (12, 'picwitel01', 'picwitel01', 9, 'Alam Picwitel'),
 (13, 'kasto01', 'kasto01', 10, 'Alam Kasto');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `woc`
+--
+
+CREATE TABLE `woc` (
+  `id_woc` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `akses` int(11) NOT NULL DEFAULT 7
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `woc`
+--
+
+INSERT INTO `woc` (`id_woc`, `nama`, `username`, `password`, `akses`) VALUES
+(1, 'woc01', 'woc01', 'woc01', 7);
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `agency`
+-- Indeks untuk tabel `agency`
 --
 ALTER TABLE `agency`
   ADD PRIMARY KEY (`id_agency`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `data_pelanggan`
+-- Indeks untuk tabel `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
   ADD PRIMARY KEY (`id`),
@@ -218,13 +241,13 @@ ALTER TABLE `data_pelanggan`
   ADD KEY `pelanggan ke sf` (`id_partner`);
 
 --
--- Indexes for table `inputer`
+-- Indeks untuk tabel `inputer`
 --
 ALTER TABLE `inputer`
   ADD PRIMARY KEY (`id_inputer`);
 
 --
--- Indexes for table `salesforce`
+-- Indeks untuk tabel `salesforce`
 --
 ALTER TABLE `salesforce`
   ADD PRIMARY KEY (`id_salesforce`),
@@ -232,13 +255,13 @@ ALTER TABLE `salesforce`
   ADD KEY `sf ke spv` (`id_supervisor`);
 
 --
--- Indexes for table `sto`
+-- Indeks untuk tabel `sto`
 --
 ALTER TABLE `sto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `supervisor`
+-- Indeks untuk tabel `supervisor`
 --
 ALTER TABLE `supervisor`
   ADD PRIMARY KEY (`id_supervisor`),
@@ -246,63 +269,75 @@ ALTER TABLE `supervisor`
   ADD KEY `spv ke agency` (`id_agency`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `woc`
+--
+ALTER TABLE `woc`
+  ADD PRIMARY KEY (`id_woc`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `agency`
+-- AUTO_INCREMENT untuk tabel `agency`
 --
 ALTER TABLE `agency`
-  MODIFY `id_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `data_pelanggan`
+-- AUTO_INCREMENT untuk tabel `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `inputer`
+-- AUTO_INCREMENT untuk tabel `inputer`
 --
 ALTER TABLE `inputer`
   MODIFY `id_inputer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `salesforce`
+-- AUTO_INCREMENT untuk tabel `salesforce`
 --
 ALTER TABLE `salesforce`
   MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `sto`
+-- AUTO_INCREMENT untuk tabel `sto`
 --
 ALTER TABLE `sto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `supervisor`
+-- AUTO_INCREMENT untuk tabel `supervisor`
 --
 ALTER TABLE `supervisor`
   MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT untuk tabel `woc`
+--
+ALTER TABLE `woc`
+  MODIFY `id_woc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `data_pelanggan`
+-- Ketidakleluasaan untuk tabel `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
   ADD CONSTRAINT `pelanggan ke agency` FOREIGN KEY (`id_agency`) REFERENCES `agency` (`id_agency`),
@@ -310,13 +345,13 @@ ALTER TABLE `data_pelanggan`
   ADD CONSTRAINT `pelanggan ke spv` FOREIGN KEY (`id_spv`) REFERENCES `supervisor` (`id_supervisor`);
 
 --
--- Constraints for table `salesforce`
+-- Ketidakleluasaan untuk tabel `salesforce`
 --
 ALTER TABLE `salesforce`
   ADD CONSTRAINT `sf ke spv` FOREIGN KEY (`id_supervisor`) REFERENCES `supervisor` (`id_supervisor`);
 
 --
--- Constraints for table `supervisor`
+-- Ketidakleluasaan untuk tabel `supervisor`
 --
 ALTER TABLE `supervisor`
   ADD CONSTRAINT `spv ke agency` FOREIGN KEY (`id_agency`) REFERENCES `agency` (`id_agency`);
