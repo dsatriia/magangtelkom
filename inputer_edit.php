@@ -50,9 +50,11 @@ $data  = mysqli_fetch_array($hasil);
 $no_sc = $data['no_sc'];
 $status_validasi = $data['status_validasi'];
 
+
 ?>
 		<form method='post' action='inputer_update.php'>
                            <div class='col-md-4'>
+                           <input type="hidden" value="<?= $data['track_id'] ?>" name="track_id">
                             <div class='form-group'>
                                 <label>No SC</label>
                                 <input type='text' class='form-control border-input' name='no_sc' value='<?php echo $no_sc ?>'  autocomplete="off" required>

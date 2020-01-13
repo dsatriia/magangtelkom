@@ -41,10 +41,10 @@ include("koneksi.php");
             <td><?php echo $data['odp'] ?></td>
             <td><?php echo $data['odp_ke_pelanggan'] ?></td>
             <td><?php echo $data['tgl_input'] ?></td>
-            <td><?php echo $data['agency'] ?></td>
+            <td><?php echo $data['id_agency'] ?></td>
             <td><?php echo $data['id_partner'] ?></td>
             <td><?php echo $data['no_sc'] ?></td>
-            <td><?php echo $data['spv'] ?></td>
+            <td><?php echo $data['id_spv'] ?></td>
             <td><?php echo $data['status_validasi'] ?></td>
             <td><?php echo $data['kategori_progress_psb'] ?></td>
             <td><?php echo $data['keterangan_progress_psb'] ?></td>
