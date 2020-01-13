@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2020 at 07:47 AM
+-- Generation Time: Jan 13, 2020 at 08:43 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -80,10 +80,31 @@ CREATE TABLE `data_pelanggan` (
 --
 
 INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp`, `sto`, `second_cp`, `paket`, `tagging_rill`, `odp`, `odp_ke_pelanggan`, `tgl_input`, `no_sc`, `status_validasi`, `kategori_progress_psb`, `keterangan_progress_psb`, `alamat_rill_pelanggan`, `cp_rill_pelanggan`, `nama_teknisi`, `id_partner`, `id_spv`, `id_agency`) VALUES
-(27, '1', 'Bayu', '1', '1', 1, '1', '1', '11', '1', '1', '2020-01-13 05:44:09', '', '', '', '', '', '', '', 0, 0, 0),
+(27, '1', 'Bayu', '1', '1', 1, '1', '1', '11', '1', '1', '2020-01-13 07:36:24', '9', '99', '', '', '', '', '', 0, 0, 0),
 (28, '2', '2', '2', '2', 2, '2', '2', '2', '2', '2', '2020-01-13 05:53:18', '', '', '', '', '', '', '', 3, 3, 3),
 (29, '3', 'Rista', '3', '3', 3, '3', '3', '3', '3', '3', '2020-01-13 06:45:43', '', '', '', '', '', '', '', 3, 6, 3),
 (30, '9', 'Alam', '9', '9', 9, '9', '9', '99', '9', '9', '2020-01-13 06:13:24', '', '', '', '', '', '', '', 3, 6, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inputer`
+--
+
+CREATE TABLE `inputer` (
+  `id_inputer` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `akses` int(11) NOT NULL DEFAULT 4
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `inputer`
+--
+
+INSERT INTO `inputer` (`id_inputer`, `nama`, `username`, `password`, `akses`) VALUES
+(1, 'Inputer 01', 'inputer01', 'inputer01', 4);
 
 -- --------------------------------------------------------
 
@@ -197,6 +218,12 @@ ALTER TABLE `data_pelanggan`
   ADD KEY `pelanggan ke sf` (`id_partner`);
 
 --
+-- Indexes for table `inputer`
+--
+ALTER TABLE `inputer`
+  ADD PRIMARY KEY (`id_inputer`);
+
+--
 -- Indexes for table `salesforce`
 --
 ALTER TABLE `salesforce`
@@ -239,6 +266,12 @@ ALTER TABLE `agency`
 --
 ALTER TABLE `data_pelanggan`
   MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `inputer`
+--
+ALTER TABLE `inputer`
+  MODIFY `id_inputer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `salesforce`
