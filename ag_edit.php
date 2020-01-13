@@ -47,6 +47,7 @@ $id = $_GET['id'];
 $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
 $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
+
 $track_id = $data['track_id'];
 $nama_pelanggan = $data['nama_pelanggan'];
 $alamat = $data['alamat'];
@@ -66,7 +67,8 @@ $spv = $data['spv'];
                            <div class='col-md-4'>
                             <div class='form-group'>
                                 <label>Track Id</label>
-                                <input type='number' class='form-control border-input' name='track_id' value='<?php echo $track_id ?>'  readonly>
+                                <input type='text' class='form-control border-input' value='<?php echo $track_id ?>' disabled>
+                                <input type='text' class='form-control border-input' name='track_id' value='<?php echo $track_id ?>' style="display:none">
                             </div>
 		              	        <div class='form-group'>
                                 <label>Nama Pelanggan</label>

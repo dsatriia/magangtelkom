@@ -30,7 +30,7 @@ $select = mysqli_query($con, $query);
 // else{
 
   $cekTrack = "SELECT `track_id` FROM data_pelanggan WHERE `track_id`='$track_id'";
-  echo $cekTrack;
+  // echo $cekTrack;
   $runCekTrack = mysqli_query($con, $cekTrack);
   $jumlahCekTrack = mysqli_num_rows($runCekTrack);
 
@@ -66,6 +66,7 @@ $select = mysqli_query($con, $query);
 
 
  if ($hasilQuery) {
+   
  echo '<script language="JavaScript">
    alert("Penyimpanan berhasil");
    window.location = "ag_tampil.php";
