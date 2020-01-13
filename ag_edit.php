@@ -119,7 +119,6 @@ $spv = $data['spv'];
                                 <input type='text' class='form-control border-input' name='spv' value='<?php echo $spv ?>'  autocomplete="off" required>
                             </div>
 
-
 				<br>
                             <button type='submit' onClick='confirm("Apakah data sudah benar?");' name='btn-update'>Simpan</button>
                                     </div>

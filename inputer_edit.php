@@ -55,16 +55,16 @@ $status_validasi = $data['status_validasi'];
                            <div class='col-md-4'>
                             <div class='form-group'>
                                 <label>No SC</label>
-                                <input type='text' class='form-control border-input' name='no_sc' value='<?php echo $id_partner ?>'  autocomplete="off" required>
+                                <input type='text' class='form-control border-input' name='no_sc' value='<?php echo $no_sc ?>'  autocomplete="off" required>
                             </div>
                             <div class='form-group'>
                                 <label>status_validasi</label>
-                                <input type='text' class='form-control border-input' name='status_validasi' value='<?php echo $spv ?>'  autocomplete="off" required>
+                                <input type='text' class='form-control border-input' name='status_validasi' value='<?php echo $status_validasi ?>'  autocomplete="off" required>
                             </div>
 				                        <br>
                             <button type='submit' onClick='confirm("Apakah data sudah benar?");' name='btn-update'>Simpan</button>
                             </div>
-    </form>
+                                </form>
 
                                     </tbody>
                                 </table>

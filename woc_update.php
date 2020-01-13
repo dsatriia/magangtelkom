@@ -3,13 +3,47 @@ if(isset($_POST['btn-update'])){
 require("koneksi.php");
 //  $id = $_POST['id'];
 $track_id = $_POST['track_id'];
-$select = mysqli_query($con, "SELECT *FROM data_pelanggan WHERE track_id='$track_id'");
+ $select = mysqli_query($con, "SELECT *FROM data_pelanggan WHERE track_id='$track_id'");
 
 
  $array = mysqli_fetch_array($select);
 
- $no_sc = $POST['no_sc'];
- $status_validasi = $POST['status_validasi'];
+//  $nama_pelanggan = $_POST['nama_pelanggan'];
+//  $alamat = $_POST['alamat'];
+ $ktp = 'ktp';
+//  $sto = $_POST['sto'];
+//  $second_cp = $_POST['second_cp'];
+//  $paket = $_POST['paket'];
+//  $tagging_rill = $_POST['tagging_rill'];
+//  $odp = $_POST['odp'];
+//  $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
+// // $tgl_input = $_POST['tgl_input'];
+//  $agency = $_POST['agency'];
+//  $id_partner = $_POST['id_partner'];
+//  $spv = $_POST['spv'];
+
+ $tagging_rill = $_POST['tagging_rill'];
+ $alamat_rill_pelanggan = $_POST['alamat_rill_pelanggan'];
+ $cp_rill_pelanggan = $_POST['cp_rill_pelanggan'];
+ $kategori_progress_psb = $_POST['kategori_progress_psb'];
+ $keterangan_progress_psb = $_POST['keterangan_progress_psb'];
+ $nama_teknisi = $_POST['nama_teknisi'];
+
+ // $jenis_barang = $_POST['jenis_barang'];
+ // $harga = $_POST['harga'];
+ // $persediaan = $_POST['persediaan'];
+
+//  $compare = mysqli_query($con, "SELECT * FROM data_barang WHERE nama_barang='$nama_barang' AND jenis_barang='$jenis_barang'");
+//  $data = mysqli_fetch_array($compare);
+//  if($nama_barang==$data['nama_barang'] && $jenis_barang==$data['jenis_barang'] && $nama_barang!=$array['nama_barang'] && $jenis_barang!=$array['jenis_barang']){
+// 	echo '<script language="JavaScript">
+// 	alert("Update data gagal:\nData sudah ada");
+// 		</script>';
+// 	include("barang_tampil.php");
+//  }
+
+// $compare = mysqli_query($con, "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'");
+//  $data = mysqli_fetch_array($compare);
 
  $cekKTP = "SELECT * FROM data_pelanggan WHERE ktp='$ktp'";
  $runCekKtp = mysqli_query($con, $cekKTP);
@@ -20,47 +54,35 @@ $select = mysqli_query($con, "SELECT *FROM data_pelanggan WHERE track_id='$track
 
  $data = mysqli_fetch_array($hasil);
 
- // $cekTrackId = "SELECT * FROM data_pelanggan WHERE track_id = '$track_id'";
- // $hasil = mysqli_query($con,$cekTrackId);
- // $data = mysqli_fetch_array($hasil);
 
- // $cekKTP = "SELECT * FROM data_pelanggan WHERE ktp='$ktp'";
- // $runCekKtp = mysqli_query($con, $cekKTP);
- // $jumlahCekKtp = mysqli_num_rows($runCekKtp);
- //
- //  $compare = "SELECT `track_id` , `ktp` FROM data_pelanggan WHERE ktp = '$ktp'";
- //  $hasil = mysqli_query($con,$compare);
- //
- //  $data = mysqli_fetch_array($hasil);
-
-	if ($track_id == $data['track_id']){
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', no_sc = '$no_sc', status_validasi = '$status_validasi'
-    WHERE track_id = '$track_id'";
+//	if ($track_id == $data['track_id']){
+		$query = "UPDATE data_pelanggan SET track_id = '$track_id', tagging_rill = '$tagging_rill', alamat_rill_pelanggan = '$alamat_rill_pelanggan', cp_rill_pelanggan = '$cp_rill_pelanggan', kategori_progress_psb='$kategori_progress_psb',
+            keterangan_progress_psb='$keterangan_progress_psb', nama_teknisi='$nama_teknisi' WHERE track_id = '$track_id'";
 
 
 		$hasilQuery = mysqli_query($con, $query);
 
 		if ($hasilQuery) echo '<script language="JavaScript">
 		alert("Update data berhasil");
-		window.location = "inputer_tampil.php";
+		window.location = "woc_tampil.php";
 		</script>';
 
 
-	 }
-   else if ($jumlahCekKtp > 0) {
+	 //} 
+	 else if ($jumlahCekKtp > 0) {
 		echo '<script language="JavaScript">
 		alert("Update data gagal:\nData sudah ada");
-		window.location = "inputer_tampil.php";
+		window.location = "woc_tampil.php";
 			</script>';
-	 }
-   else {
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', no_sc = '$no_sc', status_validasi = '$status_validasi'
+	 } else {
+		$query = "UPDATE data_pelanggan SET track_id = '$track_id', tagging_rill = '$tagging_rill', alamat_rill_pelanggan = '$alamat_rill_pelanggan', cp_rill_pelanggan = '$cp_rill_pelanggan', kategori_progress_psb='$kategori_progress_psb',
+		keterangan_progress_psb='$keterangan_progress_psb', nama_teknisi='$nama_teknisi'
 		WHERE track_id = '$track_id'";
 
 		$hasilQuery = mysqli_query($con, $query);
 		if ($hasilQuery) echo '<script language="JavaScript">
 		alert("Update data berhasil");
-		window.location = "inputer_tampil.php";
+		window.location = "woc_tampil.php";
 		</script>';
 	 }
 
@@ -133,6 +155,6 @@ else{ ?>
  alert("Pilih pelanggan terlebih dahulu");
  </script>
 <?php
-include("inputer_tampil.php");
+include("woc_tampil.php");
 }
 ?>
