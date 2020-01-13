@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2020 at 02:20 AM
+-- Generation Time: Jan 13, 2020 at 07:47 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -30,8 +30,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agency` (
   `id_agency` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL
+  `nama` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `akses` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `agency`
+--
+
+INSERT INTO `agency` (`id_agency`, `nama`, `username`, `password`, `akses`) VALUES
+(0, 'BELUM ADA AGENCY', 'BELUM ADA AGENCY', 'BELUM ADA AGENCY', 0),
+(3, 'Admin Agency 01', 'adminagency01', 'adminagency01', 1);
 
 -- --------------------------------------------------------
 
@@ -52,31 +63,27 @@ CREATE TABLE `data_pelanggan` (
   `odp` varchar(25) NOT NULL,
   `odp_ke_pelanggan` varchar(25) NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `agency` varchar(25) NOT NULL,
-  `id_partner` varchar(20) NOT NULL,
   `no_sc` varchar(25) NOT NULL,
-  `spv` varchar(25) NOT NULL,
   `status_validasi` varchar(7) NOT NULL,
   `kategori_progress_psb` varchar(25) NOT NULL,
   `keterangan_progress_psb` varchar(50) NOT NULL,
   `alamat_rill_pelanggan` varchar(50) NOT NULL,
   `cp_rill_pelanggan` varchar(25) NOT NULL,
-  `nama_teknisi` varchar(25) NOT NULL
+  `nama_teknisi` varchar(25) NOT NULL,
+  `id_partner` int(11) NOT NULL DEFAULT 0,
+  `id_spv` int(11) NOT NULL DEFAULT 0,
+  `id_agency` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `data_pelanggan`
 --
 
-INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp`, `sto`, `second_cp`, `paket`, `tagging_rill`, `odp`, `odp_ke_pelanggan`, `tgl_input`, `agency`, `id_partner`, `no_sc`, `spv`, `status_validasi`, `kategori_progress_psb`, `keterangan_progress_psb`, `alamat_rill_pelanggan`, `cp_rill_pelanggan`, `nama_teknisi`) VALUES
-(1, '6543', 'Alam mma', 'Bambe, Driyorejo Gresik', '1234561', 0, '123456', '1', '123456', 'Warugunung', '10', '2020-01-11 08:50:24', 'AgensiPertama', '654123', '123456', '654', 'OK', 'Normal', 'Lancar', 'Surabaya', '', ''),
-(3, '6544', 'Alam mma', 'Bambe, Driyorejo Gresik', '1234567', 0, '123456', '1', '123456', 'Warugunung', '10', '2020-01-11 08:00:53', 'AgensiPertama', '654123', '123456', '654', 'OK', 'Normal', 'Lancar', 'Surabaya', '', ''),
-(4, '9887', 'Dimas', 'jj', '8', 0, 'jj', 'j', 'j', 'j', 'j', '2020-01-13 17:00:00', 'j', 'j', '9', 'j', 'j', 'j', 'j', '', '', ''),
-(6, '89798', 'Bayu', '9', '9', 9, '9', '9', '99', '9', '9', '2020-01-14 17:00:00', '9', '9', '9', '99', '9', '9', '9', '', '', ''),
-(7, '98', '899', '9', '9', 9, '9', '9', '9', '99', '9', '2020-01-01 17:00:00', '9', '9', '9', '9', '9', '99', '9', '', '', ''),
-(8, '6', '66', '6', '6', 6, '6', '6', '6', '66', '6', '2020-01-11 09:14:39', '6', '6', '6', '6', '6', '6', '6', '', '', ''),
-(10, '8', '8', '8', '8', 88, '8', '8', '8', '8', '88', '2020-01-11 09:25:15', '8', '8', '8', '8', '8', '88', '8', '', '', ''),
-(13, '9b', '9', '9', '9', 99, '9', '9', '9', '9', '9', '2020-01-11 09:30:06', '9', '9', '99', '9', '9', '9', '9', '', '', '');
+INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp`, `sto`, `second_cp`, `paket`, `tagging_rill`, `odp`, `odp_ke_pelanggan`, `tgl_input`, `no_sc`, `status_validasi`, `kategori_progress_psb`, `keterangan_progress_psb`, `alamat_rill_pelanggan`, `cp_rill_pelanggan`, `nama_teknisi`, `id_partner`, `id_spv`, `id_agency`) VALUES
+(27, '1', 'Bayu', '1', '1', 1, '1', '1', '11', '1', '1', '2020-01-13 05:44:09', '', '', '', '', '', '', '', 0, 0, 0),
+(28, '2', '2', '2', '2', 2, '2', '2', '2', '2', '2', '2020-01-13 05:53:18', '', '', '', '', '', '', '', 3, 3, 3),
+(29, '3', 'Rista', '3', '3', 3, '3', '3', '3', '3', '3', '2020-01-13 06:45:43', '', '', '', '', '', '', '', 3, 6, 3),
+(30, '9', 'Alam', '9', '9', 9, '9', '9', '99', '9', '9', '2020-01-13 06:13:24', '', '', '', '', '', '', '', 3, 6, 3);
 
 -- --------------------------------------------------------
 
@@ -86,9 +93,22 @@ INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp
 
 CREATE TABLE `salesforce` (
   `id_salesforce` int(11) NOT NULL,
-  `nama` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `akses` int(11) NOT NULL DEFAULT 3,
   `id_supervisor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `salesforce`
+--
+
+INSERT INTO `salesforce` (`id_salesforce`, `nama`, `username`, `password`, `akses`, `id_supervisor`) VALUES
+(0, 'BELUM ADA SF', 'BELUM ADA SF', 'BELUM ADA SF', 0, 0),
+(2, 'Sales Force 01', 'sf01', 'sf01', 3, 0),
+(3, 'Sales Force 02', 'sf02', 'sf02', 3, 3),
+(4, 'Sales Force 03', 'sf03', 'sf03', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -110,8 +130,20 @@ CREATE TABLE `sto` (
 CREATE TABLE `supervisor` (
   `id_supervisor` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `akses` int(11) NOT NULL DEFAULT 2,
   `id_agency` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `supervisor`
+--
+
+INSERT INTO `supervisor` (`id_supervisor`, `nama`, `username`, `password`, `akses`, `id_agency`) VALUES
+(0, 'BELUM ADA SPV', 'BELUM ADA SPV', 'BELUM ADA SPV', 0, 0),
+(3, 'Supervisor 01', 'spv01', 'spv01', 2, 3),
+(6, 'Supervisor 02', 'spv02', 'spv02', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -151,19 +183,25 @@ INSERT INTO `user` (`id`, `username`, `password`, `akses`, `nama`) VALUES
 -- Indexes for table `agency`
 --
 ALTER TABLE `agency`
-  ADD PRIMARY KEY (`id_agency`);
+  ADD PRIMARY KEY (`id_agency`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQUE_track_id` (`track_id`);
+  ADD UNIQUE KEY `UNIQUE_track_id` (`track_id`),
+  ADD KEY `pelanggan ke spv` (`id_spv`),
+  ADD KEY `pelanggan ke agency` (`id_agency`),
+  ADD KEY `pelanggan ke sf` (`id_partner`);
 
 --
 -- Indexes for table `salesforce`
 --
 ALTER TABLE `salesforce`
+  ADD PRIMARY KEY (`id_salesforce`),
+  ADD UNIQUE KEY `username` (`username`),
   ADD KEY `sf ke spv` (`id_supervisor`);
 
 --
@@ -177,6 +215,7 @@ ALTER TABLE `sto`
 --
 ALTER TABLE `supervisor`
   ADD PRIMARY KEY (`id_supervisor`),
+  ADD UNIQUE KEY `username` (`username`),
   ADD KEY `spv ke agency` (`id_agency`);
 
 --
@@ -193,13 +232,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `agency`
 --
 ALTER TABLE `agency`
-  MODIFY `id_agency` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `salesforce`
+--
+ALTER TABLE `salesforce`
+  MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sto`
@@ -211,7 +256,7 @@ ALTER TABLE `sto`
 -- AUTO_INCREMENT for table `supervisor`
 --
 ALTER TABLE `supervisor`
-  MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -222,6 +267,14 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `data_pelanggan`
+--
+ALTER TABLE `data_pelanggan`
+  ADD CONSTRAINT `pelanggan ke agency` FOREIGN KEY (`id_agency`) REFERENCES `agency` (`id_agency`),
+  ADD CONSTRAINT `pelanggan ke sf` FOREIGN KEY (`id_partner`) REFERENCES `salesforce` (`id_salesforce`),
+  ADD CONSTRAINT `pelanggan ke spv` FOREIGN KEY (`id_spv`) REFERENCES `supervisor` (`id_supervisor`);
 
 --
 -- Constraints for table `salesforce`
