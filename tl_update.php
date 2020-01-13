@@ -13,11 +13,12 @@ if(isset($_POST['btn-update'])){
   $cp_rill_pelanggan = $_POST['cp_rill_pelanggan'];
   $kategori_progress_psb = $_POST['kategori_progress_psb'];
   $keterangan_progress_psb = $_POST['keterangan_progress_psb'];
+  $nama_teknisi = $_POST['nama_teknisi'];
 
 
 
 	$query = "UPDATE data_pelanggan SET track_id = '$track_id', tagging_rill = '$tagging_rill', alamat_rill_pelanggan = '$alamat_rill_pelanggan', cp_rill_pelanggan = '$cp_rill_pelanggan', kategori_progress_psb='$kategori_progress_psb',
-          keterangan_progress_psb='$keterangan_progress_psb' WHERE track_id = '$track_id'";
+          keterangan_progress_psb='$keterangan_progress_psb', nama_teknisi='$nama_teknisi' WHERE track_id = '$track_id'";
 
 	// echo $query;die;
 	$hasilQuery = mysqli_query($con, $query);
@@ -25,12 +26,12 @@ if(isset($_POST['btn-update'])){
 	if ($hasilQuery) {
 		echo '<script language="JavaScript">
 	alert("Update data berhasil!");
-	window.location = "woc_tampil.php";
+	window.location = "tl_tampil.php";
 	</script>';
 	} else {
 		echo '<script language="JavaScript">
 	alert("Update data gagal!");
-	window.location = "woc_tampil.php";
+	window.location = "tl_tampil.php";
 	</script>';
 	}
 
@@ -47,6 +48,6 @@ else{ ?>
  alert("Pilih pelanggan terlebih dahulu");
  </script>
 <?php
-include("woc_tampil.php");
+include("tl_tampil.php");
 }
 ?>

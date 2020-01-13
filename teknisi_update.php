@@ -25,12 +25,12 @@ if(isset($_POST['btn-update'])){
 	if ($hasilQuery) {
 		echo '<script language="JavaScript">
 	alert("Update data berhasil!");
-	window.location = "woc_tampil.php";
+	window.location = "teknisi_tampil.php";
 	</script>';
 	} else {
 		echo '<script language="JavaScript">
 	alert("Update data gagal!");
-	window.location = "woc_tampil.php";
+	window.location = "teknisi_tampil.php";
 	</script>';
 	}
 
@@ -47,6 +47,6 @@ else{ ?>
  alert("Pilih pelanggan terlebih dahulu");
  </script>
 <?php
-include("woc_tampil.php");
+include("teknisi_tampil.php");
 }
 ?>
