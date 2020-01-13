@@ -11,23 +11,14 @@ $paket = $_POST['paket'];
 $tagging_rill = $_POST['tagging_rill'];
 $odp = $_POST['odp'];
 $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
-$agency = $_POST['agency'];
-$id_partner = $_POST['id_partner'];
-$spv = $_POST['spv'];
+$id_partner = $_POST['id_partner'] ;
+$id_spv = $_POST['id_spv'] ;
+$id_agency = $_POST['id_agency'] ;
+
 
 $query = "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'";
 $select = mysqli_query($con, $query);
 
-
-// $data = mysqli_fetch_array($select);
-// var_dump($query);die;
-// if($track_id==$data['track_id'] && $ktp==$data['ktp']){
-//  echo '<script language="JavaScript">
-//  alert("Penyimpanan gagal:\nData sudah ada");
-//    </script>';
-//  include("ag_input.php");
-// }
-// else{
 
   $cekTrack = "SELECT `track_id` FROM data_pelanggan WHERE `track_id`='$track_id'";
   // echo $cekTrack;
@@ -60,21 +51,24 @@ $select = mysqli_query($con, $query);
    die;
   }
 
- $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, agency, id_partner, spv)
- VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$agency', '$id_partner', '$spv')";
- $hasilQuery = mysqli_query($con, $query);
-
+ $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, id_partner, id_spv, id_agency)
+ VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_partner', '$id_spv', '$id_agency')"; 
+ $hasilQuery = mysqli_query($con, $query);  
 
  if ($hasilQuery) {
    
  echo '<script language="JavaScript">
-   alert("Penyimpanan berhasil");
+   alert("Penyimpanan berhasil!");
    window.location = "ag_tampil.php";
    </script>';
 
+ } else {
+  echo '<script language="JavaScript">
+  alert("Penyimpanan gagal!");
+  window.location = "ag_tampil.php";
+  </script>';
  }
 
-// }
 $con->close();
 }
 else{ ?>

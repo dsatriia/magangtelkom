@@ -1,7 +1,32 @@
-<?php include("header.php"); ?>
+<?php 
+require("koneksi.php");
+include("header.php"); ?>
 <body>
 <?php
 include("guard/guard_1.php");
+$id = $_SESSION['id'];
+
+
+//option untuk menampilkan spv yang dibawahinya
+$querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id";
+$runQuerySpv = mysqli_query($con,$querySpv);
+
+while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
+    $kumpulanDataSpv[] = $dataSpv;
+}
+// end
+
+//option untuk menampilkan partner yang dibawahinya
+$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_agency = $id";
+$runQueryPartner = mysqli_query($con,$queryPartner);
+
+while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
+    $kumpulanDataPartner[] = $dataPartner;
+}
+// end
+
+
+
 ?>
 <?php include("sidebar/sidebar_dataplg_ag.php"); ?>
     <div class="main-panel">
@@ -80,19 +105,26 @@ include("guard/guard_1.php");
                         <div class="form-group">
                             <label>Jarak ODP ke Pelanggan</label>
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
-                        </div>
+                        </div>     
+                        <div class="form-group">                            
+                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                        </div>     
                         <div class="form-group">
-                            <label>Agency</label>
-                            <input type="text" class="form-control border-input" name="agency" autocomplete="off" required>
-                        </div>
+                            <label>Supervisor</label>
+                            <select class="form-control border-input" name="id_spv" autocomplete="off" required>
+                            <?php foreach($kumpulanDataSpv as $spv) : ?>
+                                <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
+                            <?php endforeach ?>                                
+                            </select>
+                        </div>     
                         <div class="form-group">
-                            <label>ID Parter</label>
-                            <input type="text" class="form-control border-input" name="id_partner" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label>SPV</label>
-                            <input type="text" class="form-control border-input" name="spv" autocomplete="off" required>
-                        </div>
+                            <label>Partner</label>
+                            <select class="form-control border-input" name="id_partner" autocomplete="off" required>
+                            <?php foreach($kumpulanDataPartner as $partner) : ?>
+                                <option value="<?=$partner['id_salesforce'] ?> "><?= $partner['nama'] ?></option>
+                            <?php endforeach ?>  
+                            </select>
+                        </div>                       
                 <div>
                 <button type="submit" name='btn-save'>Simpan</button>
                 </div>

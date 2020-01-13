@@ -58,9 +58,10 @@ $paket = $data['paket'];
 $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
-$agency = $data['agency'];
+
+$id_agency = $_SESSION['id'];
 $id_partner = $data['id_partner'];
-$spv = $data['spv'];
+$id_spv = $data['id_spv'];
 
 ?>
 		<form method='post' action='ag_update.php' onsubmit='return confirm("Apakah data sudah benar?");'>
@@ -108,15 +109,15 @@ $spv = $data['spv'];
                             </div>
                             <div class='form-group'>
                                 <label>Agency</label>
-                                <input type='text' class='form-control border-input' name='agency' value='<?php echo $agency ?>'  autocomplete="off" required>
+                                <input type='hidden' class='form-control border-input' name='id_agency' value='<?php echo $id_agency ?>'  autocomplete="off" required>
                             </div>
                             <div class='form-group'>
-                                <label>Id Partner</label>
+                                <label>Partner</label>
                                 <input type='text' class='form-control border-input' name='id_partner' value='<?php echo $id_partner ?>'  autocomplete="off" required>
                             </div>
                             <div class='form-group'>
                                 <label>SPV</label>
-                                <input type='text' class='form-control border-input' name='spv' value='<?php echo $spv ?>'  autocomplete="off" required>
+                                <input type='text' class='form-control border-input' name='id_spv' value='<?php echo $id_spv ?>'  autocomplete="off" required>
                             </div>
 
 				<br>
