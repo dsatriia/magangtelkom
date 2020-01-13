@@ -28,18 +28,12 @@ include("sidebar/sidebar_dataplg_woc.php"); ?>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h2 class="title"><center><b>Data Pelanggan</b></center></h2>
+                            <h2 class="title text-center"><b>Data Pelanggan</b></h2>
                             </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
-
-                    <div class="col-md-12">
-                        <div class="card card-plain">
-                            <div class="header">
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <?php include("woc_tabel.php"); ?>
-                            <!-- <a href="ag_input.php" style="font-size:15pt">Input Data Baru</a><br>
+                            <div class="content">
+                                <div class="table-responsive" style="overflow:scroll">
+                                    <?php include("woc_tabel.php"); ?>
+                                </div>                            <!-- <a href="ag_input.php" style="font-size:15pt">Input Data Baru</a><br>
 				<br> -->
 				<br>
                             </div>

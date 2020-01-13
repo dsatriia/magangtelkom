@@ -56,8 +56,10 @@ $keterangan_progress_psb = $data['keterangan_progress_psb'];
 $nama_teknisi = $data['nama_teknisi'];
 
 ?>
-		<form method='post' action='woc_update.php'>
-                           <div class='col-md-4'>
+
+                             <form method='post' action='woc_update.php'
+                             onsubmit='return confirm("Apakah data sudah benar?");'>
+                             <div class='col-md-4'>
                             <div class='form-group'>
                                 <label>Track Id</label>
                                 <input type='text' class='form-control border-input' name='track_id' value='<?php echo $track_id ?>'  readonly>
@@ -89,7 +91,8 @@ $nama_teknisi = $data['nama_teknisi'];
 
 
 				<br>
-                            <button type='submit' onClick='confirm("Apakah data sudah benar?");' name='btn-update'>Simpan</button>
+                                     <button type="submit" class="btn btn-success"
+                                             name='btn-update'>Simpan</button>
                                     </div>
                                 </form>
 
