@@ -7,12 +7,66 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="index.php">
+                <li <?php if(isset($page) && $page == 1): echo "class='active'"; endif ?>>
+                    <a href="ag_index.php">
                         <i class="ti-panel"></i>
-                        <p>Login</p>
+                        <p>Login Admin Agency</p>
                     </a>
                 </li>
+                <li <?php if(isset($page) && $page == 2): echo "class='active'"; endif ?>>
+                    <a href="spv_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Login Supervisor</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 3): echo "class='active'"; endif ?>>
+                    <a href="sf_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Login sales force</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 4): echo "class='active'"; endif ?>>
+                    <a href="inputer_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Login Inputer</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 5): echo "class='active'"; endif ?>>
+                    <a href="teknisi_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Login Teknisi</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 6): echo "class='active'"; endif ?>>
+                    <a href="tl_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Login TL </p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 7): echo "class='active'"; endif ?>>
+                    <a href="woc_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Login WOC</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 8): echo "class='active'"; endif ?>>
+                    <a href="manager_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Login Manager</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 9): echo "class='active'"; endif ?>>
+                    <a href="picwitel_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Login PIC Witel</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 10): echo "class='active'"; endif ?>>
+                    <a href="kasto_index.php">
+                        <i class="ti-panel"></i>
+                        <p>Ka STO</p>
+                    </a>
+                </li>          
             </ul>
         </div>
     </div>

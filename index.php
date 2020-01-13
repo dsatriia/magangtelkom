@@ -21,33 +21,10 @@
                     <div class="col-md-12">
                         <div class="card card-plain">
                             <div class="header">
-                                <h2 class="title" style="text-align:center"><b>LOGIN</b></h2>
-                                <p class="category" style="font-size:18pt">Silahkan login menggunakan username
-                                    dan password Anda.</p>
-                            </div>
-                       	<div class="content table-responsive table-full-width">
-                            <main>
-                                <div class="container">
-                                    <div>
-                                        <br>
-                                	    <form  method="post" action="login.php">
-                                            <div>
-                                			    <label>Username :</label>
-                                				<input type="text" name="username" autocomplete="off" reqiuired>
-                                		    </div>
-                                			<div>
-                                				<label>Password :</label>
-                                				<input type="password" name="password" autocomplete="off" reqiuired>
-                                			<div>
-                                			<div>
-                                                <br>
-                                                <button type="submit">Login</button>
-                                            </div>
-                                        </form>
-                                	</div>
-                                </div>
-                            </main>
-                        </div>
+                                <h2 class="title" style="text-align:center"><b>Selamat datang!</b></h2>  
+                                <br>
+                                <p class="text-center">Silahkan pilih halaman login di menu sidebar, sesuai dengan hak akses anda.</p>                             
+                            </div>                       	
                 	    </div>
                     </div>
                 </div>
