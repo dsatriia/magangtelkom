@@ -64,9 +64,9 @@
                 <li <?php if(isset($page) && $page == 10): echo "class='active'"; endif ?>>
                     <a href="kasto_index.php">
                         <i class="ti-panel"></i>
-                        <p>Ka STO</p>
+                        <p>Login Ka STO</p>
                     </a>
-                </li>          
+                </li>
             </ul>
         </div>
     </div>

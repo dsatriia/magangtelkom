@@ -1,24 +1,27 @@
 <table class="table table-hover table-bordered text-center">
-    <thead>
-      <th class="text-center">Track ID</th>
-      <th class="text-center">Nama Pelanggan</th>
-      <th class="text-center">Alamat</th>
-      <th class="text-center">No KTP</th>
-      <th class="text-center">STO</th>
-      <th class="text-center">Second CP</th>
-      <th class="text-center">Paket</th>
-      <th class="text-center">Tagging Rill</th>
-      <th class="text-center">ODP</th>
-      <th class="text-center">Jarak ODP ke Pelanggan</th>
-      <th class="text-center">Tanggal Input Data</th>
-      <th class="text-center">Agency</th>
-      <th class="text-center">ID Partner</th>
-      <th class="text-center">No SC</th>
-      <th class="text-center">SPV</th>
-      <th class="text-center">Status Validasi</th>
-      <th class="text-center">Ketegori Progress PSB</th>
-      <th class="text-center">Keterangan Progress PSB</th>
-      <th colspan="2">Action</th>
+  <thead style="background-color:lightgrey">
+      <th rowspan="2" class="text-center"><b>Track ID</b></th>
+      <th rowspan="2" class="text-center"><b>Nama Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>Alamat</b></th>
+      <th rowspan="2" class="text-center"><b>No KTP</b></th>
+      <th rowspan="2" class="text-center"><b>STO</b></th>
+      <th rowspan="2" class="text-center"><b>Second CP</b></th>
+      <th rowspan="2" class="text-center"><b>Paket</b></th>
+      <th rowspan="2" class="text-center"><b>Tagging Rill</b></th>
+      <th rowspan="2" class="text-center"><b>ODP</b></th>
+      <th rowspan="2" class="text-center"><b>Jarak ODP ke Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>Tanggal Input Data</b></th>
+      <th rowspan="2" class="text-center"><b>Agency</b></th>
+      <th rowspan="2" class="text-center"><b>ID Partner</b></th>
+      <th rowspan="2" class="text-center"><b>No SC</b></th>
+      <th rowspan="2" class="text-center"><b>SPV</b></th>
+      <th rowspan="2" class="text-center"><b>Status Validasi</b></th>
+      <th colspan="2" class="text-center"><b>Progress PSB</b></th>
+      <th rowspan="2" class="text-center"><b>Action</b></th>
+      <tr>
+          <th class="text-center"><b>Kategori</b></th>
+          <th class="text-center"><b>Keterangan</b></th>
+      </tr>
     </thead>
 <tbody>
 <?php
@@ -30,7 +33,7 @@
 
 include("koneksi.php");
     $id = $_SESSION['id'];
-    $query = "SELECT * FROM data_pelanggan WHERE id_agency = $id";    
+    $query = "SELECT * FROM data_pelanggan WHERE id_agency = $id";
     $hasil = mysqli_query($con,$query);
     while ($data = mysqli_fetch_array($hasil)){
     echo "<tr>"; ?>
@@ -45,8 +48,8 @@ include("koneksi.php");
             <td><?php echo $data['odp'] ?></td>
             <td><?php echo $data['odp_ke_pelanggan'] ?></td>
             <td><?php echo $data['tgl_input'] ?></td>
-            <td><?php 
-              
+            <td><?php
+
               if ($data['id_agency'] == 0){
                 $agency = 'Belum ada Admin Agency';
               } else {
@@ -57,11 +60,11 @@ include("koneksi.php");
                 $agency = $hasil_agency['nama'];
               }
               echo $agency ?>
-            
+
             </td>
             <td>
-              <?php 
-              
+              <?php
+
               if ($data['id_partner'] == 0){
                 $partner = 'Belum ada Sales Force';
               }else {
@@ -76,8 +79,8 @@ include("koneksi.php");
             </td>
             <td><?php echo $data['no_sc'] ?></td>
             <td>
-            
-            <?php 
+
+            <?php
             if ($data['id_spv'] == 0){
               $spv = 'Belum ada Supervisor';
             } else {

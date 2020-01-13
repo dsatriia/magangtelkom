@@ -1,5 +1,9 @@
-<?php include("header.php");
-require("koneksi.php"); ?>
+<?php
+include("guard/guard_4.php");
+include("header.php");
+require("koneksi.php");
+?>
+
 <body>
 
 <?php
@@ -52,19 +56,22 @@ $status_validasi = $data['status_validasi'];
 
 
 ?>
-		<form method='post' action='inputer_update.php'>
-                           <div class='col-md-4'>
+		<form method='post' action='inputer_update.php'
+    onsubmit='return confirm("Apakah data sudah benar?");'>
+    <div class='col-md-4'>
+        <div class='form-group'>
                            <input type="hidden" value="<?= $data['track_id'] ?>" name="track_id">
                             <div class='form-group'>
                                 <label>No SC</label>
                                 <input type='text' class='form-control border-input' name='no_sc' value='<?php echo $no_sc ?>'  autocomplete="off" required>
                             </div>
                             <div class='form-group'>
-                                <label>status_validasi</label>
+                                <label>Status Validasi</label>
                                 <input type='text' class='form-control border-input' name='status_validasi' value='<?php echo $status_validasi ?>'  autocomplete="off" required>
                             </div>
 				                        <br>
-                            <button type='submit' onClick='confirm("Apakah data sudah benar?");' name='btn-update'>Simpan</button>
+                                <button type="submit" class="btn btn-success"
+                                        name='btn-update'>Simpan</button>
                             </div>
                                 </form>
 

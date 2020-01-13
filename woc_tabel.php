@@ -1,20 +1,24 @@
 <table class="table table-hover table-bordered text-center">
-    <thead>
-    <th class="text-center">Track ID</th>
-      <th class="text-center">Nama Pelanggan</th>
-      <th class="text-center">Alamat</th>
-      <th class="text-center">STO</th>
-      <th class="text-center">Second CP</th>
-      <th class="text-center">Paket</th>
-      <th class="text-center">Tagging Rill</th>
-      <th class="text-center">Jarak ODP ke Pelanggan</th>
-      <th class="text-center">No SC</th>
-      <th class="text-center">Alamat Rill Pelanggan</th>
-      <th class="text-center">CP Rill Pelanggan</th>
-      <th class="text-center">Kategori Progress PSB</th>
-      <th class="text-center">Keterangan Progress PSB</th>
-      <th class="text-center">Nama Teknisi</th>
-      <th colspan="1">Action</th>
+  <thead style="background-color:lightgrey">
+      <th rowspan="2" class="text-center"><b>Track ID</b></th>
+      <th rowspan="2" class="text-center"><b>Nama Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>Alamat</b></th>
+      <th rowspan="2" class="text-center"><b>STO</b></th>
+      <th rowspan="2" class="text-center"><b>Second CP</b></th>
+      <th rowspan="2" class="text-center"><b>Paket</b></th>
+      <th rowspan="2" class="text-center"><b>Tagging Rill</b></th>
+      <th rowspan="2" class="text-center"><b>Jarak ODP ke Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>No SC</b></th>
+      <th rowspan="2" class="text-center"><b>Alamat Rill Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>CP Rill Pelanggan</b></th>
+      <th colspan="2" class="text-center"><b>Progress PSB</b></th>
+      <th rowspan="2" class="text-center"><b>Nama Teknisi</b></th>
+      <th rowspan="2" class="text-center"><b>Action</b></th>
+        <tr>
+            <th class="text-center"><b>Kategori</b></th>
+            <th class="text-center"><b>Keterangan</b></th>
+        </tr>
+
     </thead>
 <tbody>
 <?php

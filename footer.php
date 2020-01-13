@@ -43,7 +43,7 @@
             demo.initChartist();
 
             $.notify({
-                icon: 'ti-gift',
+                // icon: 'ti-gift',
                 message: "Welcome to <b>Telkom Witel Sidoarjo</b>."
 
             },{

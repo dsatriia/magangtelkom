@@ -11,7 +11,8 @@ if(isset($_POST['btn-update'])){
 	$no_sc = $_POST['no_sc'];
 	$status_validasi = $_POST['status_validasi'];
 
-		
+	
+
 	$query = "UPDATE data_pelanggan SET track_id = '$track_id', no_sc = '$no_sc', status_validasi = '$status_validasi'
 	WHERE track_id = '$track_id'";
 
@@ -29,9 +30,9 @@ if(isset($_POST['btn-update'])){
 	window.location = "inputer_tampil.php";
 	</script>';
 	}
-			
 
-		
+
+
 
 
 	$con->close();

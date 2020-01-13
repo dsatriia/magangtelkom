@@ -1,27 +1,30 @@
 <table class="table table-hover table-bordered text-center">
-    <thead style="background-color:lightgrey">
-      <th class="text-center"><b>Track ID</b></th>
-      <th class="text-center"><b>Nama Pelanggan</b></th>
-      <th class="text-center"><b>Alamat</b></th>
-      <th class="text-center"><b>No KTP</b></th>
-      <th class="text-center"><b>STO</b></th>
-      <th class="text-center"><b>Second CP</b></th>
-      <th class="text-center"><b>Paket</b></th>
-      <th class="text-center"><b>Tagging Rill</b></th>
-      <th class="text-center"><b>ODP</b></th>
-      <th class="text-center"><b>Tanggal Input Data</b></th>
-      <th class="text-center"><b>Jarak ODP ke Pelanggan</b></th>
-      <th class="text-center"><b>Agency</b></th>
-      <th class="text-center"><b>ID Partner</b></th>
-      <th class="text-center"><b>No SC</b></th>
-      <th class="text-center"><b>SPV</b></th>
-      <th class="text-center"><b>Status Validasi</b></th>
-      <th class="text-center"><b>Ketegori Progress PSB</b></th>
-      <th class="text-center"><b>Keterangan Progress PSB</b></th>
-      <th class="text-center"><b>Alamat Rill Pelanggan</b></th>
-      <th class="text-center"><b>CP Rill Pelanggan</b></th>
-      <th class="text-center"><b>Nama Teknisi</b></th>
-      <th colspan="2"><b>Action</b></th>
+    <thead style="background-color:lightgrey" >
+      <th rowspan="2" class="text-center"><b>Track ID</b></th>
+      <th rowspan="2" class="text-center"><b>Nama Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>Alamat</b></th>
+      <th rowspan="2" class="text-center"><b>No KTP</b></th>
+      <th rowspan="2" class="text-center"><b>STO</b></th>
+      <th rowspan="2" class="text-center"><b>Second CP</b></th>
+      <th rowspan="2" class="text-center"><b>Paket</b></th>
+      <th rowspan="2" class="text-center"><b>Tagging Rill</b></th>
+      <th rowspan="2" class="text-center"><b>ODP</b></th>
+      <th rowspan="2" class="text-center"><b>Jarak ODP ke Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>Tanggal Input Data</b></th>
+      <th rowspan="2" class="text-center"><b>Agency</b></th>
+      <th rowspan="2" class="text-center"><b>ID Partner</b></th>
+      <th rowspan="2" class="text-center"><b>No SC</b></th>
+      <th rowspan="2" class="text-center"><b>SPV</b></th>
+      <th rowspan="2" class="text-center"><b>Status Validasi</b></th>
+      <th colspan="2" class="text-center"><b>Progress PSB</b></th>
+      <th rowspan="2" class="text-center"><b>Alamat Rill Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>CP Rill Pelanggan</b></th>
+      <th rowspan="2" class="text-center"><b>Nama Teknisi</b></th>
+      <th rowspan="2" class="text-center"><b>Action</b></th>
+      <tr>
+          <th class="text-center"><b>Kategori</b></th>
+          <th class="text-center"><b>Keterangan</b></th>
+      </tr>
     </thead>
 <tbody>
 <?php
