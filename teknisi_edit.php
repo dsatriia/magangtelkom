@@ -1,6 +1,8 @@
-<?php include("header.php");
-require("koneksi.php"); ?>
-<body>
+<?php
+include("guard/guard_5.php");
+include("header.php");
+require("koneksi.php");
+?>
 
 <?php
 include("sidebar/sidebar_dataplg_teknisi.php");

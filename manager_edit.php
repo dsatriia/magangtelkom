@@ -1,11 +1,9 @@
-<?php
-include("guard/guard_7.php");
-include("header.php");
-require("koneksi.php");
-?>
+<?php include("header.php");
+require("koneksi.php"); ?>
+<body>
 
 <?php
-include("sidebar/sidebar_dataplg_woc.php");
+include("sidebar/sidebar_dataplg_teknisi.php");
 if(isset($_GET['id'])){
 ?>
     <div class="main-panel">
@@ -50,21 +48,25 @@ $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
 $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
 $track_id = $data['track_id'];
+$nama_teknisi = $data['nama_teknisi'];
 $tagging_rill = $data['tagging_rill'];
 $alamat_rill_pelanggan = $data['alamat_rill_pelanggan'];
 $cp_rill_pelanggan = $data['cp_rill_pelanggan'];
 $kategori_progress_psb = $data['kategori_progress_psb'];
 $keterangan_progress_psb = $data['keterangan_progress_psb'];
-$nama_teknisi = $data['nama_teknisi'];
 
 ?>
 
-                             <form method='post' action='woc_update.php'
+                             <form method='post' action='teknisi_update.php'
                              onsubmit='return confirm("Apakah data sudah benar?");'>
                              <div class='col-md-4'>
                             <div class='form-group'>
                                 <label>Track Id</label>
                                 <input type='text' class='form-control border-input' name='track_id' value='<?php echo $track_id ?>'  readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label>Nama Teknisi</label>
+                                <input type='text' class='form-control border-input' name='nama_teknisi' value='<?php echo $nama_teknisi ?>'  readonly>
                             </div>
                             <div class='form-group'>
                                 <label>Tagging Rill</label>
@@ -85,10 +87,6 @@ $nama_teknisi = $data['nama_teknisi'];
                             <div class='form-group'>
                                 <label>Keterangan PSB</label>
                                 <input type='text' class='form-control border-input' name='keterangan_progress_psb' value='<?php echo $keterangan_progress_psb ?>'  autocomplete="off" required>
-                            </div>
-                            <div class='form-group'>
-                                <label>Nama Teknisi</label>
-                                <input type='text' class='form-control border-input' name='nama_teknisi' value='<?php echo $nama_teknisi ?>'  autocomplete="off" required>
                             </div>
 
 
@@ -117,6 +115,6 @@ else{ ?>
  alert("Pilih item terlebih dahulu");
  </script>
 <?php
-include("woc_tampil.php");
+include("teknisi_tampil.php");
 }
 ?>
