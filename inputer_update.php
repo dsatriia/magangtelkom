@@ -11,7 +11,7 @@ if(isset($_POST['btn-update'])){
 	$no_sc = $_POST['no_sc'];
 	$status_validasi = $_POST['status_validasi'];
 
-	
+
 
 	$query = "UPDATE data_pelanggan SET track_id = '$track_id', no_sc = '$no_sc', status_validasi = '$status_validasi'
 	WHERE track_id = '$track_id'";
@@ -21,12 +21,12 @@ if(isset($_POST['btn-update'])){
 
 	if ($hasilQuery) {
 		echo '<script language="JavaScript">
-	alert("Update data berhasil!");
+	alert("Update Data Berhasil!");
 	window.location = "inputer_tampil.php";
 	</script>';
 	} else {
 		echo '<script language="JavaScript">
-	alert("Update data gagal!");
+	alert("Update Data Gagal!");
 	window.location = "inputer_tampil.php";
 	</script>';
 	}
@@ -41,7 +41,7 @@ if(isset($_POST['btn-update'])){
 
 else{ ?>
  <script language="JavaScript">
- alert("Pilih pelanggan terlebih dahulu");
+ alert("Pilih Pelanggan Terlebih Dahulu!");
  </script>
 <?php
 include("inputer_tampil.php");

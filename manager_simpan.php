@@ -11,9 +11,16 @@ $paket = $_POST['paket'];
 $tagging_rill = $_POST['tagging_rill'];
 $odp = $_POST['odp'];
 $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
-$id_partner = $_POST['id_partner'] ;
-$id_spv = $_POST['id_spv'] ;
-$id_agency = $_POST['id_agency'] ;
+$id_agency = $_POST['id_agency'];
+$id_partner = $_POST['id_partner'];
+$no_sc = $_POST['no_sc'];
+$id_spv = $_POST['id_spv'];
+$status_validasi = $_POST['status_validasi'];
+$kategori_progress_psb = $_POST['kategori_progress_psb'];
+$keterangan_progress_psb = $_POST['keterangan_progress_psb'];
+$alamat_rill_pelanggan = $_POST['alamat_rill_pelanggan'];
+$cp_rill_pelanggan = $_POST['cp_rill_pelanggan'];
+$nama_teknisi = $_POST['nama_teknisi'];
 
 
 $query = "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'";
@@ -33,39 +40,40 @@ $select = mysqli_query($con, $query);
 
   if(($jumlahCekKTP && $jumlahCekTrack) > 0){
     echo '<script language="JavaScript">
-   alert("KTP dan Track pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "ag_tampil.php";
+   alert("No KTP dan Track ID Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   window.location = "manager_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekTrack > 0){
     echo '<script language="JavaScript">
-   alert("Track ID pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "ag_tampil.php";
+   alert("Track ID Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   window.location = "manager_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekKTP > 0){
     echo '<script language="JavaScript">
-   alert("KTP pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "ag_tampil.php";
+   alert("No KTP Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   window.location = "manager_tampil.php";
    </script>';
    die;
   }
 
- $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, id_partner, id_spv, id_agency)
- VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_partner', '$id_spv', '$id_agency')";
+ $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_partner, no_sc, id_spv, status_validasi, kategori_progress_psb, keterangan_progress_psb, alamat_rill_pelanggan, cp_rill_pelanggan, nama_teknisi)
+ VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_partner', '$no_sc', '$id_spv', '$status_validasi', '$kategori_progress_psb',
+   '$keterangan_progress_psb', '$alamat_rill_pelanggan', '$cp_rill_pelanggan', '$nama_teknisi')";
  $hasilQuery = mysqli_query($con, $query);
 
  if ($hasilQuery) {
 
  echo '<script language="JavaScript">
-   alert("Penyimpanan berhasil!");
-   window.location = "ag_tampil.php";
+   alert("Penyimpanan Berhasil!");
+   window.location = "manager_tampil.php";
    </script>';
 
  } else {
   echo '<script language="JavaScript">
-  alert("Penyimpanan gagal!");
-  window.location = "ag_tampil.php";
+  alert("Penyimpanan Gagal!");
+  window.location = "manager_tampil.php";
   </script>';
  }
 
@@ -73,9 +81,9 @@ $con->close();
 }
 else{ ?>
 <script language="JavaScript">
-alert("Isilah form terlebih dahulu");
+alert("Isilah Form Terlebih Dahulu");
 </script>
 <?php
-include("ag_input.php");
+include("manager_input.php");
 }
 ?>

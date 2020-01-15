@@ -1,4 +1,4 @@
-<?php 
+<?php
 require("koneksi.php");
 include("header.php"); ?>
 <body>
@@ -105,26 +105,27 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <label>Jarak ODP ke Pelanggan</label>
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
-                        </div>     
-                        <div class="form-group">                            
-                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
-                        </div>     
+                        </div>
                         <div class="form-group">
-                            <label>Supervisor</label>
-                            <select class="form-control border-input" name="id_spv" autocomplete="off" required>
-                            <?php foreach($kumpulanDataSpv as $spv) : ?>
-                                <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
-                            <?php endforeach ?>                                
-                            </select>
-                        </div>     
+                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                        </div>
                         <div class="form-group">
                             <label>Partner</label>
                             <select class="form-control border-input" name="id_partner" autocomplete="off" required>
                             <?php foreach($kumpulanDataPartner as $partner) : ?>
                                 <option value="<?=$partner['id_salesforce'] ?> "><?= $partner['nama'] ?></option>
-                            <?php endforeach ?>  
+                            <?php endforeach ?>
                             </select>
-                        </div>                       
+                        </div>
+                        <div class="form-group">
+                            <label>Supervisor</label>
+                            <select class="form-control border-input" name="id_spv" autocomplete="off" required>
+                            <?php foreach($kumpulanDataSpv as $spv) : ?>
+                                <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
+                            <?php endforeach ?>
+                            </select>
+                        </div>
+
                 <div>
                 <button type="submit" name='btn-save'>Simpan</button>
                 </div>

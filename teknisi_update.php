@@ -24,12 +24,12 @@ if(isset($_POST['btn-update'])){
 
 	if ($hasilQuery) {
 		echo '<script language="JavaScript">
-	alert("Update data berhasil!");
+	alert("Update Data Berhasil!");
 	window.location = "teknisi_tampil.php";
 	</script>';
 	} else {
 		echo '<script language="JavaScript">
-	alert("Update data gagal!");
+	alert("Update Data Gagal!");
 	window.location = "teknisi_tampil.php";
 	</script>';
 	}
@@ -44,7 +44,7 @@ if(isset($_POST['btn-update'])){
 
 else{ ?>
  <script language="JavaScript">
- alert("Pilih pelanggan terlebih dahulu");
+ alert("Pilih Pelanggan Terlebih Dahulu!");
  </script>
 <?php
 include("teknisi_tampil.php");

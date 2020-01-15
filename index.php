@@ -21,9 +21,9 @@
                     <div class="col-md-12">
                         <div class="card card-plain">
                             <div class="header">
-                                <h2 class="title" style="text-align:center"><b>Selamat datang!</b></h2>
+                                <h2 class="title" style="text-align:center"><b>Selamat Datang</b></h2>
                                 <br>
-                                <p class="text-center">Silahkan pilih halaman login di menu sidebar, sesuai dengan hak akses anda.</p>
+                                <p class="text-center">Silahkan Pilih Halaman Login di Menu Sidebar, Sesuai dengan Hak Akses Anda!</p>
                             </div>
                 	    </div>
                     </div>

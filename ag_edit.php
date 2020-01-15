@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("guard/guard_1.php");
 include("header.php");
 require("koneksi.php");
@@ -88,7 +88,6 @@ $paket = $data['paket'];
 $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
-
 $id_agency = $_SESSION['id'];
 $id_partner = $data['id_partner'];
 $id_spv = $data['id_spv'];
@@ -157,7 +156,7 @@ $id_spv = $data['id_spv'];
                                                                         autocomplete="off" required>
                                                                 </div>
                                                                 <div class='form-group'>
-                                                                    <label>ODP ke Pelanggan</label>
+                                                                    <label>Jarak ODP ke Pelanggan</label>
                                                                     <input type='text' class='form-control border-input'
                                                                         name='odp_ke_pelanggan'
                                                                         value='<?php echo $odp_ke_pelanggan ?>'
@@ -171,19 +170,19 @@ $id_spv = $data['id_spv'];
                                                                         autocomplete="off" required>
                                                                 </div>
                                                                 <div class='form-group'>
-                                                                    <label>Partner</label>                                                                   
+                                                                    <label>Partner</label>
                                                                         <select class="form-control border-input" name="id_partner" autocomplete="off" required>
                                                                         <?php foreach($kumpulanDataPartner as $partner) : ?>
                                                                             <option value="<?=$partner['id_salesforce'] ?> " <?php if($id_partner == $partner['id_salesforce']): echo 'selected'; endif;?>><?= $partner['nama'] ?></option>
-                                                                        <?php endforeach ?>                                
+                                                                        <?php endforeach ?>
                                                                         </select>
                                                                 </div>
                                                                 <div class='form-group'>
-                                                                    <label>SPV</label>
+                                                                    <label>Supervisor</label>
                                                                         <select class="form-control border-input" name="id_spv" autocomplete="off" required>
                                                                         <?php foreach($kumpulanDataSpv as $spv) : ?>
                                                                             <option value="<?=$spv['id_supervisor'] ?> " <?php if($id_spv == $spv['id_supervisor']): echo 'selected'; endif;?>><?= $spv['nama'] ?></option>
-                                                                        <?php endforeach ?>                                
+                                                                        <?php endforeach ?>
                                                                         </select>
                                                                 </div>
 

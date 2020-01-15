@@ -1,9 +1,33 @@
-<?php include("header.php");
-require("koneksi.php"); ?>
-<body>
-
 <?php
-include("sidebar/sidebar_dataplg_teknisi.php");
+include("guard/guard_8.php");
+include("header.php");
+require("koneksi.php");
+
+// $id = $_SESSION['id'];
+//
+//
+// //option untuk menampilkan spv yang dibawahinya
+// $querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id";
+// $runQuerySpv = mysqli_query($con,$querySpv);
+//
+// while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
+//     $kumpulanDataSpv[] = $dataSpv;
+// }
+// // end
+//
+// //option untuk menampilkan partner yang dibawahinya
+// $queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_agency = $id";
+// $runQueryPartner = mysqli_query($con,$queryPartner);
+//
+// while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
+//     $kumpulanDataPartner[] = $dataPartner;
+// }
+// // end
+
+?>
+<body>
+<?php
+include("sidebar/sidebar_dataplg_manager.php");
 if(isset($_GET['id'])){
 ?>
     <div class="main-panel">
@@ -47,74 +71,191 @@ $id = $_GET['id'];
 $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
 $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
+
 $track_id = $data['track_id'];
-$nama_teknisi = $data['nama_teknisi'];
+$nama_pelanggan = $data['nama_pelanggan'];
+$alamat = $data['alamat'];
+$ktp = $data['ktp'];
+$sto = $data['sto'];
+$second_cp = $data['second_cp'];
+$paket = $data['paket'];
 $tagging_rill = $data['tagging_rill'];
-$alamat_rill_pelanggan = $data['alamat_rill_pelanggan'];
-$cp_rill_pelanggan = $data['cp_rill_pelanggan'];
+$odp = $data['odp'];
+$odp_ke_pelanggan = $data['odp_ke_pelanggan'];
+$id_agency = $data['id'];
+$id_partner = $data['id_partner'];
+$no_sc = $data['no_sc'];
+$id_spv = $data['id_spv'];
+$status_validasi = $data['status_validasi'];
 $kategori_progress_psb = $data['kategori_progress_psb'];
 $keterangan_progress_psb = $data['keterangan_progress_psb'];
+$alamat_rill_pelanggan = $data['alamat_rill_pelanggan'];
+$cp_rill_pelanggan = $data['cp_rill_pelanggan'];
+$nama_teknisi = $data['nama_teknisi'];
 
 ?>
 
-                             <form method='post' action='teknisi_update.php'
-                             onsubmit='return confirm("Apakah data sudah benar?");'>
-                             <div class='col-md-4'>
-                            <div class='form-group'>
-                                <label>Track Id</label>
-                                <input type='text' class='form-control border-input' name='track_id' value='<?php echo $track_id ?>'  readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label>Nama Teknisi</label>
-                                <input type='text' class='form-control border-input' name='nama_teknisi' value='<?php echo $nama_teknisi ?>'  readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label>Tagging Rill</label>
-                                <input type='text' class='form-control border-input' name='tagging_rill' value='<?php echo $tagging_rill ?>'  autocomplete="off" required>
-                            </div>
-                            <div class='form-group'>
-                                <label>Alamat Rill Pelanggan</label>
-                                <input type='text' class='form-control border-input' name='alamat_rill_pelanggan' value='<?php echo $alamat_rill_pelanggan ?>'  autocomplete="off" required>
-                            </div>
-                            <div class='form-group'>
-                                <label>CP Rill Pelanggan</label>
-                                <input type='text' class='form-control border-input' name='cp_rill_pelanggan' value='<?php echo $cp_rill_pelanggan ?>'  autocomplete="off" required>
-                            </div>
-                            <div class='form-group'>
-                                <label>Kategori PSB</label>
-                                <input type='text' class='form-control border-input' name='kategori_progress_psb' value='<?php echo $kategori_progress_psb ?>'  autocomplete="off" required>
-                            </div>
-                            <div class='form-group'>
-                                <label>Keterangan PSB</label>
-                                <input type='text' class='form-control border-input' name='keterangan_progress_psb' value='<?php echo $keterangan_progress_psb ?>'  autocomplete="off" required>
-                            </div>
-
-
-				<br>
-                                     <button type="submit" class="btn btn-success"
-                                             name='btn-update'>Simpan</button>
-                                    </div>
-                                </form>
-
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+<form method='post' action='manager_update.php'
+    onsubmit='return confirm("Apakah data sudah benar?");'>
+    <div class='col-md-4'>
+        <div class='form-group'>
+            <label>Track Id</label>
+            <input type='text' class='form-control border-input'
+                value='<?php echo $track_id ?>' disabled>
+            <input type='text' class='form-control border-input'
+                name='track_id' value='<?php echo $track_id ?>'
+                style="display:none">
         </div>
+        <div class='form-group'>
+            <label>Nama Pelanggan</label>
+            <input type='text' class='form-control border-input'
+                name='nama_pelanggan'
+                value='<?php echo $nama_pelanggan ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Alamat</label>
+            <input type='text' class='form-control border-input'
+                name='alamat' value='<?php echo $alamat ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>No KTP</label>
+            <input type='text' class='form-control border-input'
+                name='ktp' value='<?php echo $ktp ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>STO</label>
+            <input type='text' class='form-control border-input'
+                name='sto' value='<?php echo $sto ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Second CP</label>
+            <input type='text' class='form-control border-input'
+                name='second_cp'
+                value='<?php echo $second_cp ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Paket</label>
+            <input type='text' class='form-control border-input'
+                name='paket' value='<?php echo $paket ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Tagging Rill</label>
+            <input type='text' class='form-control border-input'
+                name='tagging_rill'
+                value='<?php echo $tagging_rill ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>ODP</label>
+            <input type='text' class='form-control border-input'
+                name='odp' value='<?php echo $odp ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Jarak ODP ke Pelanggan</label>
+            <input type='text' class='form-control border-input'
+                name='odp_ke_pelanggan'
+                value='<?php echo $odp_ke_pelanggan ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Agency</label>
+                <select class="form-control border-input" name="id_agency" autocomplete="off" required>
+                <?php foreach($kumpulanDataAgency as $agency) : ?>
+                    <option value="<?=$agency['id_agency'] ?> " <?php if($id_agency == $agency['id_agency']): echo 'selected'; endif;?>><?= $agency['nama'] ?></option>
+                <?php endforeach ?>
+                </select>
+        </div>
+        <div class='form-group'>
+            <label>ID Partner</label>
+                <select class="form-control border-input" name="id_partner" autocomplete="off" required>
+                <?php foreach($kumpulanDataPartner as $partner) : ?>
+                    <option value="<?=$partner['id_salesforce'] ?> " <?php if($id_partner == $partner['id_salesforce']): echo 'selected'; endif;?>><?= $partner['nama'] ?></option>
+                <?php endforeach ?>
+                </select>
+        </div>
+        <div class='form-group'>
+            <label>No SC</label>
+            <input type='text' class='form-control border-input'
+                name='no_sc' value='<?php echo $no_sc ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>SPV</label>
+                <select class="form-control border-input" name="id_spv" autocomplete="off" required>
+                <?php foreach($kumpulanDataSpv as $spv) : ?>
+                    <option value="<?=$spv['id_supervisor'] ?> " <?php if($id_spv == $spv['id_supervisor']): echo 'selected'; endif;?>><?= $spv['nama'] ?></option>
+                <?php endforeach ?>
+                </select>
+        </div>
+        <div class='form-group'>
+            <label>Status Validasi</label>
+            <input type='text' class='form-control border-input'
+                name='status_validasi' value='<?php echo $status_validasi ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Kategori Progress PSB</label>
+            <input type='text' class='form-control border-input'
+                name='kategori_progress_psb' value='<?php echo $kategori_progress_psb ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Keterangan Progress PSB</label>
+            <input type='text' class='form-control border-input'
+                name='keterangan_progress_psb' value='<?php echo $keterangan_progress_psb ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Alamat Rill Pelanggan</label>
+            <input type='text' class='form-control border-input'
+                name='alamat_rill_pelanggan' value='<?php echo $alamat_rill_pelanggan ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>CP Rill Pelanggan</label>
+            <input type='text' class='form-control border-input'
+                name='cp_rill_pelanggan' value='<?php echo $cp_rill_pelanggan ?>'
+                autocomplete="off" required>
+        </div>
+        <div class='form-group'>
+            <label>Nama Teknisi</label>
+            <input type='text' class='form-control border-input'
+                name='nama_teknisi' value='<?php echo $nama_teknisi ?>'
+                autocomplete="off" required>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-success"
+            name='btn-update'>Simpan</button>
+    </div>
+</form>
+
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
 
 <?php
 include("footer.php");
 }
 else{ ?>
- <script language="JavaScript">
- alert("Pilih item terlebih dahulu");
- </script>
+<script language="JavaScript">
+alert("Pilih item terlebih dahulu");
+</script>
 <?php
-include("teknisi_tampil.php");
+include("manager_tampil.php");
 }
 ?>

@@ -12,9 +12,9 @@
       <th rowspan="2" class="text-center"><b>Jarak ODP ke Pelanggan</b></th>
       <th rowspan="2" class="text-center"><b>Tanggal Input Data</b></th>
       <th rowspan="2" class="text-center"><b>Agency</b></th>
-      <th rowspan="2" class="text-center"><b>ID Partner</b></th>
+      <th rowspan="2" class="text-center"><b>Partner</b></th>
       <th rowspan="2" class="text-center"><b>No SC</b></th>
-      <th rowspan="2" class="text-center"><b>SPV</b></th>
+      <th rowspan="2" class="text-center"><b>Supervisor</b></th>
       <th rowspan="2" class="text-center"><b>Status Validasi</b></th>
       <th colspan="2" class="text-center"><b>Progress PSB</b></th>
       <th rowspan="2" class="text-center"><b>Alamat Rill Pelanggan</b></th>
@@ -54,7 +54,7 @@ include("koneksi.php");
             <td><?php echo $data['alamat_rill_pelanggan'] ?></td>
             <td><?php echo $data['cp_rill_pelanggan'] ?></td>
             <td><?php echo $data['nama_teknisi'] ?></td>
-            <td><a href="inputer_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>
+            <td><a href="manager_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>
            <?php /* <td><a href="ag_hapus.php?id_ag=<?php echo $data['id_ag'] ?>" name="btn-hapus" onClick='return confirm("Yakin ingin menghapus data?");'>Hapus</a></td> */ ?>
 <?php echo "</tr>";
        }

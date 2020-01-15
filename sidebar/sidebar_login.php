@@ -22,7 +22,7 @@
                 <li <?php if(isset($page) && $page == 3): echo "class='active'"; endif ?>>
                     <a href="sf_index.php">
                         <i class="ti-panel"></i>
-                        <p>Login sales force</p>
+                        <p>Login Sales Force</p>
                     </a>
                 </li>
                 <li <?php if(isset($page) && $page == 4): echo "class='active'"; endif ?>>

@@ -1,6 +1,6 @@
 <?php include("header.php");
 require("koneksi.php");
-include("guard/guard_7.php");
+include("guard/guard_10.php");
 ?>
 <body>
 
@@ -35,7 +35,7 @@ include("guard/guard_7.php");
                                 <table class="table table-striped">
 
                                 <div class="col-md-12">
-                                        <div class="card card-plain">                                            
+                                        <div class="card card-plain">
                                             <br>
                                             <p class="category" style="font-size:12pt; text-align:center">
                                             Nama: <?php echo $_SESSION['nama'] ?>

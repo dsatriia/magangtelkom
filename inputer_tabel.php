@@ -12,9 +12,9 @@
       <th rowspan="2" class="text-center"><b>Jarak ODP ke Pelanggan</b></th>
       <th rowspan="2" class="text-center"><b>Tanggal Input Data</b></th>
       <th rowspan="2" class="text-center"><b>Agency</b></th>
-      <th rowspan="2" class="text-center"><b>ID Partner</b></th>
+      <th rowspan="2" class="text-center"><b>Partner</b></th>
       <th rowspan="2" class="text-center"><b>No SC</b></th>
-      <th rowspan="2" class="text-center"><b>SPV</b></th>
+      <th rowspan="2" class="text-center"><b>Supervisor</b></th>
       <th rowspan="2" class="text-center"><b>Status Validasi</b></th>
       <th colspan="2" class="text-center"><b>Progress PSB</b></th>
       <th rowspan="2" class="text-center"><b>Alamat Rill Pelanggan</b></th>

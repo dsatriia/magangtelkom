@@ -8,7 +8,7 @@ include("guard/guard_4.php")
 <?php
 include("sidebar/sidebar_dataplg_inputer.php"); ?>
     <div class="main-panel">
-        <nav class="navbar navbar-default">
+        <!-- <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header"
                 </div>
@@ -19,7 +19,7 @@ include("sidebar/sidebar_dataplg_inputer.php"); ?>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
 
 
         <div class="content">
@@ -34,7 +34,7 @@ include("sidebar/sidebar_dataplg_inputer.php"); ?>
                                 <div class="table-responsive" style="overflow:scroll">
                                     <?php include("inputer_tabel.php"); ?>
                                 </div>
-                            <!-- <a href="inputer_edit.php" style="font-size:15pt">Input Data Baru</a><br>
+                            <!-- <a href="manager_edit.php" style="font-size:15pt">Input Data Baru</a><br>
 				<br> -->
 				<br>
                             </div>

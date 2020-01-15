@@ -3,7 +3,7 @@ include("guard/guard_7.php");
 include("header.php");
 require("koneksi.php");
 ?>
-
+<body>
 <?php
 include("sidebar/sidebar_dataplg_woc.php");
 if(isset($_GET['id'])){
@@ -49,6 +49,7 @@ $id = $_GET['id'];
 $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
 $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
+
 $track_id = $data['track_id'];
 $tagging_rill = $data['tagging_rill'];
 $alamat_rill_pelanggan = $data['alamat_rill_pelanggan'];

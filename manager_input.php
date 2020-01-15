@@ -3,7 +3,7 @@ require("koneksi.php");
 include("header.php"); ?>
 <body>
 <?php
-include("guard/guard_1.php");
+include("guard/guard_8.php");
 $id = $_SESSION['id'];
 
 
@@ -28,43 +28,43 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
 
 
 ?>
-<?php include("sidebar/sidebar_dataplg_ag.php"); ?>
-    <div class="main-panel">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="font-size:18pt">Data Pelanggan</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+<?php include("sidebar/sidebar_dataplg_manager.php"); ?>
+<div class="main-panel">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" style="font-size:18pt">Data Pelanggan</a>
             </div>
-        </nav>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
 
-                    <div class="col-md-12">
-                        <div class="card card-plain">
-                            <div class="header">
-                                <p class="title" style="font-size:18pt; text-align:center"><b>Input Data Baru</b></p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <main>
-	<div class="container">
-		<div>
+                <div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="header">
+                            <p class="title" style="font-size:18pt; text-align:center"><b>Input Data Baru</b></p>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <main>
+<div class="container">
+<div>
 
-            <form method="post" action="ag_simpan.php">
+            <form method="post" action="manager_simpan.php">
                 <div class="col-md-4">
                         <div class="form-group">
                             <label>Track ID</label>
@@ -106,16 +106,13 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                             <label>Jarak ODP ke Pelanggan</label>
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
                         </div>
-                        <div class="form-group">
-                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Supervisor</label>
-                            <select class="form-control border-input" name="id_spv" autocomplete="off" required>
-                            <?php foreach($kumpulanDataSpv as $spv) : ?>
-                                <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
-                            <?php endforeach ?>
-                            </select>
+                        <div class='form-group'>
+                            <label>Agency</label>
+                                <select class="form-control border-input" name="id_agency" autocomplete="off" required>
+                                <?php foreach($kumpulanDataAgency as $agency) : ?>
+                                    <option value="<?=$agency['id_agency'] ?> " <?php if($id_agency == $agency['id_agency']): echo 'selected'; endif;?>><?= $agency['nama'] ?></option>
+                                <?php endforeach ?>
+                                </select>
                         </div>
                         <div class="form-group">
                             <label>Partner</label>
@@ -125,6 +122,55 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                             <?php endforeach ?>
                             </select>
                         </div>
+                        <div class='form-group'>
+                            <label>No SC</label>
+                            <input type='text' class='form-control border-input' name='no_sc' autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Supervisor</label>
+                            <select class="form-control border-input" name="id_spv" autocomplete="off" required>
+                            <?php foreach($kumpulanDataSpv as $spv) : ?>
+                                <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
+                            <?php endforeach ?>
+                            </select>
+                        </div>
+                        <div class='form-group'>
+                            <label>Status Validasi</label>
+                            <input type='text' class='form-control border-input'
+                                name='status_validasi'
+                                autocomplete="off" required>
+                        </div>
+                        <div class='form-group'>
+                            <label>Kategori Progress PSB</label>
+                            <input type='text' class='form-control border-input'
+                                name='kategori_progress_psb'
+                                autocomplete="off" required>
+                        </div>
+                        <div class='form-group'>
+                            <label>Keterangan Progress PSB</label>
+                            <input type='text' class='form-control border-input'
+                                name='keterangan_progress_psb'
+                                autocomplete="off" required>
+                        </div>
+                        <div class='form-group'>
+                            <label>Alamat Rill Pelanggan</label>
+                            <input type='text' class='form-control border-input'
+                                name='alamat_rill_pelanggan'
+                                autocomplete="off" required>
+                        </div>
+                        <div class='form-group'>
+                            <label>CP Rill Pelanggan</label>
+                            <input type='text' class='form-control border-input'
+                                name='cp_rill_pelanggan'
+                                autocomplete="off" required>
+                        </div>
+                        <div class='form-group'>
+                            <label>Nama Teknisi</label>
+                            <input type='text' class='form-control border-input'
+                                name='nama_teknisi'
+                                autocomplete="off" required>
+                        </div>
+
                 <div>
                 <button type="submit" name='btn-save'>Simpan</button>
                 </div>

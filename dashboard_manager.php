@@ -1,6 +1,6 @@
 <?php include("header.php");
 require("koneksi.php");
-include("guard/guard_7.php");
+include("guard/guard_8.php");
 ?>
 <body>
 

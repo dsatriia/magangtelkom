@@ -8,7 +8,7 @@ include("guard/guard_7.php")
 <?php
 include("sidebar/sidebar_dataplg_woc.php"); ?>
     <div class="main-panel">
-        <nav class="navbar navbar-default">
+        <!-- <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header"
                 </div>
@@ -19,7 +19,7 @@ include("sidebar/sidebar_dataplg_woc.php"); ?>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
 
 
         <div class="content">

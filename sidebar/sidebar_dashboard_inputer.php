@@ -11,7 +11,7 @@ require("koneksi.php");
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard_inpuer.php">
+                    <a href="dashboard_inputer.php">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>

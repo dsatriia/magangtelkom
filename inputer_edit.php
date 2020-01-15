@@ -51,6 +51,8 @@ $id = $_GET['id'];
 $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
 $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
+
+$track_id = $data['track_id'];
 $no_sc = $data['no_sc'];
 $status_validasi = $data['status_validasi'];
 
@@ -60,7 +62,10 @@ $status_validasi = $data['status_validasi'];
     onsubmit='return confirm("Apakah data sudah benar?");'>
     <div class='col-md-4'>
         <div class='form-group'>
-                           <input type="hidden" value="<?= $data['track_id'] ?>" name="track_id">
+                            <div class='form-group'>
+                                <label>Track Id</label>
+                                <input type='text' class='form-control border-input' name='track_id' value='<?php echo $track_id ?>'  readonly>
+                            </div>
                             <div class='form-group'>
                                 <label>No SC</label>
                                 <input type='text' class='form-control border-input' name='no_sc' value='<?php echo $no_sc ?>'  autocomplete="off" required>

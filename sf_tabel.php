@@ -12,9 +12,9 @@
       <th rowspan="2" class="text-center"><b>Jarak ODP ke Pelanggan</b></th>
       <th rowspan="2" class="text-center"><b>Tanggal Input Data</b></th>
       <th rowspan="2" class="text-center"><b>Agency</b></th>
-      <th rowspan="2" class="text-center"><b>ID Partner</b></th>
+      <th rowspan="2" class="text-center"><b>Partner</b></th>
       <th rowspan="2" class="text-center"><b>No SC</b></th>
-      <th rowspan="2" class="text-center"><b>SPV</b></th>
+      <th rowspan="2" class="text-center"><b>Supervisor</b></th>
       <th rowspan="2" class="text-center"><b>Status Validasi</b></th>
       <th colspan="2" class="text-center"><b>Progress PSB</b></th>
       <tr>
@@ -24,11 +24,6 @@
     </thead>
 <tbody>
 <?php
-
-
-
-
-
 
 include("koneksi.php");
     $id = $_SESSION['id'];
@@ -50,7 +45,7 @@ include("koneksi.php");
             <td><?php
 
               if ($data['id_agency'] == 0){
-                $agency = 'Belum ada Admin Agency';
+                $agency = 'Belum Ada Admin Agency';
               } else {
                 $id_agency = $data['id_agency'];
                 $query_agency = "SELECT nama FROM agency WHERE id_agency = $id_agency";
@@ -65,7 +60,7 @@ include("koneksi.php");
               <?php
 
               if ($data['id_partner'] == 0){
-                $partner = 'Belum ada Sales Force';
+                $partner = 'Belum Ada Sales Force';
               }else {
                 $id_partner = $data['id_partner'];
                 $query_partner = "SELECT nama FROM salesforce WHERE id_salesforce = $id_partner";
@@ -81,7 +76,7 @@ include("koneksi.php");
 
             <?php
             if ($data['id_spv'] == 0){
-              $spv = 'Belum ada Supervisor';
+              $spv = 'Belum Ada Supervisor';
             } else {
               $id_supervisor = $data['id_spv'];
               $query_supervisor = "SELECT nama FROM supervisor WHERE id_supervisor = $id_supervisor";
