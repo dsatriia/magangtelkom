@@ -3,26 +3,33 @@ include("guard/guard_8.php");
 include("header.php");
 require("koneksi.php");
 
-// $id = $_SESSION['id'];
-//
-//
-// //option untuk menampilkan spv yang dibawahinya
-// $querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id";
-// $runQuerySpv = mysqli_query($con,$querySpv);
-//
-// while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
-//     $kumpulanDataSpv[] = $dataSpv;
-// }
-// // end
-//
-// //option untuk menampilkan partner yang dibawahinya
-// $queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_agency = $id";
-// $runQueryPartner = mysqli_query($con,$queryPartner);
-//
-// while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
-//     $kumpulanDataPartner[] = $dataPartner;
-// }
-// // end
+//option untuk menampilkan seluruh agency
+$queryAgency = "SELECT id_agency, nama FROM `agency`";
+$runQueryAgency = mysqli_query($con,$queryAgency);
+$kumpulanDataAgency = [];
+while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
+    $kumpulanDataAgency[] = $dataAgency;
+}
+
+// end
+
+//option untuk menampilkan spv yang dibawahinya
+$querySpv = "SELECT id_supervisor, nama FROM `supervisor`";
+$runQuerySpv = mysqli_query($con,$querySpv);
+
+while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
+    $kumpulanDataSpv[] = $dataSpv;
+}
+// end
+
+//option untuk menampilkan partner yang dibawahinya
+$queryPartner = "SELECT id_salesforce, nama FROM `salesforce`";
+$runQueryPartner = mysqli_query($con,$queryPartner);
+
+while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
+    $kumpulanDataPartner[] = $dataPartner;
+}
+// end
 
 ?>
 <body>
@@ -82,7 +89,7 @@ $paket = $data['paket'];
 $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
-$id_agency = $data['id'];
+$id_agency = $data['id_agency'];
 $id_partner = $data['id_partner'];
 $no_sc = $data['no_sc'];
 $id_spv = $data['id_spv'];
@@ -169,7 +176,8 @@ $nama_teknisi = $data['nama_teknisi'];
                 <select class="form-control border-input" name="id_agency" autocomplete="off" required>
                 <?php foreach($kumpulanDataAgency as $agency) : ?>
                     <option value="<?=$agency['id_agency'] ?> " <?php if($id_agency == $agency['id_agency']): echo 'selected'; endif;?>><?= $agency['nama'] ?></option>
-                <?php endforeach ?>
+                <?php endforeach ;
+                ?>
                 </select>
         </div>
         <div class='form-group'>
