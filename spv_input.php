@@ -4,20 +4,20 @@ include("header.php"); ?>
 <body>
 <?php
 include("guard/guard_2.php");
-$id = $_SESSION['id'];
+$id_spv = $_SESSION['id'];
 
 
-//option untuk menampilkan spv yang dibawahinya
-$querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id";
-$runQuerySpv = mysqli_query($con,$querySpv);
+//mencari data id_admingency dari spv yg sedang login
+$queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
 
-while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
-    $kumpulanDataSpv[] = $dataSpv;
-}
+$runQueryCariAg = mysqli_query($con,$queryCariAg);
+
+$dataSpv = mysqli_fetch_assoc($runQueryCariAg);
+$id_ag = $dataSpv["id_agency"];
 // end
 
 //option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_supervisor = $id";
+$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_supervisor = $id_spv";
 $runQueryPartner = mysqli_query($con,$queryPartner);
 
 while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
@@ -105,12 +105,12 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <label>Jarak ODP ke Pelanggan</label>
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
+                        </div>                                               
+                        <div class="form-group">                            
+                            <input type="hidden" value="<?=$id_ag?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
                         </div>     
                         <div class="form-group">                            
-                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
-                        </div>     
-                        <div class="form-group">                            
-                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_spv" autocomplete="off" required>
+                            <input type="hidden" value="<?=$id_spv?>" class="form-control border-input" name="id_spv" autocomplete="off" required>
                         </div>     
                             <div class="form-group">
                             <label>Partner</label>

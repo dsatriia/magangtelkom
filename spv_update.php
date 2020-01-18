@@ -35,6 +35,7 @@ $track_id = $_POST['track_id'];
 		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
             id_partner='$id_partner', id_spv='$id_spv'
 	WHERE track_id = '$track_id'";
+	// echo $query;die;
 
 		$hasilQuery = mysqli_query($con, $query);
 		if ($hasilQuery) {

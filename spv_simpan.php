@@ -16,6 +16,8 @@ $id_spv = $_POST['id_spv'] ;
 $id_agency = $_POST['id_agency'] ;
 
 
+
+
 $query = "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'";
 $select = mysqli_query($con, $query);
 
@@ -34,19 +36,19 @@ $select = mysqli_query($con, $query);
   if(($jumlahCekKTP && $jumlahCekTrack) > 0){
     echo '<script language="JavaScript">
    alert("KTP dan Track pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "ag_tampil.php";
+   window.location = "spv_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekTrack > 0){
     echo '<script language="JavaScript">
    alert("Track ID pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "ag_tampil.php";
+   window.location = "spv_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekKTP > 0){
     echo '<script language="JavaScript">
    alert("KTP pernah diinputkan, silahkan hubungi admin witel!");
-   window.location = "ag_tampil.php";
+   window.location = "spv_tampil.php";
    </script>';
    die;
   }
@@ -54,6 +56,7 @@ $select = mysqli_query($con, $query);
  $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, id_partner, id_spv, id_agency)
  VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_partner', '$id_spv', '$id_agency')"; 
  $hasilQuery = mysqli_query($con, $query);  
+// echo $query;die;
 
  if ($hasilQuery) {
    

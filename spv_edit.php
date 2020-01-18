@@ -3,11 +3,20 @@ include("guard/guard_2.php");
 include("header.php");
 require("koneksi.php");
 
-$id = $_SESSION['id'];
+$id_spv = $_SESSION['id'];
+$id_pelanggan = $_GET['id'];
+
+//mencari data id_admingency dari spv yg sedang login
+$queryCariSpv = "SELECT * FROM `data_pelanggan` WHERE `id` = $id_pelanggan";
+$runQueryCariSpv = mysqli_query($con,$queryCariSpv);
+
+$dataSpv = mysqli_fetch_assoc($runQueryCariSpv);
+$id_spv = $dataSpv["id_spv"];
+// end
 
 
 // //option untuk menampilkan spv yang dibawahinya
-// $querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id";
+// $querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id_spv";
 // $runQuerySpv = mysqli_query($con,$querySpv);
 
 // while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
@@ -16,7 +25,8 @@ $id = $_SESSION['id'];
 // end
 
 //option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_agency = $id";
+$queryPartner = "SELECT * FROM salesforce WHERE id_supervisor= '$id_spv'";
+
 $runQueryPartner = mysqli_query($con,$queryPartner);
 
 while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
@@ -88,9 +98,20 @@ $paket = $data['paket'];
 $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
-$id_agency = $_SESSION['id'];
+
+
 $id_partner = $data['id_partner'];
 $id_spv = $data['id_spv'];
+
+
+//mencari data id_admingency dari spv yg sedang login
+$queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
+
+$runQueryCariAg = mysqli_query($con,$queryCariAg);
+
+$dataSpv = mysqli_fetch_assoc($runQueryCariAg);
+$id_agency = $dataSpv["id_agency"];
+// end
 
 $id_supervisor = $data['id_spv'];
 $query_supervisor = "SELECT nama FROM supervisor WHERE id_supervisor = $id_supervisor";
