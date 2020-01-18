@@ -30,17 +30,18 @@ include("guard/guard_2.php");
                         <div class="card">
                             <div class="header">
                                 <h2 class="title"><center><b>Selamat Datang di Telkom Witel Sidoarjo</b></center></h2>
-                            </div>
+                                </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
 
-                    <div class="col-md-12">
-                        <div class="card card-plain">
-                            <div class="header">
-                            </div>
-				<br>
-				<p class="category" style="font-size:12pt; text-align:center">Akses: <?php echo $_SESSION['username'] ?></a>
-                            <div class="content table-responsive table-full-width">
+                                <div class="col-md-12">
+                                        <div class="card card-plain">                                            
+                                            <br>
+                                            <p class="category" style="font-size:12pt; text-align:center">
+                                            Nama: <?php echo $_SESSION['nama'] ?>
+                                            <br>
+                                            Username: <?php echo $_SESSION['username'] ?>
+                                                <div class="content table-responsive table-full-width">
 <?php
 echo "</body>";
 include("footer.php"); ?>

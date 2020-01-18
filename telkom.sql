@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Jan 2020 pada 05.15
--- Versi server: 10.1.35-MariaDB
--- Versi PHP: 7.1.21
+-- Waktu pembuatan: 18 Jan 2020 pada 04.01
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,7 +33,7 @@ CREATE TABLE `agency` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '1'
+  `akses` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -57,13 +57,13 @@ CREATE TABLE `data_pelanggan` (
   `nama_pelanggan` varchar(25) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `ktp` varchar(20) NOT NULL,
-  `sto` varchar(25) NOT NULL,
+  `sto` int(11) NOT NULL,
   `second_cp` varchar(25) NOT NULL,
   `paket` varchar(25) NOT NULL,
   `tagging_rill` varchar(25) NOT NULL,
   `odp` varchar(25) NOT NULL,
   `odp_ke_pelanggan` varchar(25) NOT NULL,
-  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgl_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `no_sc` varchar(25) NOT NULL,
   `status_validasi` varchar(7) NOT NULL,
   `kategori_progress_psb` varchar(25) NOT NULL,
@@ -71,9 +71,9 @@ CREATE TABLE `data_pelanggan` (
   `alamat_rill_pelanggan` varchar(50) NOT NULL,
   `cp_rill_pelanggan` varchar(25) NOT NULL,
   `nama_teknisi` varchar(25) NOT NULL,
-  `id_partner` int(11) NOT NULL DEFAULT '0',
-  `id_spv` int(11) NOT NULL DEFAULT '0',
-  `id_agency` int(11) NOT NULL DEFAULT '0'
+  `id_partner` int(11) NOT NULL DEFAULT 0,
+  `id_spv` int(11) NOT NULL DEFAULT 0,
+  `id_agency` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -81,14 +81,16 @@ CREATE TABLE `data_pelanggan` (
 --
 
 INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp`, `sto`, `second_cp`, `paket`, `tagging_rill`, `odp`, `odp_ke_pelanggan`, `tgl_input`, `no_sc`, `status_validasi`, `kategori_progress_psb`, `keterangan_progress_psb`, `alamat_rill_pelanggan`, `cp_rill_pelanggan`, `nama_teknisi`, `id_partner`, `id_spv`, `id_agency`) VALUES
-(27, '1', 'Bayu', '1', '1', '1', '1', '1', '10', '1', '1', '2020-01-14 15:15:31', '99999', '99', 'baik', 'oke', 'Gresik', '02193812', 'Alam', 0, 0, 0),
-(28, '2', '2', '2', '2', '2', '2', '2', '5', '2', '3', '2020-01-14 04:12:13', '100', 'OK', 'Kendala', 'Ready', '5', '5', '5', 3, 3, 3),
-(29, '3', 'Rista', '3', '3', '3', '3', '3', '8', '3', '3', '2020-01-13 15:34:14', '11', 'OK', '8', '8', '7', '7', '7', 3, 6, 3),
-(30, '9', 'Alam', '9', '9', '9', '9', '9', '11', '9', '9', '2020-01-14 00:33:59', '', '', 'a', 'ready', 'Jati', '2', 'Rista', 3, 6, 3),
-(31, '9213', 'Dimas', 'Sidoarjo', '23', '0', 'lk', 'lk', 'lk', 'lk', '9', '2020-01-13 23:47:26', '', '', 'W', 'W', 'w', '4', '', 3, 3, 3),
-(32, '11', 'a', 'a', '10', '0', 'a', 'a', 'a', 'a', 'a', '2020-01-13 23:39:32', '', '', '', '', '', '', '', 3, 3, 3),
-(33, '12a', 'Rista', 'Kahuripan', '123456', '3', '5', '5', '5', '5', '5', '2020-01-13 23:40:51', '', '', '', '', '', '', '', 3, 3, 3),
-(34, '4', 'a', 'a', '4', 'N', 'a', 'P', 'a', 'a', 'a', '2020-01-14 16:28:02', '', '', '', '', '', '', '', 2, 3, 3);
+(27, '1', 'Bayu', '1', '1', 1, '1', '1', '10', '1', '1', '2020-01-13 12:00:23', '9', '99', 'baik', 'oke', 'Gresik', '02193812', 'Alam', 0, 0, 0),
+(28, '2', '2', '2', '2', 2, '2', '2', '5', '2', '2', '2020-01-13 23:36:06', '100', 'OK', 'Kendala', 'Ready', '5', '5', '5', 3, 3, 3),
+(29, '3', 'Ristaaa', '3', '3', 3, '3', '3', '8', '3', '3', '2020-01-14 05:15:09', '11', 'OK', '8', '8', '7', '7', '7', 3, 3, 3),
+(30, '9', 'Alam', '9', '954', 9, '9', '9', '11', 'gresik', '9', '2020-01-14 08:30:56', '', '', 'a', 'ready', 'Jati', '2', 'Rista', 2, 3, 3),
+(31, '9213', 'Dimas', 'Sidoarjo', '23', 0, 'lk', 'lk', 'lk', 'lk', '9', '2020-01-14 02:35:02', '', '', 'W', 'W', 'w', '4', '', 5, 7, 4),
+(32, '11', 'a', 'a', '10', 0, 'a', 'a', 'a', 'a', 'a', '2020-01-14 02:35:24', '', '', '', '', '', '', '', 5, 7, 4),
+(33, '12', 'Rista', 'Kahuripan', '123456', 3, '5', '5', '10', '5', '11', '2020-01-18 02:47:22', '', '', '', '', '', '', '', 4, 6, 3),
+(34, '8321', 'Alam No Agency', 'Gresik', '9213721', 2, '08721732', '3', '4', 'Surabaya', '20', '2020-01-14 03:13:49', '77', '', '', '', '', '', '', 6, 8, 0),
+(36, '9238', 'alammmm', 'alsdk', '93229', 1, '34938', '123', '92342', 'gresik', '10', '2020-01-18 02:42:11', '', '', '', '', '', '', '', 2, 3, 3),
+(37, '92138', 'Ristaaaa', 'Sidoarjo', '12939', 1, '81283921', '9', '29', 'surabaya', '20', '2020-01-18 02:45:24', '', '', '', '', '', '', '', 3, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -101,7 +103,7 @@ CREATE TABLE `inputer` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '4'
+  `akses` int(11) NOT NULL DEFAULT 4
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -123,7 +125,7 @@ CREATE TABLE `kasto` (
   `nama` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `username` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '10'
+  `akses` int(11) NOT NULL DEFAULT 10
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -145,7 +147,7 @@ CREATE TABLE `manager` (
   `nama` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `username` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '8'
+  `akses` int(11) NOT NULL DEFAULT 8
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -167,7 +169,7 @@ CREATE TABLE `picwitel` (
   `nama` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `username` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '9'
+  `akses` int(11) NOT NULL DEFAULT 9
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -189,7 +191,7 @@ CREATE TABLE `salesforce` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '3',
+  `akses` int(11) NOT NULL DEFAULT 3,
   `id_supervisor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -202,7 +204,8 @@ INSERT INTO `salesforce` (`id_salesforce`, `nama`, `username`, `password`, `akse
 (2, 'Sales Force 01', 'sf01', 'sf01', 3, 3),
 (3, 'Sales Force 02', 'sf02', 'sf02', 3, 3),
 (4, 'Sales Force 03', 'sf03', 'sf03', 3, 6),
-(5, 'Sales Force 04', 'sf04', 'sf04', 3, 7);
+(5, 'Sales Force 04', 'sf04', 'sf04', 3, 7),
+(6, 'Sales Force 05', 'sf05', 'sf05', 3, 8);
 
 -- --------------------------------------------------------
 
@@ -226,7 +229,7 @@ CREATE TABLE `supervisor` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '2',
+  `akses` int(11) NOT NULL DEFAULT 2,
   `id_agency` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -238,7 +241,8 @@ INSERT INTO `supervisor` (`id_supervisor`, `nama`, `username`, `password`, `akse
 (0, 'BELUM ADA SPV', 'BELUM ADA SPV', 'BELUM ADA SPV', 0, 0),
 (3, 'Supervisor 01', 'spv01', 'spv01', 2, 3),
 (6, 'Supervisor 02', 'spv02', 'spv02', 2, 3),
-(7, 'Supervisor 03', 'spv03', 'spv03', 2, 4);
+(7, 'Supervisor 03', 'spv03', 'spv03', 2, 4),
+(8, 'Supervisor 04', 'spv04', 'spv04', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -251,7 +255,7 @@ CREATE TABLE `teknisi` (
   `nama` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `username` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '5'
+  `akses` int(11) NOT NULL DEFAULT 5
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -273,7 +277,7 @@ CREATE TABLE `tl` (
   `nama` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `username` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '6'
+  `akses` int(11) NOT NULL DEFAULT 6
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -325,7 +329,7 @@ CREATE TABLE `woc` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `akses` int(11) NOT NULL DEFAULT '7'
+  `akses` int(11) NOT NULL DEFAULT 7
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -447,7 +451,7 @@ ALTER TABLE `agency`
 -- AUTO_INCREMENT untuk tabel `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT untuk tabel `inputer`
@@ -477,7 +481,7 @@ ALTER TABLE `picwitel`
 -- AUTO_INCREMENT untuk tabel `salesforce`
 --
 ALTER TABLE `salesforce`
-  MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `sto`
@@ -489,7 +493,7 @@ ALTER TABLE `sto`
 -- AUTO_INCREMENT untuk tabel `supervisor`
 --
 ALTER TABLE `supervisor`
-  MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `teknisi`
