@@ -96,8 +96,7 @@ include("koneksi.php");
             <td><?php echo $data['alamat_rill_pelanggan'] ?></td>
             <td><?php echo $data['cp_rill_pelanggan'] ?></td>
             <td><?php echo $data['nama_teknisi'] ?></td>
-            <td><a href="manager_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>
-           <?php /* <td><a href="ag_hapus.php?id_ag=<?php echo $data['id_ag'] ?>" name="btn-hapus" onClick='return confirm("Yakin ingin menghapus data?");'>Hapus</a></td> */ ?>
+            <td><a href="kasto_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin ingin meng-edit data?");'>Edit</a></td>
 <?php echo "</tr>";
        }
 ?>

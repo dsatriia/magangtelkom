@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("guard/guard_2.php");
 include("header.php");
 require("koneksi.php");
@@ -6,7 +6,7 @@ require("koneksi.php");
 $id_spv = $_SESSION['id'];
 $id_pelanggan = $_GET['id'];
 
-//mencari data id_admingency dari spv yg sedang login
+//mencari data id_adminagency dari spv yg sedang login
 $queryCariSpv = "SELECT * FROM `data_pelanggan` WHERE `id` = $id_pelanggan";
 $runQueryCariSpv = mysqli_query($con,$queryCariSpv);
 
@@ -104,7 +104,7 @@ $id_partner = $data['id_partner'];
 $id_spv = $data['id_spv'];
 
 
-//mencari data id_admingency dari spv yg sedang login
+//mencari data id_adminagency dari spv yg sedang login
 $queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
 
 $runQueryCariAg = mysqli_query($con,$queryCariAg);
@@ -184,7 +184,7 @@ $supervisor = $hasil_supervisor['nama'];
                                                                         autocomplete="off" required>
                                                                 </div>
                                                                 <div class='form-group'>
-                                                                    <label>ODP ke Pelanggan</label>
+                                                                    <label>Jarak ODP ke Pelanggan</label>
                                                                     <input type='text' class='form-control border-input'
                                                                         name='odp_ke_pelanggan'
                                                                         value='<?php echo $odp_ke_pelanggan ?>'
@@ -198,11 +198,11 @@ $supervisor = $hasil_supervisor['nama'];
                                                                         autocomplete="off" required>
                                                                 </div>
                                                                 <div class='form-group'>
-                                                                    <label>Partner</label>                                                                   
+                                                                    <label>Partner</label>
                                                                         <select class="form-control border-input" name="id_partner" autocomplete="off" required>
                                                                         <?php foreach($kumpulanDataPartner as $partner) : ?>
                                                                             <option value="<?=$partner['id_salesforce'] ?> " <?php if($id_partner == $partner['id_salesforce']): echo 'selected'; endif;?>><?= $partner['nama'] ?></option>
-                                                                        <?php endforeach ?>                                
+                                                                        <?php endforeach ?>
                                                                         </select>
                                                                 </div>
                                                                 <!-- <div class='form-group'>

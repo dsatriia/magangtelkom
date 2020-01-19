@@ -7,8 +7,7 @@
 <body>
 
 <?php
-
-$page = 2;
+$page = 10;
 include "sidebar/sidebar_login.php";?>
     <div class="main-panel">
         <div class="content">
@@ -25,7 +24,8 @@ include "sidebar/sidebar_login.php";?>
                         <div class="card card-plain">
                             <div class="header">
                                 <h2 class="title" style="text-align:center"><b>LOGIN</b></h2>
-                                <p class="category" style="font-size:18pt">Silahkan Login Menggunakan Username
+                                <br>
+                                <p class="text-center" style="font-size:18pt">Silahkan Login Menggunakan Username
                                     dan Password Anda!</p>
                             </div>
                        	<div class="content table-responsive table-full-width">
@@ -33,14 +33,14 @@ include "sidebar/sidebar_login.php";?>
                                 <div class="container">
                                     <div>
                                         <br>
-                                	    <form  method="post" action="spv_login.php">
+                                	    <form  method="post" action="kasto_login.php">
                                             <div>
                                 			    <label>Username :</label>
-                                				<input type="text" name="username" autocomplete="off" reqiuired>
+                                				<input type="text" name="username" autocomplete="off" required>
                                 		    </div>
                                 			<div>
                                 				<label>Password :</label>
-                                				<input type="password" name="password" autocomplete="off" reqiuired>
+                                				<input type="password" name="password" autocomplete="off" required>
                                 			<div>
                                 			<div>
                                                 <br>

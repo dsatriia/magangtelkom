@@ -1,5 +1,5 @@
 <?php
-include("guard/guard_8.php");
+include("guard/guard_10.php");
 include("header.php");
 require("koneksi.php");
 
@@ -34,7 +34,7 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
 ?>
 <body>
 <?php
-include("sidebar/sidebar_dataplg_manager.php");
+include("sidebar/sidebar_dataplg_kasto.php");
 if(isset($_GET['id'])){
 ?>
     <div class="main-panel">
@@ -102,7 +102,7 @@ $nama_teknisi = $data['nama_teknisi'];
 
 ?>
 
-<form method='post' action='manager_update.php'
+<form method='post' action='kasto_update.php'
     onsubmit='return confirm("Apakah data sudah benar?");'>
     <div class='col-md-4'>
         <div class='form-group'>
@@ -261,9 +261,9 @@ include("footer.php");
 }
 else{ ?>
 <script language="JavaScript">
-alert("Pilih item terlebih dahulu");
+alert("Pilih Item Terlebih Dahulu");
 </script>
 <?php
-include("manager_tampil.php");
+include("kasto_tampil.php");
 }
 ?>

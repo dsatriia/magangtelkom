@@ -10,15 +10,15 @@ require("koneksi.php");
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li>
                     <a href="dashboard_manager.php">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li >
+                <li class="active">
                     <a href="list_user_tampil.php">
-                        <i class="ti-view-list-alt"></i>
+                        <i class="ti-panel"></i>
                         <p>List User</p>
                     </a>
                 </li>
@@ -29,11 +29,12 @@ require("koneksi.php");
                     </a>
                 </li>
                 <li >
-                    <a href="logout.php" onClick='return confirm("Apakah Anda Yakin Ingin Keluar ?");'>
+                    <a href="logout.php" onClick='return confirm("Yakin ingin keluar?");'>
                         <i class="ti-panel"></i>
                         <p>Logout</p>
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>

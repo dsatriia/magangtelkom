@@ -10,7 +10,7 @@ include("guard/guard_2.php")
 include("sidebar/sidebar_dataplg_spv.php"); ?>
     <div class="main-panel">
         <!-- <nav class="navbar navbar-default">
-            <div class="container-fluid">                
+            <div class="container-fluid">
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                             </a>
@@ -34,10 +34,9 @@ include("sidebar/sidebar_dataplg_spv.php"); ?>
                             </div>
 
                             <div class="content">
-                                <div class="table-responsive" style="overflow:scroll">
-                                    <?php include("spv_tabel.php"); ?>
-                                </div>
-
+                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                                  <?php include("spv_tabel.php"); ?>
+                              </div>
                             </div>
 
 

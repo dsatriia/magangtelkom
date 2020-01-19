@@ -30,11 +30,9 @@ include("sidebar/sidebar_dataplg_teknisi.php"); ?>
                                 <h2 class="title text-center"><b>Data Pelanggan</b></h2>
                               </div>
                               <div class="content">
-                                  <div class="table-responsive" style="overflow:scroll">
-                                      <?php include("teknisi_tabel.php"); ?>
-                                  </div>                            <!-- <a href="ag_input.php" style="font-size:15pt">Input Data Baru</a><br>
-          <br> -->
-          <br>
+                                <div class="table-responsive" style="height:70vh;overflow:scroll">
+                                    <?php include("teknisi_tabel.php"); ?>
+                                </div>
                               </div>
                           </div>
                       </div>
