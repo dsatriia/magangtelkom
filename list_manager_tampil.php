@@ -27,13 +27,18 @@ include("sidebar/sidebar_list_user.php"); ?>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h2 class="title text-center"><b>List User</b></h2>
+                                <h2 class="title text-center"><b>List Anggota Manager</b></h2>
+                                <a class="btn btn-success" href="list_manager_input.php" style="font-size:15pt">+ Tambah User
+                                    Baru</a><br>
+                                <br>
                             </div>
 
                             <div class="content">
                               <div class="table-responsive">
-                                  <?php include("list_user_tabel.php"); ?>
+                                  <?php include("list_manager_tabel.php"); ?>
                               </div>
+                              <form method=post action=list_user_tampil.php>
+                              <button type="submit" class="btn btn-success" name="btn-back">Kembali</button>
 
                             </div>
 
@@ -46,5 +51,6 @@ include("sidebar/sidebar_list_user.php"); ?>
 
 
         </div>
+
         <?php include("footer.php"); ?>
 </body>

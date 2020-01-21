@@ -1,27 +1,57 @@
-<table class="table table-hover table-bordered">
-    <thead style="background-color:lightgrey" >
-      <th rowspan="2" class="text-center"><b>Username</b></th>
-      <th rowspan="2" class="text-center"><b>Password</b></th>
-      <th rowspan="2" class="text-center"><b>Akses</b></th>
-      <th rowspan="2" class="text-center"><b>Nama</b></th>
-      <th rowspan="2" class="text-center"><b>Action</b></th>
-    </thead>
-<tbody>
-<?php
-include("koneksi.php");
-    $id = $_SESSION['id'];
-    $query = "SELECT * FROM user";
-    $hasil = mysqli_query($con,$query);
-    while ($data = mysqli_fetch_array($hasil)){
-    echo "<tr>"; ?>
-            <td><?php echo $data['username'] ?></td>
-            <td><?php echo $data['password'] ?></td>
-            <td><?php echo $data['akses'] ?></td>
-            <td><?php echo $data['nama'] ?></td>
-            <td><a href="list_user_hapus.php?id=<?php echo $data['id'] ?>" name="btn-delete" onClick='return confirm("Yakin Ingin Menghapus User?");'>Hapus</a></td>
-           <?php /* <td><a href="ag_hapus.php?id_ag=<?php echo $data['id_ag'] ?>" name="btn-hapus" onClick='return confirm("Yakin ingin menghapus data?");'>Hapus</a></td> */ ?>
-<?php echo "</tr>";
-       }
-?>
-</tbody>
-</table>
+<div class="content">
+    <div class="container-fluid">
+
+            <ul class="nav">
+                <li <?php if(isset($page) && $page == 1): echo "class='active'"; endif ?>>
+                    <a href="list_ag_tampil.php">
+                        <p>Admin Agency</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 2): echo "class='active'"; endif ?>>
+                    <a href="list_spv_tampil.php">
+                        <p>Supervisor</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 3): echo "class='active'"; endif ?>>
+                    <a href="list_sf_tampil.php">
+                        <p>Sales Force</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 4): echo "class='active'"; endif ?>>
+                    <a href="list_inputer_tampil.php">
+                        <p>Inputer</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 5): echo "class='active'"; endif ?>>
+                    <a href="list_teknisi_tampil.php">
+                        <p>Teknisi</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 6): echo "class='active'"; endif ?>>
+                    <a href="list_tl_tampil.php">
+                        <p>TL</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 7): echo "class='active'"; endif ?>>
+                    <a href="list_woc_tampil.php">
+                        <p>WOC</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 8): echo "class='active'"; endif ?>>
+                    <a href="list_manager_tampil.php">
+                        <p>Manager</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 9): echo "class='active'"; endif ?>>
+                    <a href="list_picwitel_tampil.php">
+                        <p>PIC Witel</p>
+                    </a>
+                </li>
+                <li <?php if(isset($page) && $page == 10): echo "class='active'"; endif ?>>
+                    <a href="list_kasto_tampil.php">
+                        <p>Ka STO</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
