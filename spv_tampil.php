@@ -50,4 +50,5 @@ include("sidebar/sidebar_dataplg_spv.php"); ?>
 
         </div>
         <?php include("footer.php"); ?>
+
 </body>

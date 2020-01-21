@@ -23,14 +23,14 @@ if($data != NULL) {
 	 header("Location: dashboard_kasto.php");
 	} else {
 		echo '<script language="JavaScript">
-	alert("Login Gagal, Silahkan Coba Kembali.");
+	alert("Login Gagal! Silahkan Coba Kembali.");
 	window.location = "kasto_index.php";
 	</script>';
 	}
 }
 else {
 	echo '<script language="JavaScript">
-	alert("Login Gagal, Silahkan Coba Kembali.");
+	alert("Login Gagal! Silahkan Coba Kembali.");
 	window.location = "kasto_index.php";
 	</script>';
 }

@@ -44,44 +44,22 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
 include("sidebar/sidebar_dataplg_spv.php");
 if(isset($_GET['id'])){
 ?>
-    <div class="main-panel">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="font-size:18pt">Data Pelanggan</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                          <h2 class="title text-center"><b>Edit Data</b></h2>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                            <table class="table table-hover">
 
+<tbody>
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
-
-                                    <div class="col-md-12">
-                                        <div class="card card-plain">
-                                            <div class="header">
-                                                <h2 class="title">
-                                                    <center><b>Edit Data</b></center>
-                                                </h2>
-                                            </div>
-                                            <div class="content table-responsive table-full-width">
-                                                <table class="table table-hover">
-                                                    <tbody>
-
-                                                        <?php
+<?php
 require("koneksi.php");
 $id = $_GET['id'];
 $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
@@ -222,7 +200,7 @@ $supervisor = $hasil_supervisor['nama'];
                                                                 </div>
 
                                                                 <br>
-                                                                <button type="submit" class="btn btn-success"
+                                                                <button type="submit" class="btn btn-info"
                                                                     name='btn-update'>Simpan</button>
                                                             </div>
                                                         </form>

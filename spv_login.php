@@ -15,24 +15,24 @@ if($data != NULL) {
 
 	if($akses==2){
 	 session_start();
-	 	
+
 	 $_SESSION['id']=$id;
 	 $_SESSION['nama']=$nama;
 	 $_SESSION['username']=$username;
 	 $_SESSION['status']=$akses;
 	 header("Location: dashboard_spv.php");
-	} else {			
+	} else {
 		echo '<script language="JavaScript">
-	alert("Login gagal, silahkan coba kembali.");
+	alert("Login Gagal! Silahkan Coba Kembali.");
 	window.location = "spv_index.php";
-	</script>';	
+	</script>';
 	}
 }
-else {			
+else {
 	echo '<script language="JavaScript">
-	alert("Login gagal, silahkan coba kembali.");
+	alert("Login Gagal! Silahkan Coba Kembali.");
 	window.location = "spv_index.php";
-	</script>';	
+	</script>';
 }
 
  ?>

@@ -43,5 +43,6 @@ include("sidebar/sidebar_dataplg_inputer.php"); ?>
                 </div>
             </div>
         </div>
-<?php include("footer.php"); ?>
+        <?php include("footer.php"); ?>
+
 </body>

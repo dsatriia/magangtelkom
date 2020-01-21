@@ -40,5 +40,6 @@ include("sidebar/sidebar_dataplg_woc.php"); ?>
                 </div>
             </div>
         </div>
-<?php include("footer.php"); ?>
+        <?php include("footer.php"); ?>
+
 </body>

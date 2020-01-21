@@ -14,36 +14,18 @@ include("header.php");
 
 <?php include("sidebar/sidebar_list_user.php"); ?>
 <div class="main-panel">
-    <!-- <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" style="font-size:18pt">List kasto</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
+                          <h2 class="title text-center"><b>Tambah User Baru</b></h2>
                         </div>
                         <div class="content table-responsive table-full-width">
                             <table class="table table-striped">
+                            <table class="table table-hover">
 
-                <div class="col-md-12">
-                    <div class="card card-plain">
-                        <div class="header">
-                            <p class="title" style="font-size:18pt; text-align:center"><b>Tambah User Baru</b></p>
-                        </div>
-                        <div class="content table-responsive table-full-width">
                             <main>
 <div class="container">
 <div>
@@ -67,13 +49,13 @@ include("header.php");
                             <select class="form-control border-input" name="id_supervisor" autocomplete="off" required>
                             <?php foreach($hasilSpv as $id_supervisor) : ?>
                                 <option value="<?=$id_supervisor['id_supervisor'] ?> "><?= $id_supervisor['nama'] ?></option>
-                            <?php endforeach ?>  
+                            <?php endforeach ?>
                             </select>
-                        </div>               
+                        </div>
 
 
                 <div>
-                <button type="submit" class="btn btn-success" name="btn-save">Simpan</button>
+                <button type="submit" class="btn btn-info" name="btn-save">Simpan</button>
                 </div>
             </form>
 		</div>
@@ -88,4 +70,4 @@ include("header.php");
                 </div>
             </div>
         </div>
-<?php include("footer.php"); ?>
+        <?php include("footer.php"); ?>

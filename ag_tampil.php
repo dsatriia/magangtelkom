@@ -10,7 +10,7 @@ include("guard/guard_1.php")
 include("sidebar/sidebar_dataplg_ag.php"); ?>
     <div class="main-panel">
         <!-- <nav class="navbar navbar-default">
-            <div class="container-fluid">                
+            <div class="container-fluid">
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                             </a>
@@ -50,5 +50,5 @@ include("sidebar/sidebar_dataplg_ag.php"); ?>
 
 
         </div>
-        <?php include("footer.php"); ?>
+      <?php include("footer.php"); ?>
 </body>

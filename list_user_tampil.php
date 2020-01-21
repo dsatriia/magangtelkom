@@ -46,5 +46,4 @@ include("sidebar/sidebar_list_user.php"); ?>
 
 
         </div>
-        <?php include("footer.php"); ?>
 </body>

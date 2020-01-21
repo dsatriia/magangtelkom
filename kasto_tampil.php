@@ -52,4 +52,5 @@ include("sidebar/sidebar_dataplg_kasto.php"); ?>
 
         </div>
         <?php include("footer.php"); ?>
+
 </body>

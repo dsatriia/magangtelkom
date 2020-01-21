@@ -38,7 +38,7 @@ include("sidebar/sidebar_list_user.php"); ?>
                                   <?php include("list_inputer_tabel.php"); ?>
                               </div>
                               <form method=post action=list_user_tampil.php>
-                              <button type="submit" class="btn btn-success" name="btn-back">Kembali</button>
+                              <button type="submit" class="btn btn-info" name="btn-back">Kembali</button>
 
                             </div>
 
@@ -51,6 +51,6 @@ include("sidebar/sidebar_list_user.php"); ?>
 
 
         </div>
-
         <?php include("footer.php"); ?>
+
 </body>

@@ -23,14 +23,14 @@ if($data != NULL) {
 	 header("Location: dashboard_teknisi.php");
 	} else {
 		echo '<script language="JavaScript">
-	alert("Login gagal, silahkan coba kembali.");
+	alert("Login Gagal! Silahkan Coba Kembali.");
 	window.location = "teknisi_index.php";
 	</script>';
 	}
 }
 else {
 	echo '<script language="JavaScript">
-	alert("Login gagal, silahkan coba kembali.");
+	alert("Login Gagal! Silahkan Coba Kembali.");
 	window.location = "teknisi_index.php";
 	</script>';
 }
