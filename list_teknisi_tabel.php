@@ -8,7 +8,7 @@
 <tbody>
 <?php
 include("koneksi.php");
-    $id = $_SESSION['id'];
+ //   $id = $_SESSION['id'];
     $query = "SELECT * FROM teknisi";
     $hasil = mysqli_query($con,$query);
     while ($data = mysqli_fetch_array($hasil)){

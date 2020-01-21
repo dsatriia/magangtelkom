@@ -8,7 +8,7 @@
 <tbody>
 <?php
 include("koneksi.php");
-    $id_kasto = $_SESSION['id_kasto'];
+   // $id_kasto = $_SESSION['id_kasto'];
     $query = "SELECT * FROM kasto";
     $hasil = mysqli_query($con,$query);
     while ($data = mysqli_fetch_array($hasil)){

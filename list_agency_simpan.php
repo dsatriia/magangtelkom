@@ -5,27 +5,23 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $nama = $_POST['nama'];
 
-
-$query = "SELECT * FROM teknisi WHERE username='$username'";
+$query = "SELECT * FROM agency WHERE username='$username'";
 $select = mysqli_query($con, $query);
 
-
-  $cekUsername = "SELECT `username` FROM teknisi WHERE `username`='$username'";
-  // echo $cekTrack;
+  $cekUsername = "SELECT `username` FROM agency WHERE `username`='$username'";
   $runCekUsername = mysqli_query($con, $cekUsername);
   $jumlahCekUsername = mysqli_num_rows($runCekUsername);
-
 
 
   if(($jumlahCekUsername) > 0){
     echo '<script language="JavaScript">
    alert("Username Pernah Diinputkan!");
-   window.location = "list_teknisi_tampil.php";
+   window.location = "list_agency_tampil.php";
    </script>';
    die;
  }
 
- $query = "INSERT INTO teknisi (username, password, nama)
+ $query = "INSERT INTO agency (username, password, nama)
  VALUES ('$username', '$password', '$nama')";
  $hasilQuery = mysqli_query($con, $query);
 
@@ -33,13 +29,13 @@ $select = mysqli_query($con, $query);
 
  echo '<script language="JavaScript">
    alert("Penyimpanan Berhasil!");
-   window.location = "list_teknisi_tampil.php";
+   window.location = "list_agency_tampil.php";
    </script>';
 
  } else {
   echo '<script language="JavaScript">
   alert("Penyimpanan Gagal!");
-  window.location = "list_teknisi_tampil.php";
+  window.location = "list_agency_tampil.php";
   </script>';
  }
 
@@ -50,6 +46,6 @@ else{ ?>
 alert("Isilah Form Terlebih Dahulu");
 </script>
 <?php
-include("list_teknisi_input.php");
+include("list_agency_input.php");
 }
 ?>

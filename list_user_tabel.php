@@ -3,7 +3,7 @@
 
             <ul class="nav">
                 <li <?php if(isset($page) && $page == 1): echo "class='active'"; endif ?>>
-                    <a href="list_ag_tampil.php">
+                    <a href="list_agency_tampil.php">
                         <p>Admin Agency</p>
                     </a>
                 </li>

@@ -8,7 +8,7 @@
 <tbody>
 <?php
 include("koneksi.php");
-    $id_manager = $_SESSION['id_manager'];
+  //  $id_manager = $_SESSION['id_manager'];
     $query = "SELECT * FROM manager";
     $hasil = mysqli_query($con,$query);
     while ($data = mysqli_fetch_array($hasil)){

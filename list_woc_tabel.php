@@ -8,7 +8,7 @@
 <tbody>
 <?php
 include("koneksi.php");
-    $id_woc = $_SESSION['id_woc'];
+   // $id_woc = $_SESSION['id_woc'];
     $query = "SELECT * FROM woc";
     $hasil = mysqli_query($con,$query);
     while ($data = mysqli_fetch_array($hasil)){

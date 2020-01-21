@@ -8,7 +8,7 @@
 <tbody>
 <?php
 include("koneksi.php");
-    $id_picwitel = $_SESSION['id_picwitel'];
+   // $id_picwitel = $_SESSION['id_picwitel'];
     $query = "SELECT * FROM picwitel";
     $hasil = mysqli_query($con,$query);
     while ($data = mysqli_fetch_array($hasil)){
