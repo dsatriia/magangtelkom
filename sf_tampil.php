@@ -10,7 +10,7 @@ include("guard/guard_3.php")
 include("sidebar/sidebar_dataplg_sf.php"); ?>
     <div class="main-panel">
         <!-- <nav class="navbar navbar-default">
-            <div class="container-fluid">                
+            <div class="container-fluid">
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                             </a>
@@ -34,9 +34,9 @@ include("sidebar/sidebar_dataplg_sf.php"); ?>
                             </div>
 
                             <div class="content">
-                                <div class="table-responsive" style="overflow:scroll">
-                                    <?php include("sf_tabel.php"); ?>
-                                </div>
+                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                                  <?php include("sf_tabel.php"); ?>
+                              </div>
 
                             </div>
 
@@ -51,4 +51,5 @@ include("sidebar/sidebar_dataplg_sf.php"); ?>
 
         </div>
         <?php include("footer.php"); ?>
+
 </body>

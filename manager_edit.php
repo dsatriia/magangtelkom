@@ -37,40 +37,20 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
 include("sidebar/sidebar_dataplg_manager.php");
 if(isset($_GET['id'])){
 ?>
-    <div class="main-panel">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="font-size:18pt">Data Pelanggan</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                          <h2 class="title text-center"><b>Edit Data</b></h2>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                            <table class="table table-hover">
 
-
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
-
-                    <div class="col-md-12">
-                        <div class="card card-plain">
-                            <div class="header">
-                                <h2 class="title"><center><b>Edit Data</b></center></h2>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
-                                    <tbody>
+<tbody>
 
 <?php
 require("koneksi.php");
@@ -181,7 +161,7 @@ $nama_teknisi = $data['nama_teknisi'];
                 </select>
         </div>
         <div class='form-group'>
-            <label>ID Partner</label>
+            <label>Partner</label>
                 <select class="form-control border-input" name="id_partner" autocomplete="off" required>
                 <?php foreach($kumpulanDataPartner as $partner) : ?>
                     <option value="<?=$partner['id_salesforce'] ?> " <?php if($id_partner == $partner['id_salesforce']): echo 'selected'; endif;?>><?= $partner['nama'] ?></option>
@@ -195,7 +175,7 @@ $nama_teknisi = $data['nama_teknisi'];
                 autocomplete="off" required>
         </div>
         <div class='form-group'>
-            <label>SPV</label>
+            <label>Supervisor</label>
                 <select class="form-control border-input" name="id_spv" autocomplete="off" required>
                 <?php foreach($kumpulanDataSpv as $spv) : ?>
                     <option value="<?=$spv['id_supervisor'] ?> " <?php if($id_spv == $spv['id_supervisor']): echo 'selected'; endif;?>><?= $spv['nama'] ?></option>
@@ -240,7 +220,7 @@ $nama_teknisi = $data['nama_teknisi'];
         </div>
 
         <br>
-        <button type="submit" class="btn btn-success"
+        <button type="submit" class="btn btn-info"
             name='btn-update'>Simpan</button>
     </div>
 </form>

@@ -35,39 +35,39 @@ $select = mysqli_query($con, $query);
 
   if(($jumlahCekKTP && $jumlahCekTrack) > 0){
     echo '<script language="JavaScript">
-   alert("KTP dan Track pernah diinputkan, silahkan hubungi admin witel!");
+   alert("KTP dan Track ID Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "spv_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekTrack > 0){
     echo '<script language="JavaScript">
-   alert("Track ID pernah diinputkan, silahkan hubungi admin witel!");
+   alert("Track ID Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "spv_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekKTP > 0){
     echo '<script language="JavaScript">
-   alert("KTP pernah diinputkan, silahkan hubungi admin witel!");
+   alert("KTP Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "spv_tampil.php";
    </script>';
    die;
   }
 
  $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, id_partner, id_spv, id_agency)
- VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_partner', '$id_spv', '$id_agency')"; 
- $hasilQuery = mysqli_query($con, $query);  
+ VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_partner', '$id_spv', '$id_agency')";
+ $hasilQuery = mysqli_query($con, $query);
 // echo $query;die;
 
  if ($hasilQuery) {
-   
+
  echo '<script language="JavaScript">
-   alert("Penyimpanan berhasil!");
+   alert("Penyimpanan Berhasil!");
    window.location = "spv_tampil.php";
    </script>';
 
  } else {
   echo '<script language="JavaScript">
-  alert("Penyimpanan gagal!");
+  alert("Penyimpanan Gagal!");
   window.location = "spv_tampil.php";
   </script>';
  }
@@ -76,9 +76,9 @@ $con->close();
 }
 else{ ?>
 <script language="JavaScript">
-alert("Isilah form terlebih dahulu");
+alert("Isilah Form Terlebih Dahulu");
 </script>
 <?php
-include("ag_input.php");
+include("spv_input.php");
 }
 ?>

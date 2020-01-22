@@ -1,4 +1,4 @@
-<?php 
+<?php
 require("koneksi.php");
 include("header.php"); ?>
 <body>
@@ -29,40 +29,22 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
 
 ?>
 <?php include("sidebar/sidebar_dataplg_spv.php"); ?>
-    <div class="main-panel">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="font-size:18pt">Data Pelanggan</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                          <h2 class="title text-center"><b>Input Data Baru</b></h2>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                            <table class="table table-hover">
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
-
-                    <div class="col-md-12">
-                        <div class="card card-plain">
-                            <div class="header">
-                                <p class="title" style="font-size:18pt; text-align:center"><b>Input Data Baru</b></p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <main>
-	<div class="container">
-		<div>
+                            <main>
+<div class="container">
+<div>
 
             <form method="post" action="spv_simpan.php">
                 <div class="col-md-4">
@@ -105,23 +87,24 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <label>Jarak ODP ke Pelanggan</label>
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
-                        </div>                                               
-                        <div class="form-group">                            
+                        </div>
+                        <div class="form-group">
                             <input type="hidden" value="<?=$id_ag?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
-                        </div>     
-                        <div class="form-group">                            
+                        </div>
+                        <div class="form-group">
                             <input type="hidden" value="<?=$id_spv?>" class="form-control border-input" name="id_spv" autocomplete="off" required>
-                        </div>     
+                        </div>
                             <div class="form-group">
                             <label>Partner</label>
                             <select class="form-control border-input" name="id_partner" autocomplete="off" required>
                             <?php foreach($kumpulanDataPartner as $partner) : ?>
                                 <option value="<?=$partner['id_salesforce'] ?> "><?= $partner['nama'] ?></option>
-                            <?php endforeach ?>  
+                            <?php endforeach ?>
                             </select>
-                        </div>                       
+                        </div>
                 <div>
-                <button type="submit" name='btn-save'>Simpan</button>
+                  <br>
+                <button type="submit" class="btn btn-info" name="btn-save">Simpan</button>
                 </div>
             </form>
 		</div>
@@ -136,4 +119,4 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                 </div>
             </div>
         </div>
-<?php include("footer.php"); ?>
+        <?php include("footer.php"); ?>

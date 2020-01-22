@@ -8,34 +8,21 @@ include("guard/guard_2.php");
   include("sidebar/sidebar_dashboard_spv.php");
   ?>
 
-    <div class="main-panel">
-	<nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="font-size:18pt">Dashboard</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2 class="title"><center><b>Selamat Datang di Telkom Witel Sidoarjo</b></center></h2>
-                                </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
+  <div class="main-panel">
+      <div class="content">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="card">
+                          <div class="header">
+                            <h2 class="title text-center"><b>Selamat Datang di Telkom Witel Sidoarjo</b></h2>
+                          </div>
+                          <div class="content table-responsive table-full-width">
+                              <table class="table table-striped">
+                              <table class="table table-hover">
 
                                 <div class="col-md-12">
-                                        <div class="card card-plain">                                            
+                                        <div class="card card-plain">
                                             <br>
                                             <p class="category" style="font-size:12pt; text-align:center">
                                             Nama: <?php echo $_SESSION['nama'] ?>

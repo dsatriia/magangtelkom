@@ -17,7 +17,7 @@ if(isset($_POST['btn-update'])){
 
 
 	$query = "UPDATE data_pelanggan SET track_id = '$track_id', tagging_rill = '$tagging_rill', alamat_rill_pelanggan = '$alamat_rill_pelanggan', cp_rill_pelanggan = '$cp_rill_pelanggan', kategori_progress_psb='$kategori_progress_psb',
-          keterangan_progress_psb='$keterangan_progress_psb', nama_teknisi='nama_teknisi' WHERE track_id = '$track_id'";
+          keterangan_progress_psb='$keterangan_progress_psb', nama_teknisi='$nama_teknisi' WHERE track_id = '$track_id'";
 
 	// echo $query;die;
 	$hasilQuery = mysqli_query($con, $query);

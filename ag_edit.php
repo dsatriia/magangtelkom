@@ -35,43 +35,21 @@ include("sidebar/sidebar_dataplg_ag.php");
 if(isset($_GET['id'])){
 ?>
     <div class="main-panel">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="font-size:18pt">Data Pelanggan</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
+                              <h2 class="title text-center"><b>Edit Data</b></h2>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
+                                <table class="table table-hover">
 
-                                    <div class="col-md-12">
-                                        <div class="card card-plain">
-                                            <div class="header">
-                                                <h2 class="title">
-                                                    <center><b>Edit Data</b></center>
-                                                </h2>
-                                            </div>
-                                            <div class="content table-responsive table-full-width">
-                                                <table class="table table-hover">
-                                                    <tbody>
+<tbody>
 
-                                                        <?php
+<?php
 require("koneksi.php");
 $id = $_GET['id'];
 $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
@@ -187,7 +165,7 @@ $id_spv = $data['id_spv'];
                                                                 </div>
 
                                                                 <br>
-                                                                <button type="submit" class="btn btn-success"
+                                                                <button type="submit" class="btn btn-info"
                                                                     name='btn-update'>Simpan</button>
                                                             </div>
                                                         </form>

@@ -16,19 +16,14 @@ include "sidebar/sidebar_login.php";?>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title"></h4>
+                              <h2 class="title text-center"><b>LOGIN</b></h2>
+                              <br>
+                              <p class="text-center" style="font-size:16pt">Silahkan Login Menggunakan Username dan Password Anda!</p>
                             </div>
                             <div class="content table-responsive table-full-width">
-                                <table class="table">
-                    <div class="col-md-12">
-                        <div class="card card-plain">
-                            <div class="header">
-                                <h2 class="title" style="text-align:center"><b>LOGIN</b></h2>
-                                <br>
-                                <p class="text-center" style="font-size:18pt">Silahkan Login Menggunakan Username
-                                    dan Password Anda!</p>
-                            </div>
-                       	<div class="content table-responsive table-full-width">
+                                <table class="table table-striped">
+                                <table class="table table-hover">
+
                             <main>
                                 <div class="container">
                                     <div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("guard/guard_2.php");
 include("header.php");
 require("koneksi.php");
@@ -6,7 +6,7 @@ require("koneksi.php");
 $id_spv = $_SESSION['id'];
 $id_pelanggan = $_GET['id'];
 
-//mencari data id_admingency dari spv yg sedang login
+//mencari data id_adminagency dari spv yg sedang login
 $queryCariSpv = "SELECT * FROM `data_pelanggan` WHERE `id` = $id_pelanggan";
 $runQueryCariSpv = mysqli_query($con,$queryCariSpv);
 
@@ -44,44 +44,22 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
 include("sidebar/sidebar_dataplg_spv.php");
 if(isset($_GET['id'])){
 ?>
-    <div class="main-panel">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="font-size:18pt">Data Pelanggan</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                          <h2 class="title text-center"><b>Edit Data</b></h2>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                            <table class="table table-hover">
 
+<tbody>
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
-
-                                    <div class="col-md-12">
-                                        <div class="card card-plain">
-                                            <div class="header">
-                                                <h2 class="title">
-                                                    <center><b>Edit Data</b></center>
-                                                </h2>
-                                            </div>
-                                            <div class="content table-responsive table-full-width">
-                                                <table class="table table-hover">
-                                                    <tbody>
-
-                                                        <?php
+<?php
 require("koneksi.php");
 $id = $_GET['id'];
 $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
@@ -104,7 +82,7 @@ $id_partner = $data['id_partner'];
 $id_spv = $data['id_spv'];
 
 
-//mencari data id_admingency dari spv yg sedang login
+//mencari data id_adminagency dari spv yg sedang login
 $queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
 
 $runQueryCariAg = mysqli_query($con,$queryCariAg);
@@ -184,7 +162,7 @@ $supervisor = $hasil_supervisor['nama'];
                                                                         autocomplete="off" required>
                                                                 </div>
                                                                 <div class='form-group'>
-                                                                    <label>ODP ke Pelanggan</label>
+                                                                    <label>Jarak ODP ke Pelanggan</label>
                                                                     <input type='text' class='form-control border-input'
                                                                         name='odp_ke_pelanggan'
                                                                         value='<?php echo $odp_ke_pelanggan ?>'
@@ -198,11 +176,11 @@ $supervisor = $hasil_supervisor['nama'];
                                                                         autocomplete="off" required>
                                                                 </div>
                                                                 <div class='form-group'>
-                                                                    <label>Partner</label>                                                                   
+                                                                    <label>Partner</label>
                                                                         <select class="form-control border-input" name="id_partner" autocomplete="off" required>
                                                                         <?php foreach($kumpulanDataPartner as $partner) : ?>
                                                                             <option value="<?=$partner['id_salesforce'] ?> " <?php if($id_partner == $partner['id_salesforce']): echo 'selected'; endif;?>><?= $partner['nama'] ?></option>
-                                                                        <?php endforeach ?>                                
+                                                                        <?php endforeach ?>
                                                                         </select>
                                                                 </div>
                                                                 <!-- <div class='form-group'>
@@ -222,7 +200,7 @@ $supervisor = $hasil_supervisor['nama'];
                                                                 </div>
 
                                                                 <br>
-                                                                <button type="submit" class="btn btn-success"
+                                                                <button type="submit" class="btn btn-info"
                                                                     name='btn-update'>Simpan</button>
                                                             </div>
                                                         </form>

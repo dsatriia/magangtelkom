@@ -35,9 +35,9 @@ include("sidebar/sidebar_dataplg_manager.php"); ?>
                             </div>
 
                             <div class="content">
-                                <div class="table-responsive" style="overflow:scroll">
-                                    <?php include("manager_tabel.php"); ?>
-                                </div>
+                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                                  <?php include("manager_tabel.php"); ?>
+                              </div>
 
                             </div>
 
@@ -51,4 +51,5 @@ include("sidebar/sidebar_dataplg_manager.php"); ?>
 
         </div>
         <?php include("footer.php"); ?>
+
 </body>

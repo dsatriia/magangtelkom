@@ -40,12 +40,12 @@ $track_id = $_POST['track_id'];
 		$hasilQuery = mysqli_query($con, $query);
 		if ($hasilQuery) {
 			echo '<script language="JavaScript">
-			alert("Update data berhasil!");
+			alert("Update Data Berhasil!");
 			window.location = "spv_tampil.php";
 			</script>';
 		} else {
 			echo '<script language="JavaScript">
-		alert("Update data gagal!");
+		alert("Update Data Gagal!");
 		window.location = "spv_tampil.php";
 		</script>';
 		}
@@ -53,7 +53,7 @@ $track_id = $_POST['track_id'];
 
 	 } else if ($jumlahCekKtp > 0) {
 		echo '<script language="JavaScript">
-		alert("Update data gagal:\nData sudah ada");
+		alert("Update Data Gagal!:\nData Sudah Ada");
 		window.location = "spv_tampil.php";
 			</script>';
 	 } else {
@@ -63,7 +63,7 @@ $track_id = $_POST['track_id'];
 
 		$hasilQuery = mysqli_query($con, $query);
 		if ($hasilQuery) echo '<script language="JavaScript">
-		alert("Update data berhasil");
+		alert("Update Data Berhasil");
 		window.location = "spv_tampil.php";
 		</script>';
 	 }
@@ -74,7 +74,7 @@ $track_id = $_POST['track_id'];
 
 else{ ?>
 <script language="JavaScript">
-alert("Pilih pelanggan terlebih dahulu");
+alert("Pilih Pelanggan Terlebih Dahulu");
 </script>
 <?php
 include("spv_tampil.php");
