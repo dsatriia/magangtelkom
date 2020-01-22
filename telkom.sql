@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Jan 2020 pada 16.28
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.1
+-- Generation Time: Jan 22, 2020 at 05:01 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `agency`
+-- Table structure for table `agency`
 --
 
 CREATE TABLE `agency` (
@@ -37,18 +37,18 @@ CREATE TABLE `agency` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `agency`
+-- Dumping data for table `agency`
 --
 
 INSERT INTO `agency` (`id_agency`, `nama`, `username`, `password`, `akses`) VALUES
 (0, 'BELUM ADA AGENCY', 'BELUM ADA AGENCY', 'BELUM ADA AGENCY', 0),
-(1, 'Admin Agency 01', 'adminagency01', 'adminagency01', 1),
-(2, 'Admin Agency 02', 'adminagency02', 'adminagency02', 1);
+(3, 'Admin Agency 01', 'adminagency01', 'adminagency01', 1),
+(4, 'Admin Agency 02', 'adminagency02', 'adminagency02', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_pelanggan`
+-- Table structure for table `data_pelanggan`
 --
 
 CREATE TABLE `data_pelanggan` (
@@ -57,7 +57,7 @@ CREATE TABLE `data_pelanggan` (
   `nama_pelanggan` varchar(25) COLLATE latin7_general_cs NOT NULL,
   `alamat` varchar(50) COLLATE latin7_general_cs NOT NULL,
   `ktp` varchar(20) COLLATE latin7_general_cs NOT NULL,
-  `sto` varchar(25) COLLATE latin7_general_cs NOT NULL,
+  `sto` int(11) NOT NULL,
   `second_cp` varchar(25) COLLATE latin7_general_cs NOT NULL,
   `paket` varchar(25) COLLATE latin7_general_cs NOT NULL,
   `tagging_rill` varchar(25) COLLATE latin7_general_cs NOT NULL,
@@ -77,25 +77,32 @@ CREATE TABLE `data_pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `data_pelanggan`
+-- Dumping data for table `data_pelanggan`
 --
 
 INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp`, `sto`, `second_cp`, `paket`, `tagging_rill`, `odp`, `odp_ke_pelanggan`, `tgl_input`, `no_sc`, `status_validasi`, `kategori_progress_psb`, `keterangan_progress_psb`, `alamat_rill_pelanggan`, `cp_rill_pelanggan`, `nama_teknisi`, `id_partner`, `id_spv`, `id_agency`) VALUES
-(1, '9001', 'Alam', 'Surabaya', '1234567890123401', 'Sidoarjo', '085456789012', '1', '10', 'Gresik', '20', '2020-01-19 14:50:17', '1', 'OK', 'Normal', 'Selesai', 'Gresik', '085756789012', 'Rista', 1, 1, 1),
-(2, '9002', 'Rista', 'Gresik', '1234567890123402', 'Surabaya', '081456789012', '2', '20', 'Surabaya', '15', '2020-01-19 14:50:17', '2', 'OK', 'Kendala', 'Ready', 'Sidoarjo', '0813456789011', 'Alam', 2, 1, 1),
-(3, '9003', 'Dimsa', 'Gresik', '1234567890123403', 'Gresik', '085456789013', '3', '30', 'Gresik', '25', '2020-01-19 15:21:11', '3', 'OK', 'Normal', 'Berhasil', 'Surabaya', '085756789013', 'Alam', 3, 2, 1),
-(4, '9004', 'Alam AM', 'Sidoarjo', '1234567890123404', 'Gresik', '085456789014', '4', '40', 'Sidoarjo', '15', '2020-01-19 14:50:17', '4', 'NOT OK', 'Belum Selesai', 'Kendala', 'Driyorejo', '085756789014', 'Rista', 4, 3, 2),
-(5, '9005', 'Aprilia', 'Sidoarjo', '1234567890123405', 'Sidoarjo', '085456789015', '5', '50', 'Kahuripan', '5', '2020-01-19 15:06:54', '5', 'NOT OK', 'Belum Selesai', 'Kendala', 'Kahuripan', '085756789015', 'Alam', 5, 4, 0),
-(6, '9006', 'Alam Dua', 'Gresik', '1234567890123406', 'Surabaya', '085456789006', '6', '60', 'Surabaya', '15', '2020-01-19 15:17:40', '', '', '', '', '', '', '', 1, 1, 1),
-(7, '9007', 'Rista Dua', 'Kahuripan', '1234567890123407', 'Kahuripan', '085456789007', '7', '70', 'Kahuripan', '10', '2020-01-19 15:17:40', '', '', '', '', '', '', '', 2, 1, 1),
-(8, '9008', 'Dimsa Dua', 'Surabaya', '1234567890123408', 'Surabaya', '085456789008', '8', '80', 'Surabaya', '10', '2020-01-19 15:21:11', '', '', '', '', '', '', '', 3, 2, 1),
-(9, '9009', 'Alam AM Dua', 'Driyorejo', '1234567890123409', 'Driyorejo', '085456789009', '9', '90', 'Bambe', '9', '2020-01-19 15:17:40', '', '', '', '', '', '', '', 4, 3, 2),
-(10, '9010', 'Aprilia Dua', 'Sidoarjo', '1234567890123410', 'Surabaya', '085456789010', '10', '100', 'Kahuripan', '15', '2020-01-19 15:17:40', '', '', '', '', '', '', '', 5, 4, 0);
+(27, '1', 'Bayu', '1', '1', 1, '1', '1', '10', '1', '1', '2020-01-13 12:00:23', '9', '99', 'baik', 'oke', 'Gresik', '02193812', 'Alam', 0, 0, 0),
+(28, '2', '2', '2', '2', 2, '2', '2', '5', '2', '2', '2020-01-13 23:36:06', '100', 'OK', 'Kendala', 'Ready', '5', '5', '5', 3, 3, 3),
+(29, '3', 'Ristaaa', '3', '3', 3, '3', '3', '8', '3', '3', '2020-01-14 05:15:09', '11', 'OK', '8', '8', '7', '7', '7', 3, 3, 3),
+(30, '9', 'Alam', '9', '954', 9, '9', '9', '11', 'gresik', '9', '2020-01-14 08:30:56', '', '', 'a', 'ready', 'Jati', '2', 'Rista', 2, 3, 3),
+(31, '9213', 'Dimas', 'Sidoarjo', '23', 0, 'lk', 'lk', 'lk', 'lk', '9', '2020-01-14 02:35:02', '', '', 'W', 'W', 'w', '4', '', 5, 7, 4),
+(32, '11', 'a', 'a', '10', 0, 'a', 'a', 'a', 'a', 'a', '2020-01-14 02:35:24', '', '', '', '', '', '', '', 5, 7, 4),
+(33, '12', 'Rista', 'Kahuripan', '123456', 3, '5', '5', '10', '5', '11', '2020-01-18 02:47:22', '', '', '', '', '', '', '', 4, 6, 3),
+(34, '8321', 'Alam No Agency', 'Gresik', '9213721', 2, '08721732', '3', '4', 'Surabaya', '20', '2020-01-14 03:13:49', '77', '', '', '', '', '', '', 6, 8, 0),
+(36, '9238', 'alammmm', 'alsdk', '93229', 1, '34938', '123', '92342', 'gresik', '10', '2020-01-18 02:42:11', '', '', '', '', '', '', '', 2, 3, 3),
+(37, '92138', 'Ristaaaa', 'Sidoarjo', '12939', 1, '81283921', '9', '29', 'surabaya', '20', '2020-01-18 02:45:24', '', '', '', '', '', '', '', 3, 3, 3),
+(39, '324322', 'Gontor', 'jk', '324235', 0, 'j', 'j', 'k', 'kj', 'k', '2020-01-18 09:19:53', '', '', '', '', '', '', '', 0, 8, 0),
+(40, '242342', 'Botak', 'sf', '3532523', 0, 'kjh', 'jkh', 'kj', 'hkj', 'hjk', '2020-01-18 09:21:40', '', '', '', '', '', '', '', 5, 7, 4),
+(41, '5353', 'Dimbay', 'jh', '8798', 0, 'kjh', 'k', 'hku', 'h', 'kuh', '2020-01-18 09:45:46', '', '', '', '', '', '', '', 0, 8, 0),
+(42, '234324', 'Jomban', 'kjjoi', '98798', 0, 'jkh', 'kh', 'uihi', 'uh', 'iu', '2020-01-18 09:51:51', '', '', '', '', '', '', '', 6, 8, 0),
+(43, '87987', 'Manda', 'hoh', '987987987', 0, 'hjk', 'hk', 'hkj', 'h', 'kj', '2020-01-18 09:52:24', '', '', '', '', '', '', '', 6, 8, 0),
+(44, '98098', 'Naomi', 'jk', '9', 0, 'h', 'jkh', 'jk', 'h', 'jkh', '2020-01-18 15:02:17', 'jkh', 'hkjh', 'kj', 'hj', 'kh', 'kjh', 'kjh', 2, 8, 4),
+(45, '12424234', 'Joko Susilo', 'jkji', '897987', 0, 'jk', 'h', 'jk', 'hkj', 'hjk', '2020-01-22 03:47:03', '', '', '', '', '', '', '', 2, 3, 3);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `inputer`
+-- Table structure for table `inputer`
 --
 
 CREATE TABLE `inputer` (
@@ -107,7 +114,7 @@ CREATE TABLE `inputer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `inputer`
+-- Dumping data for table `inputer`
 --
 
 INSERT INTO `inputer` (`id_inputer`, `nama`, `username`, `password`, `akses`) VALUES
@@ -117,7 +124,7 @@ INSERT INTO `inputer` (`id_inputer`, `nama`, `username`, `password`, `akses`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kasto`
+-- Table structure for table `kasto`
 --
 
 CREATE TABLE `kasto` (
@@ -129,7 +136,7 @@ CREATE TABLE `kasto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `kasto`
+-- Dumping data for table `kasto`
 --
 
 INSERT INTO `kasto` (`id_kasto`, `nama`, `username`, `password`, `akses`) VALUES
@@ -139,7 +146,7 @@ INSERT INTO `kasto` (`id_kasto`, `nama`, `username`, `password`, `akses`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `manager`
+-- Table structure for table `manager`
 --
 
 CREATE TABLE `manager` (
@@ -151,7 +158,7 @@ CREATE TABLE `manager` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `manager`
+-- Dumping data for table `manager`
 --
 
 INSERT INTO `manager` (`id_manager`, `nama`, `username`, `password`, `akses`) VALUES
@@ -161,7 +168,7 @@ INSERT INTO `manager` (`id_manager`, `nama`, `username`, `password`, `akses`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `picwitel`
+-- Table structure for table `picwitel`
 --
 
 CREATE TABLE `picwitel` (
@@ -173,7 +180,7 @@ CREATE TABLE `picwitel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `picwitel`
+-- Dumping data for table `picwitel`
 --
 
 INSERT INTO `picwitel` (`id_picwitel`, `nama`, `username`, `password`, `akses`) VALUES
@@ -183,7 +190,7 @@ INSERT INTO `picwitel` (`id_picwitel`, `nama`, `username`, `password`, `akses`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `salesforce`
+-- Table structure for table `salesforce`
 --
 
 CREATE TABLE `salesforce` (
@@ -196,21 +203,21 @@ CREATE TABLE `salesforce` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `salesforce`
+-- Dumping data for table `salesforce`
 --
 
 INSERT INTO `salesforce` (`id_salesforce`, `nama`, `username`, `password`, `akses`, `id_supervisor`) VALUES
 (0, 'BELUM ADA SF', 'BELUM ADA SF', 'BELUM ADA SF', 0, 0),
-(1, 'Sales Force 01', 'sf01', 'sf01', 3, 1),
-(2, 'Sales Force 02', 'sf02', 'sf02', 3, 1),
-(3, 'Sales Force 03', 'sf03', 'sf03', 3, 2),
-(4, 'Sales Force 04', 'sf04', 'sf04', 3, 3),
-(5, 'Sales Force 05', 'sf05', 'sf05', 3, 4);
+(2, 'Sales Force 01', 'sf01', 'sf01', 3, 3),
+(3, 'Sales Force 02', 'sf02', 'sf02', 3, 3),
+(4, 'Sales Force 03', 'sf03', 'sf03', 3, 6),
+(5, 'Sales Force 04', 'sf04', 'sf04', 3, 7),
+(6, 'Sales Force 05', 'sf05', 'sf05', 3, 8);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sto`
+-- Table structure for table `sto`
 --
 
 CREATE TABLE `sto` (
@@ -221,7 +228,7 @@ CREATE TABLE `sto` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supervisor`
+-- Table structure for table `supervisor`
 --
 
 CREATE TABLE `supervisor` (
@@ -234,20 +241,20 @@ CREATE TABLE `supervisor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `supervisor`
+-- Dumping data for table `supervisor`
 --
 
 INSERT INTO `supervisor` (`id_supervisor`, `nama`, `username`, `password`, `akses`, `id_agency`) VALUES
 (0, 'BELUM ADA SPV', 'BELUM ADA SPV', 'BELUM ADA SPV', 0, 0),
-(1, 'Supervisor 01', 'spv01', 'spv01', 2, 1),
-(2, 'Supervisor 02', 'spv02', 'spv02', 2, 1),
-(3, 'Supervisor 03', 'spv03', 'spv03', 2, 2),
-(4, 'Supervisor 04', 'spv04', 'spv04', 2, 0);
+(3, 'Supervisor 01', 'spv01', 'spv01', 2, 3),
+(6, 'Supervisor 02', 'spv02', 'spv02', 2, 3),
+(7, 'Supervisor 03', 'spv03', 'spv03', 2, 4),
+(8, 'Supervisor 04', 'spv04', 'spv04', 2, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `teknisi`
+-- Table structure for table `teknisi`
 --
 
 CREATE TABLE `teknisi` (
@@ -259,7 +266,7 @@ CREATE TABLE `teknisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `teknisi`
+-- Dumping data for table `teknisi`
 --
 
 INSERT INTO `teknisi` (`id_teknisi`, `nama`, `username`, `password`, `akses`) VALUES
@@ -269,7 +276,7 @@ INSERT INTO `teknisi` (`id_teknisi`, `nama`, `username`, `password`, `akses`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tl`
+-- Table structure for table `tl`
 --
 
 CREATE TABLE `tl` (
@@ -281,18 +288,17 @@ CREATE TABLE `tl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `tl`
+-- Dumping data for table `tl`
 --
 
 INSERT INTO `tl` (`id_tl`, `nama`, `username`, `password`, `akses`) VALUES
 (1, 'TL 01', 'tl01', 'tl01', 6),
-(2, 'TL 02', 'tl02', 'tl02', 6),
-(3, 'TL 03', 'tl03', 'tl03', 6);
+(2, 'TL 02', 'tl02', 'tl02', 6);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -304,7 +310,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `akses`, `nama`) VALUES
@@ -316,12 +322,28 @@ INSERT INTO `user` (`id`, `username`, `password`, `akses`, `nama`) VALUES
 (9, 'tl01', 'tl01', 6, 'Rista TL'),
 (10, 'woc01', 'woc01', 7, 'Rista WOC'),
 (11, 'manager01', 'manager01', 8, 'Rista Manager'),
-(12, 'picwitel01', 'picwitel01', 9, 'Rista PIC Witel');
+(12, 'picwitel01', 'picwitel01', 9, 'Rista PIC Witel'),
+(13, 'kasto01', 'kasto01', 10, 'Rista Ka  STO'),
+(14, 'adminagency02', 'adminagency02', 1, 'Admin Agency 02'),
+(15, 'spv02', 'spv02', 2, 'spv02'),
+(16, 'spv03', 'spv03', 2, 'spv03'),
+(17, 'spv04', 'spv04', 2, 'spv04'),
+(18, 'sf02', 'sf02', 3, 'Alam SF'),
+(19, 'sf03', 'sf03', 3, 'Alam SF'),
+(20, 'sf04', 'sf04', 3, 'Alam SF'),
+(21, 'sf05', 'sf05', 3, 'Alam SF'),
+(22, 'inputer02', 'inputer02', 4, 'Alam Inputer'),
+(23, 'teknisi02', 'teknisi02', 5, 'Alam Teknisi'),
+(24, 'tl02', 'tl02', 6, 'Rista TL'),
+(25, 'woc02', 'woc02', 7, 'Rista WOC'),
+(26, 'manager02', 'manager02', 8, 'Rista Manager'),
+(27, 'picwitel02', 'picwitel02', 9, 'Rista PIC Witel'),
+(28, 'kasto02', 'kasto02', 10, 'Rista Ka  STO');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `woc`
+-- Table structure for table `woc`
 --
 
 CREATE TABLE `woc` (
@@ -333,7 +355,7 @@ CREATE TABLE `woc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
 
 --
--- Dumping data untuk tabel `woc`
+-- Dumping data for table `woc`
 --
 
 INSERT INTO `woc` (`id_woc`, `nama`, `username`, `password`, `akses`) VALUES
@@ -345,14 +367,14 @@ INSERT INTO `woc` (`id_woc`, `nama`, `username`, `password`, `akses`) VALUES
 --
 
 --
--- Indeks untuk tabel `agency`
+-- Indexes for table `agency`
 --
 ALTER TABLE `agency`
   ADD PRIMARY KEY (`id_agency`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `data_pelanggan`
+-- Indexes for table `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
   ADD PRIMARY KEY (`id`),
@@ -362,35 +384,35 @@ ALTER TABLE `data_pelanggan`
   ADD KEY `pelanggan ke sf` (`id_partner`);
 
 --
--- Indeks untuk tabel `inputer`
+-- Indexes for table `inputer`
 --
 ALTER TABLE `inputer`
   ADD PRIMARY KEY (`id_inputer`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `kasto`
+-- Indexes for table `kasto`
 --
 ALTER TABLE `kasto`
   ADD PRIMARY KEY (`id_kasto`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `manager`
+-- Indexes for table `manager`
 --
 ALTER TABLE `manager`
   ADD PRIMARY KEY (`id_manager`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `picwitel`
+-- Indexes for table `picwitel`
 --
 ALTER TABLE `picwitel`
   ADD PRIMARY KEY (`id_picwitel`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `salesforce`
+-- Indexes for table `salesforce`
 --
 ALTER TABLE `salesforce`
   ADD PRIMARY KEY (`id_salesforce`),
@@ -398,13 +420,13 @@ ALTER TABLE `salesforce`
   ADD KEY `sf ke spv` (`id_supervisor`);
 
 --
--- Indeks untuk tabel `sto`
+-- Indexes for table `sto`
 --
 ALTER TABLE `sto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `supervisor`
+-- Indexes for table `supervisor`
 --
 ALTER TABLE `supervisor`
   ADD PRIMARY KEY (`id_supervisor`),
@@ -412,119 +434,119 @@ ALTER TABLE `supervisor`
   ADD KEY `spv ke agency` (`id_agency`);
 
 --
--- Indeks untuk tabel `teknisi`
+-- Indexes for table `teknisi`
 --
 ALTER TABLE `teknisi`
   ADD PRIMARY KEY (`id_teknisi`);
 
 --
--- Indeks untuk tabel `tl`
+-- Indexes for table `tl`
 --
 ALTER TABLE `tl`
   ADD PRIMARY KEY (`id_tl`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `woc`
+-- Indexes for table `woc`
 --
 ALTER TABLE `woc`
   ADD PRIMARY KEY (`id_woc`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `agency`
+-- AUTO_INCREMENT for table `agency`
 --
 ALTER TABLE `agency`
-  MODIFY `id_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `data_pelanggan`
+-- AUTO_INCREMENT for table `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT untuk tabel `inputer`
+-- AUTO_INCREMENT for table `inputer`
 --
 ALTER TABLE `inputer`
   MODIFY `id_inputer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `kasto`
+-- AUTO_INCREMENT for table `kasto`
 --
 ALTER TABLE `kasto`
   MODIFY `id_kasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `manager`
+-- AUTO_INCREMENT for table `manager`
 --
 ALTER TABLE `manager`
   MODIFY `id_manager` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `picwitel`
+-- AUTO_INCREMENT for table `picwitel`
 --
 ALTER TABLE `picwitel`
   MODIFY `id_picwitel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `salesforce`
+-- AUTO_INCREMENT for table `salesforce`
 --
 ALTER TABLE `salesforce`
-  MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `sto`
+-- AUTO_INCREMENT for table `sto`
 --
 ALTER TABLE `sto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `supervisor`
+-- AUTO_INCREMENT for table `supervisor`
 --
 ALTER TABLE `supervisor`
-  MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `teknisi`
+-- AUTO_INCREMENT for table `teknisi`
 --
 ALTER TABLE `teknisi`
   MODIFY `id_teknisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tl`
+-- AUTO_INCREMENT for table `tl`
 --
 ALTER TABLE `tl`
-  MODIFY `id_tl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT untuk tabel `woc`
+-- AUTO_INCREMENT for table `woc`
 --
 ALTER TABLE `woc`
   MODIFY `id_woc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `data_pelanggan`
+-- Constraints for table `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
   ADD CONSTRAINT `pelanggan ke agency` FOREIGN KEY (`id_agency`) REFERENCES `agency` (`id_agency`),
@@ -532,13 +554,13 @@ ALTER TABLE `data_pelanggan`
   ADD CONSTRAINT `pelanggan ke spv` FOREIGN KEY (`id_spv`) REFERENCES `supervisor` (`id_supervisor`);
 
 --
--- Ketidakleluasaan untuk tabel `salesforce`
+-- Constraints for table `salesforce`
 --
 ALTER TABLE `salesforce`
   ADD CONSTRAINT `sf ke spv` FOREIGN KEY (`id_supervisor`) REFERENCES `supervisor` (`id_supervisor`);
 
 --
--- Ketidakleluasaan untuk tabel `supervisor`
+-- Constraints for table `supervisor`
 --
 ALTER TABLE `supervisor`
   ADD CONSTRAINT `spv ke agency` FOREIGN KEY (`id_agency`) REFERENCES `agency` (`id_agency`);
