@@ -36,6 +36,7 @@ include("koneksi.php");
 
     //mencari data id_admingency dari spv yg sedang login
     $queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
+    // echo $queryCariAg;
     $runQueryCariAg = mysqli_query($con,$queryCariAg);
 
     $dataSpv = mysqli_fetch_assoc($runQueryCariAg);
