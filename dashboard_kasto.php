@@ -25,9 +25,9 @@ include("guard/guard_10.php");
                                         <div class="card card-plain">
                                             <br>
                                             <p class="category" style="font-size:12pt; text-align:center">
-                                            Nama: <?php echo $_SESSION['nama'] ?>
+                                            Nama : <?php echo $_SESSION['nama'] ?>
                                             <br>
-                                            Username: <?php echo $_SESSION['username'] ?>
+                                            Kode ID : <?php echo $_SESSION['username'] ?>
                                                 <div class="content table-responsive table-full-width">
 <?php
 echo "</body>";

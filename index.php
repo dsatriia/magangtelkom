@@ -16,11 +16,11 @@
 
             <ul class="nav">
                 <li class='active'>
-                    <a href="ag_index.php">
+                    <a href="index.php">
                         <i class="ti-panel"></i>
                         <p>Login</p>
                     </a>
-                </li>                
+                </li>
             </ul>
         </div>
     </div>

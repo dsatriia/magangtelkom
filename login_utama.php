@@ -15,12 +15,12 @@ if($data != NULL) {
 	$akses = $data['akses'];
 
 	if($akses==1){
-        $query="SELECT * FROM agency WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM detail_sales_admin_agency WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
 
-        $id = $data['id_agency'];
+        $id = $data['id_admin_agency'];
         $nama = $data['nama'];
         $username = $data['username'];
         $akses = $data['akses'];
@@ -32,8 +32,8 @@ if($data != NULL) {
         $_SESSION['username']=$username;
         $_SESSION['status']=$akses;
         header("Location: dashboard_ag.php");
-    } 
-    
+    }
+
     else if($akses==2){
 
         $query="SELECT * FROM supervisor WHERE username='$username' AND password='$password'";
@@ -75,12 +75,12 @@ if($data != NULL) {
     }
     else if($akses==4){
 
-        $query="SELECT * FROM inputer WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM detail_picwitel WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
 
-        $id = $data['id_inputer'];
+        $id = $data['id_picwitel'];
         $nama = $data['nama'];
         $username = $data['username'];
         $akses = $data['akses'];
@@ -95,12 +95,12 @@ if($data != NULL) {
     }
     else if($akses==5){
 
-        $query="SELECT * FROM teknisi WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM detail_teknis WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
 
-        $id = $data['id_teknisi'];
+        $id = $data['id_teknis'];
         $nama = $data['nama'];
         $username = $data['username'];
         $akses = $data['akses'];
@@ -114,12 +114,12 @@ if($data != NULL) {
         header("Location: dashboard_teknisi.php");
     }
     else if($akses==6){
-        $query="SELECT * FROM tl WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM detail_teknis WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
 
-        $id = $data['id_tl'];
+        $id = $data['id_teknis'];
         $nama = $data['nama'];
         $username = $data['username'];
         $akses = $data['akses'];
@@ -133,16 +133,16 @@ if($data != NULL) {
         header("Location: dashboard_tl.php");
     }
     else if($akses==7){
-        $query="SELECT * FROM woc WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM detail_teknis WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
 
-        $id = $data['id_woc'];
+        $id = $data['id_teknis'];
         $nama = $data['nama'];
         $username = $data['username'];
         $akses = $data['akses'];
-        
+
         session_start();
 
         $_SESSION['id']=$id;
@@ -152,12 +152,12 @@ if($data != NULL) {
         header("Location: dashboard_woc.php");
     }
     else if($akses==8){
-        $query="SELECT * FROM manager WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM detail_picwitel WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
 
-        $id = $data['id_manager'];
+        $id = $data['id_picwitel'];
         $nama = $data['nama'];
         $username = $data['username'];
         $akses = $data['akses'];
@@ -171,7 +171,7 @@ if($data != NULL) {
         header("Location: dashboard_manager.php");
     }
     else if($akses==9){
-        $query="SELECT * FROM picwitel WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM detail_picwitel WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
@@ -191,12 +191,12 @@ if($data != NULL) {
     }
     else if($akses==10){
 
-        $query="SELECT * FROM kasto WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM detail_picwitel WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
 
-        $id = $data['id_kasto'];
+        $id = $data['id_picwitel'];
         $nama = $data['nama'];
         $username = $data['username'];
         $akses = $data['akses'];
