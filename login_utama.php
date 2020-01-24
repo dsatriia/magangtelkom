@@ -15,7 +15,7 @@ if($data != NULL) {
 	$akses = $data['akses'];
 
 	if($akses==1){
-        $query="SELECT * FROM detail_sales_admin_agency WHERE username='$username' AND password='$password'";
+        $query="SELECT * FROM admin_agency WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);

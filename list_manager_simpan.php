@@ -1,9 +1,19 @@
 <?php
 if(isset($_POST['btn-save'])){
 require("koneksi.php");
+$nama = $_POST['nama'];
 $username = $_POST['username'];
 $password = $_POST['password'];
-$nama = $_POST['nama'];
+$password = $_POST['email'];
+$password = $_POST['telpon'];
+$password = $_POST['hp'];
+$password = $_POST['id_sto'];
+$password = $_POST['id_agency'];
+$password = $_POST['regional'];
+$password = $_POST['witel'];
+$password = $_POST['datel'];
+$password = $_POST['tanggal_aktif'];
+$password = $_POST['akses'];
 
 $query = "SELECT * FROM manager WHERE username='$username'";
 $select = mysqli_query($con, $query);
@@ -21,8 +31,8 @@ $select = mysqli_query($con, $query);
    die;
  }
 
- $query = "INSERT INTO manager (username, password, nama)
- VALUES ('$username', '$password', '$nama')";
+ $query = "INSERT INTO manager (nama,username, password, email, telpon, hp, id_sto, id_agency, regional, witel, datel, tanggal_aktif, akses)
+ VALUES ('$nama','$username', '$password', '$email', '$telpon', '$hp', '$id_sto', '$id_agency', '$regional', '$witel', '$datel', '$tanggal_aktif', '$akses')";
  $hasilQuery = mysqli_query($con, $query);
 
  if ($hasilQuery) {

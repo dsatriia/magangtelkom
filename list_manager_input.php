@@ -25,6 +25,10 @@ include("header.php");
             <form method="post" action="list_manager_simpan.php">
                 <div class="col-md-4">
                         <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" class="form-control border-input" name="nama" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
                             <label>Username</label>
                             <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
                         </div>
@@ -33,8 +37,44 @@ include("header.php");
                             <input type="text" class="form-control border-input" name="password" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Nama</label>
-                            <input type="text" class="form-control border-input" name="nama" autocomplete="off" required>
+                            <label>Email</label>
+                            <input type="text" class="form-control border-input" name="email" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telpon</label>
+                            <input type="text" class="form-control border-input" name="telpon" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>HP</label>
+                            <input type="text" class="form-control border-input" name="hp" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>STO</label>
+                            <input type="text" class="form-control border-input" name="id_sto" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Agency</label>
+                            <input type="text" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Regional</label>
+                            <input type="text" class="form-control border-input" name="regional" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Witel</label>
+                            <input type="text" class="form-control border-input" name="witel" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Datel</label>
+                            <input type="text" class="form-control border-input" name="datel" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Aktif</label>
+                            <input type="text" class="form-control border-input" name="tanggal_aktif" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Jabatan</label>
+                            <input type="text" class="form-control border-input" name="akses" autocomplete="off" required>
                         </div>
 
 

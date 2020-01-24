@@ -58,8 +58,8 @@ $select = mysqli_query($con, $query);
    die;
   }
 
- $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_partner, no_sc, id_spv, status_validasi, kategori_progress_psb, keterangan_progress_psb, alamat_rill_pelanggan, cp_rill_pelanggan, nama_teknisi)
- VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_partner', '$no_sc', '$id_spv', '$status_validasi', '$kategori_progress_psb',
+ $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, id_sto, second_cp, id_paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_supervisor, id_salesforce, no_sc,  status_validasi, kategori_progress_psb, keterangan_progress_psb, alamat_rill_pelanggan, cp_rill_pelanggan, nama_teknisi)
+ VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$id_sto', '$second_cp', '$id_paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_supervisor', '$id_salesforce', '$no_sc',  '$status_validasi', '$kategori_progress_psb',
    '$keterangan_progress_psb', '$alamat_rill_pelanggan', '$cp_rill_pelanggan', '$nama_teknisi')";
  $hasilQuery = mysqli_query($con, $query);
 
