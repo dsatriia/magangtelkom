@@ -93,7 +93,8 @@ $id_paket = $data['id_paket'];
 $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
-$id_agency = $_SESSION['id'];
+$id_agency = $data['id_agency'];
+$id_admin_agency = $_SESSION['id'];
 $id_supervisor = $data['id_supervisor'];
 $id_salesforce = $data['id_salesforce'];
 
@@ -131,8 +132,8 @@ $id_salesforce = $data['id_salesforce'];
                                                                 <div class="form-group">
                                                                     <label>STO</label>
                                                                     <select class="form-control border-input" name="id_sto" autocomplete="off" required>
-                                                                    <?php foreach($kumpulanDataSto as $id_sto) : ?>
-                                                                        <option value="<?=$id_sto['id_sto'] ?> "><?= $id_sto['area'] ?></option>
+                                                                    <?php foreach($kumpulanDataSto as $sto) : ?>
+                                                                        <option value="<?=$sto['id_sto'] ?> "<?php if($id_sto == $sto['id_sto']): echo 'selected'; endif;?>><?=$sto['area'] ?></option>
                                                                     <?php endforeach ?>
                                                                     </select>
                                                                 </div>
@@ -143,8 +144,8 @@ $id_salesforce = $data['id_salesforce'];
                                                                 <div class="form-group">
                                                                     <label>Paket</label>
                                                                     <select class="form-control border-input" name="id_paket" autocomplete="off" required>
-                                                                    <?php foreach($kumpulanDataPaket as $id_paket) : ?>
-                                                                        <option value="<?=$id_paket['id_paket'] ?> "><?= $id_paket['nama_paket'] ?></option>
+                                                                    <?php foreach($kumpulanDataPaket as $paket) : ?>
+                                                                        <option value="<?=$paket['id_paket'] ?> "<?php if($id_paket == $paket['id_paket']): echo 'selected'; endif;?>><?=$paket['nama_paket'] ?></option>
                                                                     <?php endforeach ?>
                                                                     </select>
                                                                 </div>
@@ -179,7 +180,7 @@ $id_salesforce = $data['id_salesforce'];
                                                                     <label>Supervisor</label>
                                                                     <select class="form-control border-input" name="id_supervisor" autocomplete="off" required>
                                                                     <?php foreach($kumpulanDataSpv as $spv) : ?>
-                                                                        <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
+                                                                        <option value="<?=$spv['id_supervisor'] ?> "<?php if($id_supervisor == $spv['id_supervisor']): echo 'selected'; endif;?>><?=$spv['nama'] ?></option>
                                                                     <?php endforeach ?>
                                                                     </select>
                                                                 </div>
@@ -187,7 +188,7 @@ $id_salesforce = $data['id_salesforce'];
                                                                     <label>Partner</label>
                                                                     <select class="form-control border-input" name="id_salesforce" autocomplete="off" required>
                                                                     <?php foreach($kumpulanDataPartner as $partner) : ?>
-                                                                        <option value="<?=$partner['id_salesforce'] ?> "><?= $partner['nama'] ?></option>
+                                                                        <option value="<?=$partner['id_salesforce'] ?> "<?php if($id_salesforce == $partner['id_salesforce']): echo 'selected'; endif;?>><?=$partner['nama'] ?></option>
                                                                     <?php endforeach ?>
                                                                     </select>
                                                                 </div>

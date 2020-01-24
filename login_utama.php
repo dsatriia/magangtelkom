@@ -34,8 +34,8 @@ if($data != NULL) {
         header("Location: dashboard_ag.php");
     }
 
-    else if($akses==2){
 
+		else if($akses==2){
         $query="SELECT * FROM supervisor WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
@@ -151,12 +151,12 @@ if($data != NULL) {
         $_SESSION['status']=$akses;
         header("Location: dashboard_woc.php");
     }
-    else if($akses==8){        
+    else if($akses==8){
         $query="SELECT * FROM detail_picwitel WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
-        
+
         if ($data != NULL) {
             $id = $data['id_picwitel'];
             $nama = $data['nama'];
@@ -176,7 +176,7 @@ if($data != NULL) {
             window.location = "index.php";
             </script>';
         }
-        
+
     }
     else if($akses==9){
         $query="SELECT * FROM detail_picwitel WHERE username='$username' AND password='$password'";
