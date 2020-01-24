@@ -9,45 +9,6 @@ include("guard/guard_8.php");
 $id = $_SESSION['id'];
 
 
-//option untuk menampilkan seluruh agency
-$queryAgency = "SELECT id_agency, nama_agency FROM `agency`";
-$runQueryAgency = mysqli_query($con,$queryAgency);
-$kumpulanDataAgency = [];
-while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
-    $kumpulanDataAgency[] = $dataAgency;
-}
-
-// end
-
-//option untuk menampilkan seluruh agency
-$queryAdminAgency = "SELECT id_admin_agency, nama FROM `detail_sales_admin_agency`";
-$runQueryAdminAgency = mysqli_query($con,$queryAdminAgency);
-$kumpulanDataAdminAgency = [];
-while ($dataAdminAgency = mysqli_fetch_assoc($runQueryAdminAgency)) {
-    $kumpulanDataAdminAgency[] = $dataAdminAgency;
-}
-
-// end
-
-//option untuk menampilkan spv yang dibawahinya
-$querySpv = "SELECT id_supervisor, nama FROM `supervisor`";
-$runQuerySpv = mysqli_query($con,$querySpv);
-
-while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
-    $kumpulanDataSpv[] = $dataSpv;
-}
-// end
-
-//option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT id_salesforce, nama FROM `salesforce`";
-$runQueryPartner = mysqli_query($con,$queryPartner);
-
-while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
-    $kumpulanDataPartner[] = $dataPartner;
-}
-// end
-
-
 
 ?>
 <?php include("sidebar/sidebar_dataplg_manager.php"); ?>
@@ -87,16 +48,38 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                             <input type="number" class="form-control border-input" name="ktp" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>STO</label>
-                            <input type="text" class="form-control border-input" name="sto" autocomplete="off" required>
+                            <label>STO</label>                            
+                            <select class="form-control border-input" name="sto" autocomplete="off" required>
+                                <option value="">Please Select</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT * FROM sto");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="sto"  value="<?php echo $row['id_sto']; ?>">
+                                        <?php echo $row['area']; ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Second CP</label>
                             <input type="text" class="form-control border-input" name="second_cp" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Paket</label>
-                            <input type="text" class="form-control border-input" name="paket" autocomplete="off" required>
+                            <label>Paket</label>                            
+                            <select class="form-control border-input" name="paket" autocomplete="off" required>
+                                <option value="">Please Select</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT * FROM paket");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="paket"  value="<?php echo $row['id_paket']; ?>">
+                                        <?php echo $row['nama_paket']; ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Tagging Rill</label>
@@ -142,7 +125,7 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         </div>
                         <div class="form-group">
                             <label>Supervisor</label>                            
-                            <select class="form-control border-input" id="id_supervisor" name="id_spv" autocomplete="off" required>
+                            <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
                                 <option value="">Please Select</option>
                                 <?php
                                     $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `detail_sales_admin_agency` ON supervisor.id_admin_agency = detail_sales_admin_agency.id_admin_agency ORDER BY supervisor.nama");

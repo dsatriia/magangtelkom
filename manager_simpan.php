@@ -15,16 +15,20 @@ $id_agency = $_POST['id_agency'];
 $id_admin_agency = $_POST['id_admin_agency'];
 $id_partner = $_POST['id_partner'];
 $no_sc = $_POST['no_sc'];
-$id_spv = $_POST['id_spv'];
+$id_supervisor = $_POST['id_supervisor'];
 $status_validasi = $_POST['status_validasi'];
 $kategori_progress_psb = $_POST['kategori_progress_psb'];
 $keterangan_progress_psb = $_POST['keterangan_progress_psb'];
 $alamat_rill_pelanggan = $_POST['alamat_rill_pelanggan'];
 $cp_rill_pelanggan = $_POST['cp_rill_pelanggan'];
 $nama_teknisi = $_POST['nama_teknisi'];
-
+$id_sto = $_POST['sto'];
+$id_paket = $_POST['paket'];
+$id_salesforce = $_POST['id_partner'];
 
 $query = "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'";
+
+
 $select = mysqli_query($con, $query);
 
 
@@ -58,10 +62,12 @@ $select = mysqli_query($con, $query);
    </script>';
    die;
   }
-
+ 
  $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, id_sto, second_cp, id_paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_supervisor, id_salesforce, no_sc,  status_validasi, kategori_progress_psb, keterangan_progress_psb, alamat_rill_pelanggan, cp_rill_pelanggan, nama_teknisi)
  VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$id_sto', '$second_cp', '$id_paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_supervisor', '$id_salesforce', '$no_sc',  '$status_validasi', '$kategori_progress_psb',
    '$keterangan_progress_psb', '$alamat_rill_pelanggan', '$cp_rill_pelanggan', '$nama_teknisi')";
+
+
  $hasilQuery = mysqli_query($con, $query);
 
  if ($hasilQuery) {
