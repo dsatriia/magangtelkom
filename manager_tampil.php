@@ -8,18 +8,6 @@ include("guard/guard_8.php")
 <?php
 include("sidebar/sidebar_dataplg_manager.php"); ?>
     <div class="main-panel">
-        <!-- <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header"
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
 
 
         <div class="content">
@@ -32,6 +20,7 @@ include("sidebar/sidebar_dataplg_manager.php"); ?>
                                 <a class="btn btn-success" href="manager_input.php" style="font-size:15pt">+ Input Data
                                     Baru</a><br>
                                 <br>
+                                
                             </div>
 
                             <div class="content">

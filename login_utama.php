@@ -151,24 +151,32 @@ if($data != NULL) {
         $_SESSION['status']=$akses;
         header("Location: dashboard_woc.php");
     }
-    else if($akses==8){
+    else if($akses==8){        
         $query="SELECT * FROM detail_picwitel WHERE username='$username' AND password='$password'";
 
         $hasil=mysqli_query($con,$query);
         $data=mysqli_fetch_array($hasil);
+        
+        if ($data != NULL) {
+            $id = $data['id_picwitel'];
+            $nama = $data['nama'];
+            $username = $data['username'];
+            $akses = $data['akses'];
 
-        $id = $data['id_picwitel'];
-        $nama = $data['nama'];
-        $username = $data['username'];
-        $akses = $data['akses'];
+            session_start();
 
-        session_start();
-
-        $_SESSION['id']=$id;
-        $_SESSION['nama']=$nama;
-        $_SESSION['username']=$username;
-        $_SESSION['status']=$akses;
-        header("Location: dashboard_manager.php");
+            $_SESSION['id']=$id;
+            $_SESSION['nama']=$nama;
+            $_SESSION['username']=$username;
+            $_SESSION['status']=$akses;
+            header("Location: dashboard_manager.php");
+        } else {
+            echo '<script language="JavaScript">
+            alert("Login gagal, password salah!");
+            window.location = "index.php";
+            </script>';
+        }
+        
     }
     else if($akses==9){
         $query="SELECT * FROM detail_picwitel WHERE username='$username' AND password='$password'";
@@ -218,7 +226,7 @@ if($data != NULL) {
 }
 else {
 	echo '<script language="JavaScript">
-	alert("Login gagal, silahkan coba kembali.");
+	alert("Login gagal, username salah!");
 	window.location = "index.php";
 	</script>';
 }

@@ -9,6 +9,7 @@ $id = $_SESSION['id'];
 
 //option untuk menampilkan seluruh agency
 $queryAgency = "SELECT id_agency, nama FROM `agency`";
+echo $queryAgency;
 $runQueryAgency = mysqli_query($con,$queryAgency);
 $kumpulanDataAgency = [];
 while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
