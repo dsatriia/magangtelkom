@@ -165,7 +165,7 @@ if (isset($_POST['cari'])) {
       <td><?php echo $p['alamat_rill_pelanggan'] ?></td>
       <td><?php echo $p['cp_rill_pelanggan'] ?></td>
       <td><?php echo $p['nama_teknisi'] ?></td>
-            <td><a href="manager_edit.php?id=<?php echo $p['id'] ?>" name="btn-edit" onClick='return confirm("Yakin Ingin Mengedit Data?");'>Edit</a></td>
+            <td><a href="manager_edit.php?id=<?php echo $p['id'] ?>" name="btn-edit" onClick='return confirm("Yakin Ingin Mengedit Data?");'>Edit</a> | <a href="manager_hapus_pelanggan.php?id=<?php echo $p['id'] ?>" name="btn-edit" onClick='return confirm("Yakin Ingin Menghapus Data?");'>Delete</a></td>
            <?php /* <td><a href="ag_hapus.php?id_ag=<?php echo $data['id_ag'] ?>" name="btn-hapus" onClick='return confirm("Yakin ingin menghapus data?");'>Hapus</a></td> */ ?>
 <?php echo "</tr>";
        }

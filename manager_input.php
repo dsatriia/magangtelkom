@@ -95,7 +95,7 @@ $id = $_SESSION['id'];
                         </div>
                         <div class='form-group'>
                             <label>Agency</label>                                
-                                <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
+                            <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
                                 <option value="">Please Select</option>
                                 <?php
                                     $query = mysqli_query($con, "SELECT *    FROM `agency` ORDER BY nama_agency");
@@ -113,7 +113,7 @@ $id = $_SESSION['id'];
                                 <select class="form-control border-input" id="id_admin_agency" name="id_admin_agency" autocomplete="off" required>
                                                 <option value="">Please Select</option>
                                                 <?php
-                                                    $query = mysqli_query($con, "SELECT * FROM `detail_sales_admin_agency` INNER JOIN `agency` ON detail_sales_admin_agency.id_agency = agency.id_agency ORDER BY nama");
+                                                    $query = mysqli_query($con, "SELECT * FROM `admin_agency` INNER JOIN `agency` ON admin_agency.id_agency = agency.id_agency ORDER BY nama");
                                                     while ($row = mysqli_fetch_array($query)) { ?>
 
                                                     <option id="id_admin_agency" class="<?php echo $row['id_agency']; ?>" value="<?php echo $row['id_admin_agency']; ?>">
@@ -128,7 +128,7 @@ $id = $_SESSION['id'];
                             <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
                                 <option value="">Please Select</option>
                                 <?php
-                                    $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `detail_sales_admin_agency` ON supervisor.id_admin_agency = detail_sales_admin_agency.id_admin_agency ORDER BY supervisor.nama");
+                                    $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
                                     while ($row = mysqli_fetch_array($query)) { ?>
 
                                     <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>">

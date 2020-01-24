@@ -3,35 +3,10 @@ include("guard/guard_8.php");
 include("header.php");
 require("koneksi.php");
 
-//option untuk menampilkan seluruh agency
-$queryAgency = "SELECT id_agency, nama FROM `agency`";
-$runQueryAgency = mysqli_query($con,$queryAgency);
-$kumpulanDataAgency = [];
-while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
-    $kumpulanDataAgency[] = $dataAgency;
-}
-
-// end
-
-//option untuk menampilkan spv yang dibawahinya
-$querySpv = "SELECT id_supervisor, nama FROM `supervisor`";
-$runQuerySpv = mysqli_query($con,$querySpv);
-
-while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
-    $kumpulanDataSpv[] = $dataSpv;
-}
-// end
-
-//option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT id_salesforce, nama FROM `salesforce`";
-$runQueryPartner = mysqli_query($con,$queryPartner);
-
-while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
-    $kumpulanDataPartner[] = $dataPartner;
-}
-// end
 
 ?>
+ <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/ie-emulation-modes-warning.js"></script>
 <body>
 <?php
 include("sidebar/sidebar_dataplg_manager.php");
@@ -63,9 +38,9 @@ $track_id = $data['track_id'];
 $nama_pelanggan = $data['nama_pelanggan'];
 $alamat = $data['alamat'];
 $ktp = $data['ktp'];
-$sto = $data['sto'];
+$sto = $data['id_sto'];
 $second_cp = $data['second_cp'];
-$paket = $data['paket'];
+$paket = $data['id_paket'];
 $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
@@ -80,6 +55,7 @@ $keterangan_progress_psb = $data['keterangan_progress_psb'];
 $alamat_rill_pelanggan = $data['alamat_rill_pelanggan'];
 $cp_rill_pelanggan = $data['cp_rill_pelanggan'];
 $nama_teknisi = $data['nama_teknisi'];
+
 
 ?>
 
@@ -114,10 +90,19 @@ $nama_teknisi = $data['nama_teknisi'];
                 autocomplete="off" required>
         </div>
         <div class='form-group'>
-            <label>STO</label>
-            <input type='text' class='form-control border-input'
-                name='sto' value='<?php echo $sto ?>'
-                autocomplete="off" required>
+            <label>STO</label>            
+            <select class="form-control border-input" name="sto" autocomplete="off" required>
+                <option value="">Please Select</option>
+                <?php
+                    $query = mysqli_query($con, "SELECT * FROM sto");
+                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                    <option id="sto"  value="<?php echo $row['id_sto'];?>" <?php if($sto == $row['id_sto']): echo 'selected'; endif ?>>
+                        <?php echo $row['area']; ?>
+                    </option>
+
+                <?php } ?>
+            </select>
         </div>
         <div class='form-group'>
             <label>Second CP</label>
@@ -127,10 +112,19 @@ $nama_teknisi = $data['nama_teknisi'];
                 autocomplete="off" required>
         </div>
         <div class='form-group'>
-            <label>Paket</label>
-            <input type='text' class='form-control border-input'
-                name='paket' value='<?php echo $paket ?>'
-                autocomplete="off" required>
+            <label>Paket</label>           
+            <select class="form-control border-input" name="paket" autocomplete="off" required>
+                <option value="">Please Select</option>
+                <?php
+                    $query = mysqli_query($con, "SELECT * FROM paket");
+                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                    <option id="paket"  value="<?php echo $row['id_paket'];?>" <?php if($paket == $row['id_paket']): echo 'selected'; endif ?>>
+                        <?php echo $row['nama_paket']; ?>
+                    </option>
+
+                <?php } ?>
+            </select>
         </div>
         <div class='form-group'>
             <label>Tagging Rill</label>
@@ -153,35 +147,70 @@ $nama_teknisi = $data['nama_teknisi'];
                 autocomplete="off" required>
         </div>
         <div class='form-group'>
-            <label>Agency</label>
-                <select class="form-control border-input" name="id_agency" autocomplete="off" required>
-                <?php foreach($kumpulanDataAgency as $agency) : ?>
-                    <option value="<?=$agency['id_agency'] ?> " <?php if($id_agency == $agency['id_agency']): echo 'selected'; endif;?>><?= $agency['nama'] ?></option>
-                <?php endforeach ;
-                ?>
+            <label>Agency</label>                
+                <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
+                    <option value="">Please Select</option>
+                    <?php
+                        $query = mysqli_query($con, "SELECT * FROM `agency` ORDER BY nama_agency");
+                        while ($row = mysqli_fetch_array($query)) { ?>
+
+                        <option value="<?php echo $row['id_agency']; ?>" <?php if($id_agency == $row['id_agency']): echo 'selected'; endif ?>>
+                            <?php echo $row['nama_agency']; ?>
+                        </option>
+
+                    <?php } ?>
                 </select>
         </div>
         <div class='form-group'>
-            <label>Partner</label>
-                <select class="form-control border-input" name="id_partner" autocomplete="off" required>
-                <?php foreach($kumpulanDataPartner as $partner) : ?>
-                    <option value="<?=$partner['id_salesforce'] ?> " <?php if($id_partner == $partner['id_salesforce']): echo 'selected'; endif;?>><?= $partner['nama'] ?></option>
-                <?php endforeach ?>
+            <label>Admin Agency</label>                                
+                <select class="form-control border-input" id="id_admin_agency" name="id_admin_agency" autocomplete="off" required>
+                    <option value="">Please Select</option>
+                    <?php
+                        $query = mysqli_query($con, "SELECT * FROM `admin_agency` INNER JOIN `agency` ON admin_agency.id_agency = agency.id_agency ORDER BY nama");
+                        while ($row = mysqli_fetch_array($query)) { ?>
+
+                        <option id="id_admin_agency" class="<?php echo $row['id_agency']; ?>" value="<?php echo $row['id_admin_agency']; ?>" <?php if($id_admin_agency == $row['id_admin_agency']): echo 'selected'; endif ?>>
+                            <?php echo $row['nama']; ?>
+                        </option>
+
+                    <?php } ?>
                 </select>
+        </div>
+        <div class="form-group">
+            <label>Supervisor</label>                            
+            <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
+                <option value="">Please Select</option>
+                <?php
+                    $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
+                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                    <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>"  <?php if($id_supervisor == $row['id_supervisor']): echo 'selected'; endif ?>>
+                        <?php echo $row['nama']; ?>
+                    </option>
+
+                <?php } ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Partner</label>                            
+            <select id="id_partner" class="form-control border-input" name="id_partner" autocomplete="off" required>
+                <option value="">Please Select</option>
+                <?php
+                    $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
+                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                    <option id="id_partner" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>" <?php if($id_salesforce == $row['id_salesforce']): echo 'selected'; endif ?>>
+                        <?php echo $row['nama']; ?>
+                    </option>
+
+                <?php } ?>
+            </select>
         </div>
         <div class='form-group'>
             <label>No SC</label>
             <input type='text' class='form-control border-input'
                 name='no_sc' value='<?php echo $no_sc ?>'
                 autocomplete="off" required>
-        </div>
-        <div class='form-group'>
-            <label>Supervisor</label>
-                <select class="form-control border-input" name="id_spv" autocomplete="off" required>
-                <?php foreach($kumpulanDataSpv as $spv) : ?>
-                    <option value="<?=$spv['id_supervisor'] ?> " <?php if($id_spv == $spv['id_supervisor']): echo 'selected'; endif;?>><?= $spv['nama'] ?></option>
-                <?php endforeach ?>
-                </select>
         </div>
         <div class='form-group'>
             <label>Status Validasi</label>
@@ -236,7 +265,18 @@ $nama_teknisi = $data['nama_teknisi'];
 </div>
 </div>
 </div>
-
+<script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery-chained.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#id_admin_agency").chained("#id_agency");
+                $("#id_supervisor").chained("#id_admin_agency");
+                $("#id_partner").chained("#id_supervisor");
+                
+            });
+        </script>
 <?php
 include("footer.php");
 }
