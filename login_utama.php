@@ -218,7 +218,7 @@ if($data != NULL) {
 }
 else {
 	echo '<script language="JavaScript">
-	alert("Login gagal, silahkan coba kembali.");
+	alert("User Tidak Terdaftar");
 	window.location = "index.php";
 	</script>';
 }

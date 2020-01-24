@@ -27,7 +27,7 @@
 
 include("koneksi.php");
     $id = $_SESSION['id'];
-    $query = "SELECT * FROM data_pelanggan WHERE id_partner = $id";
+    $query = "SELECT * FROM data_pelanggan WHERE id_salesforce = $id";
     $hasil = mysqli_query($con,$query);
     while ($data = mysqli_fetch_array($hasil)){
     echo "<tr>"; ?>
@@ -81,13 +81,13 @@ include("koneksi.php");
         }
         echo $agency ?>
       </td>
-      <td>
 
+      <td>
       <?php
-      if ($data['id_spv'] == 0){
-        $spv = 'Belum Ada Supervisor';
+      if ($data['id_supervisor'] == 0){
+        $supervisor = 'Belum ada Supervisor';
       } else {
-        $id_supervisor = $data['id_spv'];
+        $id_supervisor = $data['id_supervisor'];
         $query_supervisor = "SELECT nama FROM supervisor WHERE id_supervisor = $id_supervisor";
         $run_supervisor = mysqli_query($con, $query_supervisor);
         $hasil_supervisor = mysqli_fetch_array($run_supervisor);
@@ -96,23 +96,23 @@ include("koneksi.php");
 
       echo $supervisor ?>
       </td>
+
       <td>
               <?php
-
-              if ($data['id_partner'] == 0){
-                $partner = 'Belum Ada Sales Force';
+              if ($data['id_salesforce'] == 0){
+                $salesforce = 'Belum ada Sales Force';
               }else {
-                $id_partner = $data['id_partner'];
-                $query_partner = "SELECT nama FROM salesforce WHERE id_salesforce = $id_partner";
-                $run_partner = mysqli_query($con, $query_partner);
-                $hasil_partner = mysqli_fetch_array($run_partner);
-                $partner = $hasil_partner['nama'];
+                $id_salesforce = $data['id_salesforce'];
+                $query_salesforce = "SELECT nama FROM salesforce WHERE id_salesforce = $id_salesforce";
+                $run_salesforce = mysqli_query($con, $query_salesforce);
+                $hasil_salesforce = mysqli_fetch_array($run_salesforce);
+                $salesforce = $hasil_salesforce['nama'];
               }
 
-              echo $partner?>
+              echo $salesforce?>
             </td>
-            <td><?php echo $data['no_sc'] ?></td>
 
+            <td><?php echo $data['no_sc'] ?></td>
             <td><?php echo $data['status_validasi'] ?></td>
             <td><?php echo $data['kategori_progress_psb'] ?></td>
             <td><?php echo $data['keterangan_progress_psb'] ?></td>

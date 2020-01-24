@@ -5,15 +5,15 @@ $track_id = $_POST['track_id'];
 $nama_pelanggan = $_POST['nama_pelanggan'];
 $alamat = $_POST['alamat'];
 $ktp = $_POST['ktp'];
-$sto = $_POST['sto'];
+$id_sto = $_POST['id_sto'];
 $second_cp = $_POST['second_cp'];
-$paket = $_POST['paket'];
+$id_paket = $_POST['id_paket'];
 $tagging_rill = $_POST['tagging_rill'];
 $odp = $_POST['odp'];
 $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
 $id_agency = $_POST['id_agency'] ;
-$id_partner = $_POST['id_partner'] ;
-$id_spv = $_POST['id_spv'] ;
+$id_supervisor = $_POST['id_supervisor'] ;
+$id_salesforce = $_POST['id_salesforce'] ;
 
 
 
@@ -34,26 +34,26 @@ $select = mysqli_query($con, $query);
 
   if(($jumlahCekKTP && $jumlahCekTrack) > 0){
     echo '<script language="JavaScript">
-   alert("No KTP dan Track ID Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   alert("Data Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "ag_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekTrack > 0){
     echo '<script language="JavaScript">
-   alert("Track ID Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   alert("Data Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "ag_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekKTP > 0){
     echo '<script language="JavaScript">
-   alert("No KTP Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   alert("Data Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "ag_tampil.php";
    </script>';
    die;
   }
 
- $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_partner, id_spv)
- VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_partner', '$id_spv')";
+ $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, id_sto, second_cp, id_paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_supervisor, id_salesforce)
+ VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$id_sto', '$second_cp', '$id_paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_supervisor', '$id_salesforce')";
  $hasilQuery = mysqli_query($con, $query);
 
  if ($hasilQuery) {
