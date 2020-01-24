@@ -11,16 +11,16 @@ $track_id = $_POST['track_id'];
  $nama_pelanggan = $_POST['nama_pelanggan'];
  $alamat = $_POST['alamat'];
  $ktp = $_POST['ktp'];
- $sto = $_POST['sto'];
+ $id_sto = $_POST['id_sto'];
  $second_cp = $_POST['second_cp'];
- $paket = $_POST['paket'];
+ $id_paket = $_POST['id_paket'];
  $tagging_rill = $_POST['tagging_rill'];
  $odp = $_POST['odp'];
  $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
+ $id_agency = $_POST['id_agency'] ;
+ $id_supervisor = $_POST['id_supervisor'] ;
+ $id_salesforce = $_POST['id_salesforce'] ;
 
- $id_agency = $_POST['id_agency'];
- $id_partner = $_POST['id_partner'];
- $id_spv = $_POST['id_spv'];
 
  $cekKTP = "SELECT * FROM data_pelanggan WHERE ktp='$ktp'";
  $runCekKtp = mysqli_query($con, $cekKTP);
@@ -32,12 +32,13 @@ $track_id = $_POST['track_id'];
 
 
 	if ($data != null && $track_id == $data['track_id']){
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
-            id_partner='$id_partner', id_spv='$id_spv'
-	WHERE track_id = '$track_id'";
-	// echo $query;die;
+		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', id_sto = '$id_sto', second_cp = '$second_cp', id_paket = '$id_paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
+            id_supervisor='$id_supervisor', id_salesforce='$id_salesforce'
+    WHERE track_id = '$track_id'";
+
 
 		$hasilQuery = mysqli_query($con, $query);
+
 		if ($hasilQuery) {
 			echo '<script language="JavaScript">
 			alert("Update Data Berhasil!");
@@ -57,13 +58,13 @@ $track_id = $_POST['track_id'];
 		window.location = "spv_tampil.php";
 			</script>';
 	 } else {
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', sto = '$sto', second_cp = '$second_cp', paket = '$paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
-            id_partner='$id_partner', id_spv='$id_spv'
-		WHERE track_id = '$track_id'";
+		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', id_sto = '$id_sto', second_cp = '$second_cp', id_paket = '$id_paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
+            id_supervisor='$id_supervisor', id_salesforce='$id_salesforce'
+    WHERE track_id = '$track_id'";
 
-		$hasilQuery = mysqli_query($con, $query);
+    $hasilQuery = mysqli_query($con, $query);
 		if ($hasilQuery) echo '<script language="JavaScript">
-		alert("Update Data Berhasil");
+		alert("Update Data Berhasil!");
 		window.location = "spv_tampil.php";
 		</script>';
 	 }
@@ -74,7 +75,7 @@ $track_id = $_POST['track_id'];
 
 else{ ?>
 <script language="JavaScript">
-alert("Pilih Pelanggan Terlebih Dahulu");
+alert("Pilih Pelanggan Terlebih Dahulu!");
 </script>
 <?php
 include("spv_tampil.php");
