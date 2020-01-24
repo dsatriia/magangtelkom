@@ -219,14 +219,14 @@ if($data != NULL) {
     }
     else {
 		echo '<script language="JavaScript">
-	alert("Login gagal, silahkan coba kembali.");
+	alert("Login gagal, password salah!");
 	window.location = "index.php";
 	</script>';
 	}
 }
 else {
 	echo '<script language="JavaScript">
-	alert("Login gagal, username salah!");
+	alert("Login gagal, username tidak terdaftar!");
 	window.location = "index.php";
 	</script>';
 }
