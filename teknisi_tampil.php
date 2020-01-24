@@ -28,6 +28,7 @@ include("sidebar/sidebar_dataplg_teknisi.php"); ?>
                         <div class="card">
                             <div class="header">
                                 <h2 class="title text-center"><b>Data Pelanggan</b></h2>
+                                <br>
                               </div>
                               <div class="content">
                                 <div class="table-responsive" style="height:70vh;overflow:scroll">
