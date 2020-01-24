@@ -123,6 +123,9 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
                         </div>
+                      <div class="form-group">
+                          <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
+                      </div>
                         <div class="form-group">
                             <label>Supervisor</label>
                             <select class="form-control border-input" name="id_supervisor" autocomplete="off" required>

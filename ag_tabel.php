@@ -28,7 +28,7 @@
 
 include("koneksi.php");
     $id = $_SESSION['id'];
-    $query = "SELECT * FROM data_pelanggan WHERE id_agency = $id";
+    $query = "SELECT * FROM data_pelanggan WHERE id_admin_agency = $id";
     $hasil = mysqli_query($con,$query);
     while ($data = mysqli_fetch_array($hasil)){
     echo "<tr>"; ?>

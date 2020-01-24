@@ -12,6 +12,7 @@ $tagging_rill = $_POST['tagging_rill'];
 $odp = $_POST['odp'];
 $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
 $id_agency = $_POST['id_agency'] ;
+$id_admin_agency = $_POST['id_admin_agency'] ;
 $id_supervisor = $_POST['id_supervisor'] ;
 $id_salesforce = $_POST['id_salesforce'] ;
 
@@ -52,8 +53,8 @@ $select = mysqli_query($con, $query);
    die;
   }
 
- $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, id_sto, second_cp, id_paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_supervisor, id_salesforce)
- VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$id_sto', '$second_cp', '$id_paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_supervisor', '$id_salesforce')";
+ $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, id_sto, second_cp, id_paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_admin_agency, id_supervisor, id_salesforce)
+ VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$id_sto', '$second_cp', '$id_paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_admin_agency', '$id_supervisor', '$id_salesforce')";
  $hasilQuery = mysqli_query($con, $query);
 
  if ($hasilQuery) {
