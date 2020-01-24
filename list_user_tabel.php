@@ -12,9 +12,9 @@
 
   function cari($keyword){
     $query = "SELECT * FROM user
-              WHERE
+              WHERE id != 0 AND (
               nama LIKE '%$keyword%' OR
-              username LIKE '%$keyword%'          
+              username LIKE '%$keyword%'  )        
               ";
               
               
@@ -22,7 +22,7 @@
   }
     
 
-  $kumpulanUser = query("SELECT id, nama, username, akses, id_sto FROM user");
+  $kumpulanUser = query("SELECT id, nama, username, akses, id_sto FROM user WHERE id != 0 ORDER BY akses");
 
   
   if (isset($_POST['cari'])) {

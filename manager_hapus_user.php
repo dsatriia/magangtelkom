@@ -8,6 +8,7 @@ function hapus($id){
 
     return mysqli_affected_rows($con);
 }
+
 if($_SESSION['status']==8){
 
       
@@ -24,7 +25,7 @@ if($_SESSION['status']==8){
     
       echo "
         <script>
-          alert('data gagal dihapus!');
+          alert('Data gagal dihapus! Karena user terdapat pada data pelanggan.');
           document.location.href = 'list_user_tampil.php'
         </script>
         ";
