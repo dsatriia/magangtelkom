@@ -28,7 +28,7 @@
   if (isset($_POST['cari'])) {
     $kumpulanUser = cari($_POST["kata-kunci"]);
   }
-  
+  $kumpulanJabatan = query("SELECT * FROM jabatan");
 
   
   
@@ -41,6 +41,14 @@
   </div>
       
 </form>
+<select name="jabatan" id="jabatan">
+  <?php foreach($kumpulanJabatan as $j): ?>
+    <option value="<?= $j['id_jabatan'] ?>"><?= $j['nama_jabatan'] ?></option>
+  <?php endforeach ?>
+</select>
+<div id="container">
+
+
 <table class="table table-hover table-bordered text-center">
   <thead style="background-color:lightgrey">
     <tr>
@@ -97,9 +105,25 @@
     <?php endforeach ?>
   </tbody>
 </table>
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // var keyword = document.getElementById('keyword');
+  // keyword.addEventListener('keyup', function(){
+  //   alert('oke');
+  // });
 
+  // event ketika keyword ditulis
+  $('#jabatan').on('change',function(){
+    $.get('user_ajax.php?jabatan=' + $('#jabatan').val(), function(data){
+      $('#container').html(data);  
+      console.log('haloo');
+    });
+  });
+});
 
-
+</script>
 
 
 
