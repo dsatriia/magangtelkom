@@ -7,19 +7,7 @@ require("koneksi.php");
 <?php
 include("sidebar/sidebar_list_user.php"); ?>
     <div class="main-panel">
-        <!-- <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header"
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
-
+       
 
         <div class="content">
             <div class="container-fluid">

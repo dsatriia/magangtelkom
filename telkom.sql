@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Jan 2020 pada 08.50
--- Versi server: 10.1.35-MariaDB
--- Versi PHP: 7.1.21
+-- Generation Time: Jan 24, 2020 at 01:25 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,48 +25,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin_agency`
+-- Table structure for table `admin_agency`
 --
 
 CREATE TABLE `admin_agency` (
   `id_admin_agency` int(11) NOT NULL,
-  `username` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `password` varchar(40) COLLATE latin7_general_cs NOT NULL,
+  `username` varchar(40) CHARACTER SET latin7 COLLATE latin7_general_cs NOT NULL,
+  `password` varchar(40) CHARACTER SET latin7 COLLATE latin7_general_cs NOT NULL,
   `akses` int(11) NOT NULL,
   `id_sto` int(11) NOT NULL,
-  `nama` varchar(30) COLLATE latin7_general_cs NOT NULL,
-  `email` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `telpon` varchar(15) COLLATE latin7_general_cs NOT NULL,
-  `hp` varchar(15) COLLATE latin7_general_cs NOT NULL,
+  `nama` varchar(30) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `telpon` varchar(15) NOT NULL,
+  `hp` varchar(15) NOT NULL,
   `id_agency` int(11) NOT NULL,
-  `regional` varchar(20) COLLATE latin7_general_cs NOT NULL,
-  `witel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `datel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `tanggal_aktif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `regional` varchar(20) NOT NULL,
+  `witel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `datel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `tanggal_aktif` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `admin_agency`
+-- Dumping data for table `admin_agency`
 --
 
 INSERT INTO `admin_agency` (`id_admin_agency`, `username`, `password`, `akses`, `id_sto`, `nama`, `email`, `telpon`, `hp`, `id_agency`, `regional`, `witel`, `datel`, `tanggal_aktif`) VALUES
-(0, 'TIDAK MEMILIKI ADMIN AGENCY', 'TIDAK MEMILIKI ADMIN AGENCY', 0, 2, 'TIDAK MEMILIKI ADMIN AGENCY', 'TIDAK MEMILIKI ADMIN AGENCY', '43232', '342424', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-01-24 01:17:58'),
+(0, 'TIDAK MEMILIKI ADMIN AGENCY', 'TIDAK MEMILIKI ADMIN AGENCY', 0, 2, 'TIDAK MEMILIKI ADMIN AGENCY', 'TIDAK MEMILIKI ADMIN AGENCY', '43232', '342424', 0, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-01-24 11:04:24'),
 (1, 'adminagency01', 'adminagency01', 1, 1, 'Alam Agency', 'rista@gmail.com', '0852341231', '08234532352', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-01-23 14:36:09'),
 (2, 'adminagency02', 'adminagency02', 1, 2, 'Admin Agency 02', 'rasti@gmail.com', '05341341', '056765345', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-01-23 14:37:12');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `agency`
+-- Table structure for table `agency`
 --
 
 CREATE TABLE `agency` (
   `id_agency` int(11) NOT NULL,
-  `nama_agency` varchar(50) COLLATE latin7_general_cs NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `nama_agency` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `agency`
+-- Dumping data for table `agency`
 --
 
 INSERT INTO `agency` (`id_agency`, `nama_agency`) VALUES
@@ -78,73 +78,71 @@ INSERT INTO `agency` (`id_agency`, `nama_agency`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_pelanggan`
+-- Table structure for table `data_pelanggan`
 --
 
 CREATE TABLE `data_pelanggan` (
   `id` int(15) NOT NULL,
-  `track_id` varchar(15) COLLATE latin7_general_cs NOT NULL,
-  `nama_pelanggan` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `alamat` varchar(50) COLLATE latin7_general_cs NOT NULL,
-  `ktp` varchar(20) COLLATE latin7_general_cs NOT NULL,
+  `track_id` varchar(15) NOT NULL,
+  `nama_pelanggan` varchar(25) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `ktp` varchar(20) NOT NULL,
   `id_sto` int(11) NOT NULL,
-  `second_cp` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `id_paket` int(11) NOT NULL DEFAULT '0',
-  `tagging_rill` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `odp` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `odp_ke_pelanggan` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `id_agency` int(11) NOT NULL DEFAULT '0',
+  `second_cp` varchar(25) NOT NULL,
+  `id_paket` int(11) NOT NULL DEFAULT 0,
+  `tagging_rill` varchar(25) NOT NULL,
+  `odp` varchar(25) NOT NULL,
+  `odp_ke_pelanggan` varchar(25) NOT NULL,
+  `tgl_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id_agency` int(11) NOT NULL DEFAULT 0,
   `id_admin_agency` int(11) NOT NULL,
-  `id_supervisor` int(11) NOT NULL DEFAULT '0',
-  `id_salesforce` int(11) NOT NULL DEFAULT '0',
-  `no_sc` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `status_validasi` varchar(7) COLLATE latin7_general_cs NOT NULL,
-  `kategori_progress_psb` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `keterangan_progress_psb` varchar(50) COLLATE latin7_general_cs NOT NULL,
-  `alamat_rill_pelanggan` varchar(50) COLLATE latin7_general_cs NOT NULL,
-  `cp_rill_pelanggan` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `nama_teknisi` varchar(25) COLLATE latin7_general_cs NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `id_supervisor` int(11) NOT NULL DEFAULT 0,
+  `id_salesforce` int(11) NOT NULL DEFAULT 0,
+  `no_sc` varchar(25) NOT NULL,
+  `status_validasi` varchar(7) NOT NULL,
+  `kategori_progress_psb` varchar(25) NOT NULL,
+  `keterangan_progress_psb` varchar(50) NOT NULL,
+  `alamat_rill_pelanggan` varchar(50) NOT NULL,
+  `cp_rill_pelanggan` varchar(25) NOT NULL,
+  `nama_teknisi` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `data_pelanggan`
+-- Dumping data for table `data_pelanggan`
 --
 
 INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp`, `id_sto`, `second_cp`, `id_paket`, `tagging_rill`, `odp`, `odp_ke_pelanggan`, `tgl_input`, `id_agency`, `id_admin_agency`, `id_supervisor`, `id_salesforce`, `no_sc`, `status_validasi`, `kategori_progress_psb`, `keterangan_progress_psb`, `alamat_rill_pelanggan`, `cp_rill_pelanggan`, `nama_teknisi`) VALUES
-(1, '1231', 'Rama', 'Sidoarjo', '3515', 2, '09876', 4, '10', 'Sidoarjo', '1', '2020-01-24 06:50:31', 1, 1, 1, 1, '45', 'OK', 'Normal', 'Belum Ready', 'Sidoarjo', '67890', 'Rena'),
-(2, '1232', 'Riesta', 'Sidoarjo', '9876', 2, '56789', 13, '5', 'Sidoarjo', '8', '2020-01-24 06:44:21', 1, 2, 2, 2, '98', 'OK', 'Normal', 'Belum Ready', 'Sidoarjo', '3456', 'Putri'),
-(3, '1233', 'Dimas', 'Sidoarjo', '23', 1, '45563', 14, '76', 'Sidoarjo', '6', '2020-01-24 06:44:21', 1, 1, 3, 3, '9', 'NOT OK', 'Normal', 'Ready', 'Sidoarjo', '87863', 'Widya'),
-(4, '1234', 'Yudi', 'Sidoarjo', '453242', 1, '634532', 14, '6', 'Sidoarjo', '5', '2020-01-23 15:37:26', 1, 0, 4, 4, '98', 'OK', 'Normal', 'Ready', 'Sidoarjo', '53452', 'Al'),
-(5, '1235', 'Tris', 'Sidoarjo', '3515567', 1, '0656246234', 14, '10', 'Sidoarjo', '14', '2020-01-24 06:47:53', 1, 1, 1, 1, '98', 'OK', 'Normal', 'Ready', 'Sidoarjo', '02193812545', 'Tya'),
-(6, '1236', 'Dimsa', 'Sidoarjo', '35151123121', 1, '08656246234', 28, '10', 'Sidoarjo', '10', '2020-01-24 06:44:21', 1, 1, 1, 1, '9', 'OK', 'Normal', 'Ready', 'Sidoarjo', '0821938121', 'Alam'),
-(7, '1237', 'Tari', 'Sidoarjo', '3518940580345', 1, '0894923434', 12, '5', 'Sidoarjo', '5', '2020-01-24 06:44:21', 1, 1, 3, 4, '', '', '', '', '', '', '');
+(4, '1234', 'Yudia', 'Sidoarjo', '453242', 1, '634532', 14, '6', 'Sidoarjo', '5', '2020-01-24 11:48:54', 1, 1, 3, 3, '98', 'OK', 'Normal', 'Ready', 'Sidoarjo', '53452', 'Al'),
+(5, '1235', 'Triraaaaa', 'Sidoarjo', '3515567', 1, '0656246234', 14, '10', 'Sidoarjo', '14', '2020-01-24 11:49:23', 1, 1, 1, 1, '98', 'OK', 'Normal', 'Ready', 'Sidoarjo', '02193812545', 'Tya'),
+(6, '1236', 'Dimsa', 'Sidoarjo', '35151123121', 1, '08656246234', 28, '10', 'Sidoarjo', '10', '2020-01-24 11:49:51', 0, 1, 4, 4, '9', 'OK', 'Normal', 'Ready', 'Sidoarjo', '0821938121', 'Alam'),
+(7, '1237', 'Tari', 'Sidoarjo', '3518940580345', 1, '0894923434', 12, '5', 'Sidoarjo', '5', '2020-01-24 06:44:21', 1, 1, 3, 4, '', '', '', '', '', '', ''),
+(8, '34234', 'wefwe', 'wefwefwef', '234324', 0, 'werwerwer', 17, 'wrwerwer', 'werwer', 'werwer', '2020-01-24 11:05:05', 0, 0, 4, 4, 'wer', 'werwer', 'werw', 'werew', 'werwerwr', 'werewrrwer', 'werwerwr');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_picwitel`
+-- Table structure for table `detail_picwitel`
 --
 
 CREATE TABLE `detail_picwitel` (
   `id_picwitel` int(11) NOT NULL,
-  `username` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `password` varchar(40) COLLATE latin7_general_cs NOT NULL,
+  `username` varchar(40) CHARACTER SET latin7 COLLATE latin7_general_cs NOT NULL,
+  `password` varchar(40) CHARACTER SET latin7 COLLATE latin7_general_cs NOT NULL,
   `akses` int(11) NOT NULL,
   `id_sto` int(11) NOT NULL,
-  `nama` varchar(40) COLLATE latin7_general_cs NOT NULL,
+  `nama` varchar(40) NOT NULL,
   `nik` bigint(15) NOT NULL,
-  `email` varchar(45) COLLATE latin7_general_cs NOT NULL,
-  `telpon` varchar(15) COLLATE latin7_general_cs NOT NULL,
-  `hp` varchar(15) COLLATE latin7_general_cs NOT NULL,
-  `regional` varchar(20) COLLATE latin7_general_cs NOT NULL,
-  `witel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `datel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `tanggal_aktif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `email` varchar(45) NOT NULL,
+  `telpon` varchar(15) NOT NULL,
+  `hp` varchar(15) NOT NULL,
+  `regional` varchar(20) NOT NULL,
+  `witel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `datel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `tanggal_aktif` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `detail_picwitel`
+-- Dumping data for table `detail_picwitel`
 --
 
 INSERT INTO `detail_picwitel` (`id_picwitel`, `username`, `password`, `akses`, `id_sto`, `nama`, `nik`, `email`, `telpon`, `hp`, `regional`, `witel`, `datel`, `tanggal_aktif`) VALUES
@@ -156,27 +154,27 @@ INSERT INTO `detail_picwitel` (`id_picwitel`, `username`, `password`, `akses`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_teknis`
+-- Table structure for table `detail_teknis`
 --
 
 CREATE TABLE `detail_teknis` (
   `id_teknis` int(11) NOT NULL,
-  `username` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `password` varchar(40) COLLATE latin7_general_cs NOT NULL,
+  `username` varchar(40) CHARACTER SET latin7 COLLATE latin7_general_cs NOT NULL,
+  `password` varchar(40) CHARACTER SET latin7 COLLATE latin7_general_cs NOT NULL,
   `akses` int(11) NOT NULL,
   `id_sto` int(11) NOT NULL,
-  `nama` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `email` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `telpon` varchar(15) COLLATE latin7_general_cs NOT NULL,
-  `hp` varchar(15) COLLATE latin7_general_cs NOT NULL,
-  `regional` varchar(20) COLLATE latin7_general_cs NOT NULL,
-  `witel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `datel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `tanggal_aktif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `nama` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `telpon` varchar(15) NOT NULL,
+  `hp` varchar(15) NOT NULL,
+  `regional` varchar(20) NOT NULL,
+  `witel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `datel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `tanggal_aktif` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `detail_teknis`
+-- Dumping data for table `detail_teknis`
 --
 
 INSERT INTO `detail_teknis` (`id_teknis`, `username`, `password`, `akses`, `id_sto`, `nama`, `email`, `telpon`, `hp`, `regional`, `witel`, `datel`, `tanggal_aktif`) VALUES
@@ -187,16 +185,16 @@ INSERT INTO `detail_teknis` (`id_teknis`, `username`, `password`, `akses`, `id_s
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jabatan`
+-- Table structure for table `jabatan`
 --
 
 CREATE TABLE `jabatan` (
   `id_jabatan` int(11) NOT NULL,
-  `nama_jabatan` varchar(15) COLLATE latin7_general_cs NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `nama_jabatan` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jabatan`
+-- Dumping data for table `jabatan`
 --
 
 INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
@@ -215,16 +213,16 @@ INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `paket`
+-- Table structure for table `paket`
 --
 
 CREATE TABLE `paket` (
   `id_paket` int(11) NOT NULL,
-  `nama_paket` varchar(30) COLLATE latin7_general_cs NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `nama_paket` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `paket`
+-- Dumping data for table `paket`
 --
 
 INSERT INTO `paket` (`id_paket`, `nama_paket`) VALUES
@@ -268,29 +266,29 @@ INSERT INTO `paket` (`id_paket`, `nama_paket`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `salesforce`
+-- Table structure for table `salesforce`
 --
 
 CREATE TABLE `salesforce` (
   `id_salesforce` int(11) NOT NULL,
   `id_supervisor` int(11) NOT NULL,
-  `username` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `password` varchar(40) COLLATE latin7_general_cs NOT NULL,
+  `username` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL,
   `akses` int(11) NOT NULL,
   `id_sto` int(11) NOT NULL,
-  `nama` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `email` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `telpon` varchar(15) COLLATE latin7_general_cs NOT NULL,
-  `hp` varchar(15) COLLATE latin7_general_cs NOT NULL,
+  `nama` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `telpon` varchar(15) NOT NULL,
+  `hp` varchar(15) NOT NULL,
   `id_agency` int(11) NOT NULL,
-  `regional` varchar(20) COLLATE latin7_general_cs NOT NULL,
-  `witel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `datel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `tanggal_aktif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `regional` varchar(20) NOT NULL,
+  `witel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `datel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `tanggal_aktif` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `salesforce`
+-- Dumping data for table `salesforce`
 --
 
 INSERT INTO `salesforce` (`id_salesforce`, `id_supervisor`, `username`, `password`, `akses`, `id_sto`, `nama`, `email`, `telpon`, `hp`, `id_agency`, `regional`, `witel`, `datel`, `tanggal_aktif`) VALUES
@@ -303,17 +301,17 @@ INSERT INTO `salesforce` (`id_salesforce`, `id_supervisor`, `username`, `passwor
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sto`
+-- Table structure for table `sto`
 --
 
 CREATE TABLE `sto` (
   `id_sto` int(11) NOT NULL,
-  `area` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `alamat` varchar(40) CHARACTER SET latin1 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `area` varchar(20) NOT NULL,
+  `alamat` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `sto`
+-- Dumping data for table `sto`
 --
 
 INSERT INTO `sto` (`id_sto`, `area`, `alamat`) VALUES
@@ -324,29 +322,29 @@ INSERT INTO `sto` (`id_sto`, `area`, `alamat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supervisor`
+-- Table structure for table `supervisor`
 --
 
 CREATE TABLE `supervisor` (
   `id_supervisor` int(11) NOT NULL,
   `id_admin_agency` int(11) NOT NULL,
-  `username` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `password` varchar(40) COLLATE latin7_general_cs NOT NULL,
+  `username` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL,
   `akses` int(11) NOT NULL,
   `id_sto` int(11) NOT NULL,
-  `nama` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `email` varchar(40) COLLATE latin7_general_cs NOT NULL,
-  `telpon` varchar(15) COLLATE latin7_general_cs NOT NULL,
-  `hp` varchar(15) COLLATE latin7_general_cs NOT NULL,
+  `nama` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `telpon` varchar(15) NOT NULL,
+  `hp` varchar(15) NOT NULL,
   `id_agency` int(11) NOT NULL,
-  `regional` varchar(20) COLLATE latin7_general_cs NOT NULL,
-  `witel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `datel` varchar(20) COLLATE latin7_general_cs NOT NULL DEFAULT 'SIDOARJO',
-  `tanggal_aktif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+  `regional` varchar(20) NOT NULL,
+  `witel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `datel` varchar(20) NOT NULL DEFAULT 'SIDOARJO',
+  `tanggal_aktif` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `supervisor`
+-- Dumping data for table `supervisor`
 --
 
 INSERT INTO `supervisor` (`id_supervisor`, `id_admin_agency`, `username`, `password`, `akses`, `id_sto`, `nama`, `email`, `telpon`, `hp`, `id_agency`, `regional`, `witel`, `datel`, `tanggal_aktif`) VALUES
@@ -358,53 +356,51 @@ INSERT INTO `supervisor` (`id_supervisor`, `id_admin_agency`, `username`, `passw
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id` int(3) NOT NULL,
-  `username` varchar(25) COLLATE latin7_general_cs NOT NULL,
-  `password` varchar(25) COLLATE latin7_general_cs NOT NULL,
+  `username` varchar(25) CHARACTER SET latin7 COLLATE latin7_general_cs NOT NULL,
   `akses` int(1) NOT NULL,
-  `nama` varchar(25) COLLATE latin7_general_cs NOT NULL,
+  `nama` varchar(25) NOT NULL,
   `id_sto` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin7 COLLATE=latin7_general_cs;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `akses`, `nama`, `id_sto`) VALUES
-(2, 'teknisi02', 'teknisi02', 5, 'Rista Teknisi', 1),
-(3, 'adminagency01', 'adminagency01', 1, 'Alam Agency', 2),
-(4, 'spv01', 'spv01', 2, 'Alam SPV', 2),
-(5, 'sf01', 'sf01', 3, 'Alam SF', 2),
-(6, 'inputer01', 'inputer01', 4, 'Alam Inputer', 2),
-(7, 'teknisi01', 'teknisi01', 5, 'Alam Teknisi', 2),
-(9, 'tl01', 'tl01', 6, 'Rista TL', 2),
-(10, 'woc01', 'woc01', 7, 'Rista WOC', 2),
-(11, 'manager01', 'manager01', 8, 'Rista Manager', 2),
-(12, 'picwitel01', 'picwitel01', 9, 'Rista PIC Witel', 2),
-(13, 'kasto01', 'kasto01', 10, 'Rista Ka  STO', 2),
-(14, 'adminagency02', 'adminagency02', 1, 'Admin Agency 02', 2),
-(15, 'spv02', 'spv02', 2, 'spv02', 2),
-(16, 'spv03', 'spv03', 2, 'spv03', 2),
-(17, 'spv04', 'spv04', 2, 'spv04', 2),
-(18, 'sf02', 'sf02', 3, 'Alam SF', 2),
-(19, 'sf03', 'sf03', 3, 'Alam SF', 2),
-(20, 'sf04', 'sf04', 3, 'Alam SF', 2),
-(21, 'sf05', 'sf05', 3, 'Alam SF', 2),
-(22, 'inputer02', 'inputer02', 4, 'Alam Inputer', 2),
-(23, 'teknisi02', 'teknisi02', 5, 'Alam Teknisi', 2),
-(24, 'tl02', 'tl02', 6, 'Rista TL', 2),
-(25, 'woc02', 'woc02', 7, 'Rista WOC', 2);
+INSERT INTO `user` (`id`, `username`, `akses`, `nama`, `id_sto`) VALUES
+(3, 'adminagency01', 1, 'Alam Agency', 2),
+(4, 'spv01', 2, 'Alam SPV', 2),
+(5, 'sf01', 3, 'Alam SF', 2),
+(6, 'inputer01', 4, 'Alam Inputer', 2),
+(7, 'teknisi01', 5, 'Alam Teknisi', 2),
+(9, 'tl01', 6, 'Rista TL', 2),
+(10, 'woc01', 7, 'Rista WOC', 2),
+(11, 'manager01', 8, 'Rista Manager', 2),
+(12, 'picwitel01', 9, 'Rista PIC Witel', 2),
+(13, 'kasto01', 10, 'Rista Ka  STO', 2),
+(14, 'adminagency02', 1, 'Admin Agency 02', 2),
+(15, 'spv02', 2, 'spv02', 2),
+(16, 'spv03', 2, 'spv03', 2),
+(17, 'spv04', 2, 'spv04', 2),
+(18, 'sf02', 3, 'Alam SF', 2),
+(19, 'sf03', 3, 'Alam SF', 2),
+(20, 'sf04', 3, 'Alam SF', 2),
+(21, 'sf05', 3, 'Alam SF', 2),
+(22, 'inputer02', 4, 'Alam Inputer', 2),
+(23, 'teknisi02', 5, 'Alam Teknisi', 2),
+(24, 'tl02', 6, 'Rista TL', 2),
+(25, 'woc02', 7, 'Rista WOC', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `admin_agency`
+-- Indexes for table `admin_agency`
 --
 ALTER TABLE `admin_agency`
   ADD PRIMARY KEY (`id_admin_agency`),
@@ -413,13 +409,13 @@ ALTER TABLE `admin_agency`
   ADD KEY `admin_agency ke sto` (`id_sto`) USING BTREE;
 
 --
--- Indeks untuk tabel `agency`
+-- Indexes for table `agency`
 --
 ALTER TABLE `agency`
   ADD PRIMARY KEY (`id_agency`);
 
 --
--- Indeks untuk tabel `data_pelanggan`
+-- Indexes for table `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
   ADD PRIMARY KEY (`id`),
@@ -432,7 +428,7 @@ ALTER TABLE `data_pelanggan`
   ADD KEY `data pelanggan ke admin_agency` (`id_admin_agency`);
 
 --
--- Indeks untuk tabel `detail_picwitel`
+-- Indexes for table `detail_picwitel`
 --
 ALTER TABLE `detail_picwitel`
   ADD PRIMARY KEY (`id_picwitel`),
@@ -440,7 +436,7 @@ ALTER TABLE `detail_picwitel`
   ADD KEY `detail_picwitel ke sto` (`id_sto`);
 
 --
--- Indeks untuk tabel `detail_teknis`
+-- Indexes for table `detail_teknis`
 --
 ALTER TABLE `detail_teknis`
   ADD PRIMARY KEY (`id_teknis`),
@@ -448,19 +444,19 @@ ALTER TABLE `detail_teknis`
   ADD KEY `detail_teknis ke sto` (`id_sto`);
 
 --
--- Indeks untuk tabel `jabatan`
+-- Indexes for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
--- Indeks untuk tabel `paket`
+-- Indexes for table `paket`
 --
 ALTER TABLE `paket`
   ADD PRIMARY KEY (`id_paket`);
 
 --
--- Indeks untuk tabel `salesforce`
+-- Indexes for table `salesforce`
 --
 ALTER TABLE `salesforce`
   ADD PRIMARY KEY (`id_salesforce`),
@@ -470,13 +466,13 @@ ALTER TABLE `salesforce`
   ADD KEY `detail_sales_salesforce ke sto` (`id_sto`);
 
 --
--- Indeks untuk tabel `sto`
+-- Indexes for table `sto`
 --
 ALTER TABLE `sto`
   ADD PRIMARY KEY (`id_sto`);
 
 --
--- Indeks untuk tabel `supervisor`
+-- Indexes for table `supervisor`
 --
 ALTER TABLE `supervisor`
   ADD PRIMARY KEY (`id_supervisor`),
@@ -486,7 +482,7 @@ ALTER TABLE `supervisor`
   ADD KEY `detail_sales_supervisor ke sto` (`id_sto`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -494,81 +490,81 @@ ALTER TABLE `user`
   ADD KEY `user ke sto` (`id_sto`) USING BTREE;
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin_agency`
+-- AUTO_INCREMENT for table `admin_agency`
 --
 ALTER TABLE `admin_agency`
   MODIFY `id_admin_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `agency`
+-- AUTO_INCREMENT for table `agency`
 --
 ALTER TABLE `agency`
   MODIFY `id_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `data_pelanggan`
+-- AUTO_INCREMENT for table `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_picwitel`
+-- AUTO_INCREMENT for table `detail_picwitel`
 --
 ALTER TABLE `detail_picwitel`
   MODIFY `id_picwitel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_teknis`
+-- AUTO_INCREMENT for table `detail_teknis`
 --
 ALTER TABLE `detail_teknis`
   MODIFY `id_teknis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `jabatan`
+-- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
   MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `paket`
+-- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
   MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT untuk tabel `salesforce`
+-- AUTO_INCREMENT for table `salesforce`
 --
 ALTER TABLE `salesforce`
   MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `sto`
+-- AUTO_INCREMENT for table `sto`
 --
 ALTER TABLE `sto`
   MODIFY `id_sto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `supervisor`
+-- AUTO_INCREMENT for table `supervisor`
 --
 ALTER TABLE `supervisor`
   MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `admin_agency`
+-- Constraints for table `admin_agency`
 --
 ALTER TABLE `admin_agency`
   ADD CONSTRAINT `admin_agency_ibfk_2` FOREIGN KEY (`id_agency`) REFERENCES `agency` (`id_agency`),
@@ -576,7 +572,7 @@ ALTER TABLE `admin_agency`
   ADD CONSTRAINT `admin_agency_ibfk_4` FOREIGN KEY (`id_sto`) REFERENCES `sto` (`id_sto`);
 
 --
--- Ketidakleluasaan untuk tabel `data_pelanggan`
+-- Constraints for table `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
   ADD CONSTRAINT `data_pelanggan_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`),
@@ -587,21 +583,21 @@ ALTER TABLE `data_pelanggan`
   ADD CONSTRAINT `pelanggan ke spv` FOREIGN KEY (`id_supervisor`) REFERENCES `supervisor` (`id_supervisor`);
 
 --
--- Ketidakleluasaan untuk tabel `detail_picwitel`
+-- Constraints for table `detail_picwitel`
 --
 ALTER TABLE `detail_picwitel`
   ADD CONSTRAINT `detail_picwitel_ibfk_1` FOREIGN KEY (`akses`) REFERENCES `jabatan` (`id_jabatan`),
   ADD CONSTRAINT `detail_picwitel_ibfk_2` FOREIGN KEY (`id_sto`) REFERENCES `sto` (`id_sto`);
 
 --
--- Ketidakleluasaan untuk tabel `detail_teknis`
+-- Constraints for table `detail_teknis`
 --
 ALTER TABLE `detail_teknis`
   ADD CONSTRAINT `detail_teknis_ibfk_1` FOREIGN KEY (`akses`) REFERENCES `jabatan` (`id_jabatan`),
   ADD CONSTRAINT `detail_teknis_ibfk_2` FOREIGN KEY (`id_sto`) REFERENCES `sto` (`id_sto`);
 
 --
--- Ketidakleluasaan untuk tabel `salesforce`
+-- Constraints for table `salesforce`
 --
 ALTER TABLE `salesforce`
   ADD CONSTRAINT `salesforce_ibfk_2` FOREIGN KEY (`id_agency`) REFERENCES `agency` (`id_agency`),
@@ -610,7 +606,7 @@ ALTER TABLE `salesforce`
   ADD CONSTRAINT `sf ke spv` FOREIGN KEY (`id_supervisor`) REFERENCES `supervisor` (`id_supervisor`);
 
 --
--- Ketidakleluasaan untuk tabel `supervisor`
+-- Constraints for table `supervisor`
 --
 ALTER TABLE `supervisor`
   ADD CONSTRAINT `spv ke agency` FOREIGN KEY (`id_admin_agency`) REFERENCES `admin_agency` (`id_admin_agency`),
@@ -619,7 +615,7 @@ ALTER TABLE `supervisor`
   ADD CONSTRAINT `supervisor_ibfk_4` FOREIGN KEY (`id_sto`) REFERENCES `sto` (`id_sto`);
 
 --
--- Ketidakleluasaan untuk tabel `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`akses`) REFERENCES `jabatan` (`id_jabatan`),
