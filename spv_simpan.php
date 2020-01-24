@@ -5,18 +5,16 @@ $track_id = $_POST['track_id'];
 $nama_pelanggan = $_POST['nama_pelanggan'];
 $alamat = $_POST['alamat'];
 $ktp = $_POST['ktp'];
-$sto = $_POST['sto'];
+$id_sto = $_POST['id_sto'];
 $second_cp = $_POST['second_cp'];
-$paket = $_POST['paket'];
+$id_paket = $_POST['id_paket'];
 $tagging_rill = $_POST['tagging_rill'];
 $odp = $_POST['odp'];
 $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
-$id_partner = $_POST['id_partner'] ;
-$id_spv = $_POST['id_spv'] ;
 $id_agency = $_POST['id_agency'] ;
-
-
-
+$id_admin_agency = $_POST['id_admin_agency'] ;
+$id_supervisor = $_POST['id_supervisor'] ;
+$id_salesforce = $_POST['id_salesforce'] ;
 
 $query = "SELECT * FROM data_pelanggan WHERE track_id='$track_id' AND ktp='$ktp'";
 $select = mysqli_query($con, $query);
@@ -35,26 +33,26 @@ $select = mysqli_query($con, $query);
 
   if(($jumlahCekKTP && $jumlahCekTrack) > 0){
     echo '<script language="JavaScript">
-   alert("KTP dan Track ID Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   alert("Data Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "spv_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekTrack > 0){
     echo '<script language="JavaScript">
-   alert("Track ID Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   alert("Data Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "spv_tampil.php";
    </script>';
    die;
   } else if ($jumlahCekKTP > 0){
     echo '<script language="JavaScript">
-   alert("KTP Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
+   alert("Data Pernah Diinputkan, Silahkan Hubungi Admin Witel!");
    window.location = "spv_tampil.php";
    </script>';
    die;
   }
 
- $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, sto, second_cp, paket, tagging_rill, odp, odp_ke_pelanggan, id_partner, id_spv, id_agency)
- VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$sto', '$second_cp', '$paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_partner', '$id_spv', '$id_agency')";
+ $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, id_sto, second_cp, id_paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_admin_agency, id_supervisor, id_salesforce)
+ VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$id_sto', '$second_cp', '$id_paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_admin_agency', '$id_supervisor', '$id_salesforce')";
  $hasilQuery = mysqli_query($con, $query);
 // echo $query;die;
 

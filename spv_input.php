@@ -4,27 +4,53 @@ include("header.php"); ?>
 <body>
 <?php
 include("guard/guard_2.php");
-$id_spv = $_SESSION['id'];
+$id_supervisor = $_SESSION['id'];
 
 
-//mencari data id_admingency dari spv yg sedang login
-$queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
+// //mencari data id_admingency dari spv yg sedang login
+// $queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
+//
+// $runQueryCariAg = mysqli_query($con,$queryCariAg);
+//
+// $dataSpv = mysqli_fetch_assoc($runQueryCariAg);
+// $id_ag = $dataSpv["id_agency"];
+// // end
 
-$runQueryCariAg = mysqli_query($con,$queryCariAg);
+//option untuk menampilkan seluruh sto
+$querySto = "SELECT id_sto, area FROM `sto`";
+$runQuerySto = mysqli_query($con,$querySto);
+$kumpulanDataSto = [];
+while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
+    $kumpulanDataSto[] = $dataSto;
+}
+// end
 
-$dataSpv = mysqli_fetch_assoc($runQueryCariAg);
-$id_ag = $dataSpv["id_agency"];
+//option untuk menampilkan seluruh paket
+$queryPaket = "SELECT id_paket, nama_paket FROM `paket`";
+$runQueryPaket = mysqli_query($con,$queryPaket);
+$kumpulanDataPaket = [];
+while ($dataPaket = mysqli_fetch_assoc($runQueryPaket)) {
+    $kumpulanDataPaket[] = $dataPaket;
+}
+// end
+
+//option untuk menampilkan seluruh agency
+$queryAgency = "SELECT id_agency, nama_agency FROM `agency`";
+$runQueryAgency = mysqli_query($con,$queryAgency);
+$kumpulanDataAgency = [];
+while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
+    $kumpulanDataAgency[] = $dataAgency;
+}
 // end
 
 //option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_supervisor = $id_spv";
+$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_supervisor = $id_supervisor";
 $runQueryPartner = mysqli_query($con,$queryPartner);
 
 while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
     $kumpulanDataPartner[] = $dataPartner;
 }
 // end
-
 
 
 ?>
@@ -66,7 +92,11 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         </div>
                         <div class="form-group">
                             <label>STO</label>
-                            <input type="text" class="form-control border-input" name="sto" autocomplete="off" required>
+                            <select class="form-control border-input" name="id_sto" autocomplete="off" required>
+                            <?php foreach($kumpulanDataSto as $id_sto) : ?>
+                                <option value="<?=$id_sto['id_sto'] ?> "><?= $id_sto['area'] ?></option>
+                            <?php endforeach ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Second CP</label>
@@ -74,7 +104,11 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         </div>
                         <div class="form-group">
                             <label>Paket</label>
-                            <input type="text" class="form-control border-input" name="paket" autocomplete="off" required>
+                            <select class="form-control border-input" name="id_paket" autocomplete="off" required>
+                            <?php foreach($kumpulanDataPaket as $id_paket) : ?>
+                                <option value="<?=$id_paket['id_paket'] ?> "><?= $id_paket['nama_paket'] ?></option>
+                            <?php endforeach ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Tagging Rill</label>
@@ -89,14 +123,17 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" value="<?=$id_ag?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                            <input type="hidden" value="<?=$id_supervisor?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" value="<?=$id_spv?>" class="form-control border-input" name="id_spv" autocomplete="off" required>
+                          <input type="hidden" value="<?=$id_supervisor?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
                         </div>
-                            <div class="form-group">
+                        <div class="form-group">
+                            <input type="hidden" value="<?=$id_supervisor?>" class="form-control border-input" name="id_supervisor" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
                             <label>Partner</label>
-                            <select class="form-control border-input" name="id_partner" autocomplete="off" required>
+                            <select class="form-control border-input" name="id_salesforce" autocomplete="off" required>
                             <?php foreach($kumpulanDataPartner as $partner) : ?>
                                 <option value="<?=$partner['id_salesforce'] ?> "><?= $partner['nama'] ?></option>
                             <?php endforeach ?>
