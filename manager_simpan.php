@@ -12,6 +12,7 @@ $tagging_rill = $_POST['tagging_rill'];
 $odp = $_POST['odp'];
 $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
 $id_agency = $_POST['id_agency'];
+$id_admin_agency = $_POST['id_admin_agency'];
 $id_partner = $_POST['id_partner'];
 $no_sc = $_POST['no_sc'];
 $id_spv = $_POST['id_spv'];

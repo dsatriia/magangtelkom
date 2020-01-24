@@ -106,6 +106,22 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                                 <?php endforeach ?>
                                 </select>
                         </div>
+                        <div class='form-group'>
+                            <label>Admin Agency</label>
+                                <select class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
+                                <?php foreach($kumpulanDataAdminAgency as $admin_agency) : ?>
+                                    <option value="<?=$admin_agency['id_admin_agency'] ?> "><?= $admin_agency['nama'] ?></option>
+                                <?php endforeach ?>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Supervisor</label>
+                            <select class="form-control border-input" name="id_spv" autocomplete="off" required>
+                            <?php foreach($kumpulanDataSpv as $spv) : ?>
+                                <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
+                            <?php endforeach ?>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label>Partner</label>
                             <select class="form-control border-input" name="id_partner" autocomplete="off" required>
@@ -117,14 +133,6 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class='form-group'>
                             <label>No SC</label>
                             <input type='text' class='form-control border-input' name='no_sc' autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Supervisor</label>
-                            <select class="form-control border-input" name="id_spv" autocomplete="off" required>
-                            <?php foreach($kumpulanDataSpv as $spv) : ?>
-                                <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
-                            <?php endforeach ?>
-                            </select>
                         </div>
                         <div class='form-group'>
                             <label>Status Validasi</label>
