@@ -5,9 +5,36 @@ require("koneksi.php");
 
 $id = $_SESSION['id'];
 
+//option untuk menampilkan seluruh sto
+$querySto = "SELECT id_sto, area FROM `sto`";
+$runQuerySto = mysqli_query($con,$querySto);
+$kumpulanDataSto = [];
+while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
+    $kumpulanDataSto[] = $dataSto;
+}
+// end
+
+//option untuk menampilkan seluruh paket
+$queryPaket = "SELECT id_paket, nama_paket FROM `paket`";
+$runQueryPaket = mysqli_query($con,$queryPaket);
+$kumpulanDataPaket = [];
+while ($dataPaket = mysqli_fetch_assoc($runQueryPaket)) {
+    $kumpulanDataPaket[] = $dataPaket;
+}
+// end
+
+//option untuk menampilkan seluruh agency
+$queryAgency = "SELECT id_agency, nama_agency FROM `agency`";
+$runQueryAgency = mysqli_query($con,$queryAgency);
+$kumpulanDataAgency = [];
+while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
+    $kumpulanDataAgency[] = $dataAgency;
+}
+// end
+
 
 //option untuk menampilkan spv yang dibawahinya
-$querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id";
+$querySpv = "SELECT * FROM `supervisor` WHERE `id_admin_agency` = $id";
 $runQuerySpv = mysqli_query($con,$querySpv);
 
 while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
@@ -16,7 +43,7 @@ while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
 // end
 
 //option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_agency = $id";
+$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_admin_agency = $id";
 $runQueryPartner = mysqli_query($con,$queryPartner);
 
 while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
@@ -60,15 +87,15 @@ $track_id = $data['track_id'];
 $nama_pelanggan = $data['nama_pelanggan'];
 $alamat = $data['alamat'];
 $ktp = $data['ktp'];
-$sto = $data['sto'];
+$id_sto = $data['id_sto'];
 $second_cp = $data['second_cp'];
-$paket = $data['paket'];
+$id_paket = $data['id_paket'];
 $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
 $id_agency = $_SESSION['id'];
-$id_partner = $data['id_partner'];
-$id_spv = $data['id_spv'];
+$id_supervisor = $data['id_supervisor'];
+$id_salesforce = $data['id_salesforce'];
 
 ?>
                                                         <form method='post' action='ag_update.php'
@@ -101,24 +128,25 @@ $id_spv = $data['id_spv'];
                                                                         name='ktp' value='<?php echo $ktp ?>'
                                                                         autocomplete="off" required>
                                                                 </div>
-                                                                <div class='form-group'>
+                                                                <div class="form-group">
                                                                     <label>STO</label>
-                                                                    <input type='text' class='form-control border-input'
-                                                                        name='sto' value='<?php echo $sto ?>'
-                                                                        autocomplete="off" required>
+                                                                    <select class="form-control border-input" name="id_sto" autocomplete="off" required>
+                                                                    <?php foreach($kumpulanDataSto as $id_sto) : ?>
+                                                                        <option value="<?=$id_sto['id_sto'] ?> "><?= $id_sto['area'] ?></option>
+                                                                    <?php endforeach ?>
+                                                                    </select>
                                                                 </div>
-                                                                <div class='form-group'>
+                                                                <div class="form-group">
                                                                     <label>Second CP</label>
-                                                                    <input type='text' class='form-control border-input'
-                                                                        name='second_cp'
-                                                                        value='<?php echo $second_cp ?>'
-                                                                        autocomplete="off" required>
+                                                                    <input type="text" class="form-control border-input" name="second_cp" value='<?php echo $second_cp ?>' autocomplete="off" required>
                                                                 </div>
-                                                                <div class='form-group'>
+                                                                <div class="form-group">
                                                                     <label>Paket</label>
-                                                                    <input type='text' class='form-control border-input'
-                                                                        name='paket' value='<?php echo $paket ?>'
-                                                                        autocomplete="off" required>
+                                                                    <select class="form-control border-input" name="id_paket" autocomplete="off" required>
+                                                                    <?php foreach($kumpulanDataPaket as $id_paket) : ?>
+                                                                        <option value="<?=$id_paket['id_paket'] ?> "><?= $id_paket['nama_paket'] ?></option>
+                                                                    <?php endforeach ?>
+                                                                    </select>
                                                                 </div>
                                                                 <div class='form-group'>
                                                                     <label>Tagging Rill</label>
@@ -147,21 +175,21 @@ $id_spv = $data['id_spv'];
                                                                         value='<?php echo $id_agency ?>'
                                                                         autocomplete="off" required>
                                                                 </div>
-                                                                <div class='form-group'>
-                                                                    <label>Partner</label>
-                                                                        <select class="form-control border-input" name="id_partner" autocomplete="off" required>
-                                                                        <?php foreach($kumpulanDataPartner as $partner) : ?>
-                                                                            <option value="<?=$partner['id_salesforce'] ?> " <?php if($id_partner == $partner['id_salesforce']): echo 'selected'; endif;?>><?= $partner['nama'] ?></option>
-                                                                        <?php endforeach ?>
-                                                                        </select>
-                                                                </div>
-                                                                <div class='form-group'>
+                                                                <div class="form-group">
                                                                     <label>Supervisor</label>
-                                                                        <select class="form-control border-input" name="id_spv" autocomplete="off" required>
-                                                                        <?php foreach($kumpulanDataSpv as $spv) : ?>
-                                                                            <option value="<?=$spv['id_supervisor'] ?> " <?php if($id_spv == $spv['id_supervisor']): echo 'selected'; endif;?>><?= $spv['nama'] ?></option>
-                                                                        <?php endforeach ?>
-                                                                        </select>
+                                                                    <select class="form-control border-input" name="id_supervisor" autocomplete="off" required>
+                                                                    <?php foreach($kumpulanDataSpv as $spv) : ?>
+                                                                        <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
+                                                                    <?php endforeach ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Partner</label>
+                                                                    <select class="form-control border-input" name="id_salesforce" autocomplete="off" required>
+                                                                    <?php foreach($kumpulanDataPartner as $partner) : ?>
+                                                                        <option value="<?=$partner['id_salesforce'] ?> "><?= $partner['nama'] ?></option>
+                                                                    <?php endforeach ?>
+                                                                    </select>
                                                                 </div>
 
                                                                 <br>
