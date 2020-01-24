@@ -1,7 +1,18 @@
 <?php include("header.php");
 require("koneksi.php");
 
-include("guard/guard_8.php")
+include("guard/guard_8.php");
+
+if ($_GET['berhasil'] > 0){
+    $berhasil = $_GET['berhasil'];
+    echo '<script language="JavaScript">
+    alert("Berhasil mengimport : '. $berhasil.' data.");    
+    </script>';
+} else {
+    echo '<script language="JavaScript">
+    alert("Tidak ada data yang diimport.");    
+    </script>';
+}
 ?>
 <body>
 
@@ -19,6 +30,7 @@ include("sidebar/sidebar_dataplg_manager.php"); ?>
                                 <h2 class="title text-center"><b>Data Pelanggan</b></h2>
                                 <a class="btn btn-success" href="manager_input.php" style="font-size:15pt">+ Input Data
                                     Baru</a><br>
+                                <a class="btn btn-success" href="import_data_pelanggan.php">IMPORT DATA</a>
                                 <br>
                                 
                             </div>
