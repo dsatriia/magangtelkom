@@ -18,7 +18,7 @@ function cari($keyword){
             WHERE
             nama_pelanggan LIKE '%$keyword%'
             ";
-            
+
   return query($query);
 }
 
@@ -35,9 +35,10 @@ if (isset($_POST['cari'])) {
 <form action="" method="post">
   <div class="form-group">
       <input name="kata-kunci" class="form-control border-input" type="text" placeholder="Masukkan kata kunci pencarian...">
+      <br>
       <button class="btn btn-primary" name="cari" type="submit">Cari</button>
   </div>
-      
+
 </form>
 
 <table class="table table-hover table-bordered text-center">
