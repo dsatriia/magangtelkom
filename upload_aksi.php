@@ -66,6 +66,19 @@ for ($i=2; $i<=$jumlah_baris; $i++){
 // hapus kembali file .xls yang di upload tadi
 unlink($_FILES['filepelanggan']['name']);
  
-// alihkan halaman ke index.php
-header("location:manager_tampil.php?berhasil=$berhasil");
+// alihkan halaman ke manager_tampil.php
+// header("location:manager_tampil.php?berhasil=$berhasil");
+
+if (($berhasil) > 0){
+    echo '<script language="JavaScript">
+    alert("Berhasil Mengimport : '. $berhasil.' Data!");
+    window.location = "manager_tampil.php";
+    </script>';
+}
+else {
+    echo '<script language="JavaScript">
+    alert("Tidak ada data yang diimport.");
+    window.location = "manager_tampil.php";
+    </script>';
+}
 ?>

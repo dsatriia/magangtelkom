@@ -4,7 +4,7 @@ include("header.php");
 ?>
 <body>
 <?php
-$id = $_SESSION['id'];
+//$id = $_SESSION['id'];
 
 //option untuk menampilkan seluruh akses
 $queryAkses = "SELECT * FROM `jabatan`";

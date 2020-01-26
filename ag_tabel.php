@@ -1,5 +1,7 @@
 <?php
 include("koneksi.php");
+$id = $_SESSION['id'];
+
 function query($query){
   global $con;
 
@@ -14,21 +16,24 @@ function query($query){
 }
 
 function cari($keyword){
+  $id = $_SESSION['id'];
   $query = "SELECT * FROM data_pelanggan
             WHERE id != 0 AND
             (nama_pelanggan LIKE '%$keyword%' OR
             track_id LIKE '%$keyword%' OR
             ktp LIKE '%$keyword%' OR
             id_agency LIKE '%$keyword%' OR
+            -- id_admin_agency LIKE '%$keyword%' OR
             id_supervisor LIKE '%$keyword%' OR
             id_salesforce LIKE '%$keyword%' OR
             nama_teknisi LIKE '%$keyword%')
+            AND id_admin_agency = $id
             ";
 
   return query($query);
 }
 
-$pelanggan = query("SELECT * FROM data_pelanggan");
+$pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency = $id");
 
 if (isset($_POST['cari'])) {
   $pelanggan = cari($_POST["kata-kunci"]);
@@ -64,7 +69,7 @@ if (isset($_POST['cari'])) {
 <tbody>
 <?php
 
-    $id = $_SESSION['id'];
+    // $id = $_SESSION['id'];
     // $query = "SELECT * FROM data_pelanggan WHERE id_admin_agency = $id";
     // $hasil = mysqli_query($con,$query);
     // while ($data = mysqli_fetch_array($hasil)){
