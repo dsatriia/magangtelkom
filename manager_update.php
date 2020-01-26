@@ -12,23 +12,23 @@ $track_id = $_POST['track_id'];
 $nama_pelanggan = $_POST['nama_pelanggan'];
 $alamat = $_POST['alamat'];
 $ktp = $_POST['ktp'];
+$id_sto = $_POST['id_sto'];
 $second_cp = $_POST['second_cp'];
+$id_paket = $_POST['id_paket'];
 $tagging_rill = $_POST['tagging_rill'];
 $odp = $_POST['odp'];
 $odp_ke_pelanggan = $_POST['odp_ke_pelanggan'];
 $id_agency = $_POST['id_agency'];
 $id_admin_agency = $_POST['id_admin_agency'];
-$no_sc = $_POST['no_sc'];
 $id_supervisor = $_POST['id_supervisor'];
+$id_salesforce = $_POST['id_salesforce'];
+$no_sc = $_POST['no_sc'];
 $status_validasi = $_POST['status_validasi'];
 $kategori_progress_psb = $_POST['kategori_progress_psb'];
 $keterangan_progress_psb = $_POST['keterangan_progress_psb'];
 $alamat_rill_pelanggan = $_POST['alamat_rill_pelanggan'];
 $cp_rill_pelanggan = $_POST['cp_rill_pelanggan'];
 $nama_teknisi = $_POST['nama_teknisi'];
-$id_sto = $_POST['sto'];
-$id_paket = $_POST['paket'];
-$id_salesforce = $_POST['id_partner'];
 
  $cekKTP = "SELECT * FROM data_pelanggan WHERE ktp='$ktp'";
  $runCekKtp = mysqli_query($con, $cekKTP);
@@ -40,10 +40,10 @@ $id_salesforce = $_POST['id_partner'];
 
 
 	if ($data != null && $track_id == $data['track_id']){
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', id_sto = '$id_sto', second_cp = '$second_cp', id_paket = '$id_paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
-            id_salesforce='$id_salesforce', no_sc = '$no_sc', id_supervisor='$id_supervisor', status_validasi = '$status_validasi', kategori_progress_psb='$kategori_progress_psb', keterangan_progress_psb='$keterangan_progress_psb', alamat_rill_pelanggan = '$alamat_rill_pelanggan', cp_rill_pelanggan = '$cp_rill_pelanggan', nama_teknisi='$nama_teknisi'
-	WHERE track_id = '$track_id'";
-	
+    $query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', id_sto = '$id_sto', second_cp = '$second_cp', id_paket = '$id_paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
+            id_admin_agency='$id_admin_agency',id_supervisor='$id_supervisor', id_salesforce='$id_salesforce', no_sc='$no_sc', status_validasi='$status_validasi', kategori_progress_psb='$kategori_progress_psb', keterangan_progress_psb='$keterangan_progress_psb', alamat_rill_pelanggan='$alamat_rill_pelanggan', cp_rill_pelanggan='$cp_rill_pelanggan', nama_teknisi='$nama_teknisi'
+    WHERE track_id = '$track_id'";
+
 		$hasilQuery = mysqli_query($con, $query);
 
 		if ($hasilQuery) {
@@ -65,9 +65,9 @@ $id_salesforce = $_POST['id_partner'];
 		window.location = "manager_tampil.php";
 			</script>';
 	 } else {
-		$query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', id_sto = '$id_sto', second_cp = '$second_cp', id_paket = '$id_paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
-            id_salesforce='$id_salesforce', no_sc = '$no_sc', id_supervisor='$id_supervisor', status_validasi = '$status_validasi', kategori_progress_psb='$kategori_progress_psb', keterangan_progress_psb='$keterangan_progress_psb', alamat_rill_pelanggan = '$alamat_rill_pelanggan', cp_rill_pelanggan = '$cp_rill_pelanggan', nama_teknisi='$nama_teknisi'
-    WHERE track_id = '$track_id'";
+     $query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', id_sto = '$id_sto', second_cp = '$second_cp', id_paket = '$id_paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
+             id_admin_agency='$id_admin_agency',id_supervisor='$id_supervisor', id_salesforce='$id_salesforce', no_sc='$no_sc', status_validasi='$status_validasi', kategori_progress_psb='$kategori_progress_psb', keterangan_progress_psb='$keterangan_progress_psb', alamat_rill_pelanggan='$alamat_rill_pelanggan', cp_rill_pelanggan='$cp_rill_pelanggan', nama_teknisi='$nama_teknisi'
+     WHERE track_id = '$track_id'";
 
 		$hasilQuery = mysqli_query($con, $query);
 		if ($hasilQuery) echo '<script language="JavaScript">

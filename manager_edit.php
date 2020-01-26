@@ -38,9 +38,9 @@ $track_id = $data['track_id'];
 $nama_pelanggan = $data['nama_pelanggan'];
 $alamat = $data['alamat'];
 $ktp = $data['ktp'];
-$sto = $data['id_sto'];
+$id_sto = $data['id_sto'];
 $second_cp = $data['second_cp'];
-$paket = $data['id_paket'];
+$id_paket = $data['id_paket'];
 $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
@@ -60,7 +60,7 @@ $nama_teknisi = $data['nama_teknisi'];
 ?>
 
 <form method='post' action='manager_update.php'
-    onsubmit='return confirm("Apakah data sudah benar?");'>
+    onsubmit='return confirm("Apakah Data Sudah Benar?");'>
     <div class='col-md-4'>
         <div class='form-group'>
             <label>Track Id</label>
@@ -90,14 +90,14 @@ $nama_teknisi = $data['nama_teknisi'];
                 autocomplete="off" required>
         </div>
         <div class='form-group'>
-            <label>STO</label>            
-            <select class="form-control border-input" name="sto" autocomplete="off" required>
+            <label>STO</label>
+            <select class="form-control border-input" name="id_sto" autocomplete="off" required>
                 <option value="">Please Select</option>
                 <?php
                     $query = mysqli_query($con, "SELECT * FROM sto");
                     while ($row = mysqli_fetch_array($query)) { ?>
 
-                    <option id="sto"  value="<?php echo $row['id_sto'];?>" <?php if($sto == $row['id_sto']): echo 'selected'; endif ?>>
+                    <option id="id_sto"  value="<?php echo $row['id_sto'];?>" <?php if($id_sto == $row['id_sto']): echo 'selected'; endif ?>>
                         <?php echo $row['area']; ?>
                     </option>
 
@@ -112,14 +112,14 @@ $nama_teknisi = $data['nama_teknisi'];
                 autocomplete="off" required>
         </div>
         <div class='form-group'>
-            <label>Paket</label>           
-            <select class="form-control border-input" name="paket" autocomplete="off" required>
+            <label>Paket</label>
+            <select class="form-control border-input" name="id_paket" autocomplete="off" required>
                 <option value="">Please Select</option>
                 <?php
                     $query = mysqli_query($con, "SELECT * FROM paket");
                     while ($row = mysqli_fetch_array($query)) { ?>
 
-                    <option id="paket"  value="<?php echo $row['id_paket'];?>" <?php if($paket == $row['id_paket']): echo 'selected'; endif ?>>
+                    <option id="id_paket"  value="<?php echo $row['id_paket'];?>" <?php if($id_paket == $row['id_paket']): echo 'selected'; endif ?>>
                         <?php echo $row['nama_paket']; ?>
                     </option>
 
@@ -147,7 +147,7 @@ $nama_teknisi = $data['nama_teknisi'];
                 autocomplete="off" required>
         </div>
         <div class='form-group'>
-            <label>Agency</label>                
+            <label>Agency</label>
                 <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
                     <option value="">Please Select</option>
                     <?php
@@ -162,7 +162,7 @@ $nama_teknisi = $data['nama_teknisi'];
                 </select>
         </div>
         <div class='form-group'>
-            <label>Admin Agency</label>                                
+            <label>Admin Agency</label>
                 <select class="form-control border-input" id="id_admin_agency" name="id_admin_agency" autocomplete="off" required>
                     <option value="">Please Select</option>
                     <?php
@@ -177,7 +177,7 @@ $nama_teknisi = $data['nama_teknisi'];
                 </select>
         </div>
         <div class="form-group">
-            <label>Supervisor</label>                            
+            <label>Supervisor</label>
             <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
                 <option value="">Please Select</option>
                 <?php
@@ -192,14 +192,14 @@ $nama_teknisi = $data['nama_teknisi'];
             </select>
         </div>
         <div class="form-group">
-            <label>Partner</label>                            
-            <select id="id_partner" class="form-control border-input" name="id_partner" autocomplete="off" required>
+            <label>Partner</label>
+            <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
                 <option value="">Please Select</option>
                 <?php
                     $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
                     while ($row = mysqli_fetch_array($query)) { ?>
 
-                    <option id="id_partner" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>" <?php if($id_salesforce == $row['id_salesforce']): echo 'selected'; endif ?>>
+                    <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>" <?php if($id_salesforce == $row['id_salesforce']): echo 'selected'; endif ?>>
                         <?php echo $row['nama']; ?>
                     </option>
 
@@ -273,8 +273,8 @@ $nama_teknisi = $data['nama_teknisi'];
             $(document).ready(function() {
                 $("#id_admin_agency").chained("#id_agency");
                 $("#id_supervisor").chained("#id_admin_agency");
-                $("#id_partner").chained("#id_supervisor");
-                
+                $("#id_salesforce").chained("#id_supervisor");
+
             });
         </script>
 <?php
@@ -282,7 +282,7 @@ include("footer.php");
 }
 else{ ?>
 <script language="JavaScript">
-alert("Pilih item terlebih dahulu");
+alert("Pilih Item Terlebih Dahulu!");
 </script>
 <?php
 include("manager_tampil.php");

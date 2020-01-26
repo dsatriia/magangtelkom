@@ -34,7 +34,7 @@ while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
 // end
 
 //option untuk menampilkan spv yang dibawahinya
-$querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id";
+$querySpv = "SELECT * FROM `supervisor` WHERE `id_admin_agency` = $id";
 $runQuerySpv = mysqli_query($con,$querySpv);
 
 while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
@@ -43,7 +43,7 @@ while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
 // end
 
 //option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_agency = $id";
+$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_admin_agency = $id";
 $runQueryPartner = mysqli_query($con,$queryPartner);
 
 while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {

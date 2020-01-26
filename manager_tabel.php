@@ -15,8 +15,14 @@ function query($query){
 
 function cari($keyword){
   $query = "SELECT * FROM data_pelanggan
-            WHERE
-            nama_pelanggan LIKE '%$keyword%'
+            WHERE id != 0 AND
+            (nama_pelanggan LIKE '%$keyword%' OR
+            track_id LIKE '%$keyword%' OR
+            ktp LIKE '%$keyword%' OR
+            id_agency LIKE '%$keyword%' OR
+            id_supervisor LIKE '%$keyword%' OR
+            id_salesforce LIKE '%$keyword%' OR
+            nama_teknisi LIKE '%$keyword%')
             ";
 
   return query($query);
@@ -30,16 +36,15 @@ if (isset($_POST['cari'])) {
 
 ?>
 
-
-
-<form action="" method="post">
+<!-- <form action="" method="post">
   <div class="form-group">
       <input name="kata-kunci" class="form-control border-input" type="text" placeholder="Masukkan kata kunci pencarian...">
-      <br>
-      <button class="btn btn-primary" name="cari" type="submit">Cari</button>
+      <button name="cari" type="submit">Cari</button>
+      <form method=post action=manager_tampil.php>
+      <button type="submit" name="submit">Kembali</button>
   </div>
 
-</form>
+</form> -->
 
 <table class="table table-hover table-bordered text-center">
     <thead style="background-color:lightgrey" >
@@ -71,8 +76,6 @@ if (isset($_POST['cari'])) {
     </thead>
 <tbody>
 <?php
-
-
 
     $id = $_SESSION['id'];
     // $query = "SELECT * FROM data_pelanggan";

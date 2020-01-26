@@ -20,7 +20,9 @@ $id = $_SESSION['id'];
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h2 class="title text-center"><b>Import Data dari Excel (.xls)</b></h2>
+                                <h2 class="title text-center"><b>Import Data Excel</b></h2>
+                                <br>
+                                <p class="text-center" style="font-size:16pt">Format Data (.xls)</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <main>
@@ -30,7 +32,7 @@ $id = $_SESSION['id'];
                                             Pilih File:
                                             <input class="border-input" name="filepelanggan" type="file"
                                                 required="required"><br>
-                                            <input class="btn btn-success" name="upload" type="submit"
+                                            <input class="btn btn-info" name="upload" type="submit"
                                                 value="Import">
                                         </form>
                                     </div>
@@ -49,7 +51,7 @@ $id = $_SESSION['id'];
             $(document).ready(function () {
                 $("#id_admin_agency").chained("#id_agency");
                 $("#id_supervisor").chained("#id_admin_agency");
-                $("#id_partner").chained("#id_supervisor");
+                $("#id_salesforce").chained("#id_supervisor");
 
             });
         </script>

@@ -3,35 +3,35 @@ session_start();
 require("koneksi.php");
 function hapus($id){
     global $con;
-    $query = "DELETE FROM data_pelanggan WHERE id = $id";        
+    $query = "DELETE FROM data_pelanggan WHERE id = $id";
     mysqli_query($con, $query);
 
     return mysqli_affected_rows($con);
 }
 if($_SESSION['status']==8){
 
-      
+
     $id = $_GET["id"];
-    
+
     if (hapus($id) > 0){
       echo "
         <script>
-          alert('data berhasil dihapus!');
+          alert('Data Berhasil Dihapus!');
           document.location.href = 'manager_tampil.php'
         </script>
         ";
     } else {
-    
+
       echo "
         <script>
-          alert('data gagal dihapus!');
+          alert('Data Gagal Dihapus!');
           document.location.href = 'manager_tampil.php'
         </script>
         ";
     }
 } else {
     echo "
-    <script>      
+    <script>
       document.location.href = 'index.php'
     </script>
     ";

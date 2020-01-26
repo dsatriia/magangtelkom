@@ -11,19 +11,19 @@ require("koneksi.php");
 
             <ul class="nav">
                 <li>
-                    <a href="dashboard_manager.php">
+                    <a href="dashboard_picwitel.php">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="list_user_tampil.php">
+                    <a href="picwitel_tampil_user.php">
                         <i class="ti-panel"></i>
                         <p>List User</p>
                     </a>
                 </li>
                 <li >
-                    <a href="manager_tampil.php">
+                    <a href="picwitel_tampil.php">
                         <i class="ti-view-list-alt"></i>
                         <p>Data Pelanggan</p>
                     </a>
