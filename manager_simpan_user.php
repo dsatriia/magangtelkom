@@ -31,7 +31,34 @@ $select = mysqli_query($con, $query);
  VALUES ('$username', '$password', '$akses', '$id_sto', '$nama')";
  $hasilQuery = mysqli_query($con, $query);
 
+
  if ($hasilQuery) {
+
+  if ($akses == 1){
+    $queryAg = "INSERT INTO admin_agency (username, password, akses, id_sto, nama)
+    VALUES ('$username', '$password', '$akses', '$id_sto', '$nama')";
+    $hasilQueryAg = mysqli_query($con, $queryAg);
+  }
+  else if ($akses == 2){
+    $querySpv = "INSERT INTO supervisor (username, password, akses, id_sto, nama)
+    VALUES ('$username', '$password', '$akses', '$id_sto', '$nama')";
+    $hasilQuerySpv = mysqli_query($con, $querySpv);
+  }
+  else if ($akses == 3){
+    $querySf = "INSERT INTO salesforce (username, password, akses, id_sto, nama)
+    VALUES ('$username', '$password', '$akses', '$id_sto', '$nama')";
+    $hasilQuerySf = mysqli_query($con, $querySf);
+  }
+  else if ($akses == 5 || $akses == 6 || $akses == 7){
+    $queryDt = "INSERT INTO detail_teknis (username, password, akses, id_sto, nama)
+    VALUES ('$username', '$password', '$akses', '$id_sto', '$nama')";
+    $hasilQueryDt = mysqli_query($con, $queryDt);
+  }
+  else if ($akses == 4 || $akses == 8 || $akses == 9 || $akses == 10){
+    $queryDp = "INSERT INTO detail_picwitel (username, password, akses, id_sto, nama)
+    VALUES ('$username', '$password', '$akses', '$id_sto', '$nama')";
+    $hasilQueryDp = mysqli_query($con, $queryDp);
+  }
 
  echo '<script language="JavaScript">
    alert("Penyimpanan Berhasil!");

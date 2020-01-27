@@ -30,7 +30,16 @@ include("sidebar/sidebar_dataplg_sf.php"); ?>
                                 <h2 class="title text-center"><b>Data Pelanggan</b></h2>
                                 <!-- <a class="btn btn-success" href="ag_input.php" style="font-size:15pt">+ Input Data
                                     Baru</a><br> -->
-                                <br>
+                                <br><br><br>
+                                <form action="" method="post">
+                                  <div class="form-group">
+                                      <input name="kata-kunci" class="form-control border-input" type="text" placeholder="Masukkan kata kunci pencarian...">
+                                      <button name="cari" type="submit">Cari</button>
+                                      <form method=post action=sf_tampil.php>
+                                      <button type="submit" name="submit">Kembali</button>
+                                  </div>
+                                      </form>
+                                </form>
                             </div>
 
                             <div class="content">

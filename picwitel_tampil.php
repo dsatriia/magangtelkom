@@ -1,25 +1,24 @@
-<?php include("header.php");
+<?php
+include("header.php");
 require("koneksi.php");
+include("guard/guard_9.php");
 
-include("guard/guard_9.php")
+if ($_GET['berhasil'] > 0){
+    $berhasil = $_GET['berhasil'];
+    echo '<script language="JavaScript">
+    alert("Berhasil Mengimport : '. $berhasil.' Data!");
+    </script>';
+} else {
+    // echo '<script language="JavaScript">
+    // alert("Tidak ada data yang diimport.");
+    // </script>';
+}
 ?>
 <body>
 
 <?php
 include("sidebar/sidebar_dataplg_picwitel.php"); ?>
     <div class="main-panel">
-        <!-- <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header"
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
 
 
         <div class="content">
@@ -29,15 +28,29 @@ include("sidebar/sidebar_dataplg_picwitel.php"); ?>
                         <div class="card">
                             <div class="header">
                                 <h2 class="title text-center"><b>Data Pelanggan</b></h2>
-                                <a class="btn btn-success" href="picwitel_input.php" style="font-size:15pt">+ Input Data
-                                    Baru</a><br>
-                                <br>
-                            </div>
+                                <br><br>
+                                <a class="btn btn-success" href="picwitel_input.php" style="font-size:12pt">+ Input Data
+                                    Baru</a>
+                                <a class="btn btn-success" href="picwitel_import_data_pelanggan.php"style="font-size:12pt">Import Data Excel</a>
+                                <br><br><br>
+
+                                <form action="" method="post">
+                                  <div class="form-group">
+                                      <input name="kata-kunci" class="form-control border-input" type="text" placeholder="Masukkan kata kunci pencarian...">
+                                      <button name="cari" type="submit">Cari</button>
+                                      <form method=post action=picwitel_tampil.php>
+                                      <button type="submit" name="submit">Kembali</button>
+                                  </div>
+                                      </form>
+                                </form>
+                              </div>
 
                             <div class="content">
                               <div class="table-responsive" style="height:70vh;overflow:scroll">
                                   <?php include("picwitel_tabel.php"); ?>
                               </div>
+
+
 
                             </div>
 

@@ -1,10 +1,11 @@
 <?php
 require("koneksi.php");
 include("header.php"); ?>
+
 <body>
 <?php
 include("guard/guard_2.php");
-$id_supervisor = $_SESSION['id'];
+$id = $_SESSION['id'];
 
 
 // //mencari data id_admingency dari spv yg sedang login
@@ -44,7 +45,9 @@ while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
 // end
 
 //option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_supervisor = $id_supervisor";
+// $queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_supervisor = $id_supervisor";
+
+$queryPartner = "SELECT * FROM `salesforce` WHERE `id_supervisor` = $id";
 $runQueryPartner = mysqli_query($con,$queryPartner);
 
 while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
@@ -93,6 +96,7 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <label>STO</label>
                             <select class="form-control border-input" name="id_sto" autocomplete="off" required>
+                              <option value="">Pilih STO</option>
                             <?php foreach($kumpulanDataSto as $id_sto) : ?>
                                 <option value="<?=$id_sto['id_sto'] ?> "><?= $id_sto['area'] ?></option>
                             <?php endforeach ?>
@@ -105,6 +109,7 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <label>Paket</label>
                             <select class="form-control border-input" name="id_paket" autocomplete="off" required>
+                              <option value="">Pilih Paket</option>
                             <?php foreach($kumpulanDataPaket as $id_paket) : ?>
                                 <option value="<?=$id_paket['id_paket'] ?> "><?= $id_paket['nama_paket'] ?></option>
                             <?php endforeach ?>
@@ -134,6 +139,7 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <label>Partner</label>
                             <select class="form-control border-input" name="id_salesforce" autocomplete="off" required>
+                              <option value="">Pilih Partner</option>
                             <?php foreach($kumpulanDataPartner as $partner) : ?>
                                 <option value="<?=$partner['id_salesforce'] ?> "><?= $partner['nama'] ?></option>
                             <?php endforeach ?>
@@ -156,4 +162,5 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                 </div>
             </div>
         </div>
+
         <?php include("footer.php"); ?>

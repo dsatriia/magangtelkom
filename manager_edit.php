@@ -92,7 +92,7 @@ $nama_teknisi = $data['nama_teknisi'];
         <div class='form-group'>
             <label>STO</label>
             <select class="form-control border-input" name="id_sto" autocomplete="off" required>
-                <option value="">Please Select</option>
+                <!-- <option value="">Please Select</option> -->
                 <?php
                     $query = mysqli_query($con, "SELECT * FROM sto");
                     while ($row = mysqli_fetch_array($query)) { ?>
@@ -114,7 +114,7 @@ $nama_teknisi = $data['nama_teknisi'];
         <div class='form-group'>
             <label>Paket</label>
             <select class="form-control border-input" name="id_paket" autocomplete="off" required>
-                <option value="">Please Select</option>
+                <!-- <option value="">Please Select</option> -->
                 <?php
                     $query = mysqli_query($con, "SELECT * FROM paket");
                     while ($row = mysqli_fetch_array($query)) { ?>
@@ -149,7 +149,7 @@ $nama_teknisi = $data['nama_teknisi'];
         <div class='form-group'>
             <label>Agency</label>
                 <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
-                    <option value="">Please Select</option>
+                    <!-- <option value="">Please Select</option> -->
                     <?php
                         $query = mysqli_query($con, "SELECT * FROM `agency` ORDER BY nama_agency");
                         while ($row = mysqli_fetch_array($query)) { ?>
@@ -164,7 +164,7 @@ $nama_teknisi = $data['nama_teknisi'];
         <div class='form-group'>
             <label>Admin Agency</label>
                 <select class="form-control border-input" id="id_admin_agency" name="id_admin_agency" autocomplete="off" required>
-                    <option value="">Please Select</option>
+                    <!-- <option value="">Please Select</option> -->
                     <?php
                         $query = mysqli_query($con, "SELECT * FROM `admin_agency` INNER JOIN `agency` ON admin_agency.id_agency = agency.id_agency ORDER BY nama");
                         while ($row = mysqli_fetch_array($query)) { ?>
@@ -179,7 +179,7 @@ $nama_teknisi = $data['nama_teknisi'];
         <div class="form-group">
             <label>Supervisor</label>
             <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
-                <option value="">Please Select</option>
+                <!-- <option value="">Please Select</option> -->
                 <?php
                     $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
                     while ($row = mysqli_fetch_array($query)) { ?>
@@ -194,7 +194,7 @@ $nama_teknisi = $data['nama_teknisi'];
         <div class="form-group">
             <label>Partner</label>
             <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
-                <option value="">Please Select</option>
+                <!-- <option value="">Please Select</option> -->
                 <?php
                     $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
                     while ($row = mysqli_fetch_array($query)) { ?>

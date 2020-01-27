@@ -1,5 +1,7 @@
 <?php
 include("koneksi.php");
+$id = $_SESSION['id'];
+
 function query($query){
   global $con;
 
@@ -14,21 +16,24 @@ function query($query){
 }
 
 function cari($keyword){
+  $id = $_SESSION['id'];
   $query = "SELECT * FROM data_pelanggan
             WHERE id != 0 AND
             (nama_pelanggan LIKE '%$keyword%' OR
             track_id LIKE '%$keyword%' OR
             ktp LIKE '%$keyword%' OR
-            id_agency LIKE '%$keyword%' OR
-            id_supervisor LIKE '%$keyword%' OR
-            id_salesforce LIKE '%$keyword%' OR
+            -- id_agency LIKE '%$keyword%' OR
+            -- id_admin_agency LIKE '%$keyword%' OR
+            -- id_supervisor LIKE '%$keyword%' OR
+            -- id_salesforce LIKE '%$keyword%' OR
             nama_teknisi LIKE '%$keyword%')
+            AND id_admin_agency = $id
             ";
 
   return query($query);
 }
 
-$pelanggan = query("SELECT * FROM data_pelanggan");
+$pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency = $id");
 
 if (isset($_POST['cari'])) {
   $pelanggan = cari($_POST["kata-kunci"]);
@@ -55,7 +60,7 @@ if (isset($_POST['cari'])) {
       <th rowspan="2" class="text-center"><b>No SC</b></th>
       <th rowspan="2" class="text-center"><b>Status Validasi</b></th>
       <th colspan="2" class="text-center"><b>Progress PSB</b></th>
-      <th rowspan="2" class="text-center"><b>Action</b></th>
+      <!-- <th rowspan="2" class="text-center"><b>Action</b></th> -->
       <tr>
           <th class="text-center"><b>Kategori</b></th>
           <th class="text-center"><b>Keterangan</b></th>
@@ -64,7 +69,7 @@ if (isset($_POST['cari'])) {
 <tbody>
 <?php
 
-    $id = $_SESSION['id'];
+    // $id = $_SESSION['id'];
     // $query = "SELECT * FROM data_pelanggan WHERE id_admin_agency = $id";
     // $hasil = mysqli_query($con,$query);
     // while ($data = mysqli_fetch_array($hasil)){
@@ -154,7 +159,7 @@ if (isset($_POST['cari'])) {
       <td><?php echo $p['status_validasi'] ?></td>
       <td><?php echo $p['kategori_progress_psb'] ?></td>
       <td><?php echo $p['keterangan_progress_psb'] ?></td>
-            <td><a href="ag_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin Ingin Mengedit Data?");'>Edit</a></td>
+            <?php /*<td><a href="ag_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin Ingin Mengedit Data?");'>Edit</a></td> */ ?>
            <?php /* <td><a href="ag_hapus.php?id_ag=<?php echo $data['id_ag'] ?>" name="btn-hapus" onClick='return confirm("Yakin ingin menghapus data?");'>Hapus</a></td> */ ?>
 <?php echo "</tr>";
        }

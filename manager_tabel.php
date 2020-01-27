@@ -16,12 +16,25 @@ function query($query){
 function cari($keyword){
   $query = "SELECT * FROM data_pelanggan
             WHERE id != 0 AND
-            (nama_pelanggan LIKE '%$keyword%' OR
-            track_id LIKE '%$keyword%' OR
+            (track_id LIKE '%$keyword%' OR
+            nama_pelanggan LIKE '%$keyword%' OR
+            -- alamat LIKE '%$keyword%' OR
             ktp LIKE '%$keyword%' OR
-            id_agency LIKE '%$keyword%' OR
-            id_supervisor LIKE '%$keyword%' OR
-            id_salesforce LIKE '%$keyword%' OR
+            -- id_sto LIKE '%$keyword%' OR
+            -- second_cp LIKE '%$keyword%' OR
+            -- id_paket LIKE '%$keyword%' OR
+            -- tagging_rill LIKE '%$keyword%' OR
+            -- odp LIKE '%$keyword%' OR
+            -- odp_ke_pelanggan LIKE '%$keyword%' OR
+            -- id_agency LIKE '%$keyword%' OR
+            -- id_supervisor LIKE '%$keyword%' OR
+            -- id_salesforce LIKE '%$keyword%' OR
+            -- no_sc LIKE '%$keyword%' OR
+            -- status_validasi LIKE '%$keyword%' OR
+            -- kategori_progress_psb LIKE '%$keyword%' OR
+            -- keterangan_progress_psb LIKE '%$keyword%' OR
+            -- alamat_rill_pelanggan LIKE '%$keyword%' OR
+            -- cp_rill_pelanggan LIKE '%$keyword%' OR
             nama_teknisi LIKE '%$keyword%')
             ";
 

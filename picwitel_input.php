@@ -1,39 +1,12 @@
 <?php
 require("koneksi.php");
 include("header.php"); ?>
+ <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/ie-emulation-modes-warning.js"></script>
 <body>
 <?php
 include("guard/guard_9.php");
 $id = $_SESSION['id'];
-
-
-//option untuk menampilkan seluruh agency
-$queryAgency = "SELECT id_agency, nama FROM `agency`";
-$runQueryAgency = mysqli_query($con,$queryAgency);
-$kumpulanDataAgency = [];
-while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
-    $kumpulanDataAgency[] = $dataAgency;
-}
-
-// end
-
-//option untuk menampilkan spv yang dibawahinya
-$querySpv = "SELECT id_supervisor, nama FROM `supervisor`";
-$runQuerySpv = mysqli_query($con,$querySpv);
-
-while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
-    $kumpulanDataSpv[] = $dataSpv;
-}
-// end
-
-//option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT id_salesforce, nama FROM `salesforce`";
-$runQueryPartner = mysqli_query($con,$queryPartner);
-
-while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
-    $kumpulanDataPartner[] = $dataPartner;
-}
-// end
 
 
 
@@ -51,7 +24,6 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="content table-responsive table-full-width">
                             <table class="table table-striped">
                             <table class="table table-hover">
-
 
                             <main>
 <div class="container">
@@ -77,7 +49,18 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         </div>
                         <div class="form-group">
                             <label>STO</label>
-                            <input type="text" class="form-control border-input" name="sto" autocomplete="off" required>
+                            <select class="form-control border-input" name="id_sto" autocomplete="off" required>
+                                <option value="">Pilih STO</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT * FROM sto");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="id_sto"  value="<?php echo $row['id_sto']; ?>">
+                                        <?php echo $row['area']; ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Second CP</label>
@@ -85,7 +68,18 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         </div>
                         <div class="form-group">
                             <label>Paket</label>
-                            <input type="text" class="form-control border-input" name="paket" autocomplete="off" required>
+                            <select class="form-control border-input" name="id_paket" autocomplete="off" required>
+                                <option value="">Pilih Paket</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT * FROM paket");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="id_paket"  value="<?php echo $row['id_paket']; ?>">
+                                        <?php echo $row['nama_paket']; ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Tagging Rill</label>
@@ -101,31 +95,67 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         </div>
                         <div class='form-group'>
                             <label>Agency</label>
-                                <select class="form-control border-input" name="id_agency" autocomplete="off" required>
-                                <?php foreach($kumpulanDataAgency as $agency) : ?>
-                                    <option value="<?=$agency['id_agency'] ?> "><?= $agency['nama'] ?></option>
-                                <?php endforeach ?>
-                                </select>
+                            <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
+                                <option value="">Pilih Agency</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT *    FROM `agency` ORDER BY nama_agency");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option value="<?php echo $row['id_agency']; ?>">
+                                        <?php echo $row['nama_agency']; ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class='form-group'>
+                            <label>Admin Agency</label>
+                                <select class="form-control border-input" id="id_admin_agency" name="id_admin_agency" autocomplete="off" required>
+                                                <option value="">Pilih Admin Agency</option>
+                                                <?php
+                                                    $query = mysqli_query($con, "SELECT * FROM `admin_agency` INNER JOIN `agency` ON admin_agency.id_agency = agency.id_agency ORDER BY nama");
+                                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                                    <option id="id_admin_agency" class="<?php echo $row['id_agency']; ?>" value="<?php echo $row['id_admin_agency']; ?>">
+                                                        <?php echo $row['nama']; ?>
+                                                    </option>
+
+                                                <?php } ?>
+                                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Supervisor</label>
+                            <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
+                                <option value="">Pilih Supervisor</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>">
+                                        <?php echo $row['nama']; ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Partner</label>
-                            <select class="form-control border-input" name="id_partner" autocomplete="off" required>
-                            <?php foreach($kumpulanDataPartner as $partner) : ?>
-                                <option value="<?=$partner['id_salesforce'] ?> "><?= $partner['nama'] ?></option>
-                            <?php endforeach ?>
+                            <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
+                                <option value="">Pilih Partner</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>">
+                                        <?php echo $row['nama']; ?>
+                                    </option>
+
+                                <?php } ?>
                             </select>
                         </div>
                         <div class='form-group'>
                             <label>No SC</label>
                             <input type='text' class='form-control border-input' name='no_sc' autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Supervisor</label>
-                            <select class="form-control border-input" name="id_spv" autocomplete="off" required>
-                            <?php foreach($kumpulanDataSpv as $spv) : ?>
-                                <option value="<?=$spv['id_supervisor'] ?> "><?= $spv['nama'] ?></option>
-                            <?php endforeach ?>
-                            </select>
                         </div>
                         <div class='form-group'>
                             <label>Status Validasi</label>
@@ -181,4 +211,16 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                 </div>
             </div>
         </div>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery-chained.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#id_admin_agency").chained("#id_agency");
+                $("#id_supervisor").chained("#id_admin_agency");
+                $("#id_salesforce").chained("#id_supervisor");
+
+            });
+        </script>
         <?php include("footer.php"); ?>
