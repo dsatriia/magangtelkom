@@ -28,7 +28,7 @@ if($_SESSION['status']==8){
         global $con;
         $queryDelAg = "DELETE FROM admin_agency WHERE username = $runQueryUsername"
         mysqli_query($con, $queryDelAg);
-        
+
         return mysqli_affected_rows($con);
 
         // $runQueryDelAg = mysqli_query($con, $queryDelAg);

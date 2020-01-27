@@ -3,16 +3,16 @@ include("header.php");
 require("koneksi.php");
 include("guard/guard_9.php");
 
-if ($_GET['berhasil'] > 0){
-    $berhasil = $_GET['berhasil'];
-    echo '<script language="JavaScript">
-    alert("Berhasil Mengimport : '. $berhasil.' Data!");
-    </script>';
-} else {
-    // echo '<script language="JavaScript">
-    // alert("Tidak ada data yang diimport.");
-    // </script>';
-}
+// if ($_GET['berhasil'] > 0){
+//     $berhasil = $_GET['berhasil'];
+//     echo '<script language="JavaScript">
+//     alert("Berhasil Mengimport : '. $berhasil.' Data!");
+//     </script>';
+// } else {
+//     // echo '<script language="JavaScript">
+//     // alert("Tidak ada data yang diimport.");
+//     // </script>';
+// }
 ?>
 <body>
 

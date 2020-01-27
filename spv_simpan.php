@@ -51,32 +51,31 @@ $select = mysqli_query($con, $query);
    die;
   }
 
- $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, id_sto, second_cp, id_paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_admin_agency, id_supervisor, id_salesforce)
- VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$id_sto', '$second_cp', '$id_paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_admin_agency', '$id_supervisor', '$id_salesforce')";
- $hasilQuery = mysqli_query($con, $query);
-// echo $query;die;
+  $query = "INSERT INTO data_pelanggan (track_id, nama_pelanggan, alamat, ktp, id_sto, second_cp, id_paket, tagging_rill, odp, odp_ke_pelanggan, id_agency, id_admin_agency, id_supervisor, id_salesforce)
+  VALUES ('$track_id', '$nama_pelanggan', '$alamat', '$ktp', '$id_sto', '$second_cp', '$id_paket', '$tagging_rill', '$odp', '$odp_ke_pelanggan', '$id_agency', '$id_admin_agency', '$id_supervisor', '$id_salesforce')";
+  $hasilQuery = mysqli_query($con, $query);
 
- if ($hasilQuery) {
+  if ($hasilQuery) {
 
- echo '<script language="JavaScript">
-   alert("Penyimpanan Berhasil!");
+  echo '<script language="JavaScript">
+    alert("Penyimpanan Berhasil!");
+    window.location = "spv_tampil.php";
+    </script>';
+
+  } else {
+   echo '<script language="JavaScript">
+   alert("Penyimpanan Gagal!");
    window.location = "spv_tampil.php";
    </script>';
+  }
 
- } else {
-  echo '<script language="JavaScript">
-  alert("Penyimpanan Gagal!");
-  window.location = "spv_tampil.php";
-  </script>';
+ $con->close();
  }
-
-$con->close();
-}
-else{ ?>
-<script language="JavaScript">
-alert("Isilah Form Terlebih Dahulu");
-</script>
-<?php
-include("spv_input.php");
-}
-?>
+ else{ ?>
+ <script language="JavaScript">
+ alert("Isilah Form Terlebih Dahulu");
+ </script>
+ <?php
+ include("spv_input.php");
+ }
+ ?>
