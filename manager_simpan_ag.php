@@ -4,30 +4,46 @@ require("koneksi.php");
 $username = $_POST['username'];
 $password = $_POST['password'];
 $nama = $_POST['nama'];
+$id_agency = $_POST['id_agency'];
+$id_sto = $_POST['id_sto'];
+$email = $_POST['email'];
+$telpon = $_POST['telpon'];
+$hp = $_POST['hp'];
+$regional = $_POST['regional'];
+$witel = $_POST['witel'];
+$datel = $_POST['datel'];
+$akses = 1;
 
-$query = "SELECT * FROM agency WHERE username='$username'";
-$select = mysqli_query($con, $query);
+// $query = "SELECT * FROM user WHERE username='$username'";
+// $select = mysqli_query($con, $query);
 
-  $cekUsername = "SELECT `username` FROM agency WHERE `username`='$username'";
+
+  $cekUsername = "SELECT `username` FROM admin_agency WHERE `username`='$username'";
+  // echo $cekTrack;
   $runCekUsername = mysqli_query($con, $cekUsername);
   $jumlahCekUsername = mysqli_num_rows($runCekUsername);
+
 
 
   if(($jumlahCekUsername) > 0){
     echo '<script language="JavaScript">
    alert("Username Pernah Diinputkan!");
-   window.location = "manager_tampil_ag.php";
+   window.location = "manager_tampil_user.php";
    </script>';
    die;
  }
 
- $query = "INSERT INTO agency (username, password, nama)
- VALUES ('$username', '$password', '$nama')";
+ $query = "INSERT INTO admin_agency (username, password, nama, id_agency, id_sto, email, telpon, hp, regional, witel, datel, akses)
+ VALUES ('$username', '$password', '$nama', '$id_agency', '$id_sto', '$email', '$telpon', '$hp', '$regional', '$witel', '$datel', '$akses')";
  $hasilQuery = mysqli_query($con, $query);
 
- if ($hasilQuery) {
 
- echo '<script language="JavaScript">
+ if ($hasilQuery) {
+    $queryAg = "INSERT INTO user (username, akses, id_sto, nama)
+    VALUES ('$username', '$akses', '$id_sto', '$nama')";
+    $hasilQueryAg = mysqli_query($con, $queryAg);
+
+  echo '<script language="JavaScript">
    alert("Penyimpanan Berhasil!");
    window.location = "manager_tampil_ag.php";
    </script>';

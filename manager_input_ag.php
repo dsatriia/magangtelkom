@@ -45,7 +45,7 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
             <form method="post" action="manager_simpan_ag.php">
                 <div class="col-md-4">
                         <div class="form-group">
-                            <label>Nama</label>
+                            <label>Kode ID</label>
                             <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
                         </div>
                         <div class="form-group">
@@ -57,36 +57,58 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
                             <input type="text" class="form-control border-input" name="nama" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
+                            <label>Agency</label>
+                            <select class="form-control border-input" name="id_agency" autocomplete="off" required>
+                                <option value="">Pilih Agency</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT * FROM agency");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="id_agency"  value="<?php echo $row['id_agency']; ?>">
+                                        <?php echo $row['nama_agency']; ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
+                            <label>STO</label>
+                            <select class="form-control border-input" name="id_sto" autocomplete="off" required>
+                                <option value="">Pilih STO</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT * FROM sto");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="id_sto"  value="<?php echo $row['id_sto']; ?>">
+                                        <?php echo $row['area']; ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
+                            <label>Email</label>
+                            <input type="text" class="form-control border-input" name="email" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
+                            <label>Telpon</label>
+                            <input type="text" class="form-control border-input" name="telpon" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
+                            <label>Hp</label>
+                            <input type="text" class="form-control border-input" name="hp" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
+                            <label>Regional</label>
+                            <input type="text" class="form-control border-input" name="regional" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
+                            <label>Witel</label>
+                            <input type="text" class="form-control border-input" name="witel" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control border-input" name="username" autocomplete="off" required>
+                            <label>Datel</label>
+                            <input type="text" class="form-control border-input" name="datel" autocomplete="off" required>
                         </div>
 
 

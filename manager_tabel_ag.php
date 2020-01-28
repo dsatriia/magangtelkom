@@ -18,8 +18,9 @@
     // $id = $_SESSION['id'];
     $query = "SELECT * FROM admin_agency
               WHERE id_admin_agency != 0 AND (
-              track_id LIKE '%$keyword%' OR
-              nama LIKE '%$keyword%')";
+              nama LIKE '%$keyword%' OR
+              username LIKE '%$keyword%' OR
+              tanggal_aktif LIKE '%$keyword%')";
 
 
     return query($query);
