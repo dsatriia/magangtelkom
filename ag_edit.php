@@ -183,7 +183,6 @@ $id_salesforce = $data['id_salesforce'];
                                                                 <div class="form-group">
                           <label>Supervisor</label>
                           <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
-                              <option value="">Pilih Supervisor</option>
                               <?php
                                   // $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
                                   // while ($row = mysqli_fetch_array($query)) {
@@ -192,7 +191,7 @@ $id_salesforce = $data['id_salesforce'];
                                   while ($row = mysqli_fetch_array($query)) {
                                   ?>
 
-                                  <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>">
+                                  <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>"  <?php if($id_supervisor == $row['id_supervisor']): echo 'selected'; endif ?>>
                                       <?php echo $row['nama']; ?>
                                   </option>
 
@@ -207,9 +206,9 @@ $id_salesforce = $data['id_salesforce'];
                                     $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
                                     while ($row = mysqli_fetch_array($query)) { ?>
 
-                                    <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>">
-                                        <?php echo $row['nama']; ?>
-                                    </option>
+                                      <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>" <?php if($id_salesforce == $row['id_salesforce']): echo 'selected'; endif ?>>
+                                          <?php echo $row['nama']; ?>
+                                      </option>
 
                                 <?php } ?>
                             </select>

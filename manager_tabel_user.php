@@ -54,10 +54,17 @@
   <thead style="background-color:lightgrey">
     <tr>
       <th rowspan="2" class="text-center"><b>Nama</b></th>
-      <th rowspan="2" class="text-center"><b>Kode ID</b></th>
-      <th rowspan="2" class="text-center"><b>Jabatan</b></th>
-      <th rowspan="2" class="text-center"><b>STO</b></th>
-      <th rowspan="2" class="text-center"><b>Action</b></th>
+      <th rowspan="2" class="text-center"><b>Kode</b></th>
+      <th rowspan="2" class="text-center"><b>Email</b></th>
+      <th rowspan="2" class="text-center"><b>Telpon</b></th>
+      <th rowspan="2" class="text-center"><b>HP</b></th>
+      <th rowspan="2" class="text-center"><b>Agency</b></th>
+      <th rowspan="2" class="text-center"><b>Regional</b></th>
+      <th rowspan="2" class="text-center"><b>Witel</b></th>
+      <th rowspan="2" class="text-center"><b>Datel</b></th>
+      <th rowspan="2" class="text-center"><b>HP</b></th>
+      <th rowspan="2" class="text-center"><b>HP</b></th>
+
     </tr>
     </tr>
   </thead>

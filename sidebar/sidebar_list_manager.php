@@ -17,7 +17,7 @@ require("koneksi.php");
                     </a>
                 </li>
                 <li class="active">
-                    <a href="manager_tampil_user.php">
+                    <a href="manager_tampil_list_user.php">
                         <i class="ti-panel"></i>
                         <p>List User</p>
                     </a>

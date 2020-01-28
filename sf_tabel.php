@@ -21,14 +21,8 @@ function cari($keyword){
             WHERE id != 0 AND
             (nama_pelanggan LIKE '%$keyword%' OR
             track_id LIKE '%$keyword%' OR
-            ktp LIKE '%$keyword%' OR
-            -- id_agency LIKE '%$keyword%' OR
-            -- id_admin_agency LIKE '%$keyword%' OR
-            -- id_supervisor LIKE '%$keyword%' OR
-            -- id_salesforce LIKE '%$keyword%' OR
-            nama_teknisi LIKE '%$keyword%')
-            AND id_salesforce = $id
-            ";
+            tgl_input LIKE '%$keyword%')
+            AND id_salesforce = $id  ";
 
   return query($query);
 }

@@ -62,7 +62,8 @@ while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
 // // end
 
 //option untuk menampilkan partner yang dibawahinya
-$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_admin_agency = $id_supervisor";
+// $queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_admin_agency = $id_supervisor";
+$queryPartner = "SELECT * FROM `salesforce` WHERE `id_supervisor` = $id_supervisor";
 $runQueryPartner = mysqli_query($con,$queryPartner);
 
 while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
@@ -111,7 +112,8 @@ $tagging_rill = $data['tagging_rill'];
 $odp = $data['odp'];
 $odp_ke_pelanggan = $data['odp_ke_pelanggan'];
 $id_agency = $data['id_agency'];
-$id_supervisor = $data['id_supervisor'];
+$id_admin_agency = $data['id_admin_agency'];
+$id_supervisor = $_SESSION['id'];
 $id_salesforce = $data['id_salesforce'];
 
 
@@ -211,21 +213,23 @@ $id_salesforce = $data['id_salesforce'];
                                                                         value='<?php echo $id_agency ?>'
                                                                         autocomplete="off" required>
                                                                 </div>
-                                                                <div class='form-group'>
-                                                                    <input type='hidden'
-                                                                        class='form-control border-input'
-                                                                        name='id_supervisor'
-                                                                        value='<?php echo $id_supervisor ?>'
-                                                                        autocomplete="off" required>
+                                                                <div class="form-group">
+                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                        </div>
+                      <div class="form-group">
+                          <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label>Partner</label>
-                                                                    <select class="form-control border-input" name="id_salesforce" autocomplete="off" required>
-                                                                    <?php foreach($kumpulanDataPartner as $partner) : ?>
-                                                                        <option value="<?=$partner['id_salesforce'] ?> "<?php if($id_salesforce == $partner['id_salesforce']): echo 'selected'; endif;?>><?=$partner['nama'] ?></option>
-                                                                    <?php endforeach ?>
-                                                                    </select>
-                                                                </div>
+                                                                    <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_supervisor" autocomplete="off" required>
+                                                                                                          </div>
+                                                                                                          <div class="form-group">
+                                                                                                                                                        <label>Partner</label>
+                                                                                                                                                        <select class="form-control border-input" name="id_salesforce" autocomplete="off" required>
+                                                                                                                                                        <?php foreach($kumpulanDataPartner as $partner) : ?>
+                                                                                                                                                            <option value="<?=$partner['id_salesforce'] ?> "<?php if($id_salesforce == $partner['id_salesforce']): echo 'selected'; endif;?>><?=$partner['nama'] ?></option>
+                                                                                                                                                        <?php endforeach ?>
+                                                                                                                                                        </select>
+                                                                                                                                                    </div>
 
                                                                 <br>
                                                                 <button type="submit" class="btn btn-info"
