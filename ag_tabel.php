@@ -2,6 +2,7 @@
 include("koneksi.php");
 $id = $_SESSION['id'];
 
+// var_dump ($query);
 function query($query){
   global $con;
 

@@ -2,6 +2,7 @@
   include("koneksi.php");
   // $id = $_SESSION['id'];
 
+  // var_dump ($query);
   function query($query){
     global $con;
     $result = mysqli_query($con, $query);
@@ -11,6 +12,7 @@
     }
     return $rows;
   }
+
 
   function cari($keyword){
     // $id = $_SESSION['id'];
@@ -24,8 +26,8 @@
   }
 
 
-  $kumpulanUser = query("SELECT * FROM admin_agency WHERE id_admin_agency != 0 ORDER BY id_agency");
-  // $kumpulanUser = query("SELECT * FROM admin_agency WHERE id_admin_agency != 0");
+  // $kumpulanUser = query("SELECT * FROM admin_agency WHERE id_admin_agency != 0 ORDER BY id_agency");
+  $kumpulanUser = query("SELECT * FROM admin_agency WHERE id_admin_agency != 0");
 
 
   if (isset($_POST['cari'])) {
