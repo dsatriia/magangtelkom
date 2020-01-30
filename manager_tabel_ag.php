@@ -57,7 +57,9 @@ $kumpulanAgency = query("SELECT * FROM agency");
       <th rowspan="2" class="text-center"><b>Action</b></th>
     </thead>
 <tbody>
-<?php foreach($kumpulanUser as $user): ?>
+<?php
+// $id = $_SESSION['id'];
+foreach($kumpulanUser as $user): ?>
 <tr>
             <td><?php echo $user['nama'] ?></td>
             <td><?php echo $user['username'] ?></td>
@@ -121,9 +123,9 @@ $kumpulanAgency = query("SELECT * FROM agency");
 
              </td>
 
-            <td><a href="manager_edit_ag.php?id=<?= $user['id'] ?>" name="btn-edit"
+            <td><a href="manager_edit_ag.php?id_admin_agency=<?= $user['id_admin_agency'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Mengedit Data User?&quot;);">Edit</a> | <a
-                href="manager_hapus_ag.php?id=<?= $user['id'] ?>" name="btn-edit"
+                href="manager_hapus_ag.php?id_admin_agency=<?= $user['id_admin_agency'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Menghapus User?&quot;);">Delete</a></td>
               </tr>
               <?php endforeach ?>

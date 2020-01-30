@@ -61,15 +61,15 @@ $nama_teknisi = $_POST['nama_teknisi'];
 
 	 } else if ($jumlahCekKtp > 0) {
 		echo '<script language="JavaScript">
-		alert("Update Data Gagal!:\nData sudah ada");
+		alert("Update Data Gagal!\nData sudah ada");
 		window.location = "manager_tampil.php";
 			</script>';
 	 } else {
      $query = "UPDATE data_pelanggan SET track_id = '$track_id', nama_pelanggan = '$nama_pelanggan', alamat = '$alamat', ktp = '$ktp', id_sto = '$id_sto', second_cp = '$second_cp', id_paket = '$id_paket', tagging_rill = '$tagging_rill', odp = '$odp', odp_ke_pelanggan = '$odp_ke_pelanggan', id_agency='$id_agency',
              id_admin_agency='$id_admin_agency',id_supervisor='$id_supervisor', id_salesforce='$id_salesforce', no_sc='$no_sc', status_validasi='$status_validasi', kategori_progress_psb='$kategori_progress_psb', keterangan_progress_psb='$keterangan_progress_psb', alamat_rill_pelanggan='$alamat_rill_pelanggan', cp_rill_pelanggan='$cp_rill_pelanggan', nama_teknisi='$nama_teknisi'
      WHERE track_id = '$track_id'";
-
 		$hasilQuery = mysqli_query($con, $query);
+
 		if ($hasilQuery) echo '<script language="JavaScript">
 		alert("Update Data Berhasil!");
 		window.location = "manager_tampil.php";

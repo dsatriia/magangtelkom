@@ -51,7 +51,7 @@
                                         <br>
                                 	    <form  method="post" action="login_utama.php">
                                             <div>
-                                			    <label>Username :</label>
+                                			    <label>Kode ID :</label>
                                 				<input type="text" name="username" autocomplete="off" required>
                                 		    </div>
                                 			<div>

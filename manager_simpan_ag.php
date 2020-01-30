@@ -28,7 +28,7 @@ $akses = 1;
   if(($jumlahCekUsername) > 0){
     echo '<script language="JavaScript">
    alert("Username Pernah Diinputkan!");
-   window.location = "manager_tampil_user.php";
+   window.location = "manager_tampil_ag.php";
    </script>';
    die;
  }
@@ -39,8 +39,8 @@ $akses = 1;
 
 
  if ($hasilQuery) {
-    $queryAg = "INSERT INTO user (username, akses, id_sto, nama)
-    VALUES ('$username', '$akses', '$id_sto', '$nama')";
+    $queryAg = "INSERT INTO user (username, password, akses, nama, id_sto)
+    VALUES ('$username', '$password', '$akses', '$nama', '$id_sto')";
     $hasilQueryAg = mysqli_query($con, $queryAg);
 
   echo '<script language="JavaScript">
