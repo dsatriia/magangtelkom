@@ -26,12 +26,39 @@ global $con;
 function hapus($id_admin_agency){
     global $con;
 
-    $query = "DELETE FROM admin_agency WHERE id_admin_agency = $id_admin_agency";
-    mysqli_query($con, $query);
+    $kumpulanIdUser =  query('SELECT user.id FROM `user` INNER JOIN `admin_agency` ON user.username = admin_agency.username WHERE admin_agency.id_admin_agency ='.$id_admin_agency);
+    $idUser = $kumpulanIdUser[0]['id'];
+
+    $query = "DELETE FROM admin_agency WHERE id_admin_agency = $id_admin_agency";    
+    $deleteAdminTabel = mysqli_query($con, $query);
+    
+    if ($deleteAdminTabel == TRUE){
+      $query = "DELETE FROM user WHERE id = $idUser";
+      // echo $query;die;    
+      mysqli_query($con, $query);
+    } else {
+      return 0;
+    }
+
+    
 
 
     return mysqli_affected_rows($con);
 }
+
+function query($query){
+  global $con;
+
+  $hasil = mysqli_query($con, $query);
+  $rows=[];
+
+  while ($row = mysqli_fetch_assoc($hasil)){
+      $rows[] = $row;
+  }
+
+  return $rows;
+}
+
 if($_SESSION['status']==8){
 $id_admin_agency = $_GET["id_admin_agency"];
 
@@ -48,7 +75,7 @@ $id_admin_agency = $_GET["id_admin_agency"];
 
       echo "
         <script>
-          alert('Data Gagal Dihapus!');
+          alert('Data Gagal Dihapus! User masih terhubung dengan data pelanggan!');
           document.location.href = 'manager_tampil_ag.php'
         </script>
         ";
