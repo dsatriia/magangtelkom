@@ -39,18 +39,18 @@ for ($i=2; $i<=$jumlah_baris; $i++){
     $tagging_rill  = $data->val($i, 8);
     $odp  = $data->val($i, 9);
     $odp_ke_pelanggan  = $data->val($i, 10);
-    $tgl_input  = $data->val($i, 11);
-    $id_agency  = $data->val($i, 12);
-    $id_admin_agency  = $data->val($i, 13);
-    $id_supervisor  = $data->val($i, 14);
-    $id_salesforce  = $data->val($i, 15);
-    $no_sc  = $data->val($i, 16);
-    $status_validasi  = $data->val($i, 17);
-    $kategori_progress_psb  = $data->val($i, 18);
-    $keterangan_progress_psb  = $data->val($i, 19);
-    $alamat_rill_pelanggan  = $data->val($i, 20);
-    $cp_rill_pelanggan  = $data->val($i, 21);
-    $nama_teknisi  = $data->val($i, 22);
+    $tgl_input  = date("Y-m-d h:i:s");
+    $id_agency  = $data->val($i, 11);
+    $id_admin_agency  = $data->val($i, 12);
+    $id_supervisor  = $data->val($i, 13);
+    $id_salesforce  = $data->val($i, 14);
+    $no_sc  = $data->val($i, 15);
+    $status_validasi  = $data->val($i, 16);
+    $kategori_progress_psb  = $data->val($i, 17);
+    $keterangan_progress_psb  = $data->val($i, 18);
+    $alamat_rill_pelanggan  = $data->val($i, 19);
+    $cp_rill_pelanggan  = $data->val($i, 20);
+    $nama_teknisi  = $data->val($i, 21);
 
 
 	if($track_id != "" && $ktp != "" && $nama_pelanggan != ""){
