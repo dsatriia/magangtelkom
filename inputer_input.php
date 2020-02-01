@@ -1,7 +1,11 @@
-<?php include("header.php"); ?>
+<?php
+require("koneksi.php");
+include("header.php");
+?>
 <body>
 <?php
 include("guard/guard_4.php");
+$id = $_SESSION['id'];
 ?>
 <?php include("sidebar/sidebar_dataplg_inputer.php"); ?>
     <div class="main-panel">
@@ -50,7 +54,7 @@ include("guard/guard_4.php");
                             <input type="text" class="form-control border-input" name="status_validasi" autocomplete="off" required>
                         </div>
                 <div>
-                <button type="submit" name='btn-save'>Simpan</button>
+                <button type="submit" class="btn btn-info" name='btn-save'>Simpan</button>
                 </div>
             </form>
 		</div>
