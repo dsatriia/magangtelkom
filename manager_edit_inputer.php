@@ -49,7 +49,7 @@ $datel = $data['datel'];
 
 ?>
 
-<form method='post' action='manager_update_detail_picwitel.php'
+<form method='post' action='manager_update_inputer.php'
     onsubmit='return confirm("Apakah Data Sudah Benar?");'>
     <div class='col-md-4'>
         <div class='form-group'>
@@ -151,6 +151,6 @@ else{ ?>
 alert("Pilih Item Terlebih Dahulu!");
 </script>
 <?php
-include("manager_tampil_detail_picwitel.php");
+include("manager_tampil_inputer.php");
 }
 ?>

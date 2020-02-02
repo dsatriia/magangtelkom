@@ -46,12 +46,12 @@ $datel = $_POST['datel'];
 
        if ($hasilQueryAg){
          echo '<script language="JavaScript">
-          alert("Update Berhasil!");
+          alert("Update Data Berhasil!");
           window.location = "manager_tampil_ag.php";
           </script>';
        } else {
          echo '<script language="JavaScript">
-          alert("Update Gagal!");
+          alert("Update Data Gagal!");
           window.location = "manager_tampil_ag.php";
             </script>';
        }
@@ -74,7 +74,7 @@ $datel = $_POST['datel'];
       $hasilQueryAg = mysqli_query($con, $queryAg);
 
       if ($hasilQueryAg) echo '<script language="JavaScript">
-  		alert("Update Berhasil!");
+  		alert("Update Data Berhasil!");
   		window.location = "manager_tampil_ag.php";
   		</script>';
   	 }
@@ -88,6 +88,6 @@ alert("Isilah Form Terlebih Dahulu!");
 window.location = "manager_edit_ag.php";
 </script>';
 <?php
-include("manager_tampil.php");
+include("manager_tampil_ag.php");
 }
  ?>

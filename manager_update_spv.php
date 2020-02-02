@@ -48,12 +48,12 @@ $datel = $_POST['datel'];
 
        if ($hasilQueryUser){
          echo '<script language="JavaScript">
-          alert("Update Berhasil!");
+          alert("Update Data Berhasil!");
           window.location = "manager_tampil_spv.php";
           </script>';
        } else {
          echo '<script language="JavaScript">
-          alert("Update Gagal!");
+          alert("Update Data Gagal!");
           window.location = "manager_tampil_spv.php";
             </script>';
        }
@@ -77,7 +77,7 @@ $datel = $_POST['datel'];
       $hasilQueryUser = mysqli_query($con, $queryUser);
 
       if ($hasilQueryUser) echo '<script language="JavaScript">
-  		alert("Update Berhasil!");
+  		alert("Update Data Berhasil!");
   		window.location = "manager_tampil_spv.php";
   		</script>';
   	 }
@@ -91,6 +91,6 @@ alert("Isilah Form Terlebih Dahulu!");
 window.location = "manager_edit_spv.php";
 </script>';
 <?php
-include("manager_tampil.php");
+include("manager_tampil_spv.php");
 }
  ?>

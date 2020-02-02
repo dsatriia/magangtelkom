@@ -41,8 +41,7 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
                                 <main>
 <div class="container">
 <div>
-
-            <form method="post" action="manager_simpan_ag.php">
+            <form method="post" action="manager_simpan_inputer.php">
                 <div class="col-md-4">
                         <div class="form-group">
                             <label>Kode ID</label>
@@ -95,20 +94,6 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
                             <label>Datel</label>
                             <input type="text" class="form-control border-input" name="datel" autocomplete="off" required>
                         </div>
-                        <div class="form-group">
-                            <label>Jabatan</label>
-                            <select class="form-control border-input" name="id_jabatan" autocomplete="off" required>
-                                <option value="">Pilih Jabatan</option>
-                                <?php
-                                    $query = mysqli_query($con, "SELECT * FROM jabatan WHERE id_jabatan=4");
-                                    while ($row = mysqli_fetch_array($query)) { ?>
-
-                                    <option id="id_jabatan"  value="<?php echo $row['id_jabatan']; ?>">
-                                        <?php echo $row['nama_jabatan']; ?>
-                                    </option>
-                                <?php } ?>
-                            </select>
-                        </div>
                 <div>
                 <button type="submit" class="btn btn-info" name="btn-save">Simpan</button>
                 </div>
@@ -116,12 +101,9 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
 		</div>
 	</div>
 </main>
-
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

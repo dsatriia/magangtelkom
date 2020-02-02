@@ -4,7 +4,7 @@ require("koneksi.php");
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$akses = 4;
+$akses = 5;
 $id_sto = $_POST['id_sto'];
 $nama = $_POST['nama'];
 $email = $_POST['email'];
@@ -14,17 +14,16 @@ $regional = $_POST['regional'];
 $witel = $_POST['witel'];
 $datel = $_POST['datel'];
 
-  $cekUsername = "SELECT * FROM detail_picwitel WHERE `username`='$username'";
+  $cekUsername = "SELECT * FROM detail_teknis WHERE `username`='$username'";
   $runCekUsername = mysqli_query($con, $cekUsername);
   $jumlahCekUsername = mysqli_num_rows($runCekUsername);
 
-  $compare = "SELECT `username` FROM detail_picwitel WHERE `username`='$username'";
+  $compare = "SELECT `username` FROM detail_teknis WHERE `username`='$username'";
   $hasil = mysqli_query($con, $compare);
   $data = mysqli_fetch_array($hasil);
 
-
 	if ($data != null && $username == $data['username']){
-    $query = "UPDATE detail_picwitel SET username='$username', password='$password', akses='$akses', id_sto='$id_sto', nama='$nama', email='$email', telpon='$telpon', hp='$hp', regional='$regional', witel='$witel', datel='$datel'
+    $query = "UPDATE detail_teknis SET username='$username', password='$password', akses='$akses', id_sto='$id_sto', nama='$nama', email='$email', telpon='$telpon', hp='$hp', regional='$regional', witel='$witel', datel='$datel'
     WHERE username='$username'";
     $hasilQuery = mysqli_query($con, $query);
 
@@ -36,12 +35,12 @@ $datel = $_POST['datel'];
        if ($hasilQueryUser){
          echo '<script language="JavaScript">
           alert("Update Data Berhasil!");
-          window.location = "manager_tampil_inputer.php";
+          window.location = "manager_tampil_teknisi.php";
           </script>';
        } else {
          echo '<script language="JavaScript">
           alert("Update Data Gagal!");
-          window.location = "manager_tampil_inputer.php";
+          window.location = "manager_tampil_teknisi.php";
             </script>';
        }
 
@@ -49,11 +48,11 @@ $datel = $_POST['datel'];
   }else if($jumlahCekUsername > 0){
     echo '<script language="JavaScript">
    alert("Username Pernah Diinputkan!");
-   window.location = "manager_tampil_inputer.php";
+   window.location = "manager_tampil_teknisi.php";
    </script>';
 
  } else {
-   $query = "UPDATE detail_picwitel SET username='$username', password='$password', akses='$akses', id_sto='$id_sto', nama='$nama', email='$email', telpon='$telpon', hp='$hp', regional='$regional', witel='$witel', datel='$datel'
+   $query = "UPDATE detail_teknis SET username='$username', password='$password', akses='$akses', id_sto='$id_sto', nama='$nama', email='$email', telpon='$telpon', hp='$hp', regional='$regional', witel='$witel', datel='$datel'
    WHERE username='$username'";
    $hasilQuery = mysqli_query($con, $query);
 
@@ -64,7 +63,7 @@ $datel = $_POST['datel'];
 
       if ($hasilQueryUser) echo '<script language="JavaScript">
   		alert("Update Data Berhasil!");
-  		window.location = "manager_tampil_inputer.php";
+  		window.location = "manager_tampil_teknisi.php";
   		</script>';
   	 }
 
@@ -74,9 +73,9 @@ $con->close();
 else{ ?>
 <script language="JavaScript">
 alert("Isilah Form Terlebih Dahulu!");
-window.location = "manager_edit_inputer.php";
+window.location = "manager_edit_teknisi.php";
 </script>';
 <?php
-include("manager_tampil_inputer.php");
+include("manager_tampil_teknisi.php");
 }
  ?>

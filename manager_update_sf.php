@@ -17,7 +17,6 @@ $email = $_POST['email'];
 $telpon = $_POST['telpon'];
 $hp = $_POST['hp'];
 $id_agency = $_POST['id_agency'];
-$id_admin_agency = $_POST['id_admin_agency'];
 $id_supervisor = $_POST['id_supervisor'];
 $regional = $_POST['regional'];
 $witel = $_POST['witel'];
@@ -36,7 +35,7 @@ $datel = $_POST['datel'];
 
 
 	if ($data != null && $username == $data['username']){
-    $query = "UPDATE salesforce SET username='$username', password='$password', akses='$akses', id_sto='$id_sto', nama='$nama', email='$email', telpon='$telpon', hp='$hp', id_agency='$id_agency', id_admin_agency='$id_admin_agency', id_supervisor='$id_supervisor', regional='$regional',
+    $query = "UPDATE salesforce SET username='$username', password='$password', akses='$akses', id_sto='$id_sto', nama='$nama', email='$email', telpon='$telpon', hp='$hp', id_agency='$id_agency', id_supervisor='$id_supervisor', regional='$regional',
               witel='$witel', datel='$datel'
     WHERE username='$username'";
     $hasilQuery = mysqli_query($con, $query);
@@ -48,12 +47,12 @@ $datel = $_POST['datel'];
 
        if ($hasilQueryUser){
          echo '<script language="JavaScript">
-          alert("Update Berhasil!");
+          alert("Update Data Berhasil!");
           window.location = "manager_tampil_sf.php";
           </script>';
        } else {
          echo '<script language="JavaScript">
-          alert("Update Gagal!");
+          alert("Update Data Gagal!");
           window.location = "manager_tampil_sf.php";
             </script>';
        }
@@ -66,7 +65,7 @@ $datel = $_POST['datel'];
    </script>';
 
  } else {
-   $query = "UPDATE supervisor SET username='$username', password='$password', akses='$akses', id_sto='$id_sto', nama='$nama', email='$email', telpon='$telpon', hp='$hp', id_agency='$id_agency', id_admin_agency='$id_admin_agency', regional='$regional',
+   $query = "UPDATE salesforce SET username='$username', password='$password', akses='$akses', id_sto='$id_sto', nama='$nama', email='$email', telpon='$telpon', hp='$hp', id_agency='$id_agency', id_supervisor='$id_supervisor', regional='$regional',
              witel='$witel', datel='$datel'
    WHERE username='$username'";
    $hasilQuery = mysqli_query($con, $query);
@@ -77,7 +76,7 @@ $datel = $_POST['datel'];
       $hasilQueryUser = mysqli_query($con, $queryUser);
 
       if ($hasilQueryUser) echo '<script language="JavaScript">
-  		alert("Update Berhasil!");
+  		alert("Update Data Berhasil!");
   		window.location = "manager_tampil_sf.php";
   		</script>';
   	 }
@@ -91,6 +90,6 @@ alert("Isilah Form Terlebih Dahulu!");
 window.location = "manager_edit_sf.php";
 </script>';
 <?php
-include("manager_tampil.php");
+include("manager_tampil_sf.php");
 }
  ?>

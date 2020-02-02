@@ -2,8 +2,6 @@
 require("koneksi.php");
 include("header.php");
 ?>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/ie-emulation-modes-warning.js"></script>
 <body>
 <?php
 //option untuk menampilkan seluruh akses
@@ -26,6 +24,7 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
 ?>
 
 <?php include("sidebar/sidebar_list_manager.php"); ?>
+
     <div class="main-panel">
         <div class="content">
             <div class="container-fluid">
@@ -42,7 +41,7 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
                                 <main>
 <div class="container">
 <div>
-            <form method="post" action="manager_simpan_sf.php">
+            <form method="post" action="manager_simpan_kasto.php">
                 <div class="col-md-4">
                         <div class="form-group">
                             <label>Kode ID</label>
@@ -55,36 +54,6 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
                         <div class="form-group">
                             <label>Nama</label>
                             <input type="text" class="form-control border-input" name="nama" autocomplete="off" required>
-                        </div>
-                        <div class='form-group'>
-                            <label>Agency</label>
-                            <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
-                                <option value="">Pilih Agency</option>
-                                <?php
-                                    $query = mysqli_query($con, "SELECT *    FROM `agency` ORDER BY nama_agency");
-                                    while ($row = mysqli_fetch_array($query)) { ?>
-
-                                    <option value="<?php echo $row['id_agency']; ?>">
-                                        <?php echo $row['nama_agency']; ?>
-                                    </option>
-
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Supervisor</label>
-                            <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
-                                <option value="">Pilih Supervisor</option>
-                                <?php
-                                    $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
-                                    while ($row = mysqli_fetch_array($query)) { ?>
-
-                                    <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>">
-                                        <?php echo $row['nama']; ?>
-                                    </option>
-
-                                <?php } ?>
-                            </select>
                         </div>
                         <div class="form-group">
                             <label>STO</label>
@@ -138,16 +107,4 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
                 </div>
             </div>
         </div>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery-chained.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#id_admin_agency").chained("#id_agency");
-                $("#id_supervisor").chained("#id_admin_agency");
-                $("#id_salesforce").chained("#id_supervisor");
-
-            });
-        </script>
         <?php include("footer.php"); ?>

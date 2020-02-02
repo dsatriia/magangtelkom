@@ -45,6 +45,7 @@
       <th rowspan="2" class="text-center"><b>Witel</b></th>
       <th rowspan="2" class="text-center"><b>Datel</b></th>
       <th rowspan="2" class="text-center"><b>Tanggal Aktif</b></th>
+      <th rowspan="2" class="text-center"><b>Jabatan</b></th>
       <th rowspan="2" class="text-center"><b>Action</b></th>
     </thead>
 <tbody>
@@ -61,6 +62,18 @@ foreach($kumpulanUser as $user): ?>
             <td><?php echo $user['witel'] ?></td>
             <td><?php echo $user['datel'] ?></td>
             <td><?php echo $user['tanggal_aktif'] ?></td>
+            <td><?php
+              if ($user['akses'] == 0){
+                $sto= 'Tidak Ada';
+              } else {
+                $akses = $user['akses'];
+                $query_jabatan = "SELECT nama_jabatan FROM jabatan WHERE id_jabatan = $akses";
+                $run_jabatan = mysqli_query($con, $query_jabatan);
+                $hasil_jabatan = mysqli_fetch_array($run_jabatan);
+                $jabatan = $hasil_jabatan['nama_jabatan'];
+              }
+              echo $jabatan ?>
+            </td>
 
             <td><a href="manager_edit_inputer.php?id_picwitel=<?= $user['id_picwitel'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Mengedit Data User?&quot;);">Edit</a> | <a
@@ -71,21 +84,3 @@ foreach($kumpulanUser as $user): ?>
               </tbody>
               </table>
               </div>
-              <script src="assets/js/jquery.min.js"></script>
-              <script>
-              $(document).ready(function(){
-                // var keyword = document.getElementById('keyword');
-                // keyword.addEventListener('keyup', function(){
-                //   alert('oke');
-                // });
-
-                // event ketika keyword ditulis
-                $('#jabatan').on('change',function(){
-                  $.get('user_ajax_manager_inputer.php?jabatan=' + $('#jabatan').val(), function(data){
-                    $('#container').html(data);
-                    console.log('haloo');
-                  });
-                });
-              });
-
-              </script>

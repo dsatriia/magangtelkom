@@ -2,10 +2,10 @@
 session_start();
 require("koneksi.php");
 
-function hapusya($id_salesforce){
+function hapusya($id_picwitel){
 global $con;
 
-    $querySelect = "SELECT `username` FROM salesforce WHERE id_salesforce = '$id_salesforce'";
+    $querySelect = "SELECT `username` FROM detail_picwitel WHERE id_picwitel = '$id_picwitel'";
     $hasil = mysqli_query($con,$querySelect);
     $userNama  = mysqli_fetch_array($hasil);
     $userIni = $userNama[0];
@@ -19,16 +19,16 @@ global $con;
 }
 
 
-function hapus($id_salesforce){
+function hapus($id_picwitel){
     global $con;
 
-    $kumpulanIdUser =  query('SELECT user.id FROM `user` INNER JOIN `salesforce` ON user.username = salesforce.username WHERE salesforce.id_salesforce ='.$id_salesforce);
+    $kumpulanIdUser =  query('SELECT user.id FROM `user` INNER JOIN `detail_picwitel` ON user.username = detail_picwitel.username WHERE detail_picwitel.id_picwitel ='.$id_picwitel);
     $idUser = $kumpulanIdUser[0]['id'];
 
-    $query = "DELETE FROM salesforce WHERE id_salesforce = $id_salesforce";
-    $deleteSpvTabel = mysqli_query($con, $query);
+    $query = "DELETE FROM detail_picwitel WHERE id_picwitel = $id_picwitel";
+    $deleteDetailTabel = mysqli_query($con, $query);
 
-    if ($deleteSpvTabel == TRUE){
+    if ($deleteDetailTabel == TRUE){
       $query = "DELETE FROM user WHERE id = $idUser";
       // echo $query;die;
       mysqli_query($con, $query);
@@ -51,15 +51,15 @@ function query($query){
 }
 
 if($_SESSION['status']==8){
-$id_teknis = $_GET["id_salesforce"];
+$id_picwitel = $_GET["id_picwitel"];
 
   // hapusya($id_admin_agency);
-    if (hapus($id_salesforce) > 0){
+    if (hapus($id_picwitel) > 0){
       // if (hapusya($id_admin_agency) > 0){
       echo "
         <script>
           alert('User Berhasil Dihapus!');
-          document.location.href = 'manager_tampil_sf.php'
+          document.location.href = 'manager_tampil_kasto.php'
         </script>
         ";
     } else {
@@ -67,7 +67,7 @@ $id_teknis = $_GET["id_salesforce"];
       echo "
         <script>
           alert('User Gagal Dihapus! User masih terhubung dengan data pelanggan!');
-          document.location.href = 'manager_tampil_sf.php'
+          document.location.href = 'manager_tampil_kasto.php'
         </script>
         ";
     }

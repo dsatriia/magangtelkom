@@ -4,7 +4,7 @@ require("koneksi.php");
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$akses = 4;
+$akses = 10;
 $id_sto = $_POST['id_sto'];
 $nama = $_POST['nama'];
 $email = $_POST['email'];
@@ -36,12 +36,12 @@ $datel = $_POST['datel'];
        if ($hasilQueryUser){
          echo '<script language="JavaScript">
           alert("Update Data Berhasil!");
-          window.location = "manager_tampil_inputer.php";
+          window.location = "manager_tampil_kasto.php";
           </script>';
        } else {
          echo '<script language="JavaScript">
           alert("Update Data Gagal!");
-          window.location = "manager_tampil_inputer.php";
+          window.location = "manager_tampil_kasto.php";
             </script>';
        }
 
@@ -49,7 +49,7 @@ $datel = $_POST['datel'];
   }else if($jumlahCekUsername > 0){
     echo '<script language="JavaScript">
    alert("Username Pernah Diinputkan!");
-   window.location = "manager_tampil_inputer.php";
+   window.location = "manager_tampil_kasto.php";
    </script>';
 
  } else {
@@ -64,7 +64,7 @@ $datel = $_POST['datel'];
 
       if ($hasilQueryUser) echo '<script language="JavaScript">
   		alert("Update Data Berhasil!");
-  		window.location = "manager_tampil_inputer.php";
+  		window.location = "manager_tampil_kasto.php";
   		</script>';
   	 }
 
@@ -74,9 +74,9 @@ $con->close();
 else{ ?>
 <script language="JavaScript">
 alert("Isilah Form Terlebih Dahulu!");
-window.location = "manager_edit_inputer.php";
+window.location = "manager_edit_kasto.php";
 </script>';
 <?php
-include("manager_tampil_inputer.php");
+include("manager_tampil_kasto.php");
 }
  ?>

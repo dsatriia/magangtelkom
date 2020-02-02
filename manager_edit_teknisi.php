@@ -3,12 +3,10 @@ include("guard/guard_8.php");
 include("header.php");
 require("koneksi.php");
 ?>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/ie-emulation-modes-warning.js"></script>
 <body>
 <?php
 include("sidebar/sidebar_list_manager.php");
-if(isset($_GET['id_salesforce'])){
+if(isset($_GET['id_teknis'])){
 ?>
 <div class="main-panel">
     <div class="content">
@@ -27,8 +25,8 @@ if(isset($_GET['id_salesforce'])){
 
 <?php
 require("koneksi.php");
-$id = $_GET['id_salesforce'];
-$query = "SELECT * FROM salesforce WHERE id_salesforce = '$id'";
+$id = $_GET['id_teknis'];
+$query = "SELECT * FROM detail_teknis WHERE id_teknis = '$id'";
 $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
 
@@ -39,20 +37,19 @@ $data  = mysqli_fetch_array($hasil);
 
 $username = $data['username'];
 $password = $data['password'];
-$akses = 3;
+$akses = 5;
 $id_sto = $data['id_sto'];
 $nama = $data['nama'];
 $email = $data['email'];
 $telpon = $data['telpon'];
 $hp = $data['hp'];
-$id_agency = $data['id_agency'];
-$id_supervisor = $data['id_supervisor'];
 $regional = $data['regional'];
 $witel = $data['witel'];
 $datel = $data['datel'];
+
 ?>
 
-<form method='post' action='manager_update_sf.php'
+<form method='post' action='manager_update_teknisi.php'
     onsubmit='return confirm("Apakah Data Sudah Benar?");'>
     <div class='col-md-4'>
         <div class='form-group'>
@@ -75,36 +72,6 @@ $datel = $data['datel'];
             <input type='text' class='form-control border-input'
                 name='nama' value='<?php echo $nama ?>'
                 autocomplete="off" required>
-        </div>
-        <div class='form-group'>
-            <label>Agency</label>
-                <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
-                    <!-- <option value="">Please Select</option> -->
-                    <?php
-                        $query = mysqli_query($con, "SELECT * FROM `agency` ORDER BY nama_agency");
-                        while ($row = mysqli_fetch_array($query)) { ?>
-
-                        <option value="<?php echo $row['id_agency']; ?>" <?php if($id_agency == $row['id_agency']): echo 'selected'; endif ?>>
-                            <?php echo $row['nama_agency']; ?>
-                        </option>
-
-                    <?php } ?>
-                </select>
-        </div>
-        <div class="form-group">
-            <label>Supervisor</label>
-            <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
-                <!-- <option value="">Please Select</option> -->
-                <?php
-                    $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
-                    while ($row = mysqli_fetch_array($query)) { ?>
-
-                    <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>"  <?php if($id_supervisor == $row['id_supervisor']): echo 'selected'; endif ?>>
-                        <?php echo $row['nama']; ?>
-                    </option>
-
-                <?php } ?>
-            </select>
         </div>
         <div class='form-group'>
             <label>STO</label>
@@ -165,26 +132,17 @@ $datel = $data['datel'];
             name='btn-update'>Simpan</button>
     </div>
 </form>
+
 </tbody>
 </table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery-chained.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#id_admin_agency").chained("#id_agency");
-                $("#id_supervisor").chained("#id_admin_agency");
-                $("#id_salesforce").chained("#id_supervisor");
 
-            });
-        </script>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
 <?php
 include("footer.php");
 }
@@ -193,6 +151,6 @@ else{ ?>
 alert("Pilih Item Terlebih Dahulu!");
 </script>
 <?php
-include("manager_tampil_sf.php");
+include("manager_tampil_teknisi.php");
 }
 ?>
