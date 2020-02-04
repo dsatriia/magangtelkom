@@ -93,12 +93,13 @@ $id = $_SESSION['id'];
                             <label>Jarak ODP ke Pelanggan</label>
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
                         </div>
+
                         <div class='form-group'>
                             <label>Agency</label>
-                            <select class="form-control border-input" id="id_agency" name="id_agency" autocomplete="off" required>
+                            <select class="form-control border-input"  id="id_agency" name="id_agency" autocomplete="off" required>
                                 <option value="">Pilih Agency</option>
                                 <?php
-                                    $query = mysqli_query($con, "SELECT *    FROM `agency` ORDER BY nama_agency");
+                                    $query = mysqli_query($con, "SELECT * FROM agency");
                                     while ($row = mysqli_fetch_array($query)) { ?>
 
                                     <option value="<?php echo $row['id_agency']; ?>">

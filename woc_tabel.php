@@ -1,3 +1,63 @@
+<?php
+include("koneksi.php");
+$id = $_SESSION['id'];
+
+function query($query){
+  global $con;
+
+  $hasil = mysqli_query($con, $query);
+  $rows=[];
+
+  while ($row = mysqli_fetch_assoc($hasil)){
+      $rows[] = $row;
+  }
+
+  return $rows;
+}
+
+function cari1($keyword1){
+  $query = "SELECT * FROM data_pelanggan
+            WHERE id != 0 AND
+            track_id LIKE '%$keyword1%'
+            ";
+
+  return query($query);
+}
+
+$pelanggan = query("SELECT * FROM data_pelanggan");
+
+if (isset($_POST['cari1'])) {
+  $pelanggan = cari1($_POST["kata-kunci1"]);
+}
+
+function cari2($keyword2){
+  $query = "SELECT * FROM data_pelanggan
+            WHERE id != 0 AND
+            (nama_pelanggan LIKE '%$keyword2%')
+            ";
+
+  return query($query);
+}
+
+if (isset($_POST['cari2'])) {
+  $pelanggan = cari2($_POST["kata-kunci2"]);
+}
+
+function cari3($keyword3){
+  $query = "SELECT * FROM data_pelanggan
+            WHERE id != 0 AND
+            (tgl_input LIKE '%$keyword3%')
+            ";
+
+  return query($query);
+}
+
+if (isset($_POST['cari3'])) {
+  $pelanggan = cari3($_POST["kata-kunci3"]);
+}
+
+?>
+
 <table class="table table-hover table-bordered text-center">
   <thead style="background-color:lightgrey">
       <th rowspan="2" class="text-center"><b>Track ID</b></th>
@@ -22,52 +82,50 @@
     </thead>
 <tbody>
 <?php
-include("koneksi.php");
-    $query = "SELECT * FROM data_pelanggan";
-    $hasil = mysqli_query($con,$query);
-    while ($data = mysqli_fetch_array($hasil)){
-    echo "<tr>"; ?>
-      <td><?php echo $data['track_id'] ?></td>
-      <td><?php echo $data['nama_pelanggan'] ?></td>
-      <td><?php echo $data['alamat'] ?></td>
-      <td><?php
+$id = $_SESSION['id'];
+foreach($pelanggan as $p){
+echo "<tr>"; ?>
+  <td><?php echo $p['track_id'] ?></td>
+  <td><?php echo $p['nama_pelanggan'] ?></td>
+  <td><?php echo $p['alamat'] ?></td>
+  <td><?php
 
-        if ($data['id_sto'] == 0){
-          $sto= 'Tidak Memiliki STO';
-        } else {
-          $id_sto = $data['id_sto'];
-          $query_sto = "SELECT area FROM sto WHERE id_sto = $id_sto";
-          $run_sto = mysqli_query($con, $query_sto);
-          $hasil_sto = mysqli_fetch_array($run_sto);
-          $sto = $hasil_sto['area'];
-        }
-        echo $sto ?>
+    if ($p['id_sto'] == 0){
+      $sto= 'Tidak Memiliki STO';
+    } else {
+      $id_sto = $p['id_sto'];
+      $query_sto = "SELECT area FROM sto WHERE id_sto = $id_sto";
+      $run_sto = mysqli_query($con, $query_sto);
+      $hasil_sto = mysqli_fetch_array($run_sto);
+      $sto = $hasil_sto['area'];
+    }
+    echo $sto ?>
 
-      </td>
-      <td><?php echo $data['second_cp'] ?></td>
-      <td><?php
+  </td>
+  <td><?php echo $p['second_cp'] ?></td>
+  <td><?php
 
-        if ($data['id_paket'] == 0){
-          $paket = 'Tidak Memiliki Paket';
-        } else {
-          $id_paket = $data['id_paket'];
-          $query_paket = "SELECT nama_paket FROM paket WHERE id_paket = $id_paket";
-          $run_paket = mysqli_query($con, $query_paket);
-          $hasil_paket = mysqli_fetch_array($run_paket);
-          $paket = $hasil_paket['nama_paket'];
-        }
-        echo $paket ?>
+    if ($p['id_paket'] == 0){
+      $paket = 'Tidak Memiliki Paket';
+    } else {
+      $id_paket = $p['id_paket'];
+      $query_paket = "SELECT nama_paket FROM paket WHERE id_paket = $id_paket";
+      $run_paket = mysqli_query($con, $query_paket);
+      $hasil_paket = mysqli_fetch_array($run_paket);
+      $paket = $hasil_paket['nama_paket'];
+    }
+    echo $paket ?>
 
-      </td>
-      <td><?php echo $data['tagging_rill'] ?></td>
-      <td><?php echo $data['odp_ke_pelanggan'] ?></td>
-      <td><?php echo $data['no_sc'] ?></td>
-      <td><?php echo $data['alamat_rill_pelanggan'] ?></td>
-      <td><?php echo $data['cp_rill_pelanggan'] ?></td>
-      <td><?php echo $data['kategori_progress_psb'] ?></td>
-      <td><?php echo $data['keterangan_progress_psb'] ?></td>
-      <td><?php echo $data['nama_teknisi'] ?></td>
-            <td><a href="woc_edit.php?id=<?php echo $data['id'] ?>" name="btn-edit" onClick='return confirm("Yakin Ingin Mengedit Data?");'>Edit</a></td>
+  </td>
+  <td><?php echo $p['tagging_rill'] ?></td>
+  <td><?php echo $p['odp_ke_pelanggan'] ?></td>
+  <td><?php echo $p['no_sc'] ?></td>
+  <td><?php echo $p['alamat_rill_pelanggan'] ?></td>
+  <td><?php echo $p['cp_rill_pelanggan'] ?></td>
+  <td><?php echo $p['kategori_progress_psb'] ?></td>
+  <td><?php echo $p['keterangan_progress_psb'] ?></td>
+  <td><?php echo $p['nama_teknisi'] ?></td>
+            <td><a href="woc_edit.php?id=<?php echo $p['id'] ?>" name="btn-edit" onClick='return confirm("Yakin Ingin Mengedit Data?");'>Edit</a></td>
            <?php /* <td><a href="ag_hapus.php?id_ag=<?php echo $data['id_ag'] ?>" name="btn-hapus" onClick='return confirm("Yakin ingin menghapus data?");'>Hapus</a></td> */ ?>
 <?php echo "</tr>";
        }

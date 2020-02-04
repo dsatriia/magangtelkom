@@ -51,11 +51,11 @@
                                         <br>
                                 	    <form  method="post" action="login_utama.php">
                                             <div>
-                                			    <label>Kode ID :</label>
+                                			    <label>Kode ID&emsp;&emsp;:</label>
                                 				<input type="text" name="username" autocomplete="off" required>
                                 		    </div>
                                 			<div>
-                                				<label>Password :</label>
+                                				<label>Password&emsp;:</label>
                                 				<input type="password" name="password" autocomplete="off" required>
                                 			<div>
                                 			<div>

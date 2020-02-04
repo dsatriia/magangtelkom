@@ -31,20 +31,32 @@ include("sidebar/sidebar_dataplg_ag.php"); ?>
                                 <a class="btn btn-success" href="ag_input.php" style="font-size:12pt">+ Input Data
                                     Baru</a><br><br>
                                 <br>
-
                                 <form action="" method="post">
-                                  <div class="form-group">
-                                      <input name="kata-kunci" class="form-control border-input" type="text" placeholder="Masukkan kata kunci pencarian...">
-                                      <button name="cari" type="submit">Cari</button>
+                                  <a class="form-group">
+                                      <input name="kata-kunci1" class="search" type="text" placeholder="Cari Track ID">
+                                      <button name="cari1" type="submit">Cari</button>
+                                  </a>
+                                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                <form action="" method="post">
+                                  <a class="form-group">
+                                    <input name="kata-kunci2" class="search" type="text" placeholder="Cari Nama Pelanggan">
+                                      <button name="cari2" type="submit">Cari</button>
+                                  </a>
+                                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                <form action="" method="post">
+                                  <a class="form-group">
+                                      <input name="kata-kunci3" class="search" type="text" placeholder="Cari Tanggal Input Data">
+                                      <button name="cari3" type="submit">Cari</button>
+                                  </a>
+
+                                  <a>
                                       <form method=post action=ag_tampil.php>
                                       <button type="submit" name="submit">Kembali</button>
-                                  </div>
-                                      </form>
-                                </form>
-
-                            </div>
-
-                            <div class="content">
+                                    </form>
+                                  </a>
+                                  </form>
+                                </div>
+                                <div class="content">
                                 <div class="table-responsive" style="height:70vh;overflow:scroll">
                                     <?php include("ag_tabel.php"); ?>
                                 </div>

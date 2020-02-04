@@ -71,15 +71,16 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
                                 <?php } ?>
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label>Supervisor</label>
                             <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
                                 <option value="">Pilih Supervisor</option>
                                 <?php
-                                    $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
+                                    $query = mysqli_query($con, "SELECT * FROM `supervisor` INNER JOIN `agency` ON supervisor.id_agency = agency.id_agency ORDER BY nama");
                                     while ($row = mysqli_fetch_array($query)) { ?>
 
-                                    <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>">
+                                    <option id="id_supervisor" class="<?php echo $row['id_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>">
                                         <?php echo $row['nama']; ?>
                                     </option>
 
@@ -144,9 +145,9 @@ while ($dataSto = mysqli_fetch_assoc($runQuerySto)) {
         <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
         <script>
             $(document).ready(function() {
-                $("#id_admin_agency").chained("#id_agency");
-                $("#id_supervisor").chained("#id_admin_agency");
-                $("#id_salesforce").chained("#id_supervisor");
+                // $("#id_admin_agency").chained("#id_agency");
+                $("#id_supervisor").chained("#id_agency");
+                // $("#id_salesforce").chained("#id_supervisor");
 
             });
         </script>

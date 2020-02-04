@@ -51,7 +51,7 @@ function query($query){
 }
 
 if($_SESSION['status']==8){
-$id_teknis = $_GET["id_salesforce"];
+$id_salesforce = $_GET["id_salesforce"];
 
   // hapusya($id_admin_agency);
     if (hapus($id_salesforce) > 0){

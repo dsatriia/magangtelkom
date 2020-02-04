@@ -32,6 +32,10 @@ $query = "SELECT * FROM salesforce WHERE id_salesforce = '$id'";
 $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
 
+$queryAg = "SELECT * FROM admin_agency";
+$hasilAg = mysqli_query($con,$queryAg);
+$dataAg  = mysqli_fetch_array($hasilAg);
+
 // if ($dataAg) {
 //    $queryListAg = "SELECT * FROM user WHERE id = '$id'";
 //    $hasilQueryListAg = mysqli_query($con, $queryListAg);
@@ -46,6 +50,7 @@ $email = $data['email'];
 $telpon = $data['telpon'];
 $hp = $data['hp'];
 $id_agency = $data['id_agency'];
+$id_admin_agency = $dataAg['id_admin_agency'];
 $id_supervisor = $data['id_supervisor'];
 $regional = $data['regional'];
 $witel = $data['witel'];
@@ -86,6 +91,21 @@ $datel = $data['datel'];
 
                         <option value="<?php echo $row['id_agency']; ?>" <?php if($id_agency == $row['id_agency']): echo 'selected'; endif ?>>
                             <?php echo $row['nama_agency']; ?>
+                        </option>
+
+                    <?php } ?>
+                </select>
+        </div>
+        <div class='form-group'>
+            <label>Admin Agency</label>
+                <select class="form-control border-input" id="id_admin_agency" name="id_admin_agency" autocomplete="off" required>
+                    <!-- <option value="">Please Select</option> -->
+                    <?php
+                        $query = mysqli_query($con, "SELECT * FROM `admin_agency` INNER JOIN `agency` ON admin_agency.id_agency = agency.id_agency ORDER BY nama");
+                        while ($row = mysqli_fetch_array($query)) { ?>
+
+                        <option id="id_admin_agency" class="<?php echo $row['id_agency']; ?>" value="<?php echo $row['id_admin_agency']; ?>" <?php if($id_admin_agency == $row['id_admin_agency']): echo 'selected'; endif ?>>
+                            <?php echo $row['nama']; ?>
                         </option>
 
                     <?php } ?>

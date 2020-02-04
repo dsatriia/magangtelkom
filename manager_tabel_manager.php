@@ -37,7 +37,7 @@
 <table class="table table-hover table-bordered text-center">
     <thead style="background-color:lightgrey" >
       <th rowspan="2" class="text-center"><b>Nama</b></th>
-      <th rowspan="2" class="text-center"><b>Kode</b></th>
+      <th rowspan="2" class="text-center"><b>Kode ID</b></th>
       <th rowspan="2" class="text-center"><b>Email</b></th>
       <th rowspan="2" class="text-center"><b>Telpon</b></th>
       <th rowspan="2" class="text-center"><b>HP</b></th>

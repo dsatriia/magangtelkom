@@ -15,12 +15,10 @@ function query($query){
   return $rows;
 }
 
-function cari($keyword){
+function cari1($keyword1){
   $query = "SELECT * FROM data_pelanggan
             WHERE id != 0 AND
-            (nama_pelanggan LIKE '%$keyword%' OR
-            track_id LIKE '%$keyword%' OR
-            tgl_input LIKE '%$keyword%')
+            track_id LIKE '%$keyword1%'
             ";
 
   return query($query);
@@ -28,8 +26,34 @@ function cari($keyword){
 
 $pelanggan = query("SELECT * FROM data_pelanggan");
 
-if (isset($_POST['cari'])) {
-  $pelanggan = cari($_POST["kata-kunci"]);
+if (isset($_POST['cari1'])) {
+  $pelanggan = cari1($_POST["kata-kunci1"]);
+}
+
+function cari2($keyword2){
+  $query = "SELECT * FROM data_pelanggan
+            WHERE id != 0 AND
+            (nama_pelanggan LIKE '%$keyword2%')
+            ";
+
+  return query($query);
+}
+
+if (isset($_POST['cari2'])) {
+  $pelanggan = cari2($_POST["kata-kunci2"]);
+}
+
+function cari3($keyword3){
+  $query = "SELECT * FROM data_pelanggan
+            WHERE id != 0 AND
+            (tgl_input LIKE '%$keyword3%')
+            ";
+
+  return query($query);
+}
+
+if (isset($_POST['cari3'])) {
+  $pelanggan = cari3($_POST["kata-kunci3"]);
 }
 
 ?>
@@ -76,8 +100,6 @@ if (isset($_POST['cari'])) {
 <?php
 
     $id = $_SESSION['id'];
-    // $query = "SELECT * FROM data_pelanggan";
-    // $hasil = mysqli_query($con,$query);
     foreach($pelanggan as $p){
     echo "<tr>"; ?>
       <td><?php echo $p['track_id'] ?></td>

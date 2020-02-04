@@ -17,7 +17,7 @@ require("koneksi.php");
                     </a>
                 </li>
                 <li class="active">
-                    <a href="picwitel_tampil_user.php">
+                    <a href="picwitel_tampil_list_user.php">
                         <i class="ti-panel"></i>
                         <p>List User</p>
                     </a>

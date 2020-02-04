@@ -48,12 +48,8 @@ for ($i=2; $i<=$jumlah_baris; $i++){
     $tanggal_aktif = date("Y-m-d h:i:s");
 
     if ($username != "" && $password != ""){
-        $iniUsername = "SELECT username FROM user WHERE `username` = $username";
-        $cekUsername = mysqli_query($con,$cekUsername);
-        $jumlahCekUsername = mysqli_num_rows($cekUsername);
-        
-	    if($akses == 1 && $jumlahCekUsername < 1){
-        // if($akses == 1 && $$username != $cekUsername){
+
+	    if($akses == 1){
 		    // input data ke database (table admin_agency & user)
 		    $hasil = mysqli_query($con,"INSERT into admin_agency values('','$username','$password','$akses','$id_sto','$nama','$email','$telpon','$hp','$id_agency','$regional','$witel','$datel','$tanggal_aktif')");
             if ($hasil){
@@ -61,7 +57,7 @@ for ($i=2; $i<=$jumlah_baris; $i++){
                 $berhasil++;
             }
         }
-        else if($akses == 2 && $jumlahCekUsername < 1){
+        else if($akses == 2){
 		    // input data ke database (table supervisor & user)
 		    $hasil = mysqli_query($con,"INSERT into supervisor values('','$id_admin_agency','$username','$password','$akses','$id_sto','$nama','$email','$telpon','$hp','$id_agency','$regional','$witel','$datel','$tanggal_aktif')");
             if ($hasil){
@@ -69,7 +65,7 @@ for ($i=2; $i<=$jumlah_baris; $i++){
                 $berhasil++;
             }
         }
-        else if($akses == 3 && $jumlahCekUsername < 1){
+        else if($akses == 3){
 		    // input data ke database (table salesforce & user)
 		    $hasil = mysqli_query($con,"INSERT into salesforce values('','$id_supervisor','$username','$password','$akses','$id_sto','$nama','$email','$telpon','$hp','$id_agency','$regional','$witel','$datel','$tanggal_aktif')");
             if ($hasil){
@@ -77,7 +73,7 @@ for ($i=2; $i<=$jumlah_baris; $i++){
                 $berhasil++;
             }
         }
-        else if($akses == 5 || $akses == 6 || $akses == 7 && $jumlahCekUsername < 1){
+        else if($akses == 5 || $akses == 6 || $akses == 7){
 		    // input data ke database (table detail_teknis & user)
 		    $hasil = mysqli_query($con,"INSERT into detail_teknis values('','$username','$password','$akses','$id_sto','$nama','$email','$telpon','$hp','$regional','$witel','$datel','$tanggal_aktif')");
             if ($hasil){
@@ -85,7 +81,7 @@ for ($i=2; $i<=$jumlah_baris; $i++){
             $berhasil++;
             }
         }
-        else if($akses == 4 || $akses == 8 || $akses == 9 || $akses == 10 && $jumlahCekUsername < 1){
+        else if($akses == 4 || $akses == 8 || $akses == 9 || $akses == 10){
 		    // input data ke database (table detail_picwitel & user)
 		    $hasil = mysqli_query($con,"INSERT into detail_picwitel values('','$username','$password','$akses','$id_sto','$nama','$nik','$email','$telpon','$hp','$regional','$witel','$datel','$tanggal_aktif')");
             if ($hasil){
@@ -97,7 +93,7 @@ for ($i=2; $i<=$jumlah_baris; $i++){
 }
 
 // hapus kembali file .xls yang di upload tadi
-unlink($_FILES['filepelanggan']['name']);
+// unlink($_FILES['filepelanggan']['name']);
 
 // alihkan halaman ke manager_tampil.php
 // header("location:manager_tampil.php?berhasil=$berhasil");

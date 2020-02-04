@@ -93,10 +93,16 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <label>STO</label>
                             <select class="form-control border-input" name="id_sto" autocomplete="off" required>
-                              <option value="">Pilih STO</option>
-                            <?php foreach($kumpulanDataSto as $id_sto) : ?>
-                                <option value="<?=$id_sto['id_sto'] ?> "><?= $id_sto['area'] ?></option>
-                            <?php endforeach ?>
+                                <option value="">Pilih STO</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT * FROM sto");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="id_sto"  value="<?php echo $row['id_sto']; ?>">
+                                        <?php echo $row['area']; ?>
+                                    </option>
+
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -106,10 +112,16 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                         <div class="form-group">
                             <label>Paket</label>
                             <select class="form-control border-input" name="id_paket" autocomplete="off" required>
-                              <option value="">Pilih Paket</option>
-                            <?php foreach($kumpulanDataPaket as $id_paket) : ?>
-                                <option value="<?=$id_paket['id_paket'] ?> "><?= $id_paket['nama_paket'] ?></option>
-                            <?php endforeach ?>
+                                <option value="">Pilih Paket</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT * FROM paket");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                    <option id="id_paket"  value="<?php echo $row['id_paket']; ?>">
+                                        <?php echo $row['nama_paket']; ?>
+                                    </option>
+
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -135,12 +147,8 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                           <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
                               <option value="">Pilih Supervisor</option>
                               <?php
-                                  // $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
-                                  // while ($row = mysqli_fetch_array($query)) {
-
-                                  $query = mysqli_query($con, "SELECT * FROM `supervisor` WHERE `id_admin_agency`=$id");
-                                  while ($row = mysqli_fetch_array($query)) {
-                                  ?>
+                                  $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
+                                  while ($row = mysqli_fetch_array($query)) { ?>
 
                                   <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>">
                                       <?php echo $row['nama']; ?>
@@ -149,21 +157,21 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                               <?php } ?>
                           </select>
                       </div>
-                        <div class="form-group">
-                            <label>Partner</label>
-                            <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
-                                <option value="">Pilih Partner</option>
-                                <?php
-                                    $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
-                                    while ($row = mysqli_fetch_array($query)) { ?>
+                      <div class="form-group">
+                          <label>Partner</label>
+                          <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
+                              <option value="">Pilih Partner</option>
+                              <?php
+                                  $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
+                                  while ($row = mysqli_fetch_array($query)) { ?>
 
-                                    <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>">
-                                        <?php echo $row['nama']; ?>
-                                    </option>
+                                  <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>">
+                                      <?php echo $row['nama']; ?>
+                                  </option>
 
-                                <?php } ?>
-                            </select>
-                        </div>
+                              <?php } ?>
+                          </select>
+                      </div>
 
 
                 <div>

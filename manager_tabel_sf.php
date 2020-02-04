@@ -36,7 +36,7 @@
 <table class="table table-hover table-bordered text-center">
     <thead style="background-color:lightgrey" >
       <th rowspan="2" class="text-center"><b>Nama</b></th>
-      <th rowspan="2" class="text-center"><b>Kode</b></th>
+      <th rowspan="2" class="text-center"><b>Kode ID</b></th>
       <th rowspan="2" class="text-center"><b>Email</b></th>
       <th rowspan="2" class="text-center"><b>Telpon</b></th>
       <th rowspan="2" class="text-center"><b>HP</b></th>
@@ -102,9 +102,9 @@ foreach($kumpulanUser as $user): ?>
                echo $jabatan ?>
              </td>
 
-            <td><a href="manager_edit_sf.php?id_salesfoce=<?= $user['id_salesfoce'] ?>" name="btn-edit"
+            <td><a href="manager_edit_sf.php?id_salesforce=<?= $user['id_salesforce'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Mengedit Data User?&quot;);">Edit</a> | <a
-                href="manager_hapus_sf.php?id_salesfoce=<?= $user['id_salesfoce'] ?>" name="btn-edit"
+                href="manager_hapus_sf.php?id_salesforce=<?= $user['id_salesforce'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Menghapus User?&quot;);">Delete</a></td>
               </tr>
               <?php endforeach ?>
