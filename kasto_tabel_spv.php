@@ -140,9 +140,9 @@ foreach($kumpulanUser as $user): ?>
 
              </td>
 
-            <td><a href="picwitel_edit_spv.php?id_supervisor=<?= $user['id_supervisor'] ?>" name="btn-edit"
+            <td><a href="kasto_edit_spv.php?id_supervisor=<?= $user['id_supervisor'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Mengedit Data User?&quot;);">Edit</a> | <a
-                href="picwitel_hapus_spv.php?id_supervisor=<?= $user['id_supervisor'] ?>" name="btn-edit"
+                href="kasto_hapus_spv.php?id_supervisor=<?= $user['id_supervisor'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Menghapus User?&quot;);">Delete</a></td>
               </tr>
               <?php endforeach ?>

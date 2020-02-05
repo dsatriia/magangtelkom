@@ -1,7 +1,6 @@
 <?php
   include("koneksi.php");
   // $id = $_SESSION['id'];
-
   // var_dump ($query);
   function query($query){
     global $con;
@@ -13,32 +12,23 @@
     return $rows;
   }
 
-
   function cari($keyword){
     // $id = $_SESSION['id'];
-    $query = "SELECT * FROM supervisor
-              WHERE id_supervisor != 0 AND (
+    $query = "SELECT * FROM salesforce
+              WHERE id_salesforce != 0 AND (
               nama LIKE '%$keyword%' OR
               username LIKE '%$keyword%' OR
               tanggal_aktif LIKE '%$keyword%')";
 
-
     return query($query);
   }
 
-
   // $kumpulanUser = query("SELECT * FROM supervisor WHERE id_supervisor != 0 ORDER BY id_agency");
-  $kumpulanUser = query("SELECT * FROM supervisor WHERE id_supervisor != 0");
-
+  $kumpulanUser = query("SELECT * FROM salesforce WHERE id_salesforce != 0");
 
   if (isset($_POST['cari'])) {
     $kumpulanUser = cari($_POST["kata-kunci"]);
   }
-$kumpulanAgency = query("SELECT * FROM agency");
-$kumpulanAdminAgency = query("SELECT * FROM admin_agency");
-
-
-
 ?>
 
 <div id="container">
@@ -51,7 +41,7 @@ $kumpulanAdminAgency = query("SELECT * FROM admin_agency");
       <th rowspan="2" class="text-center"><b>Telpon</b></th>
       <th rowspan="2" class="text-center"><b>HP</b></th>
       <th rowspan="2" class="text-center"><b>Agency</b></th>
-      <th rowspan="2" class="text-center"><b>Admin Agency</b></th>
+      <th rowspan="2" class="text-center"><b>Supervisor</b></th>
       <th rowspan="2" class="text-center"><b>Regional</b></th>
       <th rowspan="2" class="text-center"><b>Witel</b></th>
       <th rowspan="2" class="text-center"><b>Datel</b></th>
@@ -69,64 +59,37 @@ foreach($kumpulanUser as $user): ?>
             <td><?php echo $user['email'] ?></td>
             <td><?php echo $user['telpon'] ?></td>
             <td><?php echo $user['hp'] ?></td>
+            <td>
             <?php
-            if($user['id_agency'] == 1){
-              $Agency = 'MEGA CREATIVE PROMOSINDO';
-            } elseif($user['id_agency'] == 2){
-              $Agency= 'A';
-            }elseif($user['id_agency'] == 3){
-              $Agency= 'B';
-            }elseif($user['id_agency'] == 4){
-              $Agency = 'C';
-            }elseif($user['id_agency'] == 5){
-              $Agency= 'D';
-            }elseif($user['id_agency'] == 6){
-              $Agency= 'E';
-            }elseif($user['id_agency'] == 7){
-              $Agency= 'F';
-            }elseif($user['id_agency'] == 8){
-              $Agency= 'G';
-            }elseif($user['id_agency'] == 9){
-              $Agency= 'H';
-            } elseif($user['id_agency'] == 10){
-              $Agency= 'I';
-            } elseif($user['id_agency'] == 11){
-              $Agency= 'J';
-            } elseif($user['id_agency'] == 12){
-              $Agency= 'K';
-            } elseif($user['id_agency'] == 13){
-              $Agency= 'L';
-            } elseif($user['id_agency'] == 14){
-              $Agency= 'M';
-            } elseif($user['id_agency'] == 15){
-              $Agency= 'N';
-            } elseif($user['id_agency'] == 16){
-              $Agency = 'O';
-            }
-          ?>
-          <td><?= $Agency ?></td>
-          <td><?php
-
-            if ($user['id_admin_agency'] == 0){
-              $admin_agency= 'Tidak Ada';
+            if ($user['id_agency'] == 0){
+              $spv = 'Tidak Ada';
             } else {
-              $id_admin_agency = $user['id_admin_agency'];
-              $query_admin_agency = "SELECT nama FROM admin_agency WHERE id_admin_agency = $id_admin_agency";
-              $run_admin_agency = mysqli_query($con, $query_admin_agency);
-              $hasil_admin_agency = mysqli_fetch_array($run_admin_agency);
-              $admin_agency = $hasil_admin_agency['nama'];
+              $id_agency = $user['id_agency'];
+              $query_agency = "SELECT nama_agency FROM agency WHERE id_agency = $id_agency";
+              $run_agency = mysqli_query($con, $query_agency);
+              $hasil_agency = mysqli_fetch_array($run_agency);
+              $agency = $hasil_agency['nama_agency'];
             }
-            echo $admin_agency ?>
-
+            echo $agency ?>
+            </td>
+          <td>
+          <?php
+          if ($user['id_supervisor'] == 0){
+            $spv = 'Tidak Ada';
+          } else {
+            $id_supervisor = $user['id_supervisor'];
+            $query_supervisor = "SELECT nama FROM supervisor WHERE id_supervisor = $id_supervisor";
+            $run_supervisor = mysqli_query($con, $query_supervisor);
+            $hasil_supervisor = mysqli_fetch_array($run_supervisor);
+            $supervisor = $hasil_supervisor['nama'];
+          }
+          echo $supervisor ?>
           </td>
             <td><?php echo $user['regional'] ?></td>
             <td><?php echo $user['witel'] ?></td>
             <td><?php echo $user['datel'] ?></td>
             <td><?php echo $user['tanggal_aktif'] ?></td>
-
-
-             <td><?php
-
+            <td><?php
                if ($user['akses'] == 0){
                  $akses= 'Tidak Ada';
                } else {
@@ -137,12 +100,11 @@ foreach($kumpulanUser as $user): ?>
                  $jabatan = $hasil_jabatan['nama_jabatan'];
                }
                echo $jabatan ?>
-
              </td>
 
-            <td><a href="picwitel_edit_spv.php?id_supervisor=<?= $user['id_supervisor'] ?>" name="btn-edit"
+            <td><a href="kasto_edit_sf.php?id_salesforce=<?= $user['id_salesforce'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Mengedit Data User?&quot;);">Edit</a> | <a
-                href="picwitel_hapus_spv.php?id_supervisor=<?= $user['id_supervisor'] ?>" name="btn-edit"
+                href="kasto_hapus_sf.php?id_salesforce=<?= $user['id_salesforce'] ?>" name="btn-edit"
                 onclick="return confirm(&quot;Yakin Ingin Menghapus User?&quot;);">Delete</a></td>
               </tr>
               <?php endforeach ?>
