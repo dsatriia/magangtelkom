@@ -15,16 +15,12 @@ include("sidebar/sidebar_dashboard_sf.php"); ?>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h2 class="title text-center"><b>Reporting</b></h2><br><br>
-                                <p class="category" style="font-size:12pt; text-align:center">
-                                        Nama&emsp;: <?php echo $_SESSION['nama'] ?>
-                                            <br>
-                                        Kode ID : <?php echo $_SESSION['username'] ?>
-                                <br><br>
+                                <h2 class="title text-center"><b>Progress Kategori</b></h2><br><br>
+                                <h2 class="title text-center"><b>( NOT OK )</b></h2><br><br>
                               </div>
                             <div class="content">
                               <div class="table-responsive" style="height:70vh;overflow:scroll">
-                                  <?php include("dashboard_sf_tabel.php"); ?>
+                                  <?php include("dashboard_sf_tabel_prog_notok.php"); ?>
                               </div>
                             </div>
                         </div>

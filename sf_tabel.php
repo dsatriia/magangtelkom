@@ -24,7 +24,7 @@ function cari1($keyword1){
   return query($query);
 }
 
-$pelanggan = query("SELECT * FROM data_pelanggan");
+$pelanggan = query("SELECT * FROM data_pelanggan WHERE id_salesforce=$id");
 
 if (isset($_POST['cari1'])) {
   $pelanggan = cari1($_POST["kata-kunci1"]);
