@@ -12,13 +12,11 @@
     return $rows;
   }
 
-  function cari($keyword){
-    // $id = $_SESSION['id'];
+  function cari1($keyword1){
     $query = "SELECT * FROM salesforce
-              WHERE id_salesforce != 0 AND (
-              nama LIKE '%$keyword%' OR
-              username LIKE '%$keyword%' OR
-              tanggal_aktif LIKE '%$keyword%')";
+              WHERE id_salesforce != 0 AND
+              nama LIKE '%$keyword1%'
+              ";
 
     return query($query);
   }
@@ -26,8 +24,21 @@
   // $kumpulanUser = query("SELECT * FROM supervisor WHERE id_supervisor != 0 ORDER BY id_agency");
   $kumpulanUser = query("SELECT * FROM salesforce WHERE id_salesforce != 0");
 
-  if (isset($_POST['cari'])) {
-    $kumpulanUser = cari($_POST["kata-kunci"]);
+  if (isset($_POST['cari1'])) {
+    $kumpulanUser = cari1($_POST["kata-kunci1"]);
+  }
+
+  function cari2($keyword2){
+    $query = "SELECT * FROM salesforce
+              WHERE id_salesforce != 0 AND
+              username LIKE '%$keyword2%'
+              ";
+
+    return query($query);
+  }
+
+  if (isset($_POST['cari2'])) {
+    $kumpulanUser = cari2($_POST["kata-kunci2"]);
   }
 ?>
 

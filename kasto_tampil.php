@@ -60,7 +60,7 @@ include("sidebar/sidebar_dataplg_kasto.php"); ?>
                                   </form>
                               </div>
                             <div class="content">
-                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                              <div class="table-responsive" style="height:60vh;overflow:scroll">
                                   <?php include("kasto_tabel.php"); ?>
                               </div>
 

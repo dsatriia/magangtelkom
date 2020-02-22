@@ -175,7 +175,7 @@ $id_salesforce = $data['id_salesforce'];
                                                                         autocomplete="off" required>
                                                                 </div>
                                                                 <div class="form-group">
-                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                            <input type="hidden" value="<?=$id_agency?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
                         </div>
                       <div class="form-group">
                           <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>

@@ -41,7 +41,7 @@ include("sidebar/sidebar_dataplg_inputer.php"); ?>
                                   </form>
                               </div>
                             <div class="content">
-                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                              <div class="table-responsive" style="height:65vh;overflow:scroll">
                                   <?php include("inputer_tabel.php"); ?>
                               </div>
 				<br>

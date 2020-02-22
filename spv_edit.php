@@ -1,28 +1,12 @@
 <?php
 include("guard/guard_2.php");
-include("header.php");
+include("header.php");?>
+<script src="assets/js/jquery.min.js"></script>
+       <script src="assets/js/ie-emulation-modes-warning.js"></script>
+<?php
 require("koneksi.php");
 
-$id_supervisor = $_SESSION['id'];
-// $id_pelanggan = $_GET['id'];
-//
-// //mencari data id_adminagency dari spv yg sedang login
-// $queryCariSpv = "SELECT * FROM `data_pelanggan` WHERE `id` = $id_pelanggan";
-// $runQueryCariSpv = mysqli_query($con,$queryCariSpv);
-//
-// $dataSpv = mysqli_fetch_assoc($runQueryCariSpv);
-// $id_spv = $dataSpv["id_spv"];
-// // end
-
-
-// //option untuk menampilkan spv yang dibawahinya
-// $querySpv = "SELECT * FROM `supervisor` WHERE `id_agency` = $id_spv";
-// $runQuerySpv = mysqli_query($con,$querySpv);
-
-// while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
-//     $kumpulanDataSpv[] = $dataSpv;
-// }
-// end
+$id = $_SESSION['id'];
 
 //option untuk menampilkan seluruh sto
 $querySto = "SELECT id_sto, area FROM `sto`";
@@ -51,19 +35,18 @@ while ($dataAgency = mysqli_fetch_assoc($runQueryAgency)) {
 }
 // end
 
-// //option untuk menampilkan partner yang dibawahinya
-// $queryPartner = "SELECT * FROM salesforce WHERE id_supervisor= '$id_spv'";
-//
-// $runQueryPartner = mysqli_query($con,$queryPartner);
-//
-// while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
-//     $kumpulanDataPartner[] = $dataPartner;
-// }
-// // end
+
+//option untuk menampilkan spv yang dibawahinya
+$querySpv = "SELECT * FROM `supervisor` WHERE `id_admin_agency` = $id";
+$runQuerySpv = mysqli_query($con,$querySpv);
+
+while ($dataSpv = mysqli_fetch_assoc($runQuerySpv)) {
+    $kumpulanDataSpv[] = $dataSpv;
+}
+// end
 
 //option untuk menampilkan partner yang dibawahinya
-// $queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_admin_agency = $id_supervisor";
-$queryPartner = "SELECT * FROM `salesforce` WHERE `id_supervisor` = $id_supervisor";
+$queryPartner = "SELECT salesforce.id_salesforce as id_salesforce, salesforce.nama as nama FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor WHERE supervisor.id_admin_agency = $id";
 $runQueryPartner = mysqli_query($con,$queryPartner);
 
 while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
@@ -71,26 +54,28 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
 }
 // end
 
+
 ?>
+
 
 <body>
 
-<?php
+    <?php
 include("sidebar/sidebar_dataplg_spv.php");
 if(isset($_GET['id'])){
 ?>
-<div class="main-panel">
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="header">
-                          <h2 class="title text-center"><b>Edit Data</b></h2>
-                        </div>
-                        <div class="content table-responsive table-full-width">
-                            <table class="table table-striped">
-                            <table class="table table-hover">
+    <div class="main-panel">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                              <h2 class="title text-center"><b>Edit Data</b></h2>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-striped">
+                                <table class="table table-hover">
 
 <tbody>
 
@@ -100,6 +85,8 @@ $id = $_GET['id'];
 $query = "SELECT * FROM data_pelanggan WHERE id = '$id'";
 $hasil = mysqli_query($con,$query);
 $data  = mysqli_fetch_array($hasil);
+
+$id = $_SESSION['id'];
 
 $track_id = $data['track_id'];
 $nama_pelanggan = $data['nama_pelanggan'];
@@ -116,25 +103,9 @@ $id_admin_agency = $data['id_admin_agency'];
 $id_supervisor = $_SESSION['id'];
 $id_salesforce = $data['id_salesforce'];
 
-
-// //mencari data id_adminagency dari spv yg sedang login
-// $queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
-//
-// $runQueryCariAg = mysqli_query($con,$queryCariAg);
-//
-// $dataSpv = mysqli_fetch_assoc($runQueryCariAg);
-// $id_agency = $dataSpv["id_agency"];
-// // end
-//
-// $query_supervisor = "SELECT nama FROM supervisor WHERE id_supervisor = $id_supervisor";
-// $run_supervisor = mysqli_query($con, $query_supervisor);
-// $hasil_supervisor = mysqli_fetch_array($run_supervisor);
-// $supervisor = $hasil_supervisor['nama'];
-
-
 ?>
                                                         <form method='post' action='spv_update.php'
-                                                            onsubmit='return confirm("Apakah Data Sudah Benar?");'>
+                                                            onsubmit='return confirm("Apakah data sudah benar?");'>
                                                             <div class='col-md-4'>
                                                                 <div class='form-group'>
                                                                     <label>Track Id</label>
@@ -171,12 +142,9 @@ $id_salesforce = $data['id_salesforce'];
                                                                     <?php endforeach ?>
                                                                     </select>
                                                                 </div>
-                                                                <div class='form-group'>
+                                                                <div class="form-group">
                                                                     <label>Second CP</label>
-                                                                    <input type='text' class='form-control border-input'
-                                                                        name='second_cp'
-                                                                        value='<?php echo $second_cp ?>'
-                                                                        autocomplete="off" required>
+                                                                    <input type="text" class="form-control border-input" name="second_cp" value='<?php echo $second_cp ?>' autocomplete="off" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Paket</label>
@@ -206,30 +174,30 @@ $id_salesforce = $data['id_salesforce'];
                                                                         value='<?php echo $odp_ke_pelanggan ?>'
                                                                         autocomplete="off" required>
                                                                 </div>
-                                                                <div class='form-group'>
-                                                                    <input type='hidden'
-                                                                        class='form-control border-input'
-                                                                        name='id_agency'
-                                                                        value='<?php echo $id_agency ?>'
-                                                                        autocomplete="off" required>
-                                                                </div>
                                                                 <div class="form-group">
-                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                            <input type="hidden" value="<?=$id_agency?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
                         </div>
                       <div class="form-group">
-                          <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
+                          <input type="hidden" value="<?=$id_admin_agency?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_supervisor" autocomplete="off" required>
                                                                                                           </div>
-                                                                                                          <div class="form-group">
-                                                                                                                                                        <label>Partner</label>
-                                                                                                                                                        <select class="form-control border-input" name="id_salesforce" autocomplete="off" required>
-                                                                                                                                                        <?php foreach($kumpulanDataPartner as $partner) : ?>
-                                                                                                                                                            <option value="<?=$partner['id_salesforce'] ?> "<?php if($id_salesforce == $partner['id_salesforce']): echo 'selected'; endif;?>><?=$partner['nama'] ?></option>
-                                                                                                                                                        <?php endforeach ?>
-                                                                                                                                                        </select>
-                                                                                                                                                    </div>
+                        <div class="form-group">
+                            <label>Partner</label>
+                            <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
+                                <option value="">Pilih Partner</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
+
+                                      <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>" <?php if($id_salesforce == $row['id_salesforce']): echo 'selected'; endif ?>>
+                                          <?php echo $row['nama']; ?>
+                                      </option>
+
+                                <?php } ?>
+                            </select>
+                                                                </div>
 
                                                                 <br>
                                                                 <button type="submit" class="btn btn-info"
@@ -248,12 +216,24 @@ $id_salesforce = $data['id_salesforce'];
                         </div>
                     </div>
 
+                    <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery-chained.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#id_admin_agency").chained("#id_agency");
+                $("#id_supervisor").chained("#id_admin_agency");
+                $("#id_salesforce").chained("#id_supervisor");
+
+            });
+        </script>
                     <?php
 include("footer.php");
 }
 else{ ?>
                     <script language="JavaScript">
-                    alert("Pilih Pelanggan Terlebih Dahulu");
+                    alert("Pilih item terlebih dahulu");
                     </script>
                     <?php
 include("spv_tampil.php");

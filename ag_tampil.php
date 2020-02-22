@@ -57,7 +57,7 @@ include("sidebar/sidebar_dataplg_ag.php"); ?>
                                   </form>
                                 </div>
                                 <div class="content">
-                                <div class="table-responsive" style="height:70vh;overflow:scroll">
+                                <div class="table-responsive" style="height:60vh;overflow:scroll">
                                     <?php include("ag_tabel.php"); ?>
                                 </div>
 

@@ -17,43 +17,61 @@ function query($query){
 }
 
 function cari1($keyword1){
+  $id = $_SESSION['id'];
   $query = "SELECT * FROM data_pelanggan
             WHERE id != 0 AND
             track_id LIKE '%$keyword1%'
+            AND id_admin_agency = $id
             ";
 
   return query($query);
 }
 
-$pelanggan = query("SELECT * FROM data_pelanggan");
+// $pelanggan = query("SELECT * FROM data_pelanggan");
+$pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency = $id");
 
 if (isset($_POST['cari1'])) {
+    $id = $_SESSION['id'];
+  $pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency = $id");
   $pelanggan = cari1($_POST["kata-kunci1"]);
 }
 
 function cari2($keyword2){
+  $id = $_SESSION['id'];
   $query = "SELECT * FROM data_pelanggan
             WHERE id != 0 AND
             (nama_pelanggan LIKE '%$keyword2%')
+            AND id_admin_agency = $id
             ";
 
   return query($query);
 }
+// $pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency = $id");
+
 
 if (isset($_POST['cari2'])) {
+    $id = $_SESSION['id'];
+  $pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency = $id");
   $pelanggan = cari2($_POST["kata-kunci2"]);
 }
 
 function cari3($keyword3){
+  $id = $_SESSION['id'];
   $query = "SELECT * FROM data_pelanggan
             WHERE id != 0 AND
             (tgl_input LIKE '%$keyword3%')
+            AND id_admin_agency = $id
             ";
 
   return query($query);
 }
 
+// $pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency = $id");
+
+
 if (isset($_POST['cari3'])) {
+    $id = $_SESSION['id'];
+  $pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency = $id");
   $pelanggan = cari3($_POST["kata-kunci3"]);
 }
 
@@ -87,7 +105,7 @@ if (isset($_POST['cari3'])) {
 <tbody>
 <?php
 
-    $id = $_SESSION['id'];
+    // $id = $_SESSION['id'];
     // $query = "SELECT * FROM data_pelanggan WHERE id_admin_agency = $id";
     // $hasil = mysqli_query($con,$query);
     // while ($data = mysqli_fetch_array($hasil)){

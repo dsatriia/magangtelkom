@@ -8,6 +8,11 @@ include("header.php"); ?>
 include("guard/guard_1.php");
 $id = $_SESSION['id'];
 
+$query2 = "SELECT * FROM admin_agency WHERE id_admin_agency = '$id'";
+$hasil2 = mysqli_query($con,$query2);
+$data2  = mysqli_fetch_array($hasil2);
+$id_agency = $data2['id_agency'];
+
 //option untuk menampilkan seluruh sto
 $querySto = "SELECT id_sto, area FROM `sto`";
 $runQuerySto = mysqli_query($con,$querySto);
@@ -137,7 +142,7 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                            <input type="hidden" value="<?=$id_agency?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
                         </div>
                       <div class="form-group">
                           <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
@@ -147,8 +152,12 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                           <select class="form-control border-input" id="id_supervisor" name="id_supervisor" autocomplete="off" required>
                               <option value="">Pilih Supervisor</option>
                               <?php
-                                  $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
-                                  while ($row = mysqli_fetch_array($query)) { ?>
+                                  // $query = mysqli_query($con, "SELECT supervisor.id_admin_agency, supervisor.nama, id_supervisor FROM `supervisor` INNER JOIN `admin_agency` ON supervisor.id_admin_agency = admin_agency.id_admin_agency ORDER BY supervisor.nama");
+                                  // while ($row = mysqli_fetch_array($query)) {
+
+                                  $query = mysqli_query($con, "SELECT * FROM `supervisor` WHERE `id_admin_agency`=$id");
+                                  while ($row = mysqli_fetch_array($query)) {
+                                  ?>
 
                                   <option id="id_supervisor" class="<?php echo $row['id_admin_agency']; ?>" value="<?php echo $row['id_supervisor']; ?>">
                                       <?php echo $row['nama']; ?>
@@ -157,22 +166,21 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                               <?php } ?>
                           </select>
                       </div>
-                      <div class="form-group">
-                          <label>Partner</label>
-                          <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
-                              <option value="">Pilih Partner</option>
-                              <?php
-                                  $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
-                                  while ($row = mysqli_fetch_array($query)) { ?>
+                        <div class="form-group">
+                            <label>Partner</label>
+                            <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
+                                <option value="">Pilih Partner</option>
+                                <?php
+                                    $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");
+                                    while ($row = mysqli_fetch_array($query)) { ?>
 
-                                  <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>">
-                                      <?php echo $row['nama']; ?>
-                                  </option>
+                                    <option id="id_salesforce" class="<?php echo $row['id_supervisor']; ?>" value="<?php echo $row['id_salesforce']; ?>">
+                                        <?php echo $row['nama']; ?>
+                                    </option>
 
-                              <?php } ?>
-                          </select>
-                      </div>
-
+                                <?php } ?>
+                            </select>
+                        </div>
 
                 <div>
                   <br>

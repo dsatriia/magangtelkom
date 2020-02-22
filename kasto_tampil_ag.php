@@ -40,7 +40,7 @@ include("sidebar/sidebar_list_kasto.php"); ?>
                                   </form>
                               </div>
                             <div class="content">
-                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                              <div class="table-responsive" style="height:55vh;overflow:scroll">
                                   <?php include("kasto_tabel_ag.php"); ?>
                               </div>
 

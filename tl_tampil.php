@@ -40,12 +40,6 @@ include("sidebar/sidebar_dataplg_tl.php"); ?>
                                     <input name="kata-kunci2" class="search" type="text" placeholder="Cari Nama Pelanggan">
                                       <button name="cari2" type="submit">Cari</button>
                                   </a>
-                                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                                <form action="" method="post">
-                                  <a class="form-group">
-                                      <input name="kata-kunci3" class="search" type="text" placeholder="Cari Tanggal Input Data">
-                                      <button name="cari3" type="submit">Cari</button>
-                                  </a>
 
                                   <a>
                                       <form method=post action=tl_tampil.php>

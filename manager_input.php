@@ -141,7 +141,7 @@ $id = $_SESSION['id'];
                         </div>
                         <div class="form-group">
                             <label>Partner</label>
-                            <select id="id_salesforce" class="form-control border-input" name="id_salesforce" autocomplete="off" required>
+                            <select class="form-control border-input" id="id_salesforce" name="id_salesforce" autocomplete="off" required>
                                 <option value="">Pilih Partner</option>
                                 <?php
                                     $query = mysqli_query($con, "SELECT supervisor.id_supervisor, salesforce.nama, id_salesforce FROM `salesforce` INNER JOIN `supervisor` ON salesforce.id_supervisor = supervisor.id_supervisor ORDER BY salesforce.nama");

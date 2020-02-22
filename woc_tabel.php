@@ -43,19 +43,6 @@ if (isset($_POST['cari2'])) {
   $pelanggan = cari2($_POST["kata-kunci2"]);
 }
 
-function cari3($keyword3){
-  $query = "SELECT * FROM data_pelanggan
-            WHERE id != 0 AND
-            (tgl_input LIKE '%$keyword3%')
-            ";
-
-  return query($query);
-}
-
-if (isset($_POST['cari3'])) {
-  $pelanggan = cari3($_POST["kata-kunci3"]);
-}
-
 ?>
 
 <table class="table table-hover table-bordered text-center">

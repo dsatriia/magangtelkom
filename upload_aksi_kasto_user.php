@@ -100,7 +100,7 @@ for ($i=2; $i<=$jumlah_baris; $i++){
 
 if (($berhasil) > 0){
     echo '<script language="JavaScript">
-    alert("Berhasil Mengimport : '. $berhasil.' User!");
+    alert("Berhasil Mengimport '. $berhasil.' User!");
     window.location = "kasto_tampil_list_user.php";
     </script>';
 }

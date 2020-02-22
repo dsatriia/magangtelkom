@@ -14,26 +14,38 @@
   }
 
 
-  function cari($keyword){
+  function cari1($keyword){
     // $id = $_SESSION['id'];
     $query = "SELECT * FROM admin_agency
-              WHERE id_admin_agency != 0 AND (
-              nama LIKE '%$keyword%' OR
-              username LIKE '%$keyword%' OR
-              tanggal_aktif LIKE '%$keyword%')";
-
+              WHERE akses = 1 AND
+              nama LIKE '%$keyword%'
+              ";
 
     return query($query);
   }
 
-
   // $kumpulanUser = query("SELECT * FROM admin_agency WHERE id_admin_agency != 0 ORDER BY id_agency");
-  $kumpulanUser = query("SELECT * FROM admin_agency WHERE id_admin_agency != 0");
+  $kumpulanUser = query("SELECT * FROM admin_agency WHERE akses = 1");
 
 
-  if (isset($_POST['cari'])) {
-    $kumpulanUser = cari($_POST["kata-kunci"]);
+  if (isset($_POST['cari1'])) {
+    $kumpulanUser = cari1($_POST["kata-kunci1"]);
   }
+
+  function cari2($keyword){
+    // $id = $_SESSION['id'];
+    $query = "SELECT * FROM admin_agency
+              WHERE akses = 1 AND
+              username LIKE '%$keyword%'
+              ";
+
+    return query($query);
+  }
+
+  if (isset($_POST['cari2'])) {
+    $kumpulanUser = cari2($_POST["kata-kunci2"]);
+  }
+
 $kumpulanAgency = query("SELECT * FROM agency");
 
 
@@ -132,21 +144,3 @@ foreach($kumpulanUser as $user): ?>
               </tbody>
               </table>
               </div>
-              <script src="assets/js/jquery.min.js"></script>
-              <script>
-              $(document).ready(function(){
-              // var keyword = document.getElementById('keyword');
-              // keyword.addEventListener('keyup', function(){
-              //   alert('oke');
-              // });
-
-              // event ketika keyword ditulis
-              $('#agency').on('change',function(){
-              $.get('user_ajax_manager_ag.php?agency=' + $('#agency').val(), function(data){
-                $('#container').html(data);
-                console.log('haloo');
-              });
-              });
-              });
-
-              </script>

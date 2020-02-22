@@ -72,7 +72,7 @@ include("sidebar/sidebar_dataplg_manager.php"); ?>
                                   </form>
                               </div>
                             <div class="content">
-                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                              <div class="table-responsive" style="height:60vh;overflow:scroll">
                                   <?php include("manager_tabel.php"); ?>
                               </div>
                             </div>

@@ -13,10 +13,10 @@ include("sidebar/sidebar_list_manager.php"); ?>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h2 class="title text-center"><b>List Anggota TL</b></h2><br><br>
+                                <h2 class="title text-center"><b>List Anggota Teknisi</b></h2><br><br>
                                 <br><br>
-                                <a class="btn btn-success" href="manager_input_tl.php" style="font-size:12pt">+ Input User Baru</a>
-                                <a class="btn btn-success" href="manager_import_tl.php"style="font-size:12pt">Import Data Excel</a>
+                                <a class="btn btn-success" href="manager_input_teknisi.php" style="font-size:12pt">+ Input User Baru</a>
+                                <a class="btn btn-success" href="manager_import_user.php"style="font-size:12pt">Import Data Excel</a>
                                 <br><br><br>
                                 <form action="" method="post">
                                   <a class="form-group">
@@ -30,15 +30,15 @@ include("sidebar/sidebar_list_manager.php"); ?>
                                       <button name="cari2" type="submit">Cari</button>
                                   </a>
                                   <a>
-                                      <form method=post action=manager_tampil_tl.php>
+                                      <form method=post action=manager_tampil_teknisi.php>
                                       <button type="submit" name="submit">Kembali</button>
                                     </form>
                                   </a>
                                   </form>
                               </div>
                             <div class="content">
-                              <div class="table-responsive" style="height:70vh;overflow:scroll">
-                                  <?php include("manager_tabel_tl.php"); ?>
+                              <div class="table-responsive" style="height:55vh;overflow:scroll">
+                                  <?php include("manager_tabel_teknisi.php"); ?>
                               </div>
                             </div>
                         </div>

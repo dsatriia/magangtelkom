@@ -59,7 +59,7 @@ include("sidebar/sidebar_dataplg_picwitel.php"); ?>
                                   </form>
                               </div>
                             <div class="content">
-                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                              <div class="table-responsive" style="height:60vh;overflow:scroll">
                                   <?php include("picwitel_tabel.php"); ?>
                               </div>
 

@@ -16,7 +16,7 @@ function query($query){
 }
 $pelanggan = query("SELECT * FROM data_pelanggan WHERE id_salesforce=$id AND kategori_progress_psb='OK'");
 ?>
-
+<p>&emsp;Progress PSB OK</p>
 <table class="table table-hover table-bordered text-center">
   <thead style="background-color:lightgrey">
     <th rowspan="2" class="text-center"><b>Track ID</b></th>

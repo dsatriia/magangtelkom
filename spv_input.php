@@ -8,6 +8,19 @@ include("guard/guard_2.php");
 $id = $_SESSION['id'];
 
 
+$query = "SELECT * FROM supervisor WHERE id_supervisor = '$id'";
+$hasil = mysqli_query($con,$query);
+$data  = mysqli_fetch_array($hasil);
+$id_admin_agency = $data['id_admin_agency'];
+
+
+$query2 = "SELECT * FROM admin_agency WHERE id_admin_agency = '$id_admin_agency'";
+$hasil2 = mysqli_query($con,$query2);
+$data2  = mysqli_fetch_array($hasil2);
+$id_agency = $data2['id_agency'];
+
+
+
 // //mencari data id_admingency dari spv yg sedang login
 // $queryCariAg = "SELECT * FROM `supervisor` WHERE `id_supervisor` = $id_spv";
 //
@@ -140,10 +153,10 @@ while ($dataPartner = mysqli_fetch_assoc($runQueryPartner)) {
                             <input type="text" class="form-control border-input" name="odp_ke_pelanggan" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
+                            <input type="hidden" value="<?=$id_agency?>" class="form-control border-input" name="id_agency" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                          <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
+                          <input type="hidden" value="<?=$id_admin_agency?>" class="form-control border-input" name="id_admin_agency" autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <input type="hidden" value="<?=$id?>" class="form-control border-input" name="id_supervisor" autocomplete="off" required>

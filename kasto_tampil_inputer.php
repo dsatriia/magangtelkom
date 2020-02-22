@@ -16,7 +16,7 @@ include("sidebar/sidebar_list_kasto.php"); ?>
                                 <h2 class="title text-center"><b>List Anggota Inputer</b></h2><br><br>
                                 <br><br>
                                 <a class="btn btn-success" href="kasto_input_inputer.php" style="font-size:12pt">+ Input User Baru</a>
-                                <a class="btn btn-success" href="kasto_import_inputer.php"style="font-size:12pt">Import Data Excel</a>
+                                <a class="btn btn-success" href="kasto_import_user.php"style="font-size:12pt">Import Data Excel</a>
                                 <br><br><br>
                                 <form action="" method="post">
                                   <a class="form-group">
@@ -37,7 +37,7 @@ include("sidebar/sidebar_list_kasto.php"); ?>
                                   </form>
                               </div>
                             <div class="content">
-                              <div class="table-responsive" style="height:70vh;overflow:scroll">
+                              <div class="table-responsive" style="height:55vh;overflow:scroll">
                                   <?php include("kasto_tabel_inputer.php"); ?>
                               </div>
                             </div>
