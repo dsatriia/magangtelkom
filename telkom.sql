@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Feb 2020 pada 15.59
+-- Waktu pembuatan: 22 Feb 2020 pada 17.09
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -53,8 +53,7 @@ INSERT INTO `admin_agency` (`id_admin_agency`, `username`, `password`, `akses`, 
 (1, 'adminagency01', 'adminagency01', 1, 1, 'Admin Agency 1', 'admin@gmail.comasd', '085372874680', '085372874681', 1, 'Divre 59', 'Sidoarjo', 'Sidoarjo', '2020-02-01 05:14:09'),
 (2, 'adminagency02', 'adminagency02', 1, 1, 'Admin Agency 2', 'admin@gmail.comasd', '085372874680', '085372874681', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-01 05:14:24'),
 (50, 'adminagency99', 'adminagency99', 1, 1, 'Admin Agency 99', 'alamal@gmail.com', '934243', '2343249', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-02 19:04:29'),
-(60, 'TIDAK ADA 1', 'TIDAK ADA', 0, 0, 'TIDAK ADA', '-', '-', '-', 1, '-', '-', '-', '2020-02-04 00:58:29'),
-(62, 'TIDAK ADA 2', 'TIDAK ADA', 0, 0, 'TIDAK ADA', '-', '-', '-', 2, '-', '-', '-', '2020-02-04 01:09:15');
+(60, 'TIDAKADA1', 'TIDAKADA', 0, 0, 'TIDAK ADA', '-', '-', '-', 1, '-', '-', '-', '2020-02-22 08:09:02');
 
 -- --------------------------------------------------------
 
@@ -73,7 +72,6 @@ CREATE TABLE `agency` (
 
 INSERT INTO `agency` (`id_agency`, `nama_agency`) VALUES
 (1, 'MEGA CREATIVE PROMOSINDO'),
-(2, 'A'),
 (3, 'B'),
 (4, 'C'),
 (5, 'D'),
@@ -126,13 +124,21 @@ CREATE TABLE `data_pelanggan` (
 --
 
 INSERT INTO `data_pelanggan` (`id`, `track_id`, `nama_pelanggan`, `alamat`, `ktp`, `id_sto`, `second_cp`, `id_paket`, `tagging_rill`, `odp`, `odp_ke_pelanggan`, `tgl_input`, `id_agency`, `id_admin_agency`, `id_supervisor`, `id_salesforce`, `no_sc`, `status_validasi`, `kategori_progress_psb`, `keterangan_progress_psb`, `alamat_rill_pelanggan`, `cp_rill_pelanggan`, `nama_teknisi`) VALUES
-(1, '1231', 'Rama Uhui', 'Sidoarjo', '3515', 2, '09876', 4, '10', 'Sidoarjo', '1', '2020-01-28 06:22:18', 1, 1, 1, 1, '45', 'OK', 'Normal', 'Belum Ready', 'Kahuripan', '67890', 'Rena'),
-(2, '1232', 'Riesti', 'Sidoarjo', '9876', 2, '56789', 13, '5', 'Sidoarjo', '8', '2020-02-01 06:14:58', 1, 2, 2, 2, '98', 'OK', 'Normal', 'Belum Ready', 'Sidoarjo', '3456', 'Putri'),
-(3, '1233', 'Dimasss', 'Sidoarjo', '23', 1, '45563', 14, '76', 'Sidoarjo', '6', '2020-01-28 06:18:47', 1, 1, 3, 3, '9', 'NOT OK', 'Normal', 'Ready', 'Sidoarjo', '87863', 'Widya'),
-(4, '1234', 'Yudi', 'Sidoarjo', '453242', 1, '634532', 14, '6', 'Sidoarjo', '5', '2020-02-04 12:24:02', 1, 60, 4, 4, '98', 'OK', 'Normal', 'Ready', 'Sidoarjo', '53452', 'Al'),
-(6, '1236', 'Dimsa', 'Sidoarjo', '35151123121', 1, '08656246234', 28, '10', 'Sidoarjo', '10', '2020-02-01 06:13:00', 1, 1, 3, 4, '9', 'OK', 'Normal', 'Ready', 'Sidoarjo', '0821938121', 'Alam'),
-(7, '1237', 'Tari', 'Sidoarjo', '3518940580345', 1, '0894923434', 12, '5', 'Sidoarjo', '5', '2020-02-01 09:54:04', 1, 1, 1, 5, '100', 'OK', '', '', '', '', ''),
-(148, '536345', 'dfgh', 'gfhfg', '4643643', 1, '5364363', 14, '3456', 'dfghfd', '3', '2020-02-03 14:14:05', 1, 1, 1, 1, '4356', 'gfd', 'hgfd', 'fdgh', 'dfgh', '6345', 'gdh');
+(1, '1231', 'Bayu', 'Sidoarjo', '3515084804990031', 1, '085204178931', 5, '31', 'Sidoarjo', '13', '2020-02-22 10:31:56', 1, 1, 1, 1, '31', 'OK', 'OK', 'Ready', 'Kahuripan', '085733325931', 'Tia'),
+(2, '1232', 'Riesta', 'Sidoarjo', '3515084804990032', 1, '085204178932', 29, '32', 'Sidoarjo', '23', '2020-02-22 10:31:56', 1, 1, 1, 1, '2', 'OK', 'NOT OK', 'Belum Ready', 'Kahuripan', '085733325932', 'Anisa'),
+(3, '1233', 'Dimas', 'Sidoarjo', '3515084804990033', 2, '085204178933', 4, '33', 'Sidoarjo', '33', '2020-02-22 10:31:56', 1, 1, 1, 1, '3', 'NOT OK', 'NOT OK', 'Belum Ready', 'Kahuripan', '085733325933', 'Widya'),
+(4, '1234', 'Sinta', 'Sidoarjo', '3515084804990034', 1, '085204178934', 5, '34', 'Sidoarjo', '43', '2020-02-22 10:37:02', 1, 2, 2, 2, '4', 'OK', 'OK', 'Ready', 'Sidoarjo', '085733325934', 'Tia'),
+(5, '1235', 'Tari', 'Sidoarjo', '3515084804990035', 1, '085204178935', 33, '35', 'Sidoarjo', '53', '2020-02-22 10:37:02', 1, 2, 2, 2, '5', 'OK', 'NOT OK', 'Belum Ready', 'Sidoarjo', '085733325935', 'Anisa'),
+(6, '1236', 'Dimas', 'Sidoarjo', '3515084804990036', 1, '085204178936', 5, '36', 'Sidoarjo', '64', '2020-02-22 10:37:02', 1, 2, 2, 2, '6', 'NOT OK', 'NOT OK', 'Belum Ready', 'Sidoarjo', '085733325935', 'Widya'),
+(7, '1237', 'Alam', 'Sidoarjo', '3515084804990037', 1, '085204178937', 6, '37', 'Sidoarjo', '73', '2020-02-22 10:40:54', 1, 1, 3, 3, '7', 'OK', 'OK', 'Ready', 'Sidoarjo', '085733325937', 'Tia'),
+(8, '1238', 'Mabruk', 'Sidoarjo', '3515084804990038', 1, '085204178938', 33, '38', 'Sidoarjo', '83', '2020-02-22 10:40:54', 1, 1, 3, 3, '8', 'OK', 'NOT OK', 'Belum Ready', 'Sidoarjo', '085733325938', 'Anisa'),
+(9, '1239', 'Hendra', 'Sidoarjo', '3515084804990039', 1, '085204178939', 30, '39', 'Sidoarjo', '93', '2020-02-22 10:40:54', 1, 1, 3, 3, '9', 'NOT OK', 'NOT OK', 'Belum Ready', 'Sidoarjo', '085733325939', 'Widya'),
+(10, '12310', 'Yola', 'Sidoarjo', '3515084804990010', 1, '085204178910', 6, '10', 'Kahuripan', '1', '2020-02-22 10:52:02', 1, 60, 20, 25, '10', 'OK', 'OK', 'Ready', 'Sidoarjo', '085733325910', 'Tia'),
+(11, '12311', 'Rena', 'Sidoarjo', '3515084804990011', 1, '085204178911', 0, '11', 'Sidoarjo', '11', '2020-02-22 10:44:36', 1, 60, 20, 25, '11', 'OK', 'NOT OK', 'Belum Ready', 'Sidoarjo', '085733325911', 'Anisa'),
+(12, '12312', 'Andi', 'Sidoarjo', '3515084804990012', 1, '085204178912', 0, '12', 'Sidoarjo', '21', '2020-02-22 10:44:36', 1, 60, 20, 25, '12', 'NOT OK', 'NOT OK', 'Belum Ready', 'Sidoarjo', '085733325912', 'Widya'),
+(13, '12313', 'Aprilia', 'Sidoarjo', '3515084804990013', 1, '085204178913', 28, '13', 'Sidoarjo', '31', '2020-02-22 10:48:12', 1, 1, 1, 5, '13', 'OK', 'OK', 'Ready', 'Sidoarjo', '085733325913', 'Tia'),
+(14, '12314', 'Berliana', 'Sidoarjo', '3515084804990014', 2, '085204178914', 0, '14', 'Sidoarjo', '41', '2020-02-22 10:48:12', 1, 1, 1, 5, '14', 'OK', 'NOT OK', 'Belum Ready', 'Sidoarjo', '085733325914', 'Anisa'),
+(15, '12315', 'Sari', 'Sidoarjo', '3515084804990015', 2, '085204178915', 28, '15', 'Sidoarjo', '51', '2020-02-22 10:48:12', 1, 1, 1, 5, '15', 'NOT OK', 'NOT OK', 'Belum Ready', 'Sidoarjo', '085733325915', 'Widya');
 
 -- --------------------------------------------------------
 
@@ -313,16 +319,9 @@ INSERT INTO `salesforce` (`id_salesforce`, `id_supervisor`, `username`, `passwor
 (1, 1, 'sf01', 'sf01', 3, 1, 'Alam SF1', 'rista@gmail.com', '0852341231', '08234532352', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-02-01 08:02:31'),
 (2, 2, 'sf02', 'sf02', 3, 2, 'Alam SF2', 'rasti@gmail.com', '0534134123', '0812312213', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-02-01 08:02:31'),
 (3, 3, 'sf03', 'sf03', 3, 1, 'Alam SF3', 'alam@gmail.com', '0872131212', '0812312211', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-02-01 08:02:31'),
-(4, 4, 'sf04', 'sf04', 3, 1, 'Alam SF4', 'alamam@gmail.com', '086523123', '087234223', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-01-24 06:08:58'),
 (5, 1, 'sf05', 'sf05', 3, 2, 'Alam SF5', 'ristay@gmail.com', '0563634', '0324234', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-02-01 08:02:31'),
-(8, 1, 'j', 'j', 3, 2, 'j', 'j', 'j', 'j', 1, 'j', 'j', 'j', '2020-02-01 17:59:47'),
-(9, 1, 'salesforce99', 'salesforce99', 3, 1, 'salesforce99', 'alamal@gmail.com', '934243', '2343249', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-02 19:04:29'),
-(17, 1, 'salesforce50', 'salesforce50', 3, 1, 'salesforce50', 'alamal@gmail.com', '934243', '2343249', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-02 19:15:44'),
-(18, 1, 'salesforce51', 'salesforce51', 3, 1, 'salesforce51', 'alamal@gmail.com', '934243', '2343249', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-02 19:15:44'),
-(19, 1, 'salesforce52', 'salesforce52', 3, 1, 'salesforce52', 'alamal@gmail.com', '934243', '2343249', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-02 19:15:44'),
-(20, 1, 'salesforce53', 'salesforce53', 3, 1, 'salesforce53', 'alamal@gmail.com', '934243', '2343249', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-02 19:15:44'),
-(21, 1, 'salesforce54', 'salesforce54', 3, 1, 'salesforce54', 'alamal@gmail.com', '934243', '2343249', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-02 19:15:45'),
-(22, 1, 'salesforce55', 'salesforce55', 3, 1, 'salesforce55', 'alamal@gmail.com', '934243', '2343249', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-02 19:15:45');
+(25, 20, 'sf04', 'sf04', 3, 1, 'SF 04', 'sf04@gmail.com', '08423424241', '08312321312', 1, 'Divre 4', 'Sidoarjo', 'Sidoarjo', '2020-02-20 08:01:02'),
+(27, 21, 'sf08', 'sf08', 3, 1, 'SF 08', 'sf08@gmail.com', '0822111312', '08434342133', 1, 'Divre 5', 'Sidoarjo', 'Sidoarjo', '2020-02-20 09:25:55');
 
 -- --------------------------------------------------------
 
@@ -374,12 +373,11 @@ CREATE TABLE `supervisor` (
 --
 
 INSERT INTO `supervisor` (`id_supervisor`, `id_admin_agency`, `username`, `password`, `akses`, `id_sto`, `nama`, `email`, `telpon`, `hp`, `id_agency`, `regional`, `witel`, `datel`, `tanggal_aktif`) VALUES
-(1, 1, 'spv01', 'spv01', 2, 1, 'Alam SPV', 'risata@gmail.com', '08523412312', '08234512352', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-01-23 14:53:00'),
-(2, 2, 'spv02', 'spv02', 2, 2, 'spv02', 'rassti@gmail.com', '05341341231', '01232121221', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-01-23 14:53:00'),
+(1, 1, 'spv01', 'spv01', 2, 1, 'Alam SPV', 'risata@gmail.com', '08523412312', '08234512352', 1, 'Divre 9', 'SIDOARJO', 'SIDOARJO', '2020-02-22 08:24:15'),
+(2, 60, 'spv02', 'spv02', 2, 2, 'spv02', 'rassti@gmail.com', '05341341231', '01232121221', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-02-20 08:49:27'),
 (3, 1, 'spv03', 'spv03', 2, 2, 'spv03', 'alam@gmail.com', '0872131212', '0812312211', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-01-23 14:53:00'),
-(4, 60, 'spv04', 'spv04', 2, 2, 'spv04', 'ristap@gmail.com', '097486756', '0634535', 1, 'Divre 5', 'SIDOARJO', 'SIDOARJO', '2020-02-04 12:25:49'),
-(18, 60, 'spv09', 'spv09', 2, 2, 'SPV 09', '1', '1', '1', 1, '1', '1', '1', '2020-02-04 00:59:36'),
-(19, 62, 'spv10', 'spv10', 2, 1, 'SPV 10', 'spv10@gmail.com', '08273123123', '08232313431', 2, 'Divre 4', 'Sidoarjo', 'Sidoarjo', '2020-02-04 01:10:31');
+(20, 60, 'spv04', 'spv04', 2, 1, 'SPV 04', 'spv04@gmail.com', '08645262888', '08645262862', 1, 'Divre 4', 'Sidoarjo', 'Sidoarjo', '2020-02-20 07:48:18'),
+(21, 2, 'spv06', 'spv06', 2, 2, 'SPV 06', 'spv06@gmail.com', '0842122112', '0823123231231', 1, 'Divre 4', 'Sidoarjo', 'Sidoarjo', '2020-02-20 09:24:55');
 
 -- --------------------------------------------------------
 
@@ -401,15 +399,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `akses`, `nama`, `id_sto`) VALUES
-(3, 'adminagency01', 'adminagency011', 1, 'Admin Agency 29', 1),
-(4, 'spv01', 'spv01', 2, 'Alam SPV', 2),
+(4, 'spv01', 'spv01', 2, 'Alam SPV', 1),
 (10, 'woc01', 'woc01', 7, 'Rista WOC', 2),
 (11, 'manager01', 'manager01', 8, 'Alam Manager', 2),
 (12, 'picwitel01', 'picwitel01', 9, 'Alam PIC Witel', 2),
 (13, 'kasto01', 'kasto01', 10, 'Al Ka STO', 1),
 (15, 'spv02', 'spv02', 2, 'spv02', 2),
 (16, 'spv03', 'spv03', 2, 'spv03', 2),
-(17, 'spv04', 'spv04', 2, 'spv04', 2),
 (18, 'sf02', 'sf02', 3, 'Alam SF', 2),
 (19, 'sf03', 'sf03', 3, 'Alam SF', 2),
 (20, 'sf04', 'sf04', 3, 'Alam SF', 2),
@@ -420,19 +416,8 @@ INSERT INTO `user` (`id`, `username`, `password`, `akses`, `nama`, `id_sto`) VAL
 (27, 'adminagency02', 'adminagency02', 1, 'Admin Agency 2', 1),
 (29, 'sf01', 'sf01', 3, 'Salesforce 1', 1),
 (87, 'tl01', 'tl01', 6, 'Putri TL', 1),
-(93, 'j', 'j', 3, 'j', 2),
-(97, 'adminagency99', 'adminagency99', 1, 'Admin Agency 99', 1),
-(99, 'salesforce99', 'salesforce99', 3, 'salesforce99', 1),
-(100, 'teknisi99', 'teknisi99', 5, 'teknisi99', 1),
-(101, 'manager99', 'manager99', 8, 'manager99', 1),
-(104, 'salesforce50', 'salesforce50', 3, 'salesforce50', 1),
-(105, 'salesforce51', 'salesforce51', 3, 'salesforce51', 1),
-(106, 'salesforce52', 'salesforce52', 3, 'salesforce52', 1),
-(107, 'salesforce53', 'salesforce53', 3, 'salesforce53', 1),
-(108, 'salesforce54', 'salesforce54', 3, 'salesforce54', 1),
-(109, 'salesforce55', 'salesforce55', 3, 'salesforce55', 1),
-(111, 'spv09', 'spv09', 2, 'SPV 09', 2),
-(112, 'spv10', 'spv10', 2, 'SPV 10', 1);
+(114, 'spv04', 'spv04', 2, 'SPV 04', 1),
+(123, 'adminagency01', 'adminagency01', 1, 'Admin Agency 1', 2);
 
 --
 -- Indexes for dumped tables
@@ -543,7 +528,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `admin_agency`
 --
 ALTER TABLE `admin_agency`
-  MODIFY `id_admin_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_admin_agency` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT untuk tabel `agency`
@@ -555,19 +540,19 @@ ALTER TABLE `agency`
 -- AUTO_INCREMENT untuk tabel `data_pelanggan`
 --
 ALTER TABLE `data_pelanggan`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_picwitel`
 --
 ALTER TABLE `detail_picwitel`
-  MODIFY `id_picwitel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_picwitel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_teknis`
 --
 ALTER TABLE `detail_teknis`
-  MODIFY `id_teknis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_teknis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `jabatan`
@@ -585,7 +570,7 @@ ALTER TABLE `paket`
 -- AUTO_INCREMENT untuk tabel `salesforce`
 --
 ALTER TABLE `salesforce`
-  MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_salesforce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `sto`
@@ -597,13 +582,13 @@ ALTER TABLE `sto`
 -- AUTO_INCREMENT untuk tabel `supervisor`
 --
 ALTER TABLE `supervisor`
-  MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_supervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
