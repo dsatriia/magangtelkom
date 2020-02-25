@@ -26,7 +26,7 @@ $id = $_SESSION['id'];
                                 <main>
                                     <div class="container">
                                         <form method="post" enctype="multipart/form-data"
-                                            action="upload_aksi_manager_inputer.php">
+                                            action="upload_aksi_manager_manager.php">
                                             Pilih File:
                                             <input class="border-input" name="filepelanggan" type="file"
                                                 required="required"><br>

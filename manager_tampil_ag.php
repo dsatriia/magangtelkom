@@ -19,7 +19,7 @@ include("sidebar/sidebar_list_manager.php"); ?>
                                 <br><br>
                                 <a class="btn btn-success" href="manager_input_ag.php" style="font-size:12pt">+ Input Data
                                     Baru</a>
-                                <a class="btn btn-success" href="manager_import_user.php"style="font-size:12pt">Import Data Excel</a>
+                                <a class="btn btn-success" href="manager_import_ag.php"style="font-size:12pt">Import Data Excel</a>
                                 <br><br><br>
                                 <form action="" method="post">
                                   <a class="form-group">

@@ -16,7 +16,7 @@ include("sidebar/sidebar_list_manager.php"); ?>
                                 <h2 class="title text-center"><b>List Anggota PIC Witel</b></h2><br><br>
                                 <br><br>
                                 <a class="btn btn-success" href="manager_input_picwitel.php" style="font-size:12pt">+ Input User Baru</a>
-                                <a class="btn btn-success" href="manager_import_user.php"style="font-size:12pt">Import Data Excel</a>
+                                <a class="btn btn-success" href="manager_import_picwitel.php"style="font-size:12pt">Import Data Excel</a>
                                 <br><br><br>
                                 <form action="" method="post">
                                   <a class="form-group">

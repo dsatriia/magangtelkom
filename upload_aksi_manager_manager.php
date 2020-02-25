@@ -39,29 +39,21 @@ for ($i=2; $i<=$jumlah_baris; $i++){
     while ($id_sto_array = mysqli_fetch_array($hasil)){
         $id_sto = $id_sto_array[0];
     }
-
+    
     $nama = $data->val($i, 4);
-    $email = $data->val($i, 5);
-    $telpon = $data->val($i, 6);
-    $hp = $data->val($i, 7);
-
-    $id_agency2 = $data->val($i, 8);
-    $query = "SELECT id_agency FROM agency WHERE nama_agency = '$id_agency2'";
-    $hasil = mysqli_query($con,$query);
-
-    while ($id_agency_array = mysqli_fetch_array($hasil)){
-        $id_agency = $id_agency_array[0];
-    }
-
+    $nik = $data->val($i, 5);
+    $email = $data->val($i, 6);
+    $telpon = $data->val($i, 7);
+    $hp = $data->val($i, 8);
     $regional = $data->val($i, 9);
     $witel = $data->val($i, 10);
     $datel = $data->val($i, 11);
-    $akses = 1;
+    $akses = 8;
     $tanggal_aktif = date("Y-m-d h:i:s");
 
     if ($username != "" && $password != ""){
-		    // input data ke database (table admin_agency & user)
-		    $hasil = mysqli_query($con,"INSERT into admin_agency values('','$username','$password','$akses','$id_sto','$nama','$email','$telpon','$hp','$id_agency','$regional','$witel','$datel','$tanggal_aktif')");
+		    // input data ke database (table detail_picwitel & user)
+		    $hasil = mysqli_query($con,"INSERT into detail_picwitel values('','$username','$password','$akses','$id_sto','$nama','$nik','$email','$telpon','$hp','$regional','$witel','$datel','$tanggal_aktif')");
             if ($hasil){
                 $hasil_user = mysqli_query($con,"INSERT into user values('','$username','$password','$akses','$nama','$id_sto')");
                 $berhasil++;
@@ -73,18 +65,23 @@ for ($i=2; $i<=$jumlah_baris; $i++){
 // unlink($_FILES['filepelanggan']['name']);
 
 // alihkan halaman ke manager_tampil.php
-// header("location:manager_tampil.php?berhasil=$berhasil");
+// header("location:manager_tampil_spv.php?berhasil=$berhasil");
+// header("location:manager_tampil_spv.php");
+
 
 if (($berhasil) > 0){
     echo '<script language="JavaScript">
     alert("Berhasil Mengimport '. $berhasil.' Data!");
-    window.location = "manager_tampil_ag.php";
+    window.location = "manager_tampil_manager.php";
     </script>';
 }
 else {
     echo '<script language="JavaScript">
     alert("Tidak ada data yang diimport.");
-    window.location = "manager_tampil_ag.php";
+    window.location = "manager_tampil_manager.php";
     </script>';
 }
+// if (($berhasil) < 0) {
+// header("location:manager_tampil_spv.php?berhasil=$berhasil");
+// }
 ?>

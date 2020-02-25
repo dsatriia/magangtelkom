@@ -33,7 +33,43 @@ for ($i=2; $i<=$jumlah_baris; $i++){
 	$username = $data->val($i, 1);
     $password = $data->val($i, 2);
     $akses = $data->val($i, 3);
+    if ($akses == "Admin Agency" || $akses == "AdminAgency" || $akses == "Admin agency" || $akses == "Adminagency" || $akses == "admin agency" || $akses == "adminagency"){
+        $akses = 1;
+    }
+    else if ($akses == "Supervisor" || $akses == "Super visor" || $akses == "SuperVisor" || $akses == "Super Visor" || $akses == "supervisor" || $akses == "super visor"){
+        $akses = 2;
+    }
+    else if ($akses == "Sales Force" || $akses =="SalesForce" || $akses == "Salesforce" || $akses == "Sales force" || $akses =="salesforce" || $akses == "sales force"){
+        $akses = 3;
+    }
+    else if ($akses == "Inputer" || $akses == "inputer"){
+        $akses = 4;
+    }
+    else if ($akses == "Teknisi" || $akses == "teknisi"){
+        $akses = 5;
+    }
+    else if ($akses == "TL" || $akses == "tl"){
+        $akses = 6;
+    }
+    else if ($akses == "WOC" || $akses == "woc"){
+        $akses = 7;
+    }
+    else if ($akses == "Manager" || $akses == "manager"){
+        $akses = 8;
+    }
+    else if ($akses == "Pic Witel" || $akses == "PicWitel" || $akses == "pic witel" || $akses == "picwitel" || $akses == "PIC Witel" || $akses == "PICWitel" || $akses == "PIC witel" || $akses == "PICwitel"){
+        $akses = 9;
+    }
+    else if ($akses == "Ka STO" || $akses == "KaSTO" || $akses == "KA STO" || $akses == "KASTO" || $akses == "ka sto" || $akses == "kasto" || $akses == "ka STO" || $akses == "kaSTO"){
+        $akses = 10;
+    }
     $id_sto = $data->val($i, 4);
+    if ($id_sto == "Krian" || $id_sto == "krian"){
+        $id_sto = 1;
+    }
+    else if ($id_sto == "Jati" || $id_sto == "jati"){
+        $id_sto = 2;
+    }
     $nama = $data->val($i, 5);
     $nik = $data->val($i, 6);
     $email = $data->val($i, 7);
