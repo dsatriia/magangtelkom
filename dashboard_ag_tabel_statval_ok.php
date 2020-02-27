@@ -26,7 +26,7 @@ $id = $_SESSION['id'];
 
     return $rows;
   }
-  $pelanggan = query("SELECT * FROM data_pelanggan WHERE id_salesforce=$id AND status_validasi='OK'");
+  $pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency=$id AND status_validasi='OK'");
   ?>
 <br>
   <table class="table table-hover table-bordered text-center">

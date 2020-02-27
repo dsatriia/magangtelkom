@@ -14,7 +14,7 @@ function query($query){
 
   return $rows;
 }
-$pelanggan = query("SELECT * FROM data_pelanggan WHERE id_salesforce=$id");
+$pelanggan = query("SELECT * FROM data_pelanggan WHERE id_admin_agency=$id");
 
 // $kumpulanSto = query("SELECT * FROM sto");
 

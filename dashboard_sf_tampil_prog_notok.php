@@ -19,7 +19,6 @@ $id = $_SESSION['id'];
 
 <body>
 
-
 <?php
 include("sidebar/sidebar_dashboard_sf.php"); ?>
     <div class="main-panel">
@@ -34,11 +33,11 @@ include("sidebar/sidebar_dashboard_sf.php"); ?>
                               </form>
                               <h2 class="title text-center"><b>Status Validasi</b></h2><br><br>
                               <h2 class="title text-center"><b>( OK )</b></h2><br><br>
-                                <!-- <p class="category" style="font-size:12pt;"> -->
-                                        <b><p>Jumlah Data Progress PSB&emsp;&emsp;</b> :  <?php echo $jumlahCekOK; ?></p>
-                                        <b><p>Jumlah Progress PSB OK&emsp;&emsp;&emsp;</b> :  <a href="dashboard_sf_tampil_statval_ok.php" name="btn-edit"><?php echo $jumlahCekOKProg; ?></a></p>
-                                        <b><p>Jumlah Progress PSB NOT OK&emsp;</b>:  <a href="dashboard_sf_tampil_prog_notok.php" name="btn-edit"><?php echo $jumlahCekNOTOKProg; ?></a></p>
-                                <br>
+                              <!-- <p class="category" style="font-size:12pt;"> -->
+                                      <b><p>Jumlah Data Progress PSB&emsp;&emsp;</b> :  <a href="dashboard_sf_tampil_statval_ok.php" name="btn-edit"><?php echo $jumlahCekOK; ?></a></p>
+                                      <b><p>Jumlah Progress PSB OK&emsp;&emsp;&emsp;</b> :  <a href="dashboard_sf_tampil_prog_ok.php" name="btn-edit"><?php echo $jumlahCekOKProg; ?></a></p>
+                                      <b><p>Jumlah Progress PSB NOT OK&emsp;</b>:  <a href="dashboard_sf_tampil_prog_notok.php" name="btn-edit"><?php echo $jumlahCekNOTOKProg; ?></a></p>
+                              <br>
                               </div>
                             <div class="content">
                               <div class="table-responsive" style="height:48vh;overflow:scroll">
