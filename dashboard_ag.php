@@ -107,8 +107,8 @@ include("sidebar/sidebar_dashboard_ag.php"); ?>
                   </b> : <a href="dashboard_ag_tampil_statval_ok.php"
                     name="btn-edit"><?php echo $jumlahCekStatvalOK; ?></a></p>
                   <b>
-                    <p>Jumlah Status Validasi NOT OK&emsp;
-                  </b>: <a href="dashboard_ag_tampil_statval_notok.php"
+                    <p>Jumlah Status Validasi NOT OK</b>&emsp;:
+                   <a href="dashboard_ag_tampil_statval_notok.php"
                     name="btn-edit"><?php echo $jumlahCekStatvalNOTOK; ?></a></p>
                   <br>                              
                   <div class="table-responsive" style="height:45vh;overflow:scroll">

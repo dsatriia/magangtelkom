@@ -37,7 +37,7 @@ include("sidebar/sidebar_dashboard_ag.php"); ?>
                                 <br><br>
                                 <b><p>Jumlah Data Status Validasi&emsp;&emsp;</b> :  <?php echo $jumlahCekDataStatval; ?></p>
                                 <b><p>Jumlah Status Validasi OK&emsp;&emsp;&emsp;</b> :  <a href="dashboard_ag_tampil_statval_ok.php" name="btn-edit"><?php echo $jumlahCekStatvalOK; ?></a></p>
-                                <b><p>Jumlah Status Validasi NOT OK&emsp;</b>:  <a href="dashboard_ag_tampil_statval_notok.php" name="btn-edit"><?php echo $jumlahCekStatvalNOTOK; ?></a></p>
+                                <b><p>Jumlah Status Validasi NOT OK</b>&emsp;:<a href="dashboard_ag_tampil_statval_notok.php" name="btn-edit"><?php echo $jumlahCekStatvalNOTOK; ?></a></p>
                         <br>
                               </div>
                             <div class="content">
